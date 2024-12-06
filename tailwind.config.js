@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        announcementBar: '#607890',
+        'muted-blue': '#607890',
         primary: {
           dark: '#000',
           light: '#fff',
