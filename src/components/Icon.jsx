@@ -20,7 +20,7 @@ const iconMap = {
 function Icon({name, size = 24, className=""}) {
 
   const IconComponent = iconMap[name];
-  const defaultClasses = "text-secondary-dark hover:text-red-500 cursor-pointer";
+  const defaultClasses = "text-secondary-dark hover:text-red-500 cursor-pointer duration-medium";
 
   return <IconComponent size={size} className={`${defaultClasses} ${className}`} />
 }

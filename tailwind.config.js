@@ -31,6 +31,10 @@ export default {
           sale: '#d0473e',
           limitedStock: '#14854f',
         }
+      },
+      transitionDuration: {
+        short: "250ms",
+        medium: "500ms",
       }
     },
   },
