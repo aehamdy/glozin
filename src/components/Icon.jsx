@@ -17,11 +17,11 @@ const iconMap = {
   leftArrow: RiArrowLeftSLine,
 }
 
-function Icon({name, size = 24, className=""}) {
+function Icon({name, size = 38, className=""}) {
 
   const IconComponent = iconMap[name];
-  const defaultClasses = "text-secondary-dark hover:text-red-500 cursor-pointer duration-medium";
+  const defaultClasses = "p-2 text-secondary-dark hover:text-red-500 cursor-pointer duration-medium";
 
-  return <IconComponent size={size} className={`${defaultClasses} ${className}`} />
+  return <IconComponent size={size} className={`${className} ${defaultClasses}`} />
 }
 export default Icon
