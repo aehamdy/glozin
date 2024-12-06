@@ -1,13 +1,13 @@
 import './App.css'
 import AnnouncementBar from './components/AnnouncementBar'
-import HeaderIcons from './components/HeaderIcons'
+import Header from './components/Header'
 
 function App() {
 
   return (
     <>
-      <AnnouncementBar />
-      <HeaderIcons />
+    <AnnouncementBar />
+      <Header />
     </>
 )
 }
