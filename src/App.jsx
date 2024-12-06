@@ -3,7 +3,11 @@ import AnnouncementBar from './components/AnnouncementBar'
 
 function App() {
 
-  return <AnnouncementBar />
+  return (
+    <>
+      <AnnouncementBar />
+    </>
+)
 }
 
 export default App
