@@ -8,15 +8,15 @@ export default {
     extend: {
       colors: {
         'muted-blue': '#607890',
-        'primary-red': '#d0473d',
-        'secondary-red': '#d0473e',
         'overlay': '#00000098',
         primary: {
           dark: '#000',
           light: '#ffffff',
+          'red': '#d0473d',
         },
         secondary: {
           dark: '#111',
+          'red': '#d0473e',
         },
         button: {
           buyNow: '#d0473e',
