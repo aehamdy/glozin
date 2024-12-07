@@ -19,6 +19,11 @@ const navData = [
         label: "about",
         url: "/about-us",
     },
+    {
+        label: "sale",
+        url: "/sale",
+        badge: "hot",
+    },
 ];
 
 export default navData;
