@@ -12,17 +12,17 @@ const navData = [
         url: "/categories",
     },
     {
-        label: "sale",
-        url: "/sale",
-        badge: "hot",
-    },
-    {
         label: "contact",
         url: "/contact-us",
     },
     {
         label: "about",
         url: "/about-us",
+    },
+    {
+        label: "sale",
+        url: "/sale",
+        badge: "hot",
     },
 ];
 

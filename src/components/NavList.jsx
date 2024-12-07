@@ -4,9 +4,9 @@ import NavListItem from "./NavListItem"
 
 function NavList() {
   return (
-    <nav className="absolute lg:relative top-0 start-0 flex-col items-start w-2/3 lg:w-fit md:w-1/3 h-full bg-primary-light lg:bg-transparent z-50 overflow-hidden rounded-tr-2xl rounded-br-2xl lg:rounded-none">
+    <nav className="absolute lg:relative top-0 start-0 flex-col items-start w-2/3 lg:w-fit md:w-1/3 h-full bg-primary-light lg:bg-transparent z-50 rounded-tr-2xl rounded-br-2xl lg:rounded-none">
         <h4 className="lg:hidden px-3 font-semibold flex justify-between items-center py-4 text-primary-light bg-primary-red">Menu<Icon name="close" className="text-primary-light" /></h4>
-        <ul className="flex flex-col items-start lg:flex-row lg:justify-between lg:items-center lg:gap-3 divide-y py-3 px-3 lg:p-0">
+        <ul className="flex flex-col items-start lg:flex-row lg:justify-between lg:items-center lg:gap-3 divide-y lg:divide-none py-3 px-3 lg:p-0">
             {navData.map((item, index) => (
                 <NavListItem key={index} item={item} />
             ))}
