@@ -10,6 +10,7 @@ export default {
         'muted-blue': '#607890',
         'primary-red': '#d0473d',
         'secondary-red': '#d0473e',
+        'overlay': '#00000098',
         primary: {
           dark: '#000',
           light: '#ffffff',

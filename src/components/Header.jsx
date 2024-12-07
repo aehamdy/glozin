@@ -17,6 +17,7 @@ function Header() {
         {barVisibility && <AnnouncementBar hideAnnouncementBar={hideAnnouncementBar} />}
         <Icon name="menu" className="lg:hidden" />
         <Logo />
+        <div className="absolute lg:hidden w-full h-full start-0 top-0 bg-overlay z-0"></div>
         <NavList />
         <HeaderIcons />
     </header>
