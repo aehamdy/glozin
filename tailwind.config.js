@@ -9,6 +9,7 @@ export default {
       colors: {
         'muted-blue': '#607890',
         'warning-red': '#d0473e',
+        'navItem-hover': '#d0473e',
         primary: {
           dark: '#000',
           light: '#fff',
