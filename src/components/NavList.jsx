@@ -4,7 +4,7 @@ import NavListItem from "./NavListItem"
 function NavList() {
   return (
     <nav>
-        <ul className="flex justify-between items-center gap-5">
+        <ul className="hidden lg:flex justify-between items-center gap-3">
             {navData.map((item, index) => (
                 <NavListItem key={index} item={item} />
             ))}
