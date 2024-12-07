@@ -8,11 +8,11 @@ export default {
     extend: {
       colors: {
         'muted-blue': '#607890',
-        'warning-red': '#d0473e',
-        'navItem-hover': '#d0473e',
+        'primary-red': '#d0473d',
+        'secondary-red': '#d0473e',
         primary: {
           dark: '#000',
-          light: '#fff',
+          light: '#ffffff',
         },
         secondary: {
           dark: '#111',
