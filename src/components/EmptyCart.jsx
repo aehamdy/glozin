@@ -9,6 +9,12 @@ function EmptyCart() {
         <EmptyCartIcon />
         <EmptyCartHeading />
         <EmptyCartText />
+        <button
+          type="button"
+          className="py-3 px-6 font-medium text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-3xl duration-short"
+        >
+          Continue Shpping
+        </button>
       </div>
     </div>
   );
