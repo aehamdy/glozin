@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
 import navData from "../data/navData";
 import Icon from "./Icon";
+import NavHeading from "./NavHeading";
 import NavListItem from "./NavListItem";
 
 function NavList({ navVisibility, onClickFunction }) {
   const renderNavItems = () => {
-    return navData.map((item, index) => <NavListItem key={index} item={item} />);
+    return navData.map((item, index) => (
+      <NavListItem key={index} item={item} />
+    ));
   };
 
   return (
@@ -17,15 +20,16 @@ function NavList({ navVisibility, onClickFunction }) {
           role="menu"
           aria-expanded={navVisibility}
         >
-          <div className="">
-            <h4 className="px-3 font-semibold flex justify-between items-center py-4 text-primary-light bg-primary-red">
-              Menu
+          <div className="flex flex-col">
+            <div className="flex justify-between items-center py-4 px-3 bg-primary-red">
+              <NavHeading />
               <Icon
                 name="close"
-                className="text-primary-light"
+                className="hover:text-primary-light"
                 onClickFunction={onClickFunction}
               />
-            </h4>
+            </div>
+
             <ul className="flex flex-col items-start divide-y py-3 px-3">
               {renderNavItems()}
             </ul>
