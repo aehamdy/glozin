@@ -1,49 +1,14 @@
-/* eslint-disable react/prop-types */
 import navData from "../data/navData";
-import Icon from "./Icon";
-import NavHeading from "./NavHeading";
 import NavListItem from "./NavListItem";
 
-function NavList({ navVisibility, onClickFunction }) {
-  const renderNavItems = () => {
-    return navData.map((item, index) => (
-      <NavListItem key={index} item={item} />
-    ));
-  };
-
+function NavList() {
+    const renderNavItems = () => {
+        return navData.map((item, index) => <NavListItem key={index} item={item} />)
+    }
   return (
-    <>
-      {/* For small and medium screens */}
-      {navVisibility && (
-        <nav
-          className="lg:hidden absolute top-0 start-0 flex-col items-start w-2/3 h-full bg-primary-light z-50 rounded-tr-2xl rounded-br-2xl overflow-hidden"
-          role="menu"
-          aria-expanded={navVisibility}
-        >
-          <div className="flex flex-col">
-            <div className="flex justify-between items-center py-4 px-3 bg-primary-red">
-              <NavHeading />
-              <Icon
-                name="close"
-                className="hover:text-primary-light"
-                onClickFunction={onClickFunction}
-              />
-            </div>
-
-            <ul className="flex flex-col items-start divide-y py-3 px-3">
-              {renderNavItems()}
-            </ul>
-          </div>
-        </nav>
-      )}
-
-      {/* For large screens */}
-      <nav role="menu" className="hidden lg:block">
-        <ul className="lg:flex lg:flex-row lg:justify-between lg:items-center lg:gap-3">
-          {renderNavItems()}
-        </ul>
-      </nav>
-    </>
-  );
+    <ul className="flex flex-col lg:flex-row lg:justify-between items-start lg:items-center lg:gap-3 divide-y lg:divide-none py-3 px-3 lg:p-0">
+    {renderNavItems()}
+  </ul>
+  )
 }
-export default NavList;
+export default NavList

@@ -2,7 +2,7 @@ import { useState } from "react";
 import AnnouncementBar from "./AnnouncementBar";
 import HeaderIcons from "./HeaderIcons";
 import Logo from "./Logo";
-import NavList from "./NavList";
+import Nav from "./Nav";
 import Icon from "./Icon";
 
 function Header() {
@@ -44,7 +44,7 @@ function Header() {
           aria-hidden="true"
         ></div>
       )}
-      <NavList navVisibility={navVisibility} onClickFunction={closeSideNav} />
+      <Nav navVisibility={navVisibility} onClickFunction={closeSideNav} />
       <HeaderIcons />
     </header>
   );
