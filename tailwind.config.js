@@ -38,6 +38,11 @@ export default {
           limitedStock: '#14854f',
         }
       },
+      borderRadius: {
+        tiny: '0.5rem',
+        small: '1rem',
+        medium: '2rem',
+      },
       transitionDuration: {
         short: "250ms",
         medium: "500ms",
