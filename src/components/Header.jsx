@@ -5,7 +5,7 @@ import Logo from "./Logo";
 import Nav from "./Nav";
 import Icon from "./Icon";
 
-function Header() {
+function Header({ handleOpenCart }) {
   const [barVisibility, setBarVisibility] = useState(true);
   const [navVisibility, setNavVisibility] = useState(false);
 
@@ -45,7 +45,7 @@ function Header() {
         ></div>
       )}
       <Nav navVisibility={navVisibility} onClickFunction={closeSideNav} />
-      <HeaderIcons />
+      <HeaderIcons handleOpenCart={handleOpenCart} />
     </header>
   );
 }

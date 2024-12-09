@@ -1,13 +1,18 @@
 import "./App.css";
 import Header from "./components/Header";
 import CartDrawer from "./components/CartDrawer";
+import { useState } from "react";
 
 function App() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const handleOpenCart = () => setIsCartOpen(true);
+  const handleCloseCart = () => setIsCartOpen(false);
+
   return (
     <>
-      <Header />
-      <div className="absolute top-0 start-0 w-full h-full bg-overlay"></div>
-      <CartDrawer />
+      <Header handleOpenCart={handleOpenCart} />
+      <CartDrawer isCartOpen={isCartOpen} handleCloseCart={handleCloseCart} />
     </>
   );
 }
