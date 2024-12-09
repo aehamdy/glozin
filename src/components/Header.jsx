@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import AnnouncementBar from "./AnnouncementBar";
 import HeaderIcons from "./HeaderIcons";
