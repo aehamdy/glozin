@@ -32,7 +32,7 @@ function Header() {
       )}
       <Icon
         name="menu"
-        className="lg:hidden"
+        className="lg:hidden text-primary-dark"
         onClickFunction={displaySideNav}
         aria-expanded={navVisibility}
       />

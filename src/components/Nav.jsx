@@ -4,7 +4,6 @@ import NavHeading from "./NavHeading";
 import NavList from "./NavList";
 
 function Nav({ navVisibility, onClickFunction }) {
-
   return (
     <>
       {/* For small and medium screens */}
@@ -22,7 +21,7 @@ function Nav({ navVisibility, onClickFunction }) {
             <NavHeading />
             <Icon
               name="close"
-              className="hover:text-primary-light"
+              className="text-primary-light"
               onClickFunction={onClickFunction}
             />
           </div>

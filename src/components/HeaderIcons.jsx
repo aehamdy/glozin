@@ -1,13 +1,19 @@
-import Icon from "./Icon"
+import Icon from "./Icon";
 
 function HeaderIcons() {
   return (
-    <div className="flex">
-        <Icon name="search" className="hover:text-red-500 " />
-        <Icon name="user" className="hidden lg:block hover:text-red-500 " />
-        <Icon name="wishlist" className="hidden lg:block hover:text-red-500 " />
-        <Icon name="cart" className="hover:text-red-500 " />
+    <div className="flex gap-4">
+      <Icon name="search" className="text-primary-dark hover:text-red-500 " />
+      <Icon
+        name="user"
+        className="hidden lg:block text-primary-dark  hover:text-red-500 "
+      />
+      <Icon
+        name="wishlist"
+        className="hidden lg:block text-primary-dark  hover:text-red-500 "
+      />
+      <Icon name="cart" className="text-primary-dark hover:text-red-500 " />
     </div>
-  )
+  );
 }
-export default HeaderIcons
+export default HeaderIcons;

@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import { FiHeart, FiSearch, FiShoppingBag } from "react-icons/fi";
-import { IoCloseOutline } from "react-icons/io5";
+import { MdClose } from "react-icons/md";
 import { PiUser } from "react-icons/pi";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const iconMap = {
   menu: RxHamburgerMenu,
-  close: IoCloseOutline,
+  close: MdClose,
   search: FiSearch,
   user: PiUser,
   wishlist: FiHeart,
@@ -16,9 +16,10 @@ const iconMap = {
   leftArrow: RiArrowLeftSLine,
 };
 
-function Icon({ name, size = 20, className = "", onClickFunction }) {
+function Icon({ name, size = 21, className = "", onClickFunction }) {
   const IconComponent = iconMap[name];
-  const defaultClasses = "text-secondary-dark cursor-pointer duration-medium";
+  const test = <MdClose />;
+  const defaultClasses = "cursor-pointer duration-medium";
 
   return (
     <IconComponent
