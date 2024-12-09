@@ -34,7 +34,7 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
             onClickFunction={handleCloseCart}
           />
         </div>
-        <EmptyCart />
+        <EmptyCart handleCloseCart={handleCloseCart} />
       </div>
     </>
   );
