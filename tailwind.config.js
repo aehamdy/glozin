@@ -25,9 +25,12 @@ export default {
           originalPrice: '##666',
           salePrice: '#d0473e',
         },
-        text: {
-          heading: '#111',
-          content: '#444',
+        heading: {
+          dark: '#111',
+        },
+        content: {
+          dark: '#111',
+          'medium-dark': '#444',
         },
         badge: {
           notification: '#d0473d',

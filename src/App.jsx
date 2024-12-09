@@ -1,13 +1,14 @@
-import './App.css'
-import Header from './components/Header'
+import "./App.css";
+import CartDrawer from "./components/CartDrawer";
+import Header from "./components/Header";
 
 function App() {
-
   return (
     <>
       <Header />
+      <CartDrawer />
     </>
-)
+  );
 }
 
-export default App
+export default App;

@@ -8,7 +8,7 @@ function PanelTitle({ title, styles }) {
       );
   };
   return (
-    <h4 className={`font-semibold ${styles}select-none`}>{reformTitle()}</h4>
+    <h4 className={`font-semibold ${styles} select-none`}>{reformTitle()}</h4>
   );
 }
 export default PanelTitle;
