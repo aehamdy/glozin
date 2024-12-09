@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Icon from "./Icon";
-import NavHeading from "./NavHeading";
+import PanelTitle from "./PanelTitle";
 import NavList from "./NavList";
 
 function Nav({ navVisibility, onClickFunction }) {
@@ -18,7 +18,7 @@ function Nav({ navVisibility, onClickFunction }) {
       >
         <div className="flex flex-col">
           <div className="flex justify-between items-center py-4 px-3 bg-primary-red">
-            <NavHeading />
+            <PanelTitle title="menu" styles="text-primary-light" />
             <Icon
               name="close"
               className="text-primary-light"
