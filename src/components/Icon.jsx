@@ -18,7 +18,6 @@ const iconMap = {
 
 function Icon({ name, size = 21, className = "", onClickFunction }) {
   const IconComponent = iconMap[name];
-  const test = <MdClose />;
   const defaultClasses = "cursor-pointer duration-medium";
 
   return (
