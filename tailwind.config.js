@@ -13,6 +13,7 @@ export default {
           dark: '#000',
           light: '#ffffff',
           'red': '#d0473d',
+          border: '#ebebeb',
         },
         secondary: {
           dark: '#111',
