@@ -11,7 +11,7 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
     >
       <Icon
         name="close"
-        className="ml-auto text-content-medium-dark"
+        className="ml-auto text-content-medium-dark hover:scale-150"
         onClickFunction={handleSearchClosing}
       />
       <PanelTitle
@@ -19,7 +19,7 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
         styles="text-2xl text-secondary-dark"
       />
       <form action="">
-        <div className="relative w-[90%] lg:w-[65%] mx-auto">
+        <div className="group relative w-[90%] lg:w-[65%] mx-auto">
           <input
             type="search"
             name="search"
@@ -29,7 +29,7 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
           />
           <Icon
             name="search"
-            className="absolute top-1/2 -translate-y-1/2 end-4 w-5 h-full text-content-medium-dark bg-transparent"
+            className="absolute top-1/2 -translate-y-1/2 end-4 w-5 h-full text-content-medium-dark bg-transparent group-hover:scale-125"
           />
         </div>
       </form>
