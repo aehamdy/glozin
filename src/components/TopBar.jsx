@@ -1,7 +1,7 @@
 import Icon from "./Icon";
 
 /* eslint-disable react/prop-types */
-function AnnouncementBar({ hideAnnouncementBar }) {
+function TopBar({ hideAnnouncementBar }) {
   return (
     <div
       className={`absolute w-full start-0 top-0 flex gap-4 justify-center items-center py-1 text-sm text-primary-light bg-muted-blue`}
@@ -18,4 +18,4 @@ function AnnouncementBar({ hideAnnouncementBar }) {
   );
 }
 
-export default AnnouncementBar;
+export default TopBar;

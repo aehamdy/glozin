@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import AnnouncementBar from "./AnnouncementBar";
+import TopBar from "./TopBar";
 import HeaderIcons from "./HeaderIcons";
 import Logo from "./Logo";
 import Nav from "./Nav";
@@ -44,9 +44,7 @@ function Header({ handleOpenCart }) {
         isSearchOpen={isSearchOpen}
         handleSearchClosing={closeSearchWindow}
       />
-      {barVisibility && (
-        <AnnouncementBar hideAnnouncementBar={hideAnnouncementBar} />
-      )}
+      {barVisibility && <TopBar hideAnnouncementBar={hideAnnouncementBar} />}
       <Icon
         name="menu"
         className="lg:hidden text-primary-dark"
