@@ -28,9 +28,9 @@ function Header({ handleOpenCart }) {
     setIsSearchOpen(true);
   };
 
-  // const closeSearchWindow = () => {
-  //   setIsSearchOpen(false);
-  // };
+  const closeSearchWindow = () => {
+    setIsSearchOpen(false);
+  };
 
   return (
     <header
@@ -38,7 +38,7 @@ function Header({ handleOpenCart }) {
         barVisibility && "mt-[32px]"
       } py-3 border-b`}
     >
-      {isSearchOpen && <SearchWindow />}
+      {isSearchOpen && <SearchWindow handleSearchClosing={closeSearchWindow} />}
       {barVisibility && (
         <AnnouncementBar hideAnnouncementBar={hideAnnouncementBar} />
       )}

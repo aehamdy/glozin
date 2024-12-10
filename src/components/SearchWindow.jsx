@@ -1,10 +1,15 @@
+/* eslint-disable react/prop-types */
 import Icon from "./Icon";
 import PanelTitle from "./PanelTitle";
 
-function SearchWindow() {
+function SearchWindow({ handleSearchClosing }) {
   return (
     <div className="absolute top-0 start-0 w-full h-[90%] flex flex-col gap-5 py-3 px-4 bg-primary-light rounded-b-small shadow-lg z-50">
-      <Icon name="close" className="ml-auto text-content-medium-dark" />
+      <Icon
+        name="close"
+        className="ml-auto text-content-medium-dark"
+        onClickFunction={handleSearchClosing}
+      />
       <PanelTitle
         title="search our site"
         styles="text-2xl text-secondary-dark"
