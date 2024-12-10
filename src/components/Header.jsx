@@ -38,7 +38,18 @@ function Header({ handleOpenCart }) {
         barVisibility && "mt-[32px]"
       } py-3 border-b`}
     >
-      {isSearchOpen && <SearchWindow handleSearchClosing={closeSearchWindow} />}
+      {isSearchOpen && (
+        <>
+          <div
+            className={`absolute top-0 start-0 w-full h-full bg-overlay backdrop-blur-sm z-[45] ${
+              isSearchOpen ? "pointer-events-auto" : "pointer-events-none"
+            }`}
+            aria-hidden="true"
+            onClick={closeSearchWindow}
+          ></div>
+          <SearchWindow handleSearchClosing={closeSearchWindow} />
+        </>
+      )}
       {barVisibility && (
         <AnnouncementBar hideAnnouncementBar={hideAnnouncementBar} />
       )}
