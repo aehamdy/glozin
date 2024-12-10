@@ -2,7 +2,7 @@
 import Icon from "./Icon";
 import PanelTitle from "./PanelTitle";
 
-function SearchWindow({ isSearchOpen, handleSearchClosing }) {
+function SearchPanel({ isSearchOpen, handleSearchClosing }) {
   return (
     <div
       className={`fixed top-0 start-0 w-full h-[90%] flex flex-col gap-5 py-3 px-4 bg-primary-light rounded-b-small shadow-lg z-50 transform
@@ -36,4 +36,4 @@ function SearchWindow({ isSearchOpen, handleSearchClosing }) {
     </div>
   );
 }
-export default SearchWindow;
+export default SearchPanel;

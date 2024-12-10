@@ -5,7 +5,7 @@ import HeaderIcons from "./HeaderIcons";
 import Logo from "./Logo";
 import Nav from "./Nav";
 import Icon from "./Icon";
-import SearchWindow from "./SearchWindow";
+import SearchPanel from "./SearchPanel";
 import BlurredOverlay from "./BlurredOverlay";
 
 function Header({ handleOpenCart }) {
@@ -40,7 +40,7 @@ function Header({ handleOpenCart }) {
       } py-3 border-b`}
     >
       <BlurredOverlay triggerOnClick={closeSearchWindow} state={isSearchOpen} />
-      <SearchWindow
+      <SearchPanel
         isSearchOpen={isSearchOpen}
         handleSearchClosing={closeSearchWindow}
       />
