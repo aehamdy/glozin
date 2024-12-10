@@ -12,7 +12,7 @@ function EmptyCart({ handleCloseCart }) {
         <EmptyCartText />
         <button
           type="button"
-          className="py-3 px-12 font-medium text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-3xl duration-short"
+          className="py-3 px-8 md:px-12 font-medium text-xs md:text-base text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-3xl duration-short"
           onClick={handleCloseCart}
         >
           Continue Shopping
