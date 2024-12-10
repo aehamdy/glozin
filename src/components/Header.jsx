@@ -65,7 +65,7 @@ function Header({ handleOpenCart }) {
       <Logo />
       {navVisibility && (
         <div
-          className="absolute lg:hidden w-full h-full start-0 top-0 bg-overlay backdrop-blur-sm z-0"
+          className="absolute lg:hidden w-full h-full start-0 top-0 bg-red-500 backdrop-blur-sm z-0"
           onClick={closeSideNav}
           aria-hidden="true"
         ></div>
