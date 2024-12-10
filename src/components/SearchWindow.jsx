@@ -2,9 +2,13 @@
 import Icon from "./Icon";
 import PanelTitle from "./PanelTitle";
 
-function SearchWindow({ handleSearchClosing }) {
+function SearchWindow({ isSearchOpen, handleSearchClosing }) {
   return (
-    <div className="absolute top-0 start-0 w-full h-[90%] flex flex-col gap-5 py-3 px-4 bg-primary-light rounded-b-small shadow-lg z-50">
+    <div
+      className={`absolute top-0 start-0 w-full h-[90%] flex flex-col gap-5 py-3 px-4 bg-primary-light rounded-b-small shadow-lg z-50 transform 
+    ${isSearchOpen ? "translate-y-0" : "-translate-y-full"}
+    transition-transform duration-medium ease-in-out`}
+    >
       <Icon
         name="close"
         className="ml-auto text-content-medium-dark"
