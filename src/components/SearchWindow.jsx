@@ -3,7 +3,7 @@ import PanelTitle from "./PanelTitle";
 
 function SearchWindow() {
   return (
-    <div className="fixed top-0 start-0 w-full h-[90%] flex flex-col gap-5 py-3 px-4 bg-primary-light rounded-b-small shadow-lg">
+    <div className="absolute top-0 start-0 w-full h-[90%] flex flex-col gap-5 py-3 px-4 bg-primary-light rounded-b-small shadow-lg z-50">
       <Icon name="close" className="ml-auto text-content-medium-dark" />
       <PanelTitle
         title="search our site"

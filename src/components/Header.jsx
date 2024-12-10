@@ -5,10 +5,12 @@ import HeaderIcons from "./HeaderIcons";
 import Logo from "./Logo";
 import Nav from "./Nav";
 import Icon from "./Icon";
+import SearchWindow from "./SearchWindow";
 
 function Header({ handleOpenCart }) {
   const [barVisibility, setBarVisibility] = useState(true);
   const [navVisibility, setNavVisibility] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const hideAnnouncementBar = () => {
     setBarVisibility(false);
@@ -22,12 +24,21 @@ function Header({ handleOpenCart }) {
     setNavVisibility(false);
   };
 
+  const openSearchWindow = () => {
+    setIsSearchOpen(true);
+  };
+
+  // const closeSearchWindow = () => {
+  //   setIsSearchOpen(false);
+  // };
+
   return (
     <header
       className={`flex justify-between items-center ${
         barVisibility && "mt-[32px]"
       } py-3 border-b`}
     >
+      {isSearchOpen && <SearchWindow />}
       {barVisibility && (
         <AnnouncementBar hideAnnouncementBar={hideAnnouncementBar} />
       )}
@@ -46,7 +57,10 @@ function Header({ handleOpenCart }) {
         ></div>
       )}
       <Nav navVisibility={navVisibility} onClickFunction={closeSideNav} />
-      <HeaderIcons handleOpenCart={handleOpenCart} />
+      <HeaderIcons
+        handleOpenCart={handleOpenCart}
+        handleSearchOpening={openSearchWindow}
+      />
     </header>
   );
 }
