@@ -7,7 +7,7 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
     <>
       {/* Overlay */}
       <div
-        className={`fixed top-0 left-0 w-full h-full bg-overlay transition-opacity duration-[350ms] ease-in-out ${
+        className={`fixed top-0 left-0 w-full h-full bg-overlay transition-opacity backdrop-blur-sm duration-[350ms] ease-in-out ${
           isCartOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
