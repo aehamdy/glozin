@@ -9,9 +9,7 @@ function Nav({ navVisibility, onClickFunction }) {
       {/* For small and medium screens */}
       <nav
         className={`lg:hidden fixed top-0 left-0 flex-col items-start w-2/3 h-full bg-primary-light z-50 rounded-r-small overflow-hidden transition-all duration-[350ms] ease-in-out transform ${
-          navVisibility
-            ? "translate-x-0 opacity-100"
-            : "-translate-x-full opacity-0"
+          navVisibility ? "translate-x-0" : "-translate-x-full"
         }`}
         role="menu"
         aria-expanded={navVisibility}
