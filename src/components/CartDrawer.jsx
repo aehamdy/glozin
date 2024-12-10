@@ -1,20 +1,12 @@
 /* eslint-disable react/prop-types */
+import BlurredOverlay from "./BlurredOverlay";
 import EmptyCart from "./EmptyCart";
 import Icon from "./Icon";
 
 function CartDrawer({ isCartOpen, handleCloseCart }) {
   return (
     <>
-      {/* Overlay */}
-      <div
-        className={`fixed top-0 left-0 w-full h-full bg-overlay transition-opacity backdrop-blur-sm duration-[350ms] ease-in-out ${
-          isCartOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
-        onClick={handleCloseCart}
-        aria-hidden="true"
-      ></div>
+      <BlurredOverlay triggerOnClick={handleCloseCart} state={isCartOpen} />
 
       {/* Cart Drawer */}
       <div
