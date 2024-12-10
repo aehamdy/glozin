@@ -19,9 +19,7 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
       {/* Cart Drawer */}
       <div
         className={`fixed top-0 right-0 w-10/12 md:w-3/5 lg:w-2/5 h-full flex flex-col py-4 px-4 bg-primary-light rounded-l-small overflow-hidden transition-all duration-[350ms] ease-in-out transform ${
-          isCartOpen
-            ? "translate-x-0 opacity-100"
-            : "translate-x-full opacity-0"
+          isCartOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex justify-between items-center">
