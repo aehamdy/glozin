@@ -25,7 +25,7 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
             name="search"
             id=""
             placeholder="I'm looking for..."
-            className=" w-full py-3 px-8 text-sm text-content-medium-dark bg-transparent border border-[#ebebeb] focus:outline-none focus:border-2 focus:border-primary-border rounded-medium"
+            className=" w-full py-3 px-8 font-medium text-sm text-content-medium-dark bg-transparent border border-[#ebebeb] focus:outline-none focus:border-2 focus:border-primary-border rounded-medium"
           />
           <Icon
             name="search"
