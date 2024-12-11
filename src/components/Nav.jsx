@@ -19,7 +19,7 @@ function Nav({ navVisibility, onClickFunction }) {
             <PanelTitle title="menu" styles="text-primary-light" />
             <Icon
               name="close"
-              className="text-primary-light"
+              className="text-primary-light hover:scale-150"
               onClickFunction={onClickFunction}
             />
           </div>

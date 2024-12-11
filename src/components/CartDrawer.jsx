@@ -20,7 +20,7 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
           </h4>
           <Icon
             name="close"
-            className="text-content-medium-dark"
+            className="text-content-medium-dark hover:scale-150"
             onClickFunction={handleCloseCart}
           />
         </div>
