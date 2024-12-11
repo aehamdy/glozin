@@ -9,6 +9,7 @@ export default {
       colors: {
         'muted-blue': '#607890',
         'overlay': '#00000098',
+        'navigation-dots': '#ffffff99',
         primary: {
           dark: '#000',
           light: '#ffffff',
