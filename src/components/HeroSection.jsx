@@ -6,9 +6,24 @@ import NavigationDotsWrapper from "./NavigationDotsWrapper";
 import HeroImage from "./HeroImage";
 
 const slides = [
-  { id: 1, image: banner1, subHeading: "", heading: "" },
-  { id: 2, image: banner2, subHeading: "", heading: "" },
-  { id: 3, image: banner3, subHeading: "", heading: "" },
+  {
+    id: 1,
+    image: banner1,
+    subHeading: "sweater collection",
+    heading: "online exclusive",
+  },
+  {
+    id: 2,
+    image: banner2,
+    subHeading: "look exclusive",
+    heading: "high-top design",
+  },
+  {
+    id: 3,
+    image: banner3,
+    subHeading: "season collection",
+    heading: "super comfort",
+  },
 ];
 
 function HeroSection() {
