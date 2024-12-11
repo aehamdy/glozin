@@ -1,3 +1,4 @@
+import HeroSlideButton from "./HeroSlideButton";
 import HeroSlideHeading from "./HeroSlideHeading";
 import HeroSlideSubheading from "./HeroSlideSubheading";
 
@@ -18,12 +19,7 @@ function HeroImage({ slides, currentSlide }) {
           <div className="absolute bottom-12 start-4 flex flex-col items-start gap-3 text-primary-light">
             <HeroSlideSubheading slides={slides} currentSlide={currentSlide} />
             <HeroSlideHeading slides={slides} currentSlide={currentSlide} />
-            <button
-              type="button"
-              className="py-3 px-6 font-semibold bg-primary-light text-secondary-dark rounded-medium"
-            >
-              Shop Collection
-            </button>
+            <HeroSlideButton />
           </div>
         </>
       ))}
