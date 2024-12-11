@@ -2,7 +2,7 @@
 import banner1 from "../assets/hero-banner-1.jpg";
 import banner2 from "../assets/hero-banner-2.jpg";
 import banner3 from "../assets/hero-banner-3.jpg";
-import NavigationDots from "./NavigationDots";
+import NavigationDotsWrapper from "./NavigationDotsWrapper";
 
 const slides = [
   { id: 1, image: banner1, subHeading: "", heading: "" },
@@ -26,7 +26,7 @@ function HeroSection() {
       <div className="w-full h-full">
         <img src={banner1} alt="" className="w-full" />
       </div>
-      <NavigationDots count={slides.length} />
+      <NavigationDotsWrapper count={slides.length} />
     </section>
   );
 }
