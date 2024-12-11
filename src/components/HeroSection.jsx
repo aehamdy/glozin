@@ -18,9 +18,17 @@ function HeroSection() {
   };
 
   return (
-    <section className="relative flex justify-center items-center w-full h-[100dvh - 65px] mt-10 bg-sky-800 rounded-small overflow-hidden">
-      <div className="w-full h-full">
-        <img src={slides[currentSlide].image} alt="" className="w-full" />
+    <section className="relative flex justify-center items-center w-full h-[70dvh] mt-10 rounded-small overflow-hidden bg-black">
+      <div className="relative w-full h-full">
+        {slides.map((slide, index) => (
+          <img
+            key={slide.id}
+            src={slide.image}
+            alt=""
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out
+            ${index === currentSlide ? "opacity-100" : "opacity-0"}`}
+          />
+        ))}
       </div>
       <NavigationDotsWrapper
         goToSlide={goToSlide}

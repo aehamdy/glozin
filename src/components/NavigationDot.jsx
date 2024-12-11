@@ -8,9 +8,7 @@ function NavigationDot({ index, goToSlide, currentSlide }) {
         index === currentSlide ? "before:bg-white" : "before:bg-navigation-dots"
       } before:rounded-full cursor-pointer`}
       onClick={() => goToSlide(index)}
-    >
-      {console.log(`index: ${index} - slide: ${currentSlide}`)}
-    </span>
+    ></span>
   );
 }
 export default NavigationDot;
