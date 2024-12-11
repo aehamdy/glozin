@@ -1,3 +1,4 @@
+import HeroSlideHeading from "./HeroSlideHeading";
 import HeroSlideSubheading from "./HeroSlideSubheading";
 
 /* eslint-disable react/prop-types */
@@ -16,15 +17,7 @@ function HeroImage({ slides, currentSlide }) {
           />
           <div className="absolute bottom-12 start-4 flex flex-col items-start gap-3 text-primary-light">
             <HeroSlideSubheading slides={slides} currentSlide={currentSlide} />
-            <h2 className="font-semibold text-6xl">
-              {slides[currentSlide].heading
-                .split(" ")
-                .map(
-                  (word) =>
-                    word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-                )
-                .join(" ")}
-            </h2>
+            <HeroSlideHeading slides={slides} currentSlide={currentSlide} />
             <button
               type="button"
               className="py-3 px-6 font-semibold bg-primary-light text-secondary-dark rounded-medium"
