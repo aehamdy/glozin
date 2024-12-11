@@ -24,9 +24,10 @@ function HeroSection() {
           <img
             key={slide.id}
             src={slide.image}
-            alt=""
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out
+            alt={`Slide-${slides[currentSlide].id}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out
             ${index === currentSlide ? "opacity-100" : "opacity-0"}`}
+            aria-hidden={index !== currentSlide}
           />
         ))}
       </div>
