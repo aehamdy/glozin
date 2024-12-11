@@ -1,3 +1,5 @@
+import HeroSlideSubheading from "./HeroSlideSubheading";
+
 /* eslint-disable react/prop-types */
 function HeroImage({ slides, currentSlide }) {
   return (
@@ -13,15 +15,7 @@ function HeroImage({ slides, currentSlide }) {
             aria-hidden={index !== currentSlide}
           />
           <div className="absolute bottom-12 start-4 flex flex-col items-start gap-3 text-primary-light">
-            <div className="font-light text-xl">
-              {slides[currentSlide].subHeading
-                .split(" ")
-                .map(
-                  (word) =>
-                    word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-                )
-                .join(" ")}
-            </div>
+            <HeroSlideSubheading slides={slides} currentSlide={currentSlide} />
             <h2 className="font-semibold text-6xl">
               {slides[currentSlide].heading
                 .split(" ")
