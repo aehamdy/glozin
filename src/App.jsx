@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import CartDrawer from "./components/CartDrawer";
 import { useState } from "react";
 import HeroSection from "./components/HeroSection";
+import SpotlightOfferSection from "./components/SpotlightOfferSection";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -15,6 +16,7 @@ function App() {
       <Header handleOpenCart={handleOpenCart} />
       <CartDrawer isCartOpen={isCartOpen} handleCloseCart={handleCloseCart} />
       <HeroSection />
+      <SpotlightOfferSection />
     </>
   );
 }
