@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import banner1 from "../assets/hero-banner-1.jpg";
 import banner2 from "../assets/hero-banner-2.jpg";
 import banner3 from "../assets/hero-banner-3.jpg";
@@ -32,6 +32,16 @@ function HeroSection() {
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentSlide((prevValue) =>
+        prevValue === slides.length - 1 ? 0 : prevValue + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, [currentSlide]);
 
   return (
     <section className="relative flex justify-center items-center w-full h-[70dvh] mt-10 rounded-small overflow-hidden bg-black">
