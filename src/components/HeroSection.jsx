@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import banner1 from "../assets/hero-banner-1.jpg";
 import banner2 from "../assets/hero-banner-2.jpg";
 import banner3 from "../assets/hero-banner-3.jpg";
@@ -9,42 +9,76 @@ const slides = [
   {
     id: 1,
     image: banner1,
-    subHeading: "sweater collection",
-    heading: "online exclusive",
+    subHeading: "Sweater Collection",
+    heading: "Online Exclusive",
   },
   {
     id: 2,
     image: banner2,
-    subHeading: "look exclusive",
-    heading: "high-top design",
+    subHeading: "Look Exclusive",
+    heading: "High-Top Design",
   },
   {
     id: 3,
     image: banner3,
-    subHeading: "season collection",
-    heading: "super comfort",
+    subHeading: "Season Collection",
+    heading: "Super Comfort",
   },
 ];
 
 function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(null);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentSlide((prevValue) =>
-        prevValue === slides.length - 1 ? 0 : prevValue + 1
-      );
-    }, 5000);
+  const handleMouseDown = (e) => {
+    if (e.button === 0) {
+      setIsDragging(true);
+      setStartX(e.clientX);
+    }
+  };
 
-    return () => clearInterval(intervalId);
-  }, [currentSlide]);
+  const handleMouseMove = (e) => {
+    if (isDragging && startX !== null) {
+      const deltaX = e.clientX - startX;
+
+      if (deltaX > 50) {
+        setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+        setIsDragging(false);
+        setStartX(null);
+      } else if (deltaX < -50) {
+        setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+        setIsDragging(false);
+        setStartX(null);
+      }
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  useEffect(() => {
+    const preventContextMenu = (e) => e.preventDefault();
+    document.addEventListener("contextmenu", preventContextMenu);
+
+    return () => {
+      document.removeEventListener("contextmenu", preventContextMenu);
+    };
+  }, []);
 
   return (
-    <section className="relative flex justify-center items-center w-full h-[70dvh] mt-10 rounded-small overflow-hidden bg-black">
+    <section
+      className="relative flex justify-center items-center w-full h-[70dvh] mt-10 rounded-small overflow-hidden bg-black"
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+    >
       <HeroSlide slides={slides} currentSlide={currentSlide} />
       <NavigationDotsWrapper
         goToSlide={goToSlide}
@@ -54,4 +88,5 @@ function HeroSection() {
     </section>
   );
 }
+
 export default HeroSection;

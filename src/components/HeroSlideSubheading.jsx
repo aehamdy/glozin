@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
-function HeroSlideSubheading({ index, slides, currentSlide }) {
+function HeroSlideSubheading({ slides, currentSlide }) {
   return (
-    <div
-      className={`font-light text-xl ${index === currentSlide && "opacity-0"}`}
-    >
+    <div className="font-light text-xl">
       {slides[currentSlide].subHeading
         .split(" ")
         .map(
