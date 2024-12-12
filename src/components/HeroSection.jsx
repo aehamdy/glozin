@@ -42,34 +42,25 @@ function HeroSection() {
     }
   };
 
-  const handleMouseMove = (e) => {
+  const handleMouseUp = (e) => {
     if (isDragging && startX !== null) {
       const deltaX = e.clientX - startX;
 
       if (deltaX > 50) {
-        setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+        setCurrentSlide((prevVal) =>
+          prevVal === 0 ? slides.length - 1 : prevVal - 1
+        );
         setIsDragging(false);
         setStartX(null);
       } else if (deltaX < -50) {
-        setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+        setCurrentSlide((prevVal) =>
+          prevVal === slides.length - 1 ? 0 : prevVal + 1
+        );
         setIsDragging(false);
         setStartX(null);
       }
     }
   };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  useEffect(() => {
-    const preventContextMenu = (e) => e.preventDefault();
-    document.addEventListener("contextmenu", preventContextMenu);
-
-    return () => {
-      document.removeEventListener("contextmenu", preventContextMenu);
-    };
-  }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -77,13 +68,12 @@ function HeroSection() {
     }, 5000);
 
     return () => clearInterval(intervalId);
-  }, [currentSlide]);
+  }, []);
 
   return (
     <section
-      className="relative flex justify-center items-center w-full h-[70dvh] mt-10 rounded-small overflow-hidden bg-black"
+      className="relative flex justify-center items-center w-full h-[35dvh] md:h-[40dvh] lg:h-[70dvh] mt-10 rounded-small overflow-hidden bg-black"
       onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >

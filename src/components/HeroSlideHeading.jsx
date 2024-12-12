@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
 function HeroSlideHeading({ slides, currentSlide }) {
   return (
-    <h2 className="font-semibold text-6xl">
+    <h2 className="font-semibold text-3xl md:text-4xl lg:text-6xl">
       {slides[currentSlide].heading
-        .split(" ")
-        .map(
-          (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        .split(/(?<=[ -])|(?=[ -])/)
+        .map((word) =>
+          word === "-" || word === " "
+            ? word
+            : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
         )
-        .join(" ")}
+        .join("")}
     </h2>
   );
 }
+
 export default HeroSlideHeading;
