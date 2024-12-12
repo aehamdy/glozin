@@ -7,6 +7,7 @@ function HeroImage({ slides, currentSlide }) {
       className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out
             ${index === currentSlide ? "opacity-100" : "opacity-0"}`}
       aria-hidden={index !== currentSlide}
+      onDragStart={(e) => e.preventDefault()}
     />
   ));
 }

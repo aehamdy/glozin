@@ -71,6 +71,14 @@ function HeroSection() {
     };
   }, []);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentSlide((prevValue) => (prevValue + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, [currentSlide]);
+
   return (
     <section
       className="relative flex justify-center items-center w-full h-[70dvh] mt-10 rounded-small overflow-hidden bg-black"
