@@ -45,6 +45,10 @@ export default {
         small: '1rem',
         medium: '2rem',
       },
+      zIndex: {
+        overlay: '95',
+        top: '100',
+      },
       transitionDuration: {
         short: "250ms",
         medium: "500ms",

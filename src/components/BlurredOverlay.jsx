@@ -4,7 +4,7 @@ function BlurredOverlay({ triggerOnClick, state, className }) {
 
   return (
     <div
-      className={`absolute top-0 start-0 w-full h-full bg-overlay backdrop-blur-sm transition-opacity transform duration-[300ms] ease-in-out 
+      className={`absolute top-0 start-0 w-full h-full bg-overlay backdrop-blur-sm transition-opacity transform duration-[300ms] ease-in-out z-overlay 
         ${
           state
             ? "opacity-100 pointer-events-auto"

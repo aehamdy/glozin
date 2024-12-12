@@ -8,7 +8,7 @@ function Nav({ navVisibility, onClickFunction }) {
     <>
       {/* For small and medium screens */}
       <nav
-        className={`lg:hidden fixed top-0 left-0 flex-col items-start w-2/3 h-full bg-primary-light z-50 rounded-r-small overflow-hidden transition-all duration-[350ms] ease-in-out transform ${
+        className={`lg:hidden fixed top-0 left-0 flex-col items-start w-2/3 h-full bg-primary-light z-top rounded-r-small overflow-hidden transition-all duration-[350ms] ease-in-out transform ${
           navVisibility ? "translate-x-0" : "-translate-x-full"
         }`}
         role="menu"
