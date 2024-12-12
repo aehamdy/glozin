@@ -1,4 +1,4 @@
-import SpotlightBanner from "./SpotlightBanner";
+import SpotlightOfferBanner from "./SpotlightOfferBanner";
 import spotlightImage1 from "../assets/spotlight-offer-image-1.jpg";
 import spotlightImage2 from "../assets/spotlight-offer-image-2.jpg";
 import spotlightImage3 from "../assets/spotlight-offer-image-3.jpg";
@@ -31,7 +31,7 @@ function SpotlightOfferSection() {
   return (
     <section className="grid grid-col-1 lg:grid-cols-3 justify-items-center gap-8 my-8 px-5">
       {banners.map((banner, index) => (
-        <SpotlightBanner key={index} banner={banner} />
+        <SpotlightOfferBanner key={index} banner={banner} />
       ))}
     </section>
   );
