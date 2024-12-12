@@ -1,26 +1,26 @@
 import { useState, useEffect } from "react";
-import banner1 from "../assets/hero-banner-1.jpg";
-import banner2 from "../assets/hero-banner-2.jpg";
-import banner3 from "../assets/hero-banner-3.jpg";
+import image1 from "../assets/hero-image-1.jpg";
+import image2 from "../assets/hero-image-2.jpg";
+import image3 from "../assets/hero-image-3.jpg";
 import NavigationDotsWrapper from "./NavigationDotsWrapper";
 import HeroSlide from "./HeroSlide";
 
 const slides = [
   {
     id: 1,
-    image: banner1,
+    image: image1,
     subHeading: "Sweater Collection",
     heading: "Online Exclusive",
   },
   {
     id: 2,
-    image: banner2,
+    image: image2,
     subHeading: "Look Exclusive",
     heading: "High-Top Design",
   },
   {
     id: 3,
-    image: banner3,
+    image: image3,
     subHeading: "Season Collection",
     heading: "Super Comfort",
   },
