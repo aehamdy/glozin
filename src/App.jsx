@@ -5,6 +5,7 @@ import { useState } from "react";
 import HeroSection from "./components/HeroSection";
 import SpotlightOfferSection from "./components/SpotlightOfferSection";
 import HorizontalScrollingText from "./components/HorizontalScrollingText";
+import SectionHeader from "./components/SectionHeader";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -19,6 +20,10 @@ function App() {
       <HorizontalScrollingText />
       <HeroSection />
       <SpotlightOfferSection />
+      <SectionHeader
+        title="Top Collections"
+        subtitle="Express your style with our standout collection—fashion meets sophistication."
+      />
     </>
   );
 }
