@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      spacing: {
+        heroHeightSmall: 'calc(100dvh - 170px)',
+        heroHeightMedium: 'calc(100dvh - 170px)',
+      },
       colors: {
         'muted-blue': '#607890',
         'overlay': '#00000098',
@@ -53,6 +57,14 @@ export default {
         short: "250ms",
         medium: "500ms",
         long: "700ms",
+      },
+      keyframes: {
+        'horizontal-text-move': {
+          to: {transform: 'translateX(-33.33%)'}
+        }
+      },
+      animation: {
+        'horizontal-move': 'horizontal-text-move 20s linear infinite',
       }
     },
   },

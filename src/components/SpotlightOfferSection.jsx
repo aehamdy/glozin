@@ -29,7 +29,7 @@ const banners = [
 
 function SpotlightOfferSection() {
   return (
-    <section className="grid grid-col-1 lg:grid-cols-3 justify-items-center gap-8 my-8 px-5">
+    <section className="grid grid-col-1 md:grid-cols-3 justify-items-center gap-8 my-8 px-5">
       {banners.map((banner, index) => (
         <SpotlightOfferBanner key={index} banner={banner} />
       ))}
