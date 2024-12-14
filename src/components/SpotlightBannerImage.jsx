@@ -2,7 +2,11 @@
 function SpotlightBannerImage({ image }) {
   return (
     <div className="">
-      <img src={image} alt="" className="w-full h-auto" />
+      <img
+        src={image}
+        alt=""
+        className="w-full h-auto group-hover:scale-110 duration-long"
+      />
     </div>
   );
 }

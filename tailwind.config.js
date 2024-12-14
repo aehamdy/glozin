@@ -52,6 +52,7 @@ export default {
       transitionDuration: {
         short: "250ms",
         medium: "500ms",
+        long: "700ms",
       }
     },
   },
