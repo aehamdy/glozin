@@ -15,7 +15,7 @@ const deals = [
     mainText: "High-Top Design",
   },
 ];
-function DealBanners() {
+function DealBannersSection() {
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 justify-between gap-7 mx-auto">
       {deals.map((deal, index) => (
@@ -40,4 +40,4 @@ function DealBanners() {
     </section>
   );
 }
-export default DealBanners;
+export default DealBannersSection;

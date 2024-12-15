@@ -27,7 +27,7 @@ const banners = [
   },
 ];
 
-function SpotlightOfferSection() {
+function SpotlightOffersSection() {
   return (
     <section className="grid grid-col-1 md:grid-cols-3 justify-items-center gap-4 lg:gap-8 my-8 lg:px-5">
       {banners.map((banner, index) => (
@@ -36,4 +36,4 @@ function SpotlightOfferSection() {
     </section>
   );
 }
-export default SpotlightOfferSection;
+export default SpotlightOffersSection;

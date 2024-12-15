@@ -2,11 +2,11 @@ import "./App.css";
 import Header from "./components/Header";
 import CartDrawer from "./components/CartDrawer";
 import { useState } from "react";
-import HeroSection from "./components/HeroSection";
-import SpotlightOfferSection from "./components/SpotlightOfferSection";
 import HorizontalScrollingText from "./components/HorizontalScrollingText";
+import HeroSection from "./components/HeroSection";
 import SectionHeader from "./components/SectionHeader";
-import DealBanners from "./components/DealBanners";
+import SpotlightOffersSection from "./components/SpotlightOffersSection";
+import DealBannersSection from "./components/DealBannersSection";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -20,12 +20,12 @@ function App() {
       <CartDrawer isCartOpen={isCartOpen} handleCloseCart={handleCloseCart} />
       <HorizontalScrollingText />
       <HeroSection />
-      <SpotlightOfferSection />
+      <SpotlightOffersSection />
       <SectionHeader
         title="Top Collections"
         subtitle="Express your style with our standout collection—fashion meets sophistication."
       />
-      <DealBanners />
+      <DealBannersSection />
       <SectionHeader
         title="Customer Say!"
         subtitle="Customers love our products and we always strive to please them all."
