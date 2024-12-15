@@ -18,7 +18,7 @@ function HeroSlideContent({ index, slides, currentSlide }) {
       />
       <Button
         value="Shop Collection"
-        className="py-2 px-3 md:py-3 md:px-6 font-semibold text-primary-dark hover:text-primary-light bg-primary-light hover:bg-secondary-dark rounded-medium duration-medium"
+        className="w-fit mt-4 lg:mt-6 py-3 md:py-3 lg:py-4 px-6 md:px-6 lg:px-9 font-semibold text-[15px] text-primary-dark hover:text-primary-light bg-primary-light hover:bg-secondary-dark rounded-medium duration-medium"
       />
     </div>
   );

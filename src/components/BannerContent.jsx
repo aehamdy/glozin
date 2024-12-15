@@ -4,16 +4,16 @@ import BannerSubText from "./BannerSubText";
 import BannerText from "./BannerText";
 import Button from "./Button";
 
-function BannerContent({ content }) {
+function BannerContent({ content, mainTextStyle, subTextStyle }) {
   if (!content) {
     return null;
   }
 
   return (
-    <div className="absolute top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col justify-center items-center gap-5 w-1/2 md:w-4/5 lg:w-4/6">
+    <div className="absolute top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col justify-center items-center gap-5 w-full md:w-5/6 lg:w-4/6">
       <div className="flex flex-col gap-2">
-        <BannerSubText subText={content.subText} />
-        <BannerMainText mainText={content.mainText} />
+        <BannerSubText subText={content.subText} className={subTextStyle} />
+        <BannerMainText mainText={content.mainText} className={mainTextStyle} />
       </div>
 
       {content.text && <BannerText text={content.text} />}

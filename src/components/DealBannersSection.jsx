@@ -28,7 +28,10 @@ function DealBannersSection() {
           className="relative flex flex-col rounded-xl overflow-hidden cursor-pointer"
         >
           <BannerImage image={deal.image} />
-          <BannerContent content={deal} />
+          <BannerContent
+            content={deal}
+            mainTextStyle="text-3xl md:text-3xl lg:text-2xl"
+          />
         </div>
       ))}
     </section>
