@@ -4,6 +4,7 @@ import testimonial2 from "../assets/testimonial-2.mp4";
 import testimonial2boughtItem from "../assets/testimonial-2-bought-item.jpg";
 import testimonial3 from "../assets/testimonial-3.webp";
 import testimonial3boughtItem from "../assets/testimonial-3-bought-item.webp";
+import TestimonialCard from "./TestimonialCard";
 
 const testimonials = [
   {
@@ -37,7 +38,11 @@ const testimonials = [
 
 function TestimonialsSection() {
   return (
-    <section className="flex justify-between items-center gap-5"></section>
+    <section className="flex justify-between items-center gap-5">
+      {testimonials.map((testimonial, index) => (
+        <TestimonialCard key={index} testimonial={testimonial} />
+      ))}
+    </section>
   );
 }
 export default TestimonialsSection;
