@@ -5,7 +5,7 @@ function SpotlightBannerImage({ image }) {
       <img
         src={image}
         alt=""
-        className="w-full h-auto group-hover:scale-110 duration-long"
+        className="w-full group-hover:scale-110 z-[-1] duration-long"
       />
     </div>
   );
