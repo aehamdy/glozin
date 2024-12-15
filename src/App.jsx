@@ -7,6 +7,7 @@ import HeroSection from "./components/HeroSection";
 import SectionHeader from "./components/SectionHeader";
 import SpotlightOffersSection from "./components/SpotlightOffersSection";
 import DealBannersSection from "./components/DealBannersSection";
+import TestimonialsSection from "./components/TestimonialsSection";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -30,6 +31,7 @@ function App() {
         title="Customer Say!"
         subtitle="Customers love our products and we always strive to please them all."
       />
+      <TestimonialsSection />
     </>
   );
 }

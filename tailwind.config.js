@@ -38,6 +38,7 @@ export default {
         content: {
           dark: '#111',
           'medium-dark': '#444',
+          'light-dark': '#666',
         },
         badge: {
           notification: '#d0473d',

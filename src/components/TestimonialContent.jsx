@@ -6,10 +6,10 @@ import TestimonialVerification from "./TestimonialVerification";
 
 function TestimonialContent({ testimonialContent }) {
   return (
-    <div className="flex flex-col">
-      <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-2">
         <TestimonialRate rate={testimonialContent.rate} />
-        <div className="flex justify-between items-center gap-3">
+        <div className="flex items-center gap-3">
           <TestimonialCustomerName name={testimonialContent.customerName} />
           <TestimonialVerification />
         </div>

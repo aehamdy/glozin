@@ -6,7 +6,7 @@ function TestimonialCard({ testimonial }) {
   return (
     <article className="flex">
       <TestimonialImage image={testimonial.image} />
-      <TestimonialContent content={testimonial} />
+      <TestimonialContent testimonialContent={testimonial} />
     </article>
   );
 }
