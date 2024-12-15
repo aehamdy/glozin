@@ -27,8 +27,8 @@ function App() {
       />
       <DealBanners />
       <SectionHeader
-        title="Best Selling"
-        subtitle="Unmatched design—superior performance and customer satisfaction in one."
+        title="Customer Say!"
+        subtitle="Customers love our products and we always strive to please them all."
       />
     </>
   );

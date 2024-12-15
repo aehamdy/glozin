@@ -25,11 +25,13 @@ function DealBanners() {
         >
           <img src={deal.image} alt="" className="w-full" />
           <div className="absolute flex flex-col gap-2 lg:gap-3 top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2 text-primary-light">
-            <p className="font-medium lg:text-sm">{deal.text}</p>
-            <h2 className="font-semibold text-[1.85rem] lg:text-4xl tracking-tight">
+            <p className="font-medium text-[13px] md:text-base lg:text-sm">
+              {deal.text}
+            </p>
+            <h2 className="font-semibold text-[1.62rem] md:text-[1.55rem] lg:text-4xl tracking-tight">
               {deal.mainText}
             </h2>
-            <button className="w-fit mt-4 lg:mt-6 mx-auto py-3 md:py-4 lg:py-4 px-6 md:px-8 lg:px-14 font-semibold text-[15px] text-primary-dark hover:text-primary-light bg-primary-light hover:bg-secondary-dark rounded-medium duration-medium">
+            <button className="w-fit mt-4 lg:mt-6 mx-auto py-3 md:py-3 lg:py-4 px-6 md:px-6 lg:px-14 font-semibold text-[15px] text-primary-dark hover:text-primary-light bg-primary-light hover:bg-secondary-dark rounded-medium duration-medium">
               Shop Save
             </button>
           </div>
