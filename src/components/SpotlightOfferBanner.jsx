@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import BannerContent from "./BannerContent";
-import SpotlightBannerImage from "./SpotlightBannerImage";
+import BannerImage from "./BannerImage";
 
 function SpotlightOfferBanner({ banner }) {
   return (
     <article className="group relative flex flex-col text-primary-light rounded-small overflow-hidden cursor-pointer">
-      <SpotlightBannerImage image={banner.image} />
-      <BannerContent banner={banner} />
+      <BannerImage image={banner.image} />
+      <BannerContent content={banner} />
     </article>
   );
 }

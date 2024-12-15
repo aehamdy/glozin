@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import HeroSlideButton from "./HeroSlideButton";
+import Button from "./Button";
 import HeroSlideHeading from "./HeroSlideHeading";
 import HeroSlideSubheading from "./HeroSlideSubheading";
 
@@ -16,7 +16,10 @@ function HeroSlideContent({ index, slides, currentSlide }) {
         slides={slides}
         currentSlide={currentSlide}
       />
-      <HeroSlideButton />
+      <Button
+        value="Shop Collection"
+        className="py-2 px-3 md:py-3 md:px-6 font-semibold text-primary-dark hover:text-primary-light bg-primary-light hover:bg-secondary-dark rounded-medium duration-medium"
+      />
     </div>
   );
 }

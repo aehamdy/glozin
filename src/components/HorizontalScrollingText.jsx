@@ -11,7 +11,7 @@ function HorizontalScrollingText() {
           .fill(scrollingTexts)
           .flat()
           .map((text, index, allTexts) => (
-            <>
+            <div key={index}>
               <p
                 key={index}
                 className="py-1 px-3"
@@ -30,7 +30,7 @@ function HorizontalScrollingText() {
                   d="M0 6c3 0 6-3 6-6 0 3 3 6 6 6-3 0-6 3-6 6 0-3-3-6-6-6Z"
                 ></path>
               </svg>
-            </>
+            </div>
           ))}
       </div>
     </div>

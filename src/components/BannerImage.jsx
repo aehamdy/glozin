@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function SpotlightBannerImage({ image }) {
+function BannerImage({ image }) {
   return (
     <div className="">
       <img
@@ -10,4 +10,4 @@ function SpotlightBannerImage({ image }) {
     </div>
   );
 }
-export default SpotlightBannerImage;
+export default BannerImage;
