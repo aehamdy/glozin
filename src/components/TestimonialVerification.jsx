@@ -1,10 +1,10 @@
-import { FiCheck } from "react-icons/fi";
+import Icon from "./Icon";
 
 function TestimonialVerification() {
   return (
     <div className="flex justify-between items-center gap-3 text-content-medium-dark">
       <span>
-        <FiCheck />
+        <Icon name="check" />
       </span>
       Verified Buyer
     </div>
