@@ -7,7 +7,7 @@ import TestimonialVerification from "./TestimonialVerification";
 
 function TestimonialContent({ testimonialContent }) {
   return (
-    <div className="flex flex-col justify-between py-6 px-7">
+    <div className="flex flex-col py-6 px-7">
       <div className="flex flex-col gap-2">
         <TestimonialRate rate={testimonialContent.rate} />
         <div className="flex items-center gap-3">
