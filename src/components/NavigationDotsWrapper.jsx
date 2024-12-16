@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import NavigationDot from "./NavigationDot";
 
-/* eslint-disable react/prop-types */
 function NavigationDotsWrapper({
   variant,
   goToSlide,

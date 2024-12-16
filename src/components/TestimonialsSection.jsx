@@ -61,14 +61,16 @@ function TestimonialsSection() {
   };
 
   return (
-    <section className="relative flex justify-between items-center gap-3 mb-7 pb-8 overflow-hidden">
-      {testimonials.map((testimonial, index) => (
-        <TestimonialCard
-          key={index}
-          testimonial={testimonial}
-          currentTestimonial={currentTestimonial}
-        />
-      ))}
+    <section className="relative flex flex-col gap-3 w-full mb-7 pb-8 overflow-x-auto snap-x snap-mandatory">
+      <div className="flex gap-3 w-[98%]">
+        {testimonials.map((testimonial, index) => (
+          <TestimonialCard
+            key={index}
+            testimonial={testimonial}
+            currentTestimonial={currentTestimonial}
+          />
+        ))}
+      </div>
       <NavigationDotsWrapper
         variant="testimonialsSection"
         slidesLength={testimonials.length}
