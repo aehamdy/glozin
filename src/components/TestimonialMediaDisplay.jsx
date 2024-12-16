@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 function TestimonialMediaDisplay({ image, video }) {
   return (
-    <div className="relative w-full">
+    <div className="hidden md:block relative w-full">
       {video ? (
         <video
           autoPlay

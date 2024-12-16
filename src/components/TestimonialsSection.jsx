@@ -1,7 +1,7 @@
 import testimonial1 from "../assets/testimonial-1.jpg";
 import testimonial1boughtItem from "../assets/testimonial-1-bought-item.jpg";
-import testimonial2 from "../assets/testimonial-2.mp4";
-import testimonial2boughtItem from "../assets/testimonial-2-bought-item.jpg";
+// import testimonial2 from "../assets/testimonial-2.mp4";
+// import testimonial2boughtItem from "../assets/testimonial-2-bought-item.jpg";
 // import testimonial3 from "../assets/testimonial-3.webp";
 // import testimonial3boughtItem from "../assets/testimonial-3-bought-item.webp";
 import TestimonialCard from "./TestimonialCard";
@@ -21,20 +21,20 @@ const testimonials = [
       price: "68.00",
     },
   },
-  {
-    rate: 5,
-    image: "",
-    video: testimonial2,
-    customerName: "Cameron Smith.",
-    feedback:
-      "A perfect product, it keeps you very warm without over heating. True to size, I couldn't be happier with the purchase... Thank you! 🤗",
-    boughtItem: {
-      image: testimonial2boughtItem,
-      hoverImage: "",
-      name: "Balloon Sleeve Blouse - Square Neck",
-      price: "300.00",
-    },
-  },
+  // {
+  //   rate: 5,
+  //   image: "",
+  //   video: testimonial2,
+  //   customerName: "Cameron Smith.",
+  //   feedback:
+  //     "A perfect product, it keeps you very warm without over heating. True to size, I couldn't be happier with the purchase... Thank you! 🤗",
+  //   boughtItem: {
+  //     image: testimonial2boughtItem,
+  //     hoverImage: "",
+  //     name: "Balloon Sleeve Blouse - Square Neck",
+  //     price: "300.00",
+  //   },
+  // },
   // {
   //   rate: 5,
   //   image: testimonial3,
