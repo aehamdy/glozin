@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import TestimonialBoughtItem from "./TestimonialBoughtItem";
 import TestimonialCustomerName from "./TestimonialCustomerName";
 import TestimonialFeedback from "./TestimonialFeedback";
 import TestimonialRate from "./TestimonialRate";
@@ -15,6 +16,7 @@ function TestimonialContent({ testimonialContent }) {
         </div>
       </div>
       <TestimonialFeedback feedback={testimonialContent.feedback} />
+      <TestimonialBoughtItem item={testimonialContent.boughtItem} />
     </div>
   );
 }

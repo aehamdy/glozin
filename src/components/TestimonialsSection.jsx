@@ -2,8 +2,8 @@ import testimonial1 from "../assets/testimonial-1.jpg";
 import testimonial1boughtItem from "../assets/testimonial-1-bought-item.jpg";
 import testimonial2 from "../assets/testimonial-2.mp4";
 import testimonial2boughtItem from "../assets/testimonial-2-bought-item.jpg";
-import testimonial3 from "../assets/testimonial-3.webp";
-import testimonial3boughtItem from "../assets/testimonial-3-bought-item.webp";
+// import testimonial3 from "../assets/testimonial-3.webp";
+// import testimonial3boughtItem from "../assets/testimonial-3-bought-item.webp";
 import TestimonialCard from "./TestimonialCard";
 
 const testimonials = [
@@ -17,7 +17,7 @@ const testimonials = [
     boughtItem: {
       image: testimonial1boughtItem,
       hoverImage: "",
-      item: "Basic Bright Green Rib Extreme Crop",
+      name: "Basic Bright Green Rib Extreme Crop",
       price: "68.00",
     },
   },
@@ -31,7 +31,7 @@ const testimonials = [
     boughtItem: {
       image: testimonial2boughtItem,
       hoverImage: "",
-      item: "Balloon Sleeve Blouse - Square Neck",
+      name: "Balloon Sleeve Blouse - Square Neck",
       price: "300.00",
     },
   },
@@ -45,7 +45,7 @@ const testimonials = [
   //   boughtItem: {
   //     image: testimonial3boughtItem,
   //     hoverImage: "",
-  //     item: "Slim Fit Basic Unpatterned T-shirt",
+  //     name: "Slim Fit Basic Unpatterned T-shirt",
   //     price: "75.00",
   //   },
   // },
