@@ -15,6 +15,7 @@ function TestimonialContent({ testimonialContent }) {
         </div>
       </div>
       <TestimonialFeedback feedback={testimonialContent.feedback} />
+      <TestimonialFeedback feedback={testimonialContent.feedback} />
     </div>
   );
 }
