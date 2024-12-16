@@ -79,6 +79,7 @@ function HeroSection() {
     >
       <HeroSlide slides={slides} currentSlide={currentSlide} />
       <NavigationDotsWrapper
+        variant="heroSection"
         goToSlide={goToSlide}
         slidesLength={slides.length}
         currentSlide={currentSlide}
