@@ -71,12 +71,14 @@ function TestimonialsSection() {
           />
         ))}
       </div>
-      <NavigationDotsWrapper
-        variant="testimonialsSection"
-        slidesLength={testimonials.length}
-        currentSlide={currentTestimonial}
-        goToSlide={goToSlide}
-      />
+      <div className="absolute bottom-0 start-1/2 -translate-x-1/2">
+        {/* <NavigationDotsWrapper
+          variant="testimonialsSection"
+          slidesLength={testimonials.length}
+          currentSlide={currentTestimonial}
+          goToSlide={goToSlide}
+        /> */}
+      </div>
     </section>
   );
 }

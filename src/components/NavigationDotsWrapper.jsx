@@ -9,9 +9,9 @@ function NavigationDotsWrapper({
 }) {
   return (
     <div
-      className={`${
+      className={`flex ${
         variant === "testimonialsSection" && "block md:hidden"
-      } absolute flex ${
+      } ${
         variant === "heroSection" ? "gap-3" : "gap-1"
       } w-fit bottom-3 start-1/2 -translate-x-1/2 py-1 px-2 ${
         variant === "heroSection" && "rounded-small backdrop-blur-sm"

@@ -6,7 +6,7 @@ function TestimonialBoughtItem({ item }) {
         <img src={item.image} alt="" className="" />
       </div>
       <div className="flex flex-col items-start gap-1 font-semibold text-secondary-dark">
-        <span className="text-xs md:text-sm hover:text-primary-red duration-short cursor-pointer">
+        <span className="text-sm hover:text-primary-red duration-short cursor-pointer">
           {item.name}
         </span>
         <span className="text-sm md:text-base">${item.price}</span>
