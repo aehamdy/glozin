@@ -2,13 +2,7 @@
 function TestimonialMediaDisplay({ image, video }) {
   return (
     <div className="relative w-full">
-      {image ? (
-        <img
-          src={image}
-          alt="customer image"
-          className="absolute top-0 start-0 w-full max-w-full h-full object-cover"
-        />
-      ) : (
+      {video ? (
         <video
           autoPlay
           loop
@@ -17,6 +11,12 @@ function TestimonialMediaDisplay({ image, video }) {
         >
           <source src={video} type="video/mp4" />
         </video>
+      ) : (
+        <img
+          src={image}
+          alt="customer image"
+          className="absolute top-0 start-0 w-full max-w-full h-full object-cover"
+        />
       )}
     </div>
   );

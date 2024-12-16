@@ -14,7 +14,12 @@ const testimonials = [
     customerName: "Carie-Gosée H.",
     feedback:
       "These are sooo pretty and very comfy. Perfect color as well. I love wearing these with a neutral top and Chelsea boots. Wicked cute...😍",
-    boughtItem: testimonial1boughtItem,
+    boughtItem: {
+      image: testimonial1boughtItem,
+      hoverImage: "",
+      item: "Basic Bright Green Rib Extreme Crop",
+      price: "68.00",
+    },
   },
   {
     rate: 5,
@@ -23,22 +28,32 @@ const testimonials = [
     customerName: "Cameron Smith.",
     feedback:
       "A perfect product, it keeps you very warm without over heating. True to size, I couldn't be happier with the purchase... Thank you! 🤗",
-    boughtItem: testimonial2boughtItem,
+    boughtItem: {
+      image: testimonial2boughtItem,
+      hoverImage: "",
+      item: "Balloon Sleeve Blouse - Square Neck",
+      price: "300.00",
+    },
   },
-  {
-    rate: 5,
-    image: testimonial3,
-    video: "",
-    customerName: "Algistino Lionel.",
-    feedback:
-      "A fantastic purchase! The product provides just the right amount of warmth without causing overheating. Highly recommend! 😊",
-    boughtItem: testimonial3boughtItem,
-  },
+  // {
+  //   rate: 5,
+  //   image: testimonial3,
+  //   video: "",
+  //   customerName: "Algistino Lionel.",
+  //   feedback:
+  //     "A fantastic purchase! The product provides just the right amount of warmth without causing overheating. Highly recommend! 😊",
+  //   boughtItem: {
+  //     image: testimonial3boughtItem,
+  //     hoverImage: "",
+  //     item: "Slim Fit Basic Unpatterned T-shirt",
+  //     price: "75.00",
+  //   },
+  // },
 ];
 
 function TestimonialsSection() {
   return (
-    <section className="flex justify-between items-center gap-5">
+    <section className="flex justify-between items-center gap-5 mb-7 overflow-hidden">
       {testimonials.map((testimonial, index) => (
         <TestimonialCard key={index} testimonial={testimonial} />
       ))}
