@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 function ShopByGramCard({ media }) {
   return (
-    <div className="relative w-1/2 md:w-2/6 lg:w-[200px] h-[200px] rounded-xl overflow-hidden snap-start flex-shrink-0">
+    <article className="relative w-1/2 md:w-2/6 lg:w-[200px] h-[200px] rounded-xl overflow-hidden snap-start flex-shrink-0">
       {media.image ? (
         <img
           src={media.image}
@@ -18,7 +18,7 @@ function ShopByGramCard({ media }) {
           <source src={media.video} type="video/mp4" />
         </video>
       )}
-    </div>
+    </article>
   );
 }
 export default ShopByGramCard;
