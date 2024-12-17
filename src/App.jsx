@@ -9,6 +9,7 @@ import SpotlightOffersSection from "./components/SpotlightOffersSection";
 import DealBannersSection from "./components/DealBannersSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import ShopByGramSection from "./components/ShopByGramSection";
+import FeaturesSection from "./components/FeaturesSection";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -38,6 +39,7 @@ function App() {
         subtitle="Inspire and let yourself be inspired, from one unique fashion to another."
       />
       <ShopByGramSection />
+      <FeaturesSection />
     </>
   );
 }

@@ -1,11 +1,13 @@
+import FeatureCard from "./FeatureCard";
+
 const features = [
   {
-    icon: "box",
+    icon: "shipping",
     title: "Free Shipping",
     text: "Enjoy free worldwide shipping and returns, with customs and duties taxes included.",
   },
   {
-    icon: "free returns",
+    icon: "returns",
     title: "Free Returns",
     text: "Free returns within 15 days, please make sure the items are in undamaged condition.",
   },
@@ -17,6 +19,12 @@ const features = [
 ];
 
 function FeaturesSection() {
-  return <section>FeaturesSection</section>;
+  return (
+    <section className="flex flex-col sm:flex-row justify-between items-center gap-5 md:gap-0 my-10">
+      {features.map((feature, index) => (
+        <FeatureCard key={index} feature={feature} />
+      ))}
+    </section>
+  );
 }
 export default FeaturesSection;
