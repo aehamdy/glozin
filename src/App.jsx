@@ -10,6 +10,7 @@ import DealBannersSection from "./components/DealBannersSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import ShopByGramSection from "./components/ShopByGramSection";
 import FeaturesSection from "./components/FeaturesSection";
+import FooterBottomBar from "./components/FooterBottomBar";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -40,6 +41,7 @@ function App() {
       />
       <ShopByGramSection />
       <FeaturesSection />
+      <FooterBottomBar />
     </>
   );
 }
