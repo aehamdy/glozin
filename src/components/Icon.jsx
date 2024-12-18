@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import { FaPinterestP, FaTiktok, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa6";
 import { FiCheck, FiHeart, FiSearch, FiShoppingBag } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 import { PiUser } from "react-icons/pi";
@@ -17,6 +19,11 @@ const iconMap = {
   leftArrow: RiArrowLeftSLine,
   star: TiStarFullOutline,
   check: FiCheck,
+  facebook: FaFacebookF,
+  instagram: FaInstagram,
+  tiktok: FaTiktok,
+  youtube: FaYoutube,
+  pinterest: FaPinterestP,
 };
 
 function Icon({ name, size = 21, className = "", onClickFunction }) {
