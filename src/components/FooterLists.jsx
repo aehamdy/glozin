@@ -30,7 +30,7 @@ function FooterLists() {
           {list.items.map((item, index) => (
             <li
               key={index}
-              className="text-secondary-light hover:text-primary-light duration-short"
+              className="text-secondary-light hover:text-primary-light hover:ps-3 duration-short"
             >
               <a href="#">{item.title}</a>
             </li>

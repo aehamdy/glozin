@@ -23,7 +23,8 @@ export default {
         },
         secondary: {
           dark: '#111',
-          light: '#ebebeb',
+          // light: '#ebebeb',
+          light: '#c0c0c0',
           'red': '#d0473e',
         },
         button: {
