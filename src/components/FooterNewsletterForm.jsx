@@ -1,4 +1,4 @@
-function FooterNewsletter() {
+function FooterNewsletterForm() {
   return (
     <form action="#">
       <div className="flex flex-wrap justify-evenly items-center gap-4">
@@ -19,4 +19,4 @@ function FooterNewsletter() {
     </form>
   );
 }
-export default FooterNewsletter;
+export default FooterNewsletterForm;

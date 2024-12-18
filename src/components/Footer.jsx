@@ -1,7 +1,7 @@
 import FooterHeading from "./FooterHeading";
 import FooterInfoSection from "./FooterInfoSection";
 import FooterLists from "./FooterLists";
-import FooterNewsletter from "./FooterNewsletter";
+import FooterNewsletterForm from "./FooterNewsletterForm";
 import SocialIcons from "./SocialIcons";
 
 function Footer() {
@@ -12,7 +12,7 @@ function Footer() {
         <SocialIcons />
       </div>
       <FooterLists />
-      <div className="flex flex-col justify-between items-center gap-10">
+      <div className="flex flex-col justify-between items-start gap-10">
         <FooterHeading title="Sign Up to Newsletter" />
 
         <p className="w-10/12 text-start">
@@ -20,7 +20,7 @@ function Footer() {
           information on Sales and Offers.
         </p>
 
-        <FooterNewsletter />
+        <FooterNewsletterForm />
 
         <p className="w-11/12 text-start">
           *By entering the e-mail you accept the{" "}
