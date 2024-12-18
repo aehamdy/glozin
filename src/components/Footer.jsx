@@ -1,4 +1,5 @@
 import FooterInfoSection from "./FooterInfoSection";
+import FooterLists from "./FooterLists";
 import SocialIcons from "./SocialIcons";
 
 function Footer() {
@@ -8,6 +9,7 @@ function Footer() {
         <FooterInfoSection />
         <SocialIcons />
       </div>
+      <FooterLists />
     </footer>
   );
 }
