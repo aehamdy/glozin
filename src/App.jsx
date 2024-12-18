@@ -11,6 +11,7 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import ShopByGramSection from "./components/ShopByGramSection";
 import FeaturesSection from "./components/FeaturesSection";
 import FooterBottomBar from "./components/FooterBottomBar";
+import Footer from "./components/Footer";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -41,6 +42,7 @@ function App() {
       />
       <ShopByGramSection />
       <FeaturesSection />
+      <Footer />
       <FooterBottomBar />
     </>
   );
