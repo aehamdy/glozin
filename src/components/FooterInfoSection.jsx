@@ -1,8 +1,10 @@
+import FooterHeading from "./FooterHeading";
+
 function FooterInfoSection() {
   return (
     <>
       <div className="flex flex-col items-start gap-10">
-        <h3 className="font-semibold text-primary-light">Help Customers</h3>
+        <FooterHeading title="Help Customers" />
         <p className="w-4/5 text-start">
           Find a location nearest you to reduce shipping costs and make shopping
           easier.
