@@ -5,7 +5,7 @@ function FooterInfoSection() {
     <>
       <div className="flex flex-col items-start gap-10">
         <FooterHeading title="Help Customers" />
-        <p className="w-4/5 text-start">
+        <p className="text-start">
           Find a location nearest you to reduce shipping costs and make shopping
           easier.
         </p>
