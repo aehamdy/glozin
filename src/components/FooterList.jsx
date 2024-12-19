@@ -4,9 +4,9 @@ import FooterListItem from "./FooterListItem";
 
 function FooterList({ list }) {
   return (
-    <div className="flex flex-col gap-5 w-fit">
+    <div className="flex flex-col gap-3 lg:gap-8 md:w-fit">
       <FooterHeading title={list.heading} />
-      <ul className="flex flex-col items-center gap-5">
+      <ul className="flex flex-col items-center gap-4 lg:gap-5">
         {list.items.map((item, index) => (
           <FooterListItem key={index} item={item} />
         ))}

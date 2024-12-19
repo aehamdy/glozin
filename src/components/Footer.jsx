@@ -26,7 +26,7 @@ const lists = [
 
 function Footer() {
   return (
-    <footer className="grid grid-cols-2 lg:grid-cols-4 py-10 lg:py-16 px-6 h-[70dvh] text-secondary-light bg-green-700 lg:bg-secondary-dark rounded-small">
+    <footer className="grid grid-cols-2 lg:grid-cols-4 gap-7 lg:gap-0 py-10 lg:py-16 px-6 h-[90dvh] lg:h-[70dvh] text-secondary-light md:bg-secondary-dark rounded-small">
       <div className="flex flex-col gap-5 lg:gap-10 ">
         <FooterInfoSection />
         <SocialIcons />

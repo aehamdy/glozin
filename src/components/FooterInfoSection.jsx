@@ -3,7 +3,7 @@ import FooterHeading from "./FooterHeading";
 function FooterInfoSection() {
   return (
     <>
-      <div className="flex flex-col items-start gap-4 lg:gap-10">
+      <div className="flex flex-col items-start gap-4 lg:gap-8">
         <FooterHeading title="Help Customers" />
         <p className="text-start">
           Find a location nearest you to reduce shipping costs and make shopping
