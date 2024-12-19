@@ -2,7 +2,6 @@ import dealBanner1 from "../assets/deal-banner-1.webp";
 import dealBanner2 from "../assets/deal-banner-2.webp";
 import BannerContent from "./BannerContent";
 import BannerImage from "./BannerImage";
-import SectionHeader from "./SectionHeader";
 
 const deals = [
   {
@@ -23,10 +22,6 @@ const deals = [
 function DealBannersSection() {
   return (
     <section className="mb-vertical-spacing mx-horizontal-spacing">
-      <SectionHeader
-        title="Top Collections"
-        subtitle="Express your style with our standout collection—fashion meets sophistication."
-      />
       <div className="grid gridcols-1 md:grid-cols-2 justify-between gap-7">
         {deals.map((deal, index) => (
           <div

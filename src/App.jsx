@@ -11,6 +11,7 @@ import ShopByGramSection from "./components/ShopByGramSection";
 import FeaturesSection from "./components/FeaturesSection";
 import FooterBottomBar from "./components/FooterBottomBar";
 import Footer from "./components/Footer";
+import TopCollectionsSection from "./components/TopCollectionsSection";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -25,6 +26,7 @@ function App() {
       <HorizontalScrollingText />
       <HeroSection />
       <SpotlightOffersSection />
+      <TopCollectionsSection />
       <DealBannersSection />
       <TestimonialsSection />
       <ShopByGramSection />
