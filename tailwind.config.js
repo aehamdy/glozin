@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       spacing: {
+        'vertical-spacing': '90px',
         heroHeightSmall: 'calc(100dvh - 170px)',
         heroHeightMedium: 'calc(100dvh - 170px)',
       },

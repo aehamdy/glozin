@@ -17,7 +17,7 @@ const mediaData = [
 
 function ShopByGramSection() {
   return (
-    <section className="flex w-full my-8 overflow-x-auto snap-x snap-mandatory">
+    <section className="flex w-full mb-vertical-spacing overflow-x-auto snap-x snap-mandatory">
       <div className="flex justify-evenly items-center gap-2 w-full">
         {mediaData.map((media, index) => (
           <ShopByGramCard key={index} media={media} />

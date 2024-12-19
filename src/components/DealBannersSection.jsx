@@ -21,7 +21,7 @@ const deals = [
 ];
 function DealBannersSection() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 justify-between gap-7 mx-auto">
+    <section className="grid grid-cols-1 md:grid-cols-2 justify-between gap-7 mb-vertical-spacing mx-auto">
       {deals.map((deal, index) => (
         <div
           key={index}

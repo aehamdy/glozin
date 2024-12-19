@@ -61,7 +61,7 @@ function TestimonialsSection() {
   };
 
   return (
-    <section className="relative flex flex-col gap-3 w-full mb-7 pb-8 overflow-x-auto snap-x snap-mandatory">
+    <section className="relative flex flex-col gap-3 w-full mb-vertical-spacing pb-8 overflow-x-auto snap-x snap-mandatory">
       <div className="flex gap-3 w-[98%]">
         {testimonials.map((testimonial, index) => (
           <TestimonialCard
