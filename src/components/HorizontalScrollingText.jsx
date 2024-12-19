@@ -6,7 +6,7 @@ const scrollingTexts = [
 function HorizontalScrollingText() {
   return (
     <div className="mx-horizontal-spacing py-5 overflow-clip">
-      <div className="h-[22px] flex items-center gap-3 ps-4 uppercase font-semibold text-[13px] text-content-medium-dark overflow-clip w-max animate-horizontal-move">
+      <div className="scrolling-text h-[22px] flex items-center gap-3 ps-4 uppercase font-semibold text-[13px] text-content-medium-dark overflow-clip w-max animate-horizontal-move">
         {Array(3)
           .fill(scrollingTexts)
           .flat()
