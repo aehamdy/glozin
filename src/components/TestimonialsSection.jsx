@@ -5,8 +5,6 @@ import testimonial2boughtItem from "../assets/testimonial-2-bought-item.jpg";
 import testimonial3 from "../assets/testimonial-3.webp";
 import testimonial3boughtItem from "../assets/testimonial-3-bought-item.webp";
 import TestimonialCard from "./TestimonialCard";
-import NavigationDotsWrapper from "./NavigationDotsWrapper";
-import { useState } from "react";
 import SectionHeader from "./SectionHeader";
 
 const testimonials = [
@@ -55,12 +53,6 @@ const testimonials = [
 ];
 
 function TestimonialsSection() {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  const goToSlide = (index) => {
-    setCurrentTestimonial(index);
-  };
-
   return (
     <section className="relative flex flex-col gap-3 w-full mb-vertical-spacing pb-8 overflow-hidden">
       <SectionHeader
@@ -69,20 +61,8 @@ function TestimonialsSection() {
       />
       <div className="flex gap-3 w-[98%] mx-horizontal-spacing pe-1 overflow-x-auto snap-x snap-mandatory">
         {testimonials.map((testimonial, index) => (
-          <TestimonialCard
-            key={index}
-            testimonial={testimonial}
-            currentTestimonial={currentTestimonial}
-          />
+          <TestimonialCard key={index} testimonial={testimonial} />
         ))}
-      </div>
-      <div className="absolute bottom-0 start-1/2 -translate-x-1/2">
-        {/* <NavigationDotsWrapper
-          variant="testimonialsSection"
-          slidesLength={testimonials.length}
-          currentSlide={currentTestimonial}
-          goToSlide={goToSlide}
-        /> */}
       </div>
     </section>
   );
