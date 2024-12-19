@@ -35,7 +35,7 @@ function Header({ handleOpenCart }) {
 
   return (
     <header
-      className={`flex justify-between items-center ${
+      className={`flex justify-between items-center mx-horizontal-spacing  ${
         barVisibility && "mt-[32px]"
       } py-3 border-b`}
     >

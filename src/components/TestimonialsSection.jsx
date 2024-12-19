@@ -7,6 +7,7 @@ import testimonial3boughtItem from "../assets/testimonial-3-bought-item.webp";
 import TestimonialCard from "./TestimonialCard";
 import NavigationDotsWrapper from "./NavigationDotsWrapper";
 import { useState } from "react";
+import SectionHeader from "./SectionHeader";
 
 const testimonials = [
   {
@@ -61,8 +62,12 @@ function TestimonialsSection() {
   };
 
   return (
-    <section className="relative flex flex-col gap-3 w-full mb-vertical-spacing pb-8 overflow-x-auto snap-x snap-mandatory">
-      <div className="flex gap-3 w-[98%]">
+    <section className="relative flex flex-col gap-3 w-full mb-vertical-spacing pb-8 overflow-hidden">
+      <SectionHeader
+        title="Customer Say!"
+        subtitle="Customers love our products and we always strive to please them all."
+      />
+      <div className="flex gap-3 w-[98%] mx-horizontal-spacing pe-1 overflow-x-auto snap-x snap-mandatory">
         {testimonials.map((testimonial, index) => (
           <TestimonialCard
             key={index}

@@ -4,6 +4,7 @@ import shopGramMedia3 from "../assets/shopbygram-3.webp";
 import shopGramMedia4 from "../assets/shopbygram-4.webp";
 import shopGramMedia5 from "../assets/shopbygram-5.mp4";
 import shopGramMedia6 from "../assets/shopbygram-6.webp";
+import SectionHeader from "./SectionHeader";
 import ShopByGramCard from "./ShopByGramCard";
 
 const mediaData = [
@@ -17,8 +18,12 @@ const mediaData = [
 
 function ShopByGramSection() {
   return (
-    <section className="flex w-full mb-vertical-spacing overflow-x-auto snap-x snap-mandatory">
-      <div className="flex justify-evenly items-center gap-2 w-full">
+    <section className="flex flex-col w-full mb-vertical-spacing overflow-hidden">
+      <SectionHeader
+        title="Shop by Gram"
+        subtitle="Inspire and let yourself be inspired, from one unique fashion to another."
+      />
+      <div className="flex justify-evenly items-center gap-2 w-full mx-horizontal-spacing pe-5 overflow-x-auto snap-x snap-mandatory">
         {mediaData.map((media, index) => (
           <ShopByGramCard key={index} media={media} />
         ))}
