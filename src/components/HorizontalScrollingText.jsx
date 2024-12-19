@@ -11,7 +11,7 @@ function HorizontalScrollingText() {
           .fill(scrollingTexts)
           .flat()
           .map((text, index, allTexts) => (
-            <div key={index}>
+            <div key={index} className="flex justify-center items-center">
               <p
                 key={index}
                 className="py-1 px-3"
@@ -19,7 +19,7 @@ function HorizontalScrollingText() {
               >
                 {text}
               </p>
-              <svg
+              {/* <svg
                 width="12"
                 height="12"
                 fill="none"
@@ -29,7 +29,8 @@ function HorizontalScrollingText() {
                   fill="currentColor"
                   d="M0 6c3 0 6-3 6-6 0 3 3 6 6 6-3 0-6 3-6 6 0-3-3-6-6-6Z"
                 ></path>
-              </svg>
+              </svg> */}
+              <span className="inline-block w-2 h-2 ms-2 bg-transparent bg-content-medium-dark rotate-45"></span>
             </div>
           ))}
       </div>
