@@ -3,6 +3,7 @@ import SectionHeader from "../components/SectionHeader";
 
 import aboutusBanner from "../assets/about-us-banner.webp";
 import StatsWrapper from "../components/StatsWrapper";
+import ValueCardsWrapper from "../components/ValueCardsWrapper";
 
 function AboutUs() {
   return (
@@ -25,6 +26,7 @@ function AboutUs() {
           title="Our Peculiar Things"
           subtitle="Our fashion products are characterized by innovative and on—trend designs. We pride ourselves in pushing the boundaries of conventional fashion, delivering new, bold and captivating styles."
         />
+        <ValueCardsWrapper />
       </div>
     </section>
   );

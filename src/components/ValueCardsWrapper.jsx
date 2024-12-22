@@ -1,6 +1,7 @@
 import valueImage1 from "../assets/about_banner_1.webp";
 import valueImage2 from "../assets/about_banner_2.webp";
 import valueImage3 from "../assets/about_banner_3.webp";
+import ValueCard from "../assets/ValueCard";
 
 const values = [
   {
@@ -24,6 +25,17 @@ const values = [
 ];
 
 function ValueCardsWrapper() {
-  return <div></div>;
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+      {values.map((value, index) => (
+        <ValueCard
+          key={index}
+          image={value.image}
+          heading={value.heading}
+          desc={value.description}
+        />
+      ))}
+    </div>
+  );
 }
 export default ValueCardsWrapper;
