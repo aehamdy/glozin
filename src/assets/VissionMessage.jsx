@@ -1,0 +1,30 @@
+import Icon from "../components/Icon";
+
+function VissionMessage() {
+  return (
+    <div className="py-vertical-spacing text-[#F3FC81] bg-[#253230]">
+      <div className="mx-auto flex flex-col items-center gap-4 w-1/2">
+        <div className="flex">
+          {Array(5)
+            .fill()
+            .map((_, index) => (
+              <Icon key={index} name="star" className="cursor-auto" />
+            ))}
+        </div>
+        <p className="text-lg">
+          <em className="">
+            Glozin will become an example of the responsible business model by
+            doing business with kindness, profit and bringing practical and
+            long—term values to customers, employees, partners, the community
+            for the environment and for shareholders.
+          </em>
+        </p>
+        <div className="space-y-1">
+          <div className="font-semibold">Carie—Gosée Hera</div>
+          <p className="text-sm">CEO and Founder Glozin Store</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+export default VissionMessage;

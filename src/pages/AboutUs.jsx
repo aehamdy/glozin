@@ -4,10 +4,11 @@ import SectionHeader from "../components/SectionHeader";
 import aboutusBanner from "../assets/about-us-banner.webp";
 import StatsWrapper from "../components/StatsWrapper";
 import ValueCardsWrapper from "../components/ValueCardsWrapper";
+import VissionMessage from "../assets/VissionMessage";
 
 function AboutUs() {
   return (
-    <section className="mx-horizontal-spacing text-secondary-dark">
+    <section className="text-secondary-dark">
       <div className="">
         <HeadlineText text="Welcome to Glozin" />
         <SectionHeader
@@ -28,6 +29,8 @@ function AboutUs() {
         />
         <ValueCardsWrapper />
       </div>
+
+      <VissionMessage />
     </section>
   );
 }
