@@ -5,6 +5,7 @@ import aboutusBanner from "../assets/about-us-banner.webp";
 import StatsWrapper from "../components/StatsWrapper";
 import ValueCardsWrapper from "../components/ValueCardsWrapper";
 import VissionMessage from "../assets/VissionMessage";
+import OverviewWrapper from "../assets/OverviewWrapper";
 
 function AboutUs() {
   return (
@@ -31,6 +32,8 @@ function AboutUs() {
       </div>
 
       <VissionMessage />
+
+      <OverviewWrapper />
     </section>
   );
 }
