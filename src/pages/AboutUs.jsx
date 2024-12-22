@@ -18,6 +18,14 @@ function AboutUs() {
         </div>
         <StatsWrapper />
       </div>
+
+      <div className="border-t border-primary-border">
+        <HeadlineText text="Why Choose Us" />
+        <SectionHeader
+          title="Our Peculiar Things"
+          subtitle="Our fashion products are characterized by innovative and on—trend designs. We pride ourselves in pushing the boundaries of conventional fashion, delivering new, bold and captivating styles."
+        />
+      </div>
     </section>
   );
 }
