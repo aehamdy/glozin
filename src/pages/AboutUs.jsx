@@ -34,6 +34,15 @@ function AboutUs() {
       <VissionMessage />
 
       <OverviewWrapper />
+
+      <div className="border-t border-primary-border">
+        <HeadlineText text="How We Work" />
+        <SectionHeader
+          title="Expanding Horizons"
+          subtitle="At Glozin, our work culture is deeply rooted in collaboration, innovation and passion. We believe that a positive and
+                    inclusive work environment is the foundation for creativity and success."
+        />
+      </div>
     </section>
   );
 }
