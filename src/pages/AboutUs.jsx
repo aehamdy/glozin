@@ -1,16 +1,15 @@
 import HeadlineText from "../components/HeadlineText";
 import SectionHeader from "../components/SectionHeader";
-import StatsWrapper from "../components/StatsWrapper";
 import ValueCardsWrapper from "../components/ValueCardsWrapper";
 import VissionMessage from "../assets/VissionMessage";
 import OverviewWrapper from "../assets/OverviewWrapper";
 import InsightsWrapper from "../components/InsightsWrapper";
-import aboutusBanner from "../assets/about-us-banner.webp";
+import StatsSection from "../components/StatsSection";
 
 function AboutUs() {
   return (
     <section className="text-secondary-dark">
-      <div className="">
+      {/* <div className="">
         <HeadlineText text="Welcome to Glozin" />
         <SectionHeader
           title="Best Store Available to Everyone!"
@@ -20,7 +19,8 @@ function AboutUs() {
           <img src={aboutusBanner} alt="about us image" />
         </div>
         <StatsWrapper />
-      </div>
+      </div> */}
+      <StatsSection />
 
       <div className="border-t border-primary-border">
         <HeadlineText text="Why Choose Us" />

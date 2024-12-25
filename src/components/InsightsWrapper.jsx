@@ -26,7 +26,7 @@ const insights = [
 
 function InsightsWrapper() {
   return (
-    <div className="flex justify-between gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {insights.map((insight, index) => (
         <InsightCard key={index} item={insight} />
       ))}
