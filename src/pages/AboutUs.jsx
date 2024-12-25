@@ -5,6 +5,7 @@ import VissionMessage from "../assets/VissionMessage";
 import OverviewWrapper from "../assets/OverviewWrapper";
 import InsightsWrapper from "../components/InsightsWrapper";
 import StatsSection from "../components/StatsSection";
+import ValuesSection from "../components/ValuesSection";
 
 function AboutUs() {
   return (
@@ -22,14 +23,15 @@ function AboutUs() {
       </div> */}
       <StatsSection />
 
-      <div className="border-t border-primary-border">
+      {/* <div className="border-t border-primary-border">
         <HeadlineText text="Why Choose Us" />
         <SectionHeader
           title="Our Peculiar Things"
           subtitle="Our fashion products are characterized by innovative and on—trend designs. We pride ourselves in pushing the boundaries of conventional fashion, delivering new, bold and captivating styles."
         />
         <ValueCardsWrapper />
-      </div>
+      </div> */}
+      <ValuesSection />
 
       <VissionMessage />
 

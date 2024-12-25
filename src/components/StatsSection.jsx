@@ -14,7 +14,7 @@ function StatsSection() {
       <div className="w-11/12 h-auto mx-auto rounded-small overflow-hidden">
         <img src={aboutusBanner} alt="about us image" />
       </div>
-      <StatsWrapper />;
+      <StatsWrapper />
     </div>
   );
 }
