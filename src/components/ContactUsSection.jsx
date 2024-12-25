@@ -1,9 +1,11 @@
+import ContactFormSection from "./ContactFormSection";
 import CustomerSupport from "./CustomerSupport";
 
 function ContactUsSection() {
   return (
-    <div>
+    <div className="flex justify-between gap-8">
       <CustomerSupport />
+      <ContactFormSection />
     </div>
   );
 }
