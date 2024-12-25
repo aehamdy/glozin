@@ -4,7 +4,7 @@ import ValueCardsWrapper from "./ValueCardsWrapper";
 
 function ValuesSection() {
   return (
-    <div className="mx-horizontal-spacing py-vertical-spacing border-t border-primary-border">
+    <div className="mx-horizontal-spacing py-10 md:py-vertical-spacing border-t border-primary-border">
       <HeadlineText text="Why Choose Us" />
       <SectionHeader
         title="Our Peculiar Things"

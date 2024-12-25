@@ -5,7 +5,7 @@ import aboutusBanner from "../assets/about-us-banner.webp";
 
 function StatsSection() {
   return (
-    <div className="py-vertical-spacing px-horizontal-spacing">
+    <div className="py-10 md:py-vertical-spacing px-horizontal-spacing">
       <HeadlineText text="Welcome to Glozin" />
       <SectionHeader
         title="Best Store Available to Everyone!"

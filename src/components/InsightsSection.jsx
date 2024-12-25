@@ -4,7 +4,7 @@ import SectionHeader from "./SectionHeader";
 
 function InsightsSection() {
   return (
-    <div className="mx-horizontal-spacing py-vertical-spacing border-t border-primary-border">
+    <div className="mx-horizontal-spacing pt-10 md:py-vertical-spacing border-t border-primary-border">
       <HeadlineText text="How We Work" />
       <SectionHeader
         title="Expanding Horizons"

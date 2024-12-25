@@ -23,7 +23,7 @@ const overviews = [
 
 function OverviewWrapper() {
   return (
-    <div className="flex flex-col gap-14 mx-[1.5rem] lg:mx-vertical-spacing py-vertical-spacing ">
+    <div className="flex flex-col gap-14 mx-[1.5rem] lg:mx-vertical-spacing py-10 md:py-vertical-spacing ">
       {overviews.map((overview, index) => (
         <OverviewCard key={index} item={overview} index={index} />
       ))}
