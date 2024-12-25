@@ -1,4 +1,5 @@
 import FooterHeading from "./FooterHeading";
+import storeData from "../data/storeData";
 
 function FooterInfoSection() {
   return (
@@ -11,10 +12,10 @@ function FooterInfoSection() {
         </p>
         <div className="flex md:flex-col items-start gap-5 md:gap-1 lg:gap-3 text-sm md:texe-base ">
           <a href="#" className="hover:text-primary-red duration-short">
-            +1 (973) 435-3638
+            {storeData.phone}
           </a>
           <a href="#" className="hover:text-primary-red duration-short">
-            info@fashionwomen.com
+            {storeData.customerCareEmail}
           </a>
         </div>
       </div>
