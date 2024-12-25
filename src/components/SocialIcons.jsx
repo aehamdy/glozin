@@ -25,7 +25,7 @@ const socials = [
 
 function SocialIcons() {
   return (
-    <div className="flex flex-wrap lg:flex-nowrap gap-6 md:gap-3">
+    <div className="flex justify-center md:justify-normal flex-wrap lg:flex-nowrap gap-6 md:gap-3">
       {socials.map((social, index) => (
         <a
           key={index}

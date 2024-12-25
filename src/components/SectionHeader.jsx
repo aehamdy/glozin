@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
 function SectionHeader({ title, subtitle }) {
   return (
-    <div className="flex flex-col items-center gap-3 mb-8 mx-horizontal-spacing">
+    <div
+      className={`flex flex-col items-center gap-3 ${
+        subtitle && "mb-8"
+      } mx-horizontal-spacing`}
+    >
       <h2 className="font-semibold text-3xl md:text-4xl text-secondary-dark tracking-tight">
         {title}
       </h2>
