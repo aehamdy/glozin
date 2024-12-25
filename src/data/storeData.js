@@ -4,6 +4,7 @@ const storeData = {
     customerCareEmail: "info@fashionwomen.com",
     saleEmail: "sale@fashionwomen.com",
     pressEmail: "press@fashionwomen.com",
+    openingHours: "Everyday 8:00am - 5:00pm",
 };
 
 export default storeData;
