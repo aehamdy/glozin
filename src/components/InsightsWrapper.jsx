@@ -1,8 +1,9 @@
+import InsightCard from "./InsightCard";
 import insightsImage1 from "../assets/about_banner_6.webp";
 import insightsImage2 from "../assets/about_banner_7.webp";
 import insightsImage3 from "../assets/about_banner_8.webp";
 
-const insight = [
+const insights = [
   {
     image: insightsImage1,
     heading: "The Core of Us",
@@ -24,6 +25,12 @@ const insight = [
 ];
 
 function InsightsWrapper() {
-  return <div>InsightsWrapper</div>;
+  return (
+    <div className="flex justify-between gap-4">
+      {insights.map((insight, index) => (
+        <InsightCard key={index} item={insight} />
+      ))}
+    </div>
+  );
 }
 export default InsightsWrapper;

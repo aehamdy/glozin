@@ -1,11 +1,11 @@
 import HeadlineText from "../components/HeadlineText";
 import SectionHeader from "../components/SectionHeader";
-
-import aboutusBanner from "../assets/about-us-banner.webp";
 import StatsWrapper from "../components/StatsWrapper";
 import ValueCardsWrapper from "../components/ValueCardsWrapper";
 import VissionMessage from "../assets/VissionMessage";
 import OverviewWrapper from "../assets/OverviewWrapper";
+import InsightsWrapper from "../components/InsightsWrapper";
+import aboutusBanner from "../assets/about-us-banner.webp";
 
 function AboutUs() {
   return (
@@ -42,6 +42,7 @@ function AboutUs() {
           subtitle="At Glozin, our work culture is deeply rooted in collaboration, innovation and passion. We believe that a positive and
                     inclusive work environment is the foundation for creativity and success."
         />
+        <InsightsWrapper />
       </div>
     </section>
   );
