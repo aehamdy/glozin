@@ -24,7 +24,7 @@ function OverviewCard({ item, index }) {
         </p>
         <Button
           value={item.buttonText}
-          className="w-fit mx-auto py-3 px-6 font-medium text-md text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-medium duration-short"
+          className="w-fit mx-auto py-3 px-6 font-medium text-md hover:text-lg text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-medium duration-short"
         />
       </div>
     </article>
