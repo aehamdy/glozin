@@ -2,12 +2,12 @@ import storeData from "../data/storeData";
 
 function CustomerSupport() {
   return (
-    <div className="flex flex-col items-start gap-4">
+    <div className="flex flex-col items-start gap-4 text-start">
       <div className="flex flex-col items-start">
         <h3 className="font-semibold text-lg text-secondary-dark">
           Support Customer
         </h3>
-        <p className="w-fit">
+        <p className="w-10/12 text-start">
           Have a question? Please contact us using the customer support channels
           below.
         </p>

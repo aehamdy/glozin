@@ -3,7 +3,7 @@ import CustomerSupport from "./CustomerSupport";
 
 function ContactUsSection() {
   return (
-    <div className="flex justify-between gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 px-vertical-spacing">
       <CustomerSupport />
       <ContactFormSection />
     </div>
