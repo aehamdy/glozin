@@ -1,3 +1,4 @@
+import OurStoresWrapper from "../components/OurStoresWrapper";
 import SectionHeader from "../components/SectionHeader";
 import storeData from "../data/storeData";
 
@@ -8,6 +9,8 @@ function OurStores() {
         title="Our Stores"
         subtitle={`Please use the below form. You can also call customer service on ${storeData.phone}.`}
       />
+
+      <OurStoresWrapper />
     </section>
   );
 }

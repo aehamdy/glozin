@@ -4,6 +4,7 @@ import storeImage3 from "../assets/ours-stores-3.webp";
 import storeImage4 from "../assets/ours-stores-4.webp";
 import storeImage5 from "../assets/ours-stores-5.webp";
 import storeImage6 from "../assets/ours-stores-6.webp";
+import StoreCard from "./StoreCard";
 
 const stores = [
   {
@@ -75,6 +76,12 @@ const stores = [
 ];
 
 function OurStoresWrapper() {
-  return <div className="grid grid-cols-1 md:grid-cols-3 gap-5">{stores}</div>;
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mx-10">
+      {stores.map((store, index) => (
+        <StoreCard key={index} store={store} />
+      ))}
+    </div>
+  );
 }
 export default OurStoresWrapper;
