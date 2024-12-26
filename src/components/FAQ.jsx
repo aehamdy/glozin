@@ -125,7 +125,7 @@ const groups = [
 
 function FAQ() {
   return (
-    <div className="flex flex-col gap-8 text-start">
+    <div className="col-span-3 flex flex-col gap-8 text-start">
       {groups.map((group, index) => (
         <FAQGroup key={index} group={group} />
       ))}

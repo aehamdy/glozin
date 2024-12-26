@@ -18,7 +18,11 @@ function Accordion({ question, answer }) {
         aria-expanded={isOpen}
       >
         {question}
-        <Icon name={isOpen ? "minus" : "plus"} />
+        <Icon
+          name={isOpen ? "minus" : "plus"}
+          size="18"
+          className="text-content-light-dark"
+        />
       </button>
       <div
         ref={contentRef}
