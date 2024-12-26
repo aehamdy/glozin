@@ -1,4 +1,5 @@
 import storeData from "../data/storeData";
+import FAQGroup from "./FAQGroup";
 
 const groups = [
   {
@@ -123,6 +124,12 @@ const groups = [
 ];
 
 function FAQ() {
-  return <div></div>;
+  return (
+    <div>
+      {groups.map((group, index) => (
+        <FAQGroup key={index} group={group} />
+      ))}
+    </div>
+  );
 }
 export default FAQ;
