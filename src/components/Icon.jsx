@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { FaPinterestP, FaTiktok, FaYoutube } from "react-icons/fa";
 import { FaFacebookF, FaInstagram } from "react-icons/fa6";
 import { FiCheck, FiHeart, FiSearch, FiShoppingBag } from "react-icons/fi";
@@ -19,6 +20,8 @@ const iconMap = {
   leftArrow: RiArrowLeftSLine,
   star: TiStarFullOutline,
   check: FiCheck,
+  plus: AiOutlinePlus,
+  minus: AiOutlineMinus,
   facebook: FaFacebookF,
   instagram: FaInstagram,
   tiktok: FaTiktok,
