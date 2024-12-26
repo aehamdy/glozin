@@ -92,8 +92,8 @@ const groups = [
   {
     heading:
       "Ordering from " +
-      storeData.name.charAt(0).toUpperCase +
-      storeData.name.slice(1),
+      storeData.name.charAt(0).toUpperCase() +
+      storeData.name.slice(1).toLowerCase(),
     faqs: [
       {
         question: "Pellentesque habitant morbi tristique senectus et netus?",
