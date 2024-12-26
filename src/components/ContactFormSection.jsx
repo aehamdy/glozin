@@ -1,8 +1,10 @@
+import Button from "./Button";
+
 function ContactFormSection() {
   return (
-    <div className="lg:col-span-2 space-y-4 text-secondary-dark">
+    <div className="lg:col-span-2 space-y-4 text-secondary-dark text-start">
       <div>
-        <h3 className="font-semibold text-lg">Contact Us</h3>
+        <h3 className="font-semibold text-xl md:text-2xl">Contact Us</h3>
         <p className="text-start text-content-medium-dark">
           Please submit all general enquiries in the contact form below and we
           look forward to hearing from you soon.
@@ -32,7 +34,13 @@ function ContactFormSection() {
           className="w-full p-4 bg-primary-light border border-primary-border rounded-2xl placeholder:text-sm"
         ></textarea>
         <label htmlFor="" className="flex gap-3">
-          <input type="checkbox" name="" id="" className="cursor-pointer" />
+          <input
+            // disabled
+            type="checkbox"
+            name=""
+            id=""
+            className="cursor-pointer"
+          />
           <p>
             I agree to the{" "}
             <a
@@ -44,12 +52,10 @@ function ContactFormSection() {
             of the website.
           </p>
         </label>
-        <button
-          type="button"
+        <Button
+          value="Send"
           className="w-fit me-auto py-2 px-12 text-primary-light bg-secondary-dark hover:bg-primary-dark border rounded-medium"
-        >
-          Send
-        </button>
+        />
       </form>
     </div>
   );

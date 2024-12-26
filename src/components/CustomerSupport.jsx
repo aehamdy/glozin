@@ -4,7 +4,7 @@ function CustomerSupport() {
   return (
     <div className="flex flex-col items-start gap-4 text-start">
       <div className="flex flex-col items-start">
-        <h3 className="font-semibold text-lg text-secondary-dark">
+        <h3 className="font-semibold text-xl md:text-2xl text-secondary-dark">
           Support Customer
         </h3>
         <p className="w-10/12 text-start">
