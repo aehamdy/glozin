@@ -13,7 +13,7 @@ function Accordion({ question, answer }) {
   return (
     <div className="mb-5 pb-3 border-b">
       <button
-        className="flex justify-between gap-10 w-full py-3 font-semibold text-secondary-dark"
+        className="flex justify-between gap-10 w-full py-3 font-medium text-secondary-dark"
         onClick={handleToggle}
         aria-expanded={isOpen}
       >
