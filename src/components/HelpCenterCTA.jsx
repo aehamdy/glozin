@@ -19,7 +19,7 @@ function HelpCenterCTA() {
 
       <div className="flex flex-col items-center gap-6 md:gap-4">
         <Link
-          to="/contactus"
+          to="/contact"
           className="w-full py-3 px-10 font-semibold text-secondary-dark hover:text-primary-light bg-primary-light hover:bg-primary-dark border border-secondary-dark rounded-medium duration-short"
         >
           Contact Us

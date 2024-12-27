@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import NavItemBadge from "./NavItemBadge";
 
 function NavListItem({ item }) {
@@ -13,10 +14,10 @@ function NavListItem({ item }) {
             : "text-secondary-dark hover:text-secondary-red"
         } lg:border-none cursor-pointer duration-medium before:duration-medium`}
     >
-      <div className="flex relative">
+      <Link to={item.url} className="flex relative">
         {item.label.charAt(0).toUpperCase() + item.label.slice(1).toLowerCase()}
         {item.badge && <NavItemBadge badgeText={item.badge} />}
-      </div>
+      </Link>
     </li>
   );
 }

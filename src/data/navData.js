@@ -13,11 +13,11 @@ const navData = [
     },
     {
         label: "contact",
-        url: "/contact-us",
+        url: "/contact",
     },
     {
         label: "about",
-        url: "/about-us",
+        url: "/about",
     },
     {
         label: "sale",

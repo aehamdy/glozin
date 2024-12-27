@@ -7,8 +7,8 @@ const lists = [
   {
     heading: "Our Company",
     items: [
-      { title: "About Us", link: "" },
-      { title: "Contact Us", link: "" },
+      { title: "About Us", link: "/about" },
+      { title: "Contact Us", link: "/contact" },
       { title: "Sale", link: "" },
       { title: "FAQ", link: "" },
     ],
