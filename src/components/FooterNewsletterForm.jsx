@@ -7,7 +7,7 @@ function FooterNewsletterForm() {
           name=""
           id=""
           placeholder="Enter your email..."
-          className="w-3/5 md:w-full lg:w-3/5 flex-grow py-2 md:py-3 px-3 font-medium text-secondary-dark bg-primary-light border border-primary-border rounded-medium"
+          className="w-3/5 md:w-full lg:w-3/5 flex-grow py-2 md:py-3 px-3 text-secondary-dark bg-primary-light border border-primary-border rounded-medium"
         />
         <button
           type="button"

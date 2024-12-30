@@ -10,7 +10,8 @@ const lists = [
       { title: "About Us", link: "/about" },
       { title: "Contact Us", link: "/contact" },
       { title: "Sale", link: "" },
-      { title: "FAQ", link: "" },
+      { title: "FAQ", link: "/help" },
+      { title: "Products", link: "/products" },
     ],
   },
   {
