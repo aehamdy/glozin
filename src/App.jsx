@@ -6,7 +6,7 @@ import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import OurStores from "./pages/OurStores";
 import HelpCenter from "./pages/HelpCenter";
-import ProductsSection from "./pages/ProductsSection";
+import Shop from "./pages/Shop";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +34,8 @@ const router = createBrowserRouter([
         element: <HelpCenter />,
       },
       {
-        path: "/products",
-        element: <ProductsSection />,
+        path: "/shop",
+        element: <Shop />,
       },
     ],
   },

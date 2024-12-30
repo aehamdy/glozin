@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import fetchProducts from "../utils/fetchProducts";
 
-function ProductsSection() {
+function Shop() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -27,4 +27,4 @@ function ProductsSection() {
   );
 }
 
-export default ProductsSection;
+export default Shop;
