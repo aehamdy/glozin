@@ -6,10 +6,9 @@ async function fetchProducts(url, options) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const result = await response.json();
+      const data = await response.json();
 
-    //   setProducts(result.results || []);
-    return result.results
+    return data.results
 
     } catch (error) {
 
