@@ -7,6 +7,7 @@ import ContactUs from "./pages/ContactUs";
 import OurStores from "./pages/OurStores";
 import HelpCenter from "./pages/HelpCenter";
 import Shop from "./pages/Shop";
+import Sale from "./pages/Sale";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/shop",
         element: <Shop />,
+      },
+      {
+        path: "/sale",
+        element: <Sale />,
       },
     ],
   },
