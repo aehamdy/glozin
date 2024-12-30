@@ -3,6 +3,8 @@ import ProductsWrapper from "../components/ProductsWrapper";
 import fetchProducts from "../utils/fetchProducts";
 import apiUrls from "../config/apiUrls";
 import apiOptions from "../config/apiOptions";
+import SectionHeader from "../components/SectionHeader";
+import ProductsLoadingIndicator from "../components/ProductsLoadingIndicator";
 
 function Shop() {
   const [products, setProducts] = useState([]);
@@ -26,17 +28,12 @@ function Shop() {
 
   return (
     <section className="py-vertical-spacing px-horizontal-spacing">
-      <div className="flex flex-col items-center">
-        <h2 className="font-semibold text-secondary-dark text-3xl">Products</h2>
-        <p className="text-content-medium-dark text-center">
-          Enjoy exploring all our products
-        </p>
-      </div>
+      <SectionHeader title="Shop" subtitle="Enjoy exploring all our products" />
 
       {Array.isArray(products) && products.length > 0 ? (
         <ProductsWrapper products={products} />
       ) : (
-        <div>Loading products...</div>
+        <ProductsLoadingIndicator />
       )}
     </section>
   );
