@@ -1,14 +1,19 @@
-const scrollingTexts = [
-  "Great-Free returns product within 10 days",
-  "Subscribe and get 10% off your first purchase",
-];
+/* eslint-disable react/prop-types */
 
-function HorizontalScrollingText() {
+function HorizontalScrollingText({ scrollingText, mode, fullWidth }) {
   return (
-    <div className="mx-horizontal-spacing py-5 overflow-clip">
-      <div className="scrolling-text h-[22px] flex items-center gap-3 ps-4 uppercase font-semibold text-[13px] text-content-medium-dark overflow-clip w-max animate-horizontal-move">
+    <div
+      className={`${!fullWidth && "mx-horizontal-spacing "} py-5 ${
+        mode === "light" ? "bg-primary-light" : "bg-primary-dark"
+      } overflow-clip`}
+    >
+      <div
+        className={`scrolling-text h-[22px] flex items-center gap-3 ps-4 uppercase font-semibold text-[13px] ${
+          mode === "light" ? "text-content-medium-dark" : "text-primary-light"
+        } overflow-clip w-max animate-horizontal-move`}
+      >
         {Array(3)
-          .fill(scrollingTexts)
+          .fill(scrollingText)
           .flat()
           .map((text, index, allTexts) => (
             <div key={index} className="flex justify-center items-center">
@@ -19,7 +24,8 @@ function HorizontalScrollingText() {
               >
                 {text}
               </p>
-              {/* <svg
+              <svg
+                className="ms-2"
                 width="12"
                 height="12"
                 fill="none"
@@ -29,8 +35,7 @@ function HorizontalScrollingText() {
                   fill="currentColor"
                   d="M0 6c3 0 6-3 6-6 0 3 3 6 6 6-3 0-6 3-6 6 0-3-3-6-6-6Z"
                 ></path>
-              </svg> */}
-              <span className="inline-block w-2 h-2 ms-2 bg-transparent bg-content-medium-dark rotate-45"></span>
+              </svg>
             </div>
           ))}
       </div>

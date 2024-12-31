@@ -10,7 +10,13 @@ import TopCollectionsSection from "../components/TopCollectionsSection";
 export function Home() {
   return (
     <>
-      <HorizontalScrollingText />
+      <HorizontalScrollingText
+        scrollingText={[
+          "Great-Free returns product within 10 days",
+          "Subscribe and get 10% off your first purchase",
+        ]}
+        mode="light"
+      />
       <HeroSection />
       <SpotlightOffersSection />
       <TopCollectionsSection />
