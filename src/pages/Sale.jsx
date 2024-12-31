@@ -1,4 +1,5 @@
 import saleVideo from "../assets/sale-video.mp4";
+import HorizontalScrollingText from "../components/HorizontalScrollingText";
 import SaleBannersWrapper from "../components/SaleBannersWrapper";
 
 function Sale() {
@@ -26,6 +27,14 @@ function Sale() {
           <SaleBannersWrapper />
         </div>
       </div>
+      <HorizontalScrollingText
+        scrollingText={[
+          "Black Friday & Holiday Sale: Up to 75% Off All Products",
+          "Black Friday & Holiday Sale: Up to 75% Off All Products",
+        ]}
+        mode="dark"
+        fullWidth="false"
+      />
     </section>
   );
 }
