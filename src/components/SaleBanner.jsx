@@ -1,6 +1,6 @@
 function SaleBanner() {
   return (
-    <article className="flex flex-col gap-1">
+    <article>
       <div>
         <span>HOLIDAY</span>
         <h4>Sale 30% Off</h4>
