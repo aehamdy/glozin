@@ -1,4 +1,5 @@
 import saleVideo from "../assets/sale-video.mp4";
+import BrandStoryPanel from "../components/BrandStoryPanel";
 import FeaturesSection from "../components/FeaturesSection";
 import HorizontalScrollingText from "../components/HorizontalScrollingText";
 import SaleBannersWrapper from "../components/SaleBannersWrapper";
@@ -36,6 +37,7 @@ function Sale() {
         mode="dark"
         fullWidth="false"
       />
+      <BrandStoryPanel />
       <FeaturesSection />
     </section>
   );
