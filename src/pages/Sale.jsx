@@ -1,4 +1,5 @@
 import saleVideo from "../assets/sale-video.mp4";
+import FeaturesSection from "../components/FeaturesSection";
 import HorizontalScrollingText from "../components/HorizontalScrollingText";
 import SaleBannersWrapper from "../components/SaleBannersWrapper";
 
@@ -35,6 +36,7 @@ function Sale() {
         mode="dark"
         fullWidth="false"
       />
+      <FeaturesSection />
     </section>
   );
 }
