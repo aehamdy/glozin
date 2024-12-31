@@ -24,7 +24,7 @@ function BrandStoryPanel() {
       </h2>
       <div
         className="relative overflow-hidden transition-all duration-500"
-        style={{ contentHeight }}
+        style={{ height: contentHeight }}
       >
         <div
           ref={contentRef}
