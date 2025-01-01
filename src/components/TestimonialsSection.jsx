@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import testimonialsData from "../data/testimonialsData";
 import TestimonialCard from "./TestimonialCard";
 import SectionHeader from "./SectionHeader";

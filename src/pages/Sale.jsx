@@ -3,6 +3,7 @@ import BrandStoryPanel from "../components/BrandStoryPanel";
 import FeaturesSection from "../components/FeaturesSection";
 import HorizontalScrollingText from "../components/HorizontalScrollingText";
 import SaleBannersWrapper from "../components/SaleBannersWrapper";
+import TestimonialsSection from "../components/TestimonialsSection";
 
 function Sale() {
   return (
@@ -37,6 +38,7 @@ function Sale() {
         mode="dark"
         fullWidth="false"
       />
+      <TestimonialsSection showCustomerImage={false} />
       <BrandStoryPanel />
       <FeaturesSection />
     </section>
