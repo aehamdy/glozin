@@ -1,7 +1,7 @@
 function SaleBanner() {
   return (
-    <article className="flex flex-col gap-[2px]">
-      <div className="flex flex-col items-center gap-2 pt-10 pb-6 md:pt-16 md:pb-8 px-6 text-primary-light bg-[#fff3] border border-[#fff3] rounded-small backdrop-filter">
+    <article className="flex flex-col gap-[5px] md:gap-[2px]">
+      <div className="flex flex-col items-center gap-2 pt-8 pb-5 md:pt-16 md:pb-8 px-6 text-primary-light bg-[#fff3] border border-[#fff3] rounded-small backdrop-filter">
         <span className="w-fit py-2 px-5 font-semibold text-xs text-secondary-dark bg-primary-light rounded-medium">
           HOLIDAY
         </span>
