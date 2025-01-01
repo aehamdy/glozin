@@ -21,7 +21,7 @@ export function Home() {
       <SpotlightOffersSection />
       <TopCollectionsSection />
       <DealBannersSection />
-      <TestimonialsSection showCustomerImage />
+      <TestimonialsSection showCustomerImage testimonialsCount={3} />
       <ShopByGramSection />
       <FeaturesSection />
     </>

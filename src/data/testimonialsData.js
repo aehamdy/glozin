@@ -4,6 +4,7 @@ import testimonial2 from "../assets/testimonial-2.mp4";
 import testimonial2boughtItem from "../assets/testimonial-2-bought-item.jpg";
 import testimonial3 from "../assets/testimonial-3.webp";
 import testimonial3boughtItem from "../assets/testimonial-3-bought-item.webp";
+import testimonial4boughtItem from "../assets/testimonial-4-bought-item.jpg";
 
 const testimonialsData = [
   {
@@ -46,6 +47,18 @@ const testimonialsData = [
       hoverImage: "",
       name: "Slim Fit Basic Unpatterned T-shirt",
       price: "75.00",
+    },
+  },
+  {
+    rate: 5,
+    customerName: "Youngly Pham.",
+    feedback:
+      "These are sooo pretty and very comfy. Perfect color as well. I love wearing these with a neutral top and Chelsea boots. Wicked cute...😍",
+    boughtItem: {
+      image: testimonial4boughtItem,
+      hoverImage: "",
+      name: "Anime T-Shirt Printed Short Sleeve",
+      price: "120.00",
     },
   },
 ];
