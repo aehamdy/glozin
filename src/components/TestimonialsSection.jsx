@@ -4,7 +4,11 @@ import testimonialsData from "../data/testimonialsData";
 import TestimonialCard from "./TestimonialCard";
 import SectionHeader from "./SectionHeader";
 
-function TestimonialsSection({ showCustomerImage, testimonialsCount }) {
+function TestimonialsSection({
+  variant,
+  showCustomerImage,
+  testimonialsCount,
+}) {
   const containerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -40,7 +44,11 @@ function TestimonialsSection({ showCustomerImage, testimonialsCount }) {
   // };
 
   return (
-    <section className="relative flex flex-col gap-3 w-full my-vertical-spacing pb-8 overflow-hidden">
+    <section
+      className={`relative flex flex-col gap-3 w-full my-vertical-spacing ${
+        variant === "primary" ? "pb-8 bg-primary-light" : "py-10 bg-[#F5F5F5]"
+      } overflow-hidden`}
+    >
       <SectionHeader
         title="Customer Say!"
         subtitle="Customers love our products and we always strive to please them all."
@@ -60,6 +68,7 @@ function TestimonialsSection({ showCustomerImage, testimonialsCount }) {
           .map((testimonial, index) => (
             <TestimonialCard
               key={index}
+              variant={variant}
               testimonial={testimonial}
               showCustomerImage={showCustomerImage}
             />

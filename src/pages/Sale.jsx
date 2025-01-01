@@ -38,7 +38,7 @@ function Sale() {
         mode="dark"
         fullWidth="false"
       />
-      <TestimonialsSection showCustomerImage={false} />
+      <TestimonialsSection variant="secondary" showCustomerImage={false} />
       <BrandStoryPanel />
       <FeaturesSection />
     </section>

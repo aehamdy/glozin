@@ -20,14 +20,14 @@ export default {
         primary: {
           dark: '#000',
           light: '#ffffff',
-          'red': '#d0473d',
+          red: '#d0473d',
           border: '#ebebeb',
         },
         secondary: {
           dark: '#111',
           // light: '#ebebeb',
           light: '#c0c0c0',
-          'red': '#d0473e',
+          red: '#d0473e',
         },
         button: {
           buyNow: '#d0473e',

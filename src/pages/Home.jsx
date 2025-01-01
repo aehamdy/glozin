@@ -7,7 +7,7 @@ import ShopByGramSection from "../components/ShopByGramSection";
 import FeaturesSection from "../components/FeaturesSection";
 import TopCollectionsSection from "../components/TopCollectionsSection";
 
-export function Home() {
+function Home() {
   return (
     <>
       <HorizontalScrollingText
@@ -21,9 +21,15 @@ export function Home() {
       <SpotlightOffersSection />
       <TopCollectionsSection />
       <DealBannersSection />
-      <TestimonialsSection showCustomerImage testimonialsCount={3} />
+      <TestimonialsSection
+        variant="primary"
+        showCustomerImage
+        testimonialsCount={3}
+      />
       <ShopByGramSection />
       <FeaturesSection />
     </>
   );
 }
+
+export default Home;

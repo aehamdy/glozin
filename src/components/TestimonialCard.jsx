@@ -2,9 +2,13 @@
 import TestimonialContent from "./TestimonialContent";
 import TestimonialMediaDisplay from "./TestimonialMediaDisplay";
 
-function TestimonialCard({ testimonial, showCustomerImage }) {
+function TestimonialCard({ variant, testimonial, showCustomerImage }) {
   return (
-    <article className="flex flex-col md:flex-row flex-shrink-0 relative w-10/12 md:w-[65%] lg:w-[48%] h-auto border border-content-medium rounded-small snap-start overflow-hidden select-none">
+    <article
+      className={`relative flex flex-col md:flex-row flex-shrink-0 w-10/12 md:w-[65%] lg:w-[48%] h-auto bg-primary-light ${
+        variant === "primary" && "border border-primary-border"
+      } rounded-small snap-start overflow-hidden select-none`}
+    >
       {showCustomerImage && (
         <TestimonialMediaDisplay
           image={testimonial.image}
