@@ -2,29 +2,31 @@ const saleBanners = [
     {
         label: "holiday",
         discount: "30",
-        title: `Sale ${this.discount}% Off`,
-        desc: `${this.discount}% off during the holiday season.`,
-        code: `holiday${this.discount}all`,
+        title: `Sale 30% Off`,
+        desc: `30% off during the holiday season.`,
+        code: `holiday30all`,
     },
     {
         label: "bundle",
         discount: "50",
-        title: `Sale ${this.discount}% Off`,
+        title: `Sale 50% Off`,
         desc: `Discount when buying combo.`,
-        code: `bundledeal${this.discount}`,
+        code: `bundledeal50`,
     },
     {
         label: "flashsale",
         discount: "75",
-        title: `Sale ${this.discount}% Off`,
-        desc: `Big discounts for Flas Sale hours.`,
-        code: `flashsale${this.discount}`,
+        title: `Sale 75% Off`,
+        desc: `Big discounts for Flash Sale hours.`,
+        code: `flashsale75`,
     },
     {
-        label: "whitefriday",
+        label: "white friday",
         discount: "50",
         title: `Best Of Sale`,
-        desc: `Extra ${this.discount} off for VIP customers.`,
-        code: `vipsale${this.discount}all`,
+        desc: `Extra 50% off for VIP customers.`,
+        code: `vipsale50all`,
     },
-]
+];
+
+export default saleBanners;
