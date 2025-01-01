@@ -2,7 +2,7 @@ import testimonialsData from "../data/testimonialsData";
 import TestimonialCard from "./TestimonialCard";
 import SectionHeader from "./SectionHeader";
 
-function TestimonialsSection() {
+function TestimonialsSection({ showCustomerImage }) {
   return (
     <section className="relative flex flex-col gap-3 w-full my-vertical-spacing pb-8 overflow-hidden">
       <SectionHeader
@@ -11,7 +11,11 @@ function TestimonialsSection() {
       />
       <div className="flex gap-3 w-[98%] mx-horizontal-spacing pe-1 overflow-x-auto snap-x snap-mandatory">
         {testimonialsData.map((testimonial, index) => (
-          <TestimonialCard key={index} testimonial={testimonial} />
+          <TestimonialCard
+            key={index}
+            testimonial={testimonial}
+            showCustomerImage={showCustomerImage}
+          />
         ))}
       </div>
     </section>
