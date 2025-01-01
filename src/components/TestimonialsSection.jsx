@@ -24,7 +24,7 @@ function TestimonialsSection({
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - containerRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5;
+    const walk = (x - startX) * 5.5; // Adjust sensitivity
     containerRef.current.scrollLeft = scrollLeft - walk;
   };
 
