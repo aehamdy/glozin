@@ -11,7 +11,7 @@ function ProductCard({ product }) {
       </div>
 
       <div className="flex flex-col gap-3 my-4 text-center">
-        <h3 className="font-semibold text-xl text-secondary-dark">
+        <h3 className="px-3 font-semibold text-xl text-secondary-dark">
           {product.name}
         </h3>
 
