@@ -59,7 +59,7 @@ function BrandStoryPanel() {
         onClick={toggleContent}
         className="mt-4 font-bold text-secondary-dark underline"
       >
-        {isExpanded ? "Hide Information" : "See All Information"}
+        {isExpanded ? "Hide less Information" : "See all Information"}
       </button>
     </div>
   );
