@@ -1,3 +1,4 @@
+import CollectionsWrapper from "../components/CollectionsWrapper";
 import SectionHeader from "../components/SectionHeader";
 
 function Collections() {
@@ -7,6 +8,7 @@ function Collections() {
         title="Collections List"
         subtitle="Posuere in netus a eu varius adipiscing suspendisse elementum vitae temporsuspendisse ullamcorper aenean taciti morbi potenti."
       />
+      <CollectionsWrapper />
     </section>
   );
 }
