@@ -18,7 +18,7 @@ function BrandStoryPanel() {
   }, [isExpanded]);
 
   return (
-    <div className="w-4/5 md:w-3/5 my-12 mx-auto">
+    <div className="w-4/5 md:w-3/5 mt-12 mb-20 mx-auto">
       <h2 className="mb-8 font-bold text-4xl text-secondary-dark">
         Hello!<br></br>Everyday for Women&apos;s
       </h2>

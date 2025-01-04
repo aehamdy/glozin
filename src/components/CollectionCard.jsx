@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-export default function CollectionCard({ collection }) {
+function CollectionCard({ collection }) {
   return (
     <article className="group relative rounded-tiny hover:shadow-xl overflow-hidden duration-medium cursor-pointer">
       <img
@@ -13,3 +13,5 @@ export default function CollectionCard({ collection }) {
     </article>
   );
 }
+
+export default CollectionCard;
