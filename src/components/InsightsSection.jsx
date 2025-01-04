@@ -7,8 +7,8 @@ function InsightsSection() {
     <div className="mx-horizontal-spacing pt-10 md:py-vertical-spacing border-t border-primary-border">
       <HeadlineText text="How We Work" />
       <SectionHeader
-        title="Expanding Horizons"
-        subtitle="At Glozin, our work culture is deeply rooted in collaboration, innovation and passion. We believe that a positive and
+        heading="Expanding Horizons"
+        desc="At Glozin, our work culture is deeply rooted in collaboration, innovation and passion. We believe that a positive and
                 inclusive work environment is the foundation for creativity and success."
       />
       <InsightsWrapper />

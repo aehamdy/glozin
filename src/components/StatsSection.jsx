@@ -7,10 +7,10 @@ function StatsSection() {
   return (
     <div className="py-10 md:py-vertical-spacing px-horizontal-spacing">
       <HeadlineText text="Welcome to Glozin" />
-      <SectionHeader title="Best Store" />
+      <SectionHeader heading="Best Store" />
       <SectionHeader
-        title="Available to Everyone!"
-        subtitle="Over 15 years of experience, we have meticulously curated collections that transcend fleeting trends, embodying a timeless elegance that resonates with our discerning clientele."
+        heading="Available to Everyone!"
+        desc="Over 15 years of experience, we have meticulously curated collections that transcend fleeting trends, embodying a timeless elegance that resonates with our discerning clientele."
       />
       <div className="w-full mx-auto rounded-small overflow-hidden">
         <img

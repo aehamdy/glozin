@@ -20,8 +20,8 @@ function ShopByGramSection() {
   return (
     <section className="flex flex-col w-full mb-vertical-spacing overflow-hidden">
       <SectionHeader
-        title="Shop by Gram"
-        subtitle="Inspire and let yourself be inspired, from one unique fashion to another."
+        heading="Shop by Gram"
+        desc="Inspire and let yourself be inspired, from one unique fashion to another."
       />
       <div className="flex justify-evenly items-center gap-2 w-full mx-horizontal-spacing pe-5 overflow-x-auto snap-x snap-mandatory">
         {mediaData.map((media, index) => (

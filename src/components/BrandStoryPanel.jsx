@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import SectionHeading from "./SectionHeading";
 
 function BrandStoryPanel() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -19,11 +20,10 @@ function BrandStoryPanel() {
 
   return (
     <div className="w-4/5 md:w-3/5 mt-12 mb-20 mx-auto">
-      <h2 className="mb-8 font-bold text-4xl text-secondary-dark">
-        Hello!<br></br>Everyday for Women&apos;s
-      </h2>
+      <SectionHeading heading="Hello!" />
+      <SectionHeading heading="Everyday for Women's" />
       <div
-        className="relative overflow-hidden transition-all duration-500"
+        className="relative mt-4 overflow-hidden transition-all duration-500"
         style={{ height: contentHeight }}
       >
         <div

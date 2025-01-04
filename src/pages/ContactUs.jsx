@@ -6,8 +6,8 @@ function ContactUs() {
   return (
     <section className="py-vertical-spacing text-content-medium-dark">
       <SectionHeader
-        title="Contact Us"
-        subtitle={`Please use the below form. You can also call customer service on ${storeData.phone}.`}
+        heading="Contact Us"
+        desc={`Please use the below form. You can also call customer service on ${storeData.phone}.`}
       />
       <ContactUsSection />
     </section>

@@ -50,8 +50,8 @@ function TestimonialsSection({
       } overflow-hidden`}
     >
       <SectionHeader
-        title="Customer Say!"
-        subtitle="Customers love our products and we always strive to please them all."
+        heading="Customer Say!"
+        desc="Customers love our products and we always strive to please them all."
       />
       <div
         ref={containerRef}
