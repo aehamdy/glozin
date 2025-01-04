@@ -9,7 +9,7 @@ function Shop() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetchData(endpoint., setProducts);
+    fetchData(endpoint.menShirts, setProducts);
   }, []);
 
   return (

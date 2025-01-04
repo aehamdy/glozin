@@ -4,9 +4,13 @@ import ProductCard from "./ProductCard";
 function ProductsWrapper({ products }) {
   return (
     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-14 gap-x-6 mt-8">
-      {products.map((product, index) => (
-        <ProductCard key={index} product={product} />
-      ))}
+      {products.map((product, index) => {
+        const salePrice =
+          product.sale - (product.sale * product.discountPercentage) / 100;
+        return (
+          <ProductCard key={index} product={product} salePrice={salePrice} />
+        );
+      })}
     </section>
   );
 }
