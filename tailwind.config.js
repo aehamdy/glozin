@@ -33,7 +33,7 @@ export default {
           buyNow: '#d0473e',
         },
         price: {
-          originalPrice: '##666',
+          originalPrice: '#666',
           salePrice: '#d0473e',
         },
         heading: {
