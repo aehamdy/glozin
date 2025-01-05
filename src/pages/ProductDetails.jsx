@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Icon from "../components/Icon";
 
 function ProductDetails() {
+  const { id } = useParams();
   return (
     <section className="m-horizontal-spacing p-horizontal-spacing">
       <Link
@@ -39,6 +40,7 @@ function ProductDetails() {
         </div>
         <div className="product-details h-fit sticky top-8">
           <div className="flex flex-col">
+            <p className="text-[15px] text-secondary-dark">{`Product ID: ${id}`}</p>
             <p className="text-[15px] text-secondary-dark">Brand</p>
             <h1 className="font-semibold text-[26px] text-secondary-dark tracking-tight">
               Prodcut Name

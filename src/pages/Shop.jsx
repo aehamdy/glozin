@@ -17,7 +17,6 @@ function Shop() {
 
   return (
     <section className="py-vertical-spacing px-horizontal-spacing">
-      {console.log(products)}
       <SectionHeader heading="Shop" desc="Enjoy exploring all our products" />
 
       {Array.isArray(products) && products.length > 0 ? (
