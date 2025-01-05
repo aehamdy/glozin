@@ -6,7 +6,10 @@ function useFetchAllProducts(setState) {
     useEffect(() => {
         fetch(url)
         .then(response => response.json())
-        .then(data => setState(data.products))
+        .then(data => {
+            console.log(data.products);
+            setState(data.products)
+        })
         .catch(err => console.error("Error happened: ", err));
     }, []);
         

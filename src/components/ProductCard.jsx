@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-/* eslint-disable react/prop-types */
 function ProductCard({ product, salePrice }) {
   return (
     <article className="product-card group rounded-small shadow-sm hover:shadow-xl overflow-hidden cursor-pointer duration-medium">
-      <Link to={`/product/${product.id}`}>
+      <Link to={`/product/${product.id}`} state={product}>
         <div className="flex justify-center rounded-small group-hover:rounded-b-none overflow-hidden">
           <img
             src={product.images[0]}
