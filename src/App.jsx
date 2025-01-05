@@ -9,6 +9,7 @@ import HelpCenter from "./pages/HelpCenter";
 import Shop from "./pages/Shop";
 import Sale from "./pages/Sale";
 import Collections from "./pages/Collections";
+import ProductDetails from "./pages/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/sale",
         element: <Sale />,
+      },
+      {
+        path: "/ps",
+        element: <ProductDetails />,
       },
       {
         path: "/about",
