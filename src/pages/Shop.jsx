@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProductsWrapper from "../components/ProductsWrapper";
 import SectionHeader from "../components/SectionHeader";
 import ProductsLoadingIndicator from "../components/ProductsLoadingIndicator";
-import fetchData from "../utils/fetchData";
-import endpoint from "../config/endpoint";
+// import fetchData from "../utils/fetchData";
+// import endpoint from "../config/endpoint";
+import useFetchAllProducts from "../hooks/useFetchAllProducts";
 
 function Shop() {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    fetchData(endpoint.menShirts, setProducts);
-  }, []);
+  useFetchAllProducts(setProducts);
+
+  // useEffect(() => {
+  //   fetchData(endpoint.menShirts, setProducts);
+  // }, []);
 
   return (
     <section className="py-vertical-spacing px-horizontal-spacing">
