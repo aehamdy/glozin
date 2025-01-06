@@ -1,5 +1,6 @@
 import { Link, useLocation, useParams } from "react-router-dom";
 import Icon from "../components/Icon";
+import safeBadgeImage from "../assets/safe-badge.webp";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -155,6 +156,19 @@ function ProductDetails() {
                   On all orders over $150.
                 </span>
               </div>
+            </div>
+          </div>
+
+          <div className="safe-checkout flex flex-col gap-2">
+            <p className="font-semibold text-secondary-dark">
+              Guarantee Safe Checkout:
+            </p>
+            <div>
+              <img
+                src={safeBadgeImage}
+                alt="safe badge image"
+                className="max-w-full"
+              />
             </div>
           </div>
         </div>
