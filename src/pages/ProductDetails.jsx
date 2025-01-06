@@ -100,6 +100,34 @@ function ProductDetails() {
           </p>
 
           <div className="product-form"></div>
+
+          <div className="product-details flex flex-col items-start gap-1 text-content-medium-dark text-start">
+            <div className="flex">
+              <div className="w-[90px]">SKU:</div>
+              <span>{product.sku || "N/A"}</span>
+            </div>
+
+            <div className="flex">
+              <div className="w-[90px]">Available: </div>
+              <div>
+                <span
+                  className={`${
+                    product.stock > 5
+                      ? "text-emerald-500"
+                      : product.stock <= 5
+                      ? "text-gray-500"
+                      : "text-red-500"
+                  }`}
+                >
+                  {product.stock > 5
+                    ? "In Stock"
+                    : product.stock <= 5 && product.stock >= 1
+                    ? "Low Stock"
+                    : "Out of Stock"}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
