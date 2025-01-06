@@ -42,7 +42,7 @@ function ProductDetails() {
             className="w-full"
           /> */}
         </div>
-        <div className="product-details flex flex-col items-start h-fit sticky top-8">
+        <div className="product-details flex flex-col gap-2 items-start h-fit sticky top-8">
           <div className="flex flex-col items-start gap-1">
             {/* <p className="text-[15px] text-secondary-dark">{`Product ID: ${id}`}</p> */}
             <p className="text-[15px] text-secondary-dark select-none">
@@ -124,6 +124,35 @@ function ProductDetails() {
                     : product.stock <= 5 && product.stock >= 1
                     ? "Low Stock"
                     : "Out of Stock"}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="deliver-shipping-details flex justify-around items-center w-full my-10 py-5 px-6 border rounded-tiny text-content-medium-dark">
+            <div className="flex flex-col items-center gap-2">
+              <Icon
+                name="deliveryTruck"
+                className="text-content-medium-dark"
+                size="26"
+              />
+              <div>
+                <p className="mb-1">Estimate delivery times: </p>
+                <span className="font-semibold text-secondary-dark">
+                  3-5 days international.
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <Icon
+                name="package"
+                className="text-content-medium-dark"
+                size="26"
+              />
+              <div>
+                <p className="mb-1">Free shipping & returns: </p>
+                <span className="font-semibold text-secondary-dark">
+                  On all orders over $150.
                 </span>
               </div>
             </div>

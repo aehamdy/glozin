@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { FaPinterestP, FaTiktok, FaYoutube } from "react-icons/fa";
-import { FaFacebookF, FaInstagram } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaTruckFast } from "react-icons/fa6";
 import { FiCheck, FiHeart, FiSearch, FiShoppingBag } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
-import { PiUser } from "react-icons/pi";
+import { PiPackage, PiUser } from "react-icons/pi";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { TiStarFullOutline } from "react-icons/ti";
@@ -22,6 +22,8 @@ const iconMap = {
   check: FiCheck,
   plus: AiOutlinePlus,
   minus: AiOutlineMinus,
+  deliveryTruck: FaTruckFast,
+  package: PiPackage,
   facebook: FaFacebookF,
   instagram: FaInstagram,
   tiktok: FaTiktok,
