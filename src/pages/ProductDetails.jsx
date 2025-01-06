@@ -2,6 +2,8 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import Icon from "../components/Icon";
 import safeBadgeImage from "../assets/safe-badge.webp";
 import { useEffect, useState } from "react";
+import Accordion from "../components/Accordion";
+import { freeShippingThreshold, shopConfig } from "../config/shopConfig";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -184,7 +186,7 @@ function ProductDetails() {
               <div>
                 <p className="mb-1">Free shipping & returns: </p>
                 <span className="font-semibold text-secondary-dark">
-                  On all orders over $150.
+                  {`On all orders over $${freeShippingThreshold}`}
                 </span>
               </div>
             </div>
@@ -201,6 +203,17 @@ function ProductDetails() {
                 className="max-w-full"
               />
             </div>
+          </div>
+
+          <div className="mt-2 px-3 text-start bg-gray-50 rounded-tiny">
+            <Accordion
+              question={shopConfig.shippingDetails.title}
+              answer={shopConfig.shippingDetails.content}
+            />
+            <Accordion
+              question={shopConfig.returnPolicies.title}
+              answer={shopConfig.returnPolicies.content}
+            />
           </div>
         </div>
       </div>
