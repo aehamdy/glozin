@@ -3,6 +3,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { FaPinterestP, FaTiktok, FaYoutube } from "react-icons/fa";
 import { FaFacebookF, FaInstagram, FaTruckFast } from "react-icons/fa6";
 import { FiCheck, FiHeart, FiSearch, FiShoppingBag } from "react-icons/fi";
+import { IoEyeOutline } from "react-icons/io5";
 import { MdClose } from "react-icons/md";
 import { PiPackage, PiUser } from "react-icons/pi";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
@@ -24,6 +25,7 @@ const iconMap = {
   minus: AiOutlineMinus,
   deliveryTruck: FaTruckFast,
   package: PiPackage,
+  eye: IoEyeOutline,
   facebook: FaFacebookF,
   instagram: FaInstagram,
   tiktok: FaTiktok,

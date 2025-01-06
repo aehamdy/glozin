@@ -1,11 +1,13 @@
 import { Link, useLocation, useParams } from "react-router-dom";
 import Icon from "../components/Icon";
 import safeBadgeImage from "../assets/safe-badge.webp";
+import { useEffect, useState } from "react";
 
 function ProductDetails() {
   const { id } = useParams();
   const location = useLocation();
   const product = location.state;
+  const [randomNumber, setRandomNumber] = useState();
 
   //   if (!product) {
   //     return (
@@ -14,6 +16,21 @@ function ProductDetails() {
   //       </p>
   //     );
   //   }
+
+  const generateRandomNumber = () => {
+    const number = Math.ceil(Math.random() * 20 * 2);
+    setRandomNumber(number < 15 ? number + 10 : number);
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      generateRandomNumber();
+    }, 7000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [randomNumber]);
 
   return (
     <section className="m-horizontal-spacing p-horizontal-spacing">
@@ -99,6 +116,20 @@ function ProductDetails() {
           <p className="text-[15px] text-start text-content-medium-dark leading-7">
             {product.description}
           </p>
+
+          <div className="flex items-center gap-3 text-content-medium-dark">
+            <div className="p-1 bg-secondary-dark rounded-tiny">
+              <Icon
+                name="eye"
+                size="18"
+                className="text-primary-light select-none"
+              />
+            </div>
+            <div className="flex items-center gap-2">
+              <p>{randomNumber}</p>
+              <p className=""> peoples are viewing this right now</p>
+            </div>
+          </div>
 
           <div className="product-form"></div>
 
