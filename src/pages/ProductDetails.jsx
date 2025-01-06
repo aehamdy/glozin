@@ -42,51 +42,51 @@ function ProductDetails() {
             className="w-full"
           /> */}
         </div>
-        <div className="product-details h-fit sticky top-8">
-          <div className="flex flex-col">
-            <p className="text-[15px] text-secondary-dark">{`Product ID: ${id}`}</p>
-            <p className="text-[15px] text-secondary-dark">{product.brand}</p>
+        <div className="product-details flex flex-col items-start h-fit sticky top-8">
+          <div className="flex flex-col items-start gap-1">
+            {/* <p className="text-[15px] text-secondary-dark">{`Product ID: ${id}`}</p> */}
+            <p className="text-[15px] text-secondary-dark select-none">
+              {product.brand}
+            </p>
             <h1 className="font-semibold text-[26px] text-secondary-dark tracking-tight">
               {product.title}
             </h1>
-            <div className="flex justify-between w-fit">
-              <span></span>
+            <div className="flex justify-between items-center gap-5 my-1 w-fit">
               <span className="text-[15px] text-content-medium-dark">
                 {product.reviews?.length || 0} reviews
               </span>
             </div>
           </div>
-          <div className="prices flex">
+
+          <div className="prices flex items-center my-2 font-semibold text-3xl">
             {product.discountPercentage < 10 && (
-              <span className="font-semibold text-[26px] text-price-salePrice">
+              <span className="me-3 text-[26px] text-price-salePrice">
                 {product.discountPercentage < 10 &&
-                  `$${(
-                    (product.price *
-                      (product.price - product.discountPercentage)) /
-                    100
-                  ).toFixed(2)}`}
+                  `$${Math.ceil(
+                    (
+                      (product.price *
+                        (product.price - product.discountPercentage)) /
+                      100
+                    ).toFixed(2)
+                  )}.00`}
               </span>
             )}
-            <span className="text-secondary-dark">${product.price}</span>
+            <span
+              className={`${
+                product.discountPercentage < 10
+                  ? "font-extralight text-xl text-price-originalPrice line-through"
+                  : "text-secondary-dark"
+              }`}
+            >
+              ${product.price}
+            </span>
           </div>
-          <p className="text-[15px] text-content-medium-dark leading-7">
+
+          <p className="text-[15px] text-start text-content-medium-dark leading-7">
             {product.description}
           </p>
+
           <div className="product-form"></div>
-          <div className="product-details">
-            <div>
-              SKU: <span>{product.sku || "N/A"}</span>
-            </div>
-            <div>
-              Availability:{" "}
-              <div>
-                <span>{product.stock || "Out of Stock"}</span>{" "}
-                {product.stock <= 5 && (
-                  <span>{product.availabilityStatus || "Low Stock"}</span>
-                )}
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

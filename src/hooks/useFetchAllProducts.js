@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 function useFetchAllProducts(setState) {
-    let url = "https://dummyjson.com/products";
+    let url = "https://dummyjson.com/products/category/womens-dresses";
 
     useEffect(() => {
         fetch(url)
