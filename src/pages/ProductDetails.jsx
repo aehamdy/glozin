@@ -52,6 +52,19 @@ function ProductDetails() {
               {product.title}
             </h1>
             <div className="flex justify-between items-center gap-5 my-1 w-fit">
+              <div className="flex gap-1">
+                {Array(Math.round(product.rating))
+                  .fill()
+                  .flat()
+                  .map((_, index) => (
+                    <Icon
+                      key={index}
+                      name="star"
+                      size="16"
+                      className="text-rate-color"
+                    />
+                  ))}
+              </div>
               <span className="text-[15px] text-content-medium-dark">
                 {product.reviews?.length || 0} reviews
               </span>
