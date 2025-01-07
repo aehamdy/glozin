@@ -38,6 +38,13 @@ function Icon({ name, size = 21, className = "", onClickFunction }) {
   const IconComponent = iconMap[name];
   const defaultClasses = "cursor-pointer duration-medium";
 
+  if (!IconComponent) {
+    console.warn(
+      `Icon "${name}" is not defined in iconMap. Check your name prop or iconMap.`
+    );
+    return null;
+  }
+
   return (
     <IconComponent
       size={size}
