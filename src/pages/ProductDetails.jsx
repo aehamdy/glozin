@@ -26,6 +26,8 @@ function ProductDetails() {
   };
 
   useEffect(() => {
+    console.log(product);
+
     const intervalId = setInterval(() => {
       generateRandomNumber();
     }, 7000);
@@ -242,11 +244,11 @@ function ProductDetails() {
             </div>
           </div>
 
-          <div className="safe-checkout flex flex-col gap-2">
+          <div className="safe-checkout flex flex-col items-center gap-2">
             <p className="font-semibold text-secondary-dark">
               Guarantee Safe Checkout:
             </p>
-            <div>
+            <div className="w-3/4">
               <img
                 src={safeBadgeImage}
                 alt="safe badge image"
@@ -265,6 +267,27 @@ function ProductDetails() {
               answer={shopConfig.returnPolicies.content}
             />
           </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-4 text-secondary-dark">
+        <h2 className="font-semibold text-2xl">Customer Reviews</h2>
+        <div className="flex flex-col">
+          {product.reviews.map((review, index) => (
+            <div
+              key={index}
+              className="flex flex-col py-4 px-2 border-t odd:bg-gray-50 even:bg-primary-light"
+            >
+              <div className="flex justify-between">
+                <div>{review.rating}</div>
+                <div>{review.date.split("T")[0]}</div>
+              </div>
+              <div className="flex flex-col items-start gap-2 ps-2">
+                <div className="font-semibold">{review.reviewerName}</div>
+                <div className="text-content-medium-dark">{review.comment}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
