@@ -69,13 +69,17 @@ function ProductDetails() {
             </h1>
             <div className="flex justify-between items-center gap-5 my-1 w-fit">
               <div className="flex gap-1">
-                {Array(Math.round(product.rating))
+                {Array(5)
                   .fill()
                   .flat()
                   .map((_, index) => (
                     <Icon
                       key={index}
-                      name="filledStar"
+                      name={`${
+                        index < Math.round(product.rating)
+                          ? "filledStar"
+                          : "outlineStar"
+                      }`}
                       size="16"
                       className="text-rate-color"
                     />
