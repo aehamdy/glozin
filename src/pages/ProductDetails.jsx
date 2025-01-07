@@ -156,11 +156,16 @@ function ProductDetails() {
                 value="Add to Cart"
                 className="w-1/2 py-3 px-4 font-semibold text-lg text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-medium "
               />
-              <Icon
-                name="wishlist"
-                size="30"
-                className="text-secondary-dark hover:fill-red-300"
-              />
+              <div className="addtowishlist-button group relative p-4 bg-primary-light hover:bg-secondary-dark border rounded-full cursor-pointer duration-medium">
+                <div className="tooltip absolute -top-5 group-hover:-top-7 start-0 -translate-x-1/4 w-24 py-1 text-xs text-primary-light bg-primary-dark rounded-md opacity-0 group-hover:opacity-100 z-[-1] group-hover:z-40 pointer-events-none duration-300">
+                  Add to wishlist
+                </div>
+                <Icon
+                  name="wishlist"
+                  size="18"
+                  className="text-secondary-dark group-hover:text-primary-light group-hover:fill-secondar-dark"
+                />
+              </div>
             </div>
           </div>
 
