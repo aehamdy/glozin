@@ -77,7 +77,7 @@ function ProductDetails() {
                   .map((_, index) => (
                     <Icon
                       key={index}
-                      name="star"
+                      name="filledStar"
                       size="16"
                       className="text-rate-color"
                     />
@@ -279,8 +279,16 @@ function ProductDetails() {
               className="flex flex-col py-4 px-2 border-t odd:bg-gray-50 even:bg-primary-light"
             >
               <div className="flex justify-between">
-                <div>{review.rating}</div>
-                <div>{review.date.split("T")[0]}</div>
+                <div className="flex pointer-events-none">
+                  <Icon
+                    name="filledStar"
+                    size="16"
+                    className="text-rate-color"
+                  />
+                </div>
+                <div className="text-secondary-light">
+                  {review.date.split("T")[0]}
+                </div>
               </div>
               <div className="flex flex-col items-start gap-2 ps-2">
                 <div className="font-semibold">{review.reviewerName}</div>

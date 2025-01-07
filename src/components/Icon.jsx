@@ -8,7 +8,7 @@ import { MdClose } from "react-icons/md";
 import { PiPackage, PiUser } from "react-icons/pi";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { TiStarFullOutline } from "react-icons/ti";
+import { TiStarFullOutline, TiStarOutline } from "react-icons/ti";
 
 const iconMap = {
   menu: RxHamburgerMenu,
@@ -19,7 +19,8 @@ const iconMap = {
   cart: FiShoppingBag,
   rightArrow: RiArrowRightSLine,
   leftArrow: RiArrowLeftSLine,
-  star: TiStarFullOutline,
+  filledStar: TiStarFullOutline,
+  outlineStar: TiStarOutline,
   check: FiCheck,
   plus: AiOutlinePlus,
   minus: AiOutlineMinus,
