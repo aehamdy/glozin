@@ -1,8 +1,9 @@
+import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import Icon from "../components/Icon";
-import safeBadgeImage from "../assets/safe-badge.webp";
-import { useEffect, useState } from "react";
+import Button from "../components/Button";
 import Accordion from "../components/Accordion";
+import safeBadgeImage from "../assets/safe-badge.webp";
 import { freeShippingThreshold, shopConfig } from "../config/shopConfig";
 
 function ProductDetails() {
@@ -56,11 +57,6 @@ function ProductDetails() {
               className="w-full object-cover"
             />
           ))}
-          {/* <img
-            src="https://via.placeholder.com/500"
-            alt=""
-            className="w-full"
-          /> */}
         </div>
         <div className="product-details flex flex-col gap-2 items-start h-fit sticky top-8">
           <div className="flex flex-col items-start gap-1">
@@ -129,11 +125,29 @@ function ProductDetails() {
             </div>
             <div className="flex items-center gap-2">
               <p>{randomNumber}</p>
-              <p className=""> peoples are viewing this right now</p>
+              <p className=""> people are viewing this right now</p>
             </div>
           </div>
 
-          <div className="product-form"></div>
+          <div className="product-form flex flex-col gap-3 w-full mt-5 pt-8 border-t">
+            <div className="flex justify-between items-center px-1">
+              <input
+                type="number"
+                name=""
+                id=""
+                className="w-1/4 bg-primary-light border"
+              />
+              <Button
+                value="Add to Cart"
+                className="w-1/2 py-3 px-4 font-semibold text-lg text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-medium "
+              />
+              <Icon
+                name="wishlist"
+                size="30"
+                className="text-secondary-dark hover:fill-red-300"
+              />
+            </div>
+          </div>
 
           <div className="product-details flex flex-col items-start gap-1 text-content-medium-dark text-start">
             <div className="flex">
