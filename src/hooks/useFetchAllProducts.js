@@ -7,7 +7,6 @@ function useFetchAllProducts(setState) {
         fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data.products);
             setState(data.products)
         })
         .catch(err => console.error("Error happened: ", err));

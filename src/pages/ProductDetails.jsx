@@ -26,8 +26,6 @@ function ProductDetails() {
   };
 
   useEffect(() => {
-    console.log(product);
-
     const intervalId = setInterval(() => {
       generateRandomNumber();
     }, 7000);
