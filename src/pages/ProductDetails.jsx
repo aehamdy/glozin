@@ -131,12 +131,27 @@ function ProductDetails() {
 
           <div className="product-form flex flex-col gap-3 w-full mt-5 pt-8 border-t">
             <div className="flex justify-between items-center px-1">
-              <input
-                type="number"
-                name=""
-                id=""
-                className="w-1/4 bg-primary-light border"
-              />
+              <div className="flex items-center bg-[#F5F5F5] border rounded-medium overflow-hidden">
+                <button
+                  type="button"
+                  className="py-3 px-4 text-xl text-primary-dark bg-transparent hover:bg-gray-200"
+                  aria-label="Decrease amount"
+                >
+                  -
+                </button>
+                <input
+                  type="number"
+                  className="quantity-input w-12 py-3 bg-transparent text-primary-dark text-center focus:outline-none"
+                  aria-label="Item amount"
+                />
+                <button
+                  type="button"
+                  className="py-3 px-4 text-xl text-primary-dark bg-transparent hover:bg-gray-200"
+                  aria-label="Increase amount"
+                >
+                  +
+                </button>
+              </div>
               <Button
                 value="Add to Cart"
                 className="w-1/2 py-3 px-4 font-semibold text-lg text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-medium "
