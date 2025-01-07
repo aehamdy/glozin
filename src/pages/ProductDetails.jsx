@@ -280,15 +280,21 @@ function ProductDetails() {
             >
               <div className="flex justify-between">
                 <div className="flex pointer-events-none">
-                  <Icon
-                    name="filledStar"
-                    size="16"
-                    className="text-rate-color"
-                  />
+                  {Array(5)
+                    .fill()
+                    .flat()
+                    .map((_, i) => (
+                      <Icon
+                        key={i}
+                        name={`${
+                          i < review.rating ? "filledStar" : "outlineStar"
+                        }`}
+                        size="16"
+                        className={`text-rate-color`}
+                      />
+                    ))}
                 </div>
-                <div className="text-secondary-light">
-                  {review.date.split("T")[0]}
-                </div>
+                <div>{review.date.split("T")[0]}</div>
               </div>
               <div className="flex flex-col items-start gap-2 ps-2">
                 <div className="font-semibold">{review.reviewerName}</div>
