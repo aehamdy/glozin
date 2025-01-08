@@ -6,6 +6,7 @@ import Accordion from "../components/Accordion";
 import safeBadgeImage from "../assets/safe-badge.webp";
 import { freeShippingThreshold, shopConfig } from "../config/shopConfig";
 import GoBackButton from "../components/GoBackButton";
+import ProductImages from "../components/ProductImages";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -41,16 +42,8 @@ function ProductDetails() {
       <GoBackButton />
 
       <div className="grid grid-cols-2 gap-9 my-6 px-6">
-        <div className="flex flex-col gap-y-1">
-          {product.images.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`image of ${product.title}`}
-              className="w-full object-cover"
-            />
-          ))}
-        </div>
+        <ProductImages images={product.images} productTitle={product.title} />
+
         <div className="product-details flex flex-col gap-2 items-start h-fit sticky top-8">
           <div className="flex flex-col items-start gap-1">
             {/* <p className="text-[15px] text-secondary-dark">{`Product ID: ${id}`}</p> */}
