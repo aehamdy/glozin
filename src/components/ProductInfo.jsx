@@ -8,6 +8,7 @@ import safeBadgeImage from "../assets/safe-badge.webp";
 import ProductBrandName from "./ProductBrandName";
 import ProductName from "./ProductName";
 import ProductRate from "./ProductRate";
+import ProductPrice from "./ProductPrice";
 
 function ProductInfo({ product, totalStars }) {
   const [randomNumber, setRandomNumber] = useState();
@@ -39,29 +40,10 @@ function ProductInfo({ product, totalStars }) {
         />
       </div>
 
-      <div className="prices flex items-center my-2 font-semibold text-3xl">
-        {product.discountPercentage < 10 && (
-          <span className="me-3 text-[26px] text-price-salePrice">
-            {product.discountPercentage < 10 &&
-              `$${Math.ceil(
-                (
-                  (product.price *
-                    (product.price - product.discountPercentage)) /
-                  100
-                ).toFixed(2)
-              )}.00`}
-          </span>
-        )}
-        <span
-          className={`${
-            product.discountPercentage < 10
-              ? "font-extralight text-xl text-price-originalPrice line-through"
-              : "text-secondary-dark"
-          }`}
-        >
-          ${product.price}
-        </span>
-      </div>
+      <ProductPrice
+        productPrice={product.price}
+        productDiscountPercentage={product.discountPercentage}
+      />
 
       <p className="text-[15px] text-start text-content-medium-dark leading-7">
         {product.description}
