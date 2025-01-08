@@ -3,6 +3,7 @@ import Icon from "../components/Icon";
 import GoBackButton from "../components/GoBackButton";
 import ProductImages from "../components/ProductImages";
 import ProductInfo from "../components/ProductInfo";
+import ProductReviews from "../components/ProductReviews";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -21,7 +22,6 @@ function ProductDetails() {
 
   return (
     <section className="m-horizontal-spacing lg:p-horizontal-spacing">
-      {console.log(product)}
       <GoBackButton />
 
       <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-9 my-6 lg:px-6">
@@ -33,40 +33,10 @@ function ProductDetails() {
         />
       </div>
 
-      <div className="flex flex-col gap-4 text-secondary-dark">
-        <h2 className="font-semibold text-2xl">Customer Reviews</h2>
-        <div className="flex flex-col">
-          {product.reviews.map((review, index) => (
-            <div
-              key={index}
-              className="flex flex-col py-4 px-2 border-t odd:bg-gray-50 even:bg-primary-light"
-            >
-              <div className="flex justify-between">
-                <div className="flex pointer-events-none">
-                  {Array(5)
-                    .fill()
-                    .flat()
-                    .map((_, i) => (
-                      <Icon
-                        key={i}
-                        name={`${
-                          i < review.rating ? "filledStar" : "outlineStar"
-                        }`}
-                        size="16"
-                        className={`text-rate-color`}
-                      />
-                    ))}
-                </div>
-                <div>{review.date.split("T")[0]}</div>
-              </div>
-              <div className="flex flex-col items-start gap-2 ps-2">
-                <div className="font-semibold">{review.reviewerName}</div>
-                <div className="text-content-medium-dark">{review.comment}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <ProductReviews
+        productReviews={product.reviews}
+        totalStars={RATING_TOTAL_STARS}
+      />
     </section>
   );
 }
