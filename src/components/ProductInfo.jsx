@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { freeShippingThreshold, shopConfig } from "../config/shopConfig";
 import Accordion from "./Accordion";
-import Button from "./Button";
 import Icon from "./Icon";
 import safeBadgeImage from "../assets/safe-badge.webp";
 import ProductBrandName from "./ProductBrandName";
@@ -11,8 +10,9 @@ import ProductPrice from "./ProductPrice";
 import ProductDesc from "./ProductDesc";
 import ProductViewers from "./ProductViewers";
 import ProductForm from "./ProductForm";
+import ProductInventoryInfo from "./ProductInventoryInfo";
 
-function ProductInfo({ product, totalStars }) {
+function ProductInfo({ product, totalStars, minimumStock }) {
   return (
     <div className="product-details flex flex-col gap-2 items-start h-fit sticky top-8">
       <div className="flex flex-col items-start gap-1">
@@ -36,33 +36,11 @@ function ProductInfo({ product, totalStars }) {
 
       <ProductForm />
 
-      <div className="product-details flex flex-col items-start gap-1 text-content-medium-dark text-start">
-        <div className="flex">
-          <div className="w-[90px]">SKU:</div>
-          <span>{product.sku || "N/A"}</span>
-        </div>
-
-        <div className="flex">
-          <div className="w-[90px]">Available: </div>
-          <div>
-            <span
-              className={`${
-                product.stock > 5
-                  ? "text-emerald-500"
-                  : product.stock <= 5
-                  ? "text-gray-500"
-                  : "text-red-500"
-              }`}
-            >
-              {product.stock > 5
-                ? "In Stock"
-                : product.stock <= 5 && product.stock >= 1
-                ? "Low Stock"
-                : "Out of Stock"}
-            </span>
-          </div>
-        </div>
-      </div>
+      <ProductInventoryInfo
+        sku={product.sku}
+        stock={product.stock}
+        minimumStock={minimumStock}
+      />
 
       <div className="deliver-shipping-details flex justify-around items-center w-full my-10 py-5 px-6 border rounded-tiny text-content-medium-dark">
         <div className="flex flex-col items-center gap-2">

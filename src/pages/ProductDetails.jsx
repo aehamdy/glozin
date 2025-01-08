@@ -8,7 +8,8 @@ function ProductDetails() {
   const { id } = useParams();
   const location = useLocation();
   const product = location.state;
-  const TOTAL_STARS = 5;
+  const RATING_TOTAL_STARS = 5;
+  const MINIMUM_STOCK_LIMIT = 5;
 
   //   if (!product) {
   //     return (
@@ -25,7 +26,11 @@ function ProductDetails() {
 
       <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-9 my-6 lg:px-6">
         <ProductImages images={product.images} productTitle={product.title} />
-        <ProductInfo product={product} totalStars={TOTAL_STARS} />
+        <ProductInfo
+          product={product}
+          totalStars={RATING_TOTAL_STARS}
+          minimumStock={MINIMUM_STOCK_LIMIT}
+        />
       </div>
 
       <div className="flex flex-col gap-4 text-secondary-dark">
