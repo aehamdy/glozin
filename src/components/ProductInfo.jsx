@@ -5,6 +5,8 @@ import Accordion from "./Accordion";
 import Button from "./Button";
 import Icon from "./Icon";
 import safeBadgeImage from "../assets/safe-badge.webp";
+import ProductBrandName from "./ProductBrandName";
+import ProductName from "./ProductName";
 
 function ProductInfo({ product }) {
   const [randomNumber, setRandomNumber] = useState();
@@ -27,12 +29,8 @@ function ProductInfo({ product }) {
   return (
     <div className="product-details flex flex-col gap-2 items-start h-fit sticky top-8">
       <div className="flex flex-col items-start gap-1">
-        <p className="text-[15px] text-secondary-dark select-none">
-          {product.brand}
-        </p>
-        <h1 className="font-semibold text-[26px] text-secondary-dark tracking-tight">
-          {product.title}
-        </h1>
+        <ProductBrandName brandName={product.brand} />
+        <ProductName productName={product.title} />
         <div className="flex justify-between items-center gap-5 my-1 w-fit">
           <div className="flex gap-1">
             {Array(5)
