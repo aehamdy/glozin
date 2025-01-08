@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
 import { freeShippingThreshold, shopConfig } from "../config/shopConfig";
 import Accordion from "./Accordion";
 import Button from "./Button";
@@ -10,25 +9,9 @@ import ProductName from "./ProductName";
 import ProductRate from "./ProductRate";
 import ProductPrice from "./ProductPrice";
 import ProductDesc from "./ProductDesc";
+import ProductViewers from "./ProductViewers";
 
 function ProductInfo({ product, totalStars }) {
-  const [randomNumber, setRandomNumber] = useState();
-
-  const generateRandomNumber = () => {
-    const number = Math.ceil(Math.random() * 20 * 2);
-    setRandomNumber(number < 15 ? number + 10 : number);
-  };
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      generateRandomNumber();
-    }, 7000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [randomNumber]);
-
   return (
     <div className="product-details flex flex-col gap-2 items-start h-fit sticky top-8">
       <div className="flex flex-col items-start gap-1">
@@ -48,19 +31,7 @@ function ProductInfo({ product, totalStars }) {
 
       <ProductDesc productDesc={product.description} />
 
-      <div className="flex items-center gap-3 text-content-medium-dark">
-        <div className="p-1 bg-secondary-dark rounded-tiny">
-          <Icon
-            name="eye"
-            size="18"
-            className="text-primary-light select-none"
-          />
-        </div>
-        <div className="flex items-center gap-2">
-          <p>{randomNumber}</p>
-          <p className=""> people are viewing this right now</p>
-        </div>
-      </div>
+      <ProductViewers />
 
       <div className="product-form flex flex-col gap-5 w-full my-5 pt-8 border-t">
         <div className="flex justify-between items-center px-1">
