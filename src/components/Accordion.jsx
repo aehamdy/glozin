@@ -13,7 +13,7 @@ function Accordion({ question, answer }) {
   return (
     <div className="mb-5 pb-3 border-b">
       <button
-        className="flex justify-between gap-10 w-full py-3 font-medium text-secondary-dark"
+        className="flex justify-between gap-10 w-full py-3 font-medium text-sm md:text-base text-secondary-dark"
         onClick={handleToggle}
         aria-expanded={isOpen}
       >
@@ -31,7 +31,7 @@ function Accordion({ question, answer }) {
           maxHeight: isOpen ? `${contentRef.current.scrollHeight}px` : "0",
         }}
       >
-        <div className="pb-5 px-5 text-content-medium-dark">
+        <div className="pb-5 px-2 md:px-5 text-sm md:text-base text-content-medium-dark">
           <p>{answer}</p>
         </div>
       </div>
