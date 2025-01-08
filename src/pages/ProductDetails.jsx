@@ -23,7 +23,7 @@ function ProductDetails() {
       {console.log(product)}
       <GoBackButton />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-9 my-6 lg:px-6">
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-9 my-6 lg:px-6">
         <ProductImages images={product.images} productTitle={product.title} />
         <ProductInfo product={product} totalStars={TOTAL_STARS} />
       </div>

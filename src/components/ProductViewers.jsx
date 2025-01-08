@@ -3,7 +3,7 @@ import ProductViewersCount from "./ProductViewersCount";
 
 function ProductViewers() {
   return (
-    <div className="flex items-center gap-2 md:gap-3 text-sm md:text-base text-content-medium-dark">
+    <div className="flex items-center gap-2 md:gap-3 mt-3 text-sm md:text-base text-content-medium-dark">
       <Icon
         name="eye"
         size="24"
