@@ -7,8 +7,9 @@ import Icon from "./Icon";
 import safeBadgeImage from "../assets/safe-badge.webp";
 import ProductBrandName from "./ProductBrandName";
 import ProductName from "./ProductName";
+import ProductRate from "./ProductRate";
 
-function ProductInfo({ product }) {
+function ProductInfo({ product, totalStars }) {
   const [randomNumber, setRandomNumber] = useState();
 
   const generateRandomNumber = () => {
@@ -31,28 +32,11 @@ function ProductInfo({ product }) {
       <div className="flex flex-col items-start gap-1">
         <ProductBrandName brandName={product.brand} />
         <ProductName productName={product.title} />
-        <div className="flex justify-between items-center gap-5 my-1 w-fit">
-          <div className="flex gap-1">
-            {Array(5)
-              .fill()
-              .flat()
-              .map((_, index) => (
-                <Icon
-                  key={index}
-                  name={`${
-                    index < Math.round(product.rating)
-                      ? "filledStar"
-                      : "outlineStar"
-                  }`}
-                  size="16"
-                  className="text-rate-color"
-                />
-              ))}
-          </div>
-          <span className="text-[15px] text-content-medium-dark">
-            {product.reviews?.length || 0} reviews
-          </span>
-        </div>
+        <ProductRate
+          productRate={product.rating}
+          productReviews={product.reviews}
+          totalStars={totalStars}
+        />
       </div>
 
       <div className="prices flex items-center my-2 font-semibold text-3xl">

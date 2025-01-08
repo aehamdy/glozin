@@ -8,6 +8,7 @@ function ProductDetails() {
   const { id } = useParams();
   const location = useLocation();
   const product = location.state;
+  const TOTAL_STARS = 5;
 
   //   if (!product) {
   //     return (
@@ -24,7 +25,7 @@ function ProductDetails() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-9 my-6 lg:px-6">
         <ProductImages images={product.images} productTitle={product.title} />
-        <ProductInfo product={product} />
+        <ProductInfo product={product} totalStars={TOTAL_STARS} />
       </div>
 
       <div className="flex flex-col gap-4 text-secondary-dark">
