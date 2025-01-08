@@ -38,10 +38,10 @@ function ProductDetails() {
   }, [randomNumber]);
 
   return (
-    <section className="m-horizontal-spacing p-horizontal-spacing">
+    <section className="m-horizontal-spacing lg:p-horizontal-spacing">
       <GoBackButton />
 
-      <div className="grid grid-cols-2 gap-9 my-6 px-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-9 my-6 lg:px-6">
         <ProductImages images={product.images} productTitle={product.title} />
 
         <div className="product-details flex flex-col gap-2 items-start h-fit sticky top-8">
