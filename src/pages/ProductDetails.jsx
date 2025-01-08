@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import Accordion from "../components/Accordion";
 import safeBadgeImage from "../assets/safe-badge.webp";
 import { freeShippingThreshold, shopConfig } from "../config/shopConfig";
+import GoBackButton from "../components/GoBackButton";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -37,15 +38,7 @@ function ProductDetails() {
 
   return (
     <section className="m-horizontal-spacing p-horizontal-spacing">
-      <Link
-        to="/"
-        className="group flex items-center justify-center w-fit bg-primary-light hover:bg-secondary-dark p-1.5 border rounded-tiny duration-medium"
-      >
-        <Icon
-          name="leftArrow"
-          className="text-secondary-dark group-hover:text-primary-light"
-        />
-      </Link>
+      <GoBackButton />
 
       <div className="grid grid-cols-2 gap-9 my-6 px-6">
         <div className="flex flex-col gap-y-1">
