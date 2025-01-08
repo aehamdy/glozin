@@ -2,6 +2,7 @@ import AddToCartButton from "./AddToCartButton";
 import AddToWishlistButton from "./AddToWishlistButton";
 import Button from "./Button";
 import ProductQuantityInput from "./ProductQuantityInput";
+import ProductTermsAgreement from "./ProductTermsAgreement";
 
 function ProductForm() {
   return (
@@ -14,15 +15,7 @@ function ProductForm() {
       </div>
 
       <div className="flex flex-col gap-4 px-1">
-        <div className="flex items-cetner gap-4">
-          <input type="checkbox" name="" id="" className="" />
-          <p className="flex gap-1 text-sm md:text-base text-secondary-dark">
-            I agree with{" "}
-            <span className="font-semibold text-secondary-dark">
-              Terms & Conditions
-            </span>
-          </p>
-        </div>
+        <ProductTermsAgreement />
         <Button
           value="Buy Now"
           className={`text-primary-light bg-red-300 py-2.5 rounded-medium`}
