@@ -16,7 +16,7 @@ function ProductPrice({ productPrice, productDiscountPercentage }) {
       <span
         className={`${
           productDiscountPercentage < 10
-            ? "font-extralight text-lg md:text-xl text-price-originalPrice line-through"
+            ? "font-extralight text-base md:text-xl text-price-originalPrice line-through"
             : "text-secondary-dark"
         }`}
       >

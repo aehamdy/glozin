@@ -19,7 +19,7 @@ function ProductRate({ productRate, productReviews, totalStars }) {
             />
           ))}
       </div>
-      <span className="text-[15px] text-content-medium-dark">
+      <span className="text-sm md:text-[15px] text-content-medium-dark">
         {productReviews?.length || 0} reviews
       </span>
     </div>

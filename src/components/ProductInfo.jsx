@@ -9,6 +9,7 @@ import ProductBrandName from "./ProductBrandName";
 import ProductName from "./ProductName";
 import ProductRate from "./ProductRate";
 import ProductPrice from "./ProductPrice";
+import ProductDesc from "./ProductDesc";
 
 function ProductInfo({ product, totalStars }) {
   const [randomNumber, setRandomNumber] = useState();
@@ -31,7 +32,7 @@ function ProductInfo({ product, totalStars }) {
   return (
     <div className="product-details flex flex-col gap-2 items-start h-fit sticky top-8">
       <div className="flex flex-col items-start gap-1">
-        <ProductBrandName brandName={product.brand} />
+        {product.brand && <ProductBrandName brandName={product.brand} />}
         <ProductName productName={product.title} />
         <ProductRate
           productRate={product.rating}
@@ -45,9 +46,7 @@ function ProductInfo({ product, totalStars }) {
         productDiscountPercentage={product.discountPercentage}
       />
 
-      <p className="text-[15px] text-start text-content-medium-dark leading-7">
-        {product.description}
-      </p>
+      <ProductDesc productDesc={product.description} />
 
       <div className="flex items-center gap-3 text-content-medium-dark">
         <div className="p-1 bg-secondary-dark rounded-tiny">
