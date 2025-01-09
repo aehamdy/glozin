@@ -7,11 +7,15 @@ import ProductTermsAgreement from "./ProductTermsAgreement";
 
 function ProductForm() {
   const [isInputChecked, setIsInputChecked] = useState(true);
+  const [productQuantity, setProductQuantity] = useState(0);
 
   return (
     <div className="flex flex-col gap-5 w-full my-5 pt-8 border-t">
       <div className="flex justify-between items-center gap-3 px-1">
-        <ProductQuantityInput />
+        <ProductQuantityInput
+          setProductQuantity={setProductQuantity}
+          productQuantity={productQuantity}
+        />
 
         <AddToCartButton />
         <AddToWishlistButton />
