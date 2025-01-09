@@ -6,7 +6,7 @@ import ProductQuantityInput from "./ProductQuantityInput";
 import ProductTermsAgreement from "./ProductTermsAgreement";
 
 function ProductForm() {
-  const [isInputChecked, setIsInputChecked] = useState(true);
+  const [isInputChecked, setIsInputChecked] = useState(false);
   const [productQuantity, setProductQuantity] = useState(0);
 
   return (
@@ -17,7 +17,7 @@ function ProductForm() {
           productQuantity={productQuantity}
         />
 
-        <AddToCartButton />
+        <AddToCartButton status={productQuantity > 0} />
         <AddToWishlistButton />
       </div>
 
@@ -25,10 +25,12 @@ function ProductForm() {
         <ProductTermsAgreement setIsInputChecked={setIsInputChecked} />
         <Button
           value="Buy Now"
+          status={!isInputChecked}
           className={`text-primary-light py-2.5 rounded-medium ${
-            isInputChecked ? "bg-red-300" : "bg-red-600"
-          }`}
-          status={isInputChecked}
+            isInputChecked
+              ? "bg-red-500 hover:bg-red-600 active:bg-red-700"
+              : "bg-red-300"
+          } duration-short`}
         />
       </div>
     </div>
