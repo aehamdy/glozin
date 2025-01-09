@@ -1,15 +1,17 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import Modal from "../common/Modal";
 import TermsAndConditions from "./TermsAndConditions";
 
-function ProductTermsAgreement() {
+function ProductTermsAgreement({ setIsInputChecked }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => setIsModalOpen((prev) => !prev);
+  const toggleInput = () => setIsInputChecked((prev) => !prev);
 
   return (
     <div className="flex items-cetner gap-4">
-      <input type="checkbox" name="" id="" className="" />
+      <input type="checkbox" name="" id="" className="" onClick={toggleInput} />
       <div className="flex gap-1 text-sm md:text-base text-secondary-dark">
         I agree with{" "}
         <button

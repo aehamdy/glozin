@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-function Button({ value, className }) {
+function Button({ value, className, status }) {
   return (
-    <button type="button" className={className}>
+    <button type="button" className={className} disabled={status}>
       {value}
     </button>
   );
