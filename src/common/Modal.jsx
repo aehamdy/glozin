@@ -9,7 +9,12 @@ function Modal({ isOpen, onClose, children }) {
 
     if (isOpen) {
       document.addEventListener("keydown", handleKeyDown);
-      return () => document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+        document.body.style.overflow = "";
+      };
     }
   }, [isOpen, onClose]);
 
