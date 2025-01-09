@@ -9,7 +9,7 @@ function TestimonialRate({ rate }) {
         .map((_, index) => (
           <Icon
             key={index}
-            name="star"
+            name="filledStar"
             className="text-rate-color cursor-default"
           />
         ))}

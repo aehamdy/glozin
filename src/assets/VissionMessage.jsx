@@ -8,7 +8,7 @@ function VissionMessage() {
           {Array(5)
             .fill()
             .map((_, index) => (
-              <Icon key={index} name="star" className="cursor-auto" />
+              <Icon key={index} name="filledStar" className="cursor-auto" />
             ))}
         </div>
         <p className="text-sm md:text-lg">
