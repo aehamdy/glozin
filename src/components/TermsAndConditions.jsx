@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import storeData from "../data/storeData";
 import Icon from "./Icon";
 
 function TermsAndConditions({ toggleModal }) {
@@ -22,13 +23,14 @@ function TermsAndConditions({ toggleModal }) {
             Last Updated: September 08. 2024.
           </strong>
           <p>
-            Welcome to the Glozin Store, Inc. (“Glimo”) web site located at
-            www.glimo.com (“the Site”). Glozin provides this Site as a service
-            to our customers. Please read the following terms of service
-            (“Terms”) as they govern your use of our Site and our services and
-            content accessible via our Site. To make these Terms easier to read,
-            the Site and our services and content are collectively called the
-            “Services.”
+            Welcome to the Glozin Store, Inc. (“{storeData.incName}”) web site
+            located at {storeData.incWebsite} (“the Site”).{" "}
+            {storeData.name.charAt(0).toUpperCase() + storeData.name.slice(1)}{" "}
+            provides this Site as a service to our customers. Please read the
+            following terms of service (“Terms”) as they govern your use of our
+            Site and our services and content accessible via our Site. To make
+            these Terms easier to read, the Site and our services and content
+            are collectively called the “Services.”
           </p>
         </div>
         <div>
@@ -40,12 +42,14 @@ function TermsAndConditions({ toggleModal }) {
         </div>
         <div>
           <strong className="block mb-0 md:mb-1">Customer Satisfaction.</strong>
-          At Glozin, we are committed to providing our customers with great
-          quality products at low prices. Our products are sold online only in
-          limited quantities and availabilities. We have done our best to
-          display our items as accurately as possible via our Services. Please
-          be aware however that variations in style, color, size, shape and look
-          may occur. If you are not satisfied your purchase, please review our
+          At {storeData.name.charAt(0).toUpperCase() +
+            storeData.name.slice(1)}{" "}
+          , we are committed to providing our customers with great quality
+          products at low prices. Our products are sold online only in limited
+          quantities and availabilities. We have done our best to display our
+          items as accurately as possible via our Services. Please be aware
+          however that variations in style, color, size, shape and look may
+          occur. If you are not satisfied your purchase, please review our
           return policy under our FAQ at https://www.glozin.com/help.
         </div>
       </div>

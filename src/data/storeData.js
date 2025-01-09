@@ -1,4 +1,6 @@
 const storeData = {
+    incName: "Glimo",
+    incWebsite: "www.glimo.com",
     name: "glozin",
     phone: "+1 (973) 435-3638",
     customerCareEmail: "info@fashionwomen.com",
