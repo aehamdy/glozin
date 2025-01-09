@@ -1,5 +1,4 @@
 import { useLocation, useParams } from "react-router-dom";
-import Icon from "../components/Icon";
 import GoBackButton from "../components/GoBackButton";
 import ProductImages from "../components/ProductImages";
 import ProductInfo from "../components/ProductInfo";
