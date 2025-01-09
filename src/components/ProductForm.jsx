@@ -17,7 +17,15 @@ function ProductForm() {
           productQuantity={productQuantity}
         />
 
-        <AddToCartButton status={productQuantity > 0} />
+        <Button
+          value="Add to Cart"
+          status={productQuantity <= 0}
+          className={`w-1/2 py-2.5 md:py-3 px-4 font-semibold text-base lg:text-lg text-primary-light ${
+            productQuantity > 0
+              ? "bg-secondary-dark hover:bg-primary-dark active:bg-gray-800"
+              : "bg-gray-300"
+          } rounded-medium`}
+        />
         <AddToWishlistButton />
       </div>
 
