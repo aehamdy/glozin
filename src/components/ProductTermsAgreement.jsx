@@ -10,7 +10,7 @@ function ProductTermsAgreement() {
   return (
     <div className="flex items-cetner gap-4">
       <input type="checkbox" name="" id="" className="" />
-      <p className="flex gap-1 text-sm md:text-base text-secondary-dark">
+      <div className="flex gap-1 text-sm md:text-base text-secondary-dark">
         I agree with{" "}
         <button
           type="button"
@@ -22,7 +22,7 @@ function ProductTermsAgreement() {
         <Modal isOpen={isModalOpen} onClose={toggleModal}>
           <TermsAndConditions toggleModal={toggleModal} />
         </Modal>
-      </p>
+      </div>
     </div>
   );
 }
