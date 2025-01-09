@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "../common/Modal";
+import TermsAndConditions from "./TermsAndConditions";
 
 function ProductTermsAgreement() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,7 +19,9 @@ function ProductTermsAgreement() {
         >
           Terms & Conditions
         </button>
-        <Modal isOpen={isModalOpen} onClose={toggleModal}></Modal>
+        <Modal isOpen={isModalOpen} onClose={toggleModal}>
+          <TermsAndConditions toggleModal={toggleModal} />
+        </Modal>
       </p>
     </div>
   );

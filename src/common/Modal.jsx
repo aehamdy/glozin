@@ -4,7 +4,7 @@ function Modal({ isOpen, onClose, children }) {
 
   return (
     <div
-      className="flex justify-center items-center fixed inset-0 bg-black bg-opacity-50 z-[100]"
+      className="flex justify-center items-center fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-overlay"
       onClick={onClose}
     >
       {children}
