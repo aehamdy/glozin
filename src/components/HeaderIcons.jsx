@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import Icon from "./Icon";
 
 function HeaderIcons({ handleOpenCart, handleSearchOpening }) {
@@ -13,10 +14,12 @@ function HeaderIcons({ handleOpenCart, handleSearchOpening }) {
         name="user"
         className="hidden lg:block text-primary-dark  hover:text-red-500"
       />
-      <Icon
-        name="wishlist"
-        className="hidden lg:block text-primary-dark  hover:text-red-500"
-      />
+      <Link to="/wishlist">
+        <Icon
+          name="wishlist"
+          className="hidden lg:block text-primary-dark  hover:text-red-500"
+        />
+      </Link>
       <Icon
         name="cart"
         className="text-primary-dark hover:text-red-500"

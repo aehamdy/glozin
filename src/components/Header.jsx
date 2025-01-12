@@ -6,7 +6,6 @@ import Logo from "./Logo";
 import Nav from "./Nav";
 import Icon from "./Icon";
 import SearchPanel from "./SearchPanel";
-import BlurredOverlay from "./BlurredOverlay";
 
 function Header({ handleOpenCart }) {
   const [barVisibility, setBarVisibility] = useState(true);
