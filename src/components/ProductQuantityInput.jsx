@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 function ProductQuantityInput({ setProductQuantity, productQuantity }) {
   const decreaseQuantity = () =>
-    setProductQuantity((prevVal) => (prevVal === 0 ? 0 : prevVal - 1));
+    setProductQuantity((prevVal) => (prevVal === 1 ? 1 : prevVal - 1));
   const increaseQuantity = () => setProductQuantity((prevVal) => prevVal + 1);
 
   return (

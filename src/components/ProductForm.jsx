@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddToCartButton from "./AddToCartButton";
+// import AddToCartButton from "./AddToCartButton";
 import AddToWishlistButton from "./AddToWishlistButton";
 import Button from "./Button";
 import ProductQuantityInput from "./ProductQuantityInput";
@@ -7,7 +7,7 @@ import ProductTermsAgreement from "./ProductTermsAgreement";
 
 function ProductForm() {
   const [isInputChecked, setIsInputChecked] = useState(false);
-  const [productQuantity, setProductQuantity] = useState(0);
+  const [productQuantity, setProductQuantity] = useState(1);
 
   return (
     <div className="flex flex-col gap-5 w-full my-5 pt-8 border-t">
