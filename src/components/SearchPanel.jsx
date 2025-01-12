@@ -4,9 +4,14 @@ import Icon from "./Icon";
 import PanelTitle from "./PanelTitle";
 
 function SearchPanel({ isSearchOpen, handleSearchClosing }) {
+  const handleClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <Modal isOpen={isSearchOpen} onClose={handleSearchClosing}>
       <div
+        onClick={handleClick}
         className={`fixed top-0 start-0 w-full h-[90%] flex flex-col gap-5 py-3 px-4 bg-primary-light rounded-b-small shadow-lg z-top transform
         ${isSearchOpen ? "translate-y-0" : "-translate-y-full"}
         transition-transform duration-medium ease-in-out`}

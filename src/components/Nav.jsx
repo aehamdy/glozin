@@ -5,11 +5,16 @@ import NavList from "./NavList";
 import Modal from "../common/Modal";
 
 function Nav({ navVisibility, closeSideNav }) {
+  const handleClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <>
       {/* For small and medium screens */}
       <Modal isOpen={navVisibility} onClose={closeSideNav}>
         <nav
+          onClick={handleClick}
           className={`lg:hidden fixed top-0 left-0 flex-col items-start w-2/3 h-full bg-primary-light z-top rounded-r-small overflow-hidden transition-all duration-[350ms] ease-in-out transform ${
             navVisibility ? "translate-x-0" : "-translate-x-full"
           }`}
