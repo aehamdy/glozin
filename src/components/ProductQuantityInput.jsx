@@ -4,12 +4,19 @@ function ProductQuantityInput({ setProductQuantity, productQuantity }) {
     setProductQuantity((prevVal) => (prevVal === 1 ? 1 : prevVal - 1));
   const increaseQuantity = () => setProductQuantity((prevVal) => prevVal + 1);
 
+  const buttonStatus = productQuantity <= 1;
+
   return (
     <div className="flex items-center bg-[#F5F5F5] border rounded-medium overflow-hidden">
       <button
         type="button"
         onClick={decreaseQuantity}
-        className="py-2 md:py-3 px-3 md:px-4 text-xl text-primary-dark bg-transparent hover:bg-gray-200"
+        disabled={buttonStatus}
+        className={`py-2 md:py-3 px-3 md:px-4 text-xl ${
+          productQuantity <= 1
+            ? "text-gray-300"
+            : "text-primary-dark bg-transparent hover:bg-gray-200"
+        } `}
         aria-label="Decrease amount"
       >
         -
