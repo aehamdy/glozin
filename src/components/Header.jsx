@@ -51,10 +51,8 @@ function Header({ handleOpenCart }) {
         aria-expanded={navVisibility}
       />
       <Logo />
-      {navVisibility && (
-        <BlurredOverlay triggerOnClick={closeSideNav} state={navVisibility} />
-      )}
-      <Nav navVisibility={navVisibility} onClickFunction={closeSideNav} />
+
+      <Nav navVisibility={navVisibility} closeSideNav={closeSideNav} />
       <HeaderIcons
         handleOpenCart={handleOpenCart}
         handleSearchOpening={openSearchWindow}
