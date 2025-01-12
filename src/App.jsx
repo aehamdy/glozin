@@ -10,6 +10,7 @@ import Shop from "./pages/Shop";
 import Sale from "./pages/Sale";
 import Collections from "./pages/Collections";
 import ProductDetails from "./pages/ProductDetails";
+import Wishlist from "./pages/Wishlist";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         element: <Shop />,
       },
       {
+        path: "/product/:id",
+        element: <ProductDetails />,
+      },
+      {
         path: "/collections",
         element: <Collections />,
       },
@@ -33,8 +38,8 @@ const router = createBrowserRouter([
         element: <Sale />,
       },
       {
-        path: "/product/:id",
-        element: <ProductDetails />,
+        path: "/wishlist",
+        element: <Wishlist />,
       },
       {
         path: "/about",
