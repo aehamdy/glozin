@@ -39,7 +39,6 @@ function Header({ handleOpenCart }) {
         barVisibility && "mt-[32px]"
       } py-3 border-b`}
     >
-      <BlurredOverlay triggerOnClick={closeSearchWindow} state={isSearchOpen} />
       <SearchPanel
         isSearchOpen={isSearchOpen}
         handleSearchClosing={closeSearchWindow}
