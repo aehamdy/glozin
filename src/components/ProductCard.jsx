@@ -26,7 +26,7 @@ function ProductCard({ product, salePrice }) {
                   : "text-secondary-dark"
               }`}
             >
-              $ {product.price}
+              {product.price && "$"} {product.price}
             </h4>
           </div>
         </div>
