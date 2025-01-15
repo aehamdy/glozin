@@ -16,8 +16,16 @@ export const WishlistProvider = ({ children }) => {
     });
   };
 
+  const removeFromWishlist = (productId) => {
+    setWishlistProducts((prev) =>
+      prev.filter((product) => product.id !== productId)
+    );
+  };
+
   return (
-    <WishlistContext.Provider value={{ wishlistProducts, addToWishlist }}>
+    <WishlistContext.Provider
+      value={{ wishlistProducts, addToWishlist, removeFromWishlist }}
+    >
       {children}
     </WishlistContext.Provider>
   );

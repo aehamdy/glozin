@@ -3,7 +3,7 @@ import SectionHeader from "../components/SectionHeader";
 import { useWishlist } from "../context/wishlistContext";
 
 function Wishlist() {
-  const { wishlistProducts } = useWishlist();
+  const { wishlistProducts, removeFromWishlist } = useWishlist();
 
   return (
     <section className="m-horizontal-spacing lg:p-horizontal-spacing">
@@ -14,7 +14,11 @@ function Wishlist() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-14 gap-x-6">
         {wishlistProducts.map((product, index) => (
-          <ProductCard key={index} product={product} />
+          <ProductCard
+            key={index}
+            product={product}
+            removeFromWishlist={removeFromWishlist}
+          />
         ))}
       </div>
     </section>

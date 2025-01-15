@@ -1,9 +1,25 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import Icon from "./Icon";
 
-function ProductCard({ product, salePrice }) {
+function ProductCard({ product, salePrice, removeFromWishlist }) {
+  const handleRemoveFromWishlist = (productId) => {
+    removeFromWishlist(productId);
+  };
   return (
-    <article className="product-card group rounded-small shadow-sm hover:shadow-xl overflow-hidden cursor-pointer duration-medium">
+    <article className="relative group rounded-small shadow-sm hover:shadow-xl overflow-hidden cursor-pointer duration-medium">
+      {removeFromWishlist && (
+        <button
+          onClick={() => handleRemoveFromWishlist(product.id)}
+          className="group absolute top-2 end-2 bg-primary-light shadow-md rounded-full duration-medium z-10"
+        >
+          <Icon
+            name="close"
+            // size="17"
+            className="m-2 text-content-medium-dark duration-medium"
+          />
+        </button>
+      )}
       <Link to={`/product/${product.id}`} state={product}>
         <div className="flex justify-center rounded-small group-hover:rounded-b-none overflow-hidden">
           <img
