@@ -11,6 +11,7 @@ import Sale from "./pages/Sale";
 import Collections from "./pages/Collections";
 import ProductDetails from "./pages/ProductDetails";
 import Wishlist from "./pages/Wishlist";
+import { WishlistProvider } from "./context/wishlistContext";
 
 const router = createBrowserRouter([
   {
@@ -62,7 +63,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <WishlistProvider>
+      <RouterProvider router={router} />
+    </WishlistProvider>
+  );
 }
 
 export default App;
