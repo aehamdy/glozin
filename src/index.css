@@ -52,11 +52,17 @@ details > summary {
   -moz-appearance: textfield;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .header-nav li:hover {
     scale: 1.05;
   }
   .header-nav:has(li:hover) li:not(:hover) {
   opacity: 0.2;
+  }
+}
+
+@media (max-width: 1023px) {
+  .header-nav li:hover {
+    padding-inline-start: 10px;
   }
 }
