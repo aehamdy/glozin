@@ -19,6 +19,13 @@ function AddToWishlistButton({ productId }) {
     }
   }, [wishlistProducts, productId]);
 
+  useEffect(() => {
+    const inWishlist = wishlistProducts.some(
+      (product) => product.id === productId
+    );
+    setIsInWishlist(inWishlist);
+  }, []);
+
   const handleWishlistToggle = () => {
     if (product) {
       addToWishlist(product);
