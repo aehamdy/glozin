@@ -24,7 +24,7 @@ function ProductCard({ product, salePrice, removeFromWishlist }) {
       )}
       <Link to={`/product/${product.id}`} state={product}>
         <div className="relative flex justify-center rounded-small group-hover:rounded-b-none overflow-hidden">
-          <ProductCardQuickButtons />
+          <ProductCardQuickButtons productId={product.id} />
           <img
             src={product.images[0]}
             alt={product.title + " Image"}
