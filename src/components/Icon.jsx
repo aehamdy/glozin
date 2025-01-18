@@ -36,7 +36,7 @@ const iconMap = {
 
 function Icon({ name, size = 21, className = "", onClickFunction }) {
   const IconComponent = iconMap[name];
-  const defaultClasses = "cursor-pointer duration-medium";
+  const defaultClasses = "cursor-pointer duration-short";
 
   if (!IconComponent) {
     console.warn(
