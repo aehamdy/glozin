@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import Icon from "./Icon";
+import Button from "./Button";
 
 function ProductCard({ product, salePrice, removeFromWishlist }) {
   const handleRemoveFromWishlist = (productId) => {
@@ -21,7 +22,15 @@ function ProductCard({ product, salePrice, removeFromWishlist }) {
         </button>
       )}
       <Link to={`/product/${product.id}`} state={product}>
-        <div className="flex justify-center rounded-small group-hover:rounded-b-none overflow-hidden">
+        <div className="relative flex justify-center rounded-small group-hover:rounded-b-none overflow-hidden">
+          <div className="absolute top-0 start-0 w-full h-full">
+            <div className="relative w-full h-full">
+              <Button
+                value="Add to Cart"
+                className="absolute -bottom-8 group-hover:bottom-5 start-1/2 -translate-x-1/2 w-3/5 py-2.5 text-lg text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-medium opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-medium"
+              />
+            </div>
+          </div>
           <img
             src={product.images[0]}
             alt={product.title + " Image"}
