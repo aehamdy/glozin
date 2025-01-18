@@ -27,7 +27,7 @@ function ProductForm({ productId }) {
               : "bg-gray-300"
           } rounded-medium`}
         />
-        <AddToWishlistButton productId={productId} />
+        <AddToWishlistButton productId={productId} variant="primary" />
       </div>
 
       <div className="flex flex-col gap-4 px-1">
