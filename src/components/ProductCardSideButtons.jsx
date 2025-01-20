@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
 import AddToWishlistButton from "./AddToWishlistButton";
-import Icon from "./Icon";
 import ProductCardButton from "./ProductCardButton";
 
 function ProductCardSideButtons({ productId, removeFromWishlist }) {
   const handleRemoveFromWishlist = (productId) => {
     removeFromWishlist(productId);
   };
-  const quickButtons = [{ icon: "wishlist" }];
+  const quickButtons = [{ icon: "wishlist" }, { icon: "eye" }];
 
   return (
     <div className="absolute top-5 end-5 lg:-end-2 group-hover:end-5 flex flex-col gap-4 lg:opacity-0 lg:group-hover:opacity-100 group-hover:z-50 transition-all duration-medium">
