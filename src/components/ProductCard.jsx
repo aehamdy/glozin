@@ -24,11 +24,11 @@ function ProductCard({ product, salePrice, removeFromWishlist }) {
         </div>
 
         <div className="flex flex-col gap-3 my-4 text-center">
-          <h3 className="px-3 font-semibold text-xl text-secondary-dark">
+          <h3 className="px-3 font-semibold text-sm lg:text-xl text-secondary-dark">
             {product.title}
           </h3>
 
-          <div className="flex justify-center items-center gap-1 text-lg">
+          <div className="flex justify-center items-center gap-1 text-sm lg:text-lg">
             <h4
               className={`${
                 product.sale
