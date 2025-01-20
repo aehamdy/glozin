@@ -3,15 +3,14 @@ import { Link } from "react-router-dom";
 import ProductCardQuickButtons from "./ProductCardQuickButtons";
 
 function ProductCard({ product, salePrice, removeFromWishlist }) {
-  const handleRemoveFromWishlist = (productId) => {
-    removeFromWishlist(productId);
-  };
+  // const handleRemoveFromWishlist = (productId) => {
+  //   removeFromWishlist(productId);
+  // };
 
   return (
     <article className="group relative rounded-small shadow-sm hover:shadow-xl overflow-hidden cursor-pointer duration-medium">
       <ProductCardQuickButtons
         productId={product.id}
-        handleRemoveFromWishlist={handleRemoveFromWishlist}
         removeFromWishlist={removeFromWishlist}
       />
 

@@ -2,16 +2,11 @@
 import Button from "./Button";
 import ProductCardSideButtons from "./ProductCardSideButtons";
 
-function ProductCardQuickButtons({
-  productId,
-  handleRemoveFromWishlist,
-  removeFromWishlist,
-}) {
+function ProductCardQuickButtons({ productId, removeFromWishlist }) {
   return (
     <>
       <ProductCardSideButtons
         productId={productId}
-        handleRemoveFromWishlist={handleRemoveFromWishlist}
         removeFromWishlist={removeFromWishlist}
       />
       <Button
