@@ -15,12 +15,13 @@ function ProductCardSideButtons({ productId, removeFromWishlist }) {
           button.icon === "wishlist" ? (
             removeFromWishlist ? (
               <ProductCardButton
+                key={index}
                 icon="close"
                 onClickFunc={handleRemoveFromWishlist}
                 productId={productId}
               />
             ) : (
-              <AddToWishlistButton productId={productId} />
+              <AddToWishlistButton key={index} productId={productId} />
             )
           ) : (
             <ProductCardButton key={index} icon={button.icon} />
