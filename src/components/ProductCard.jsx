@@ -23,7 +23,7 @@ function ProductCard({ product, salePrice, removeFromWishlist }) {
           />
         </div>
 
-        <div className="flex flex-col gap-3 my-4 text-center">
+        <div className="flex flex-col gap-1 lg:gap-3 my-2 lg:my-4 text-center">
           <h3 className="px-3 font-semibold text-sm lg:text-xl text-secondary-dark">
             {product.title}
           </h3>
