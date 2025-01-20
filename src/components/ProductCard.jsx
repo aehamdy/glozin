@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import Icon from "./Icon";
-import Button from "./Button";
 import ProductCardQuickButtons from "./ProductCardQuickButtons";
 
 function ProductCard({ product, salePrice, removeFromWishlist }) {
   const handleRemoveFromWishlist = (productId) => {
     removeFromWishlist(productId);
   };
+
   return (
-    <article className="relative group rounded-small shadow-sm hover:shadow-xl overflow-hidden cursor-pointer duration-medium">
+    <article className="group relative rounded-small shadow-sm hover:shadow-xl overflow-hidden cursor-pointer duration-medium">
       {removeFromWishlist && (
         <button
           onClick={() => handleRemoveFromWishlist(product.id)}
@@ -17,14 +17,14 @@ function ProductCard({ product, salePrice, removeFromWishlist }) {
         >
           <Icon
             name="close"
-            // size="17"
             className="m-2 text-content-medium-dark duration-medium"
           />
         </button>
       )}
+      <ProductCardQuickButtons productId={product.id} />
+
       <Link to={`/product/${product.id}`} state={product}>
         <div className="relative flex justify-center rounded-small group-hover:rounded-b-none overflow-hidden">
-          <ProductCardQuickButtons productId={product.id} />
           <img
             src={product.images[0]}
             alt={product.title + " Image"}
@@ -54,45 +54,3 @@ function ProductCard({ product, salePrice, removeFromWishlist }) {
   );
 }
 export default ProductCard;
-
-{
-  /* <div className="grid grid-cols-3">
-{products.map((product) => {
-  const salePrice =
-    product.price - (product.price * product.discountPercentage) / 100;
-  return (
-    <article
-      key={product.id}
-      className="flex flex-col gap-2 text-secondary-dark"
-    >
-      <div>
-        <img
-          src={product.images[0]}
-          alt=""
-          className="max-w-full w-full h-auto object-cover"
-        />
-      </div>
-      <div className="flex flex-col gap-2 text-secondary-dark">
-        <h3>{product.title}</h3>
-        <div>
-          <h4
-            className={`font-semibold ${
-              product.discountPercentage < 17.5
-                ? "line-through font-normal text-price-originalPrice"
-                : ""
-            }`}
-          >
-            ${product.price}
-          </h4>
-          {product.discountPercentage < 17.5 && (
-            <h3 className="font-semibold text-red-500">
-              ${salePrice.toFixed(2)}
-            </h3>
-          )}
-        </div>
-      </div>
-    </article>
-  );
-})}
-</div> */
-}

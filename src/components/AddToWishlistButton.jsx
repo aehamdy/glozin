@@ -5,11 +5,10 @@ import { useWishlist } from "../context/wishlistContext";
 import { useEffect, useState } from "react";
 import Tooltip from "./Tooltip";
 
-function AddToWishlistButton({ productId, variant }) {
+function AddToWishlistButton({ productId, variant, onClick }) {
   const { addToWishlist, removeFromWishlist, wishlistProducts } = useWishlist();
   const { product, loading, error } = useFetchSingleProduct(productId);
   const [isInWishlist, setIsInWishlist] = useState(false);
-  let variantStyle;
 
   useEffect(() => {
     if (product) {
@@ -27,11 +26,12 @@ function AddToWishlistButton({ productId, variant }) {
     setIsInWishlist(inWishlist);
   }, []);
 
-  const handleWishlistToggle = () => {
+  const handleWishlistToggle = (e) => {
     if (product) {
-      addToWishlist(product);
       if (isInWishlist) {
         removeFromWishlist(productId);
+      } else {
+        addToWishlist(product);
       }
     }
   };
