@@ -39,7 +39,7 @@ function AddToWishlistButton({ productId, variant, onClick }) {
   return (
     <button
       onClick={handleWishlistToggle}
-      className={`group absolute md:relative top-0 -translate-y-1/4 md:-translate-y-0 end-0 p-3 md:p-4  ${
+      className={`group absolute md:relative top-0 shadow-md -translate-y-1/4 md:-translate-y-0 end-0 p-3 md:p-4  ${
         isInWishlist
           ? "text-white bg-primary-dark"
           : variant === "primary"

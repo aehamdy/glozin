@@ -3,15 +3,27 @@ import AddToWishlistButton from "./AddToWishlistButton";
 import Button from "./Button";
 import Icon from "./Icon";
 
-function ProductCardQuickButtons({ productId }) {
+function ProductCardQuickButtons({
+  productId,
+  handleRemoveFromWishlist,
+  removeFromWishlist,
+}) {
   return (
     <div className="absolute top-0 start-0 w-full h-full z-[-1] group-hover:z-50">
       <div className="relative w-full h-full">
         <div className="absolute top-5 end-5 lg:-end-8 group-hover:end-5 flex flex-col gap-4 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-medium">
-          <AddToWishlistButton productId={productId} />
-          <button>
-            <Icon name="cart" className="" />
-          </button>
+          <div className="flex flex-col gap-5">
+            {removeFromWishlist ? (
+              <button
+                onClick={() => handleRemoveFromWishlist(productId)}
+                className="group bg-primary-light rounded-full shadow-md"
+              >
+                <Icon name="close" className="m-2 text-content-medium-dark" />
+              </button>
+            ) : (
+              <AddToWishlistButton productId={productId} />
+            )}
+          </div>
         </div>
 
         <Button

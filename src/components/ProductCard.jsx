@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import Icon from "./Icon";
 import ProductCardQuickButtons from "./ProductCardQuickButtons";
 
 function ProductCard({ product, salePrice, removeFromWishlist }) {
@@ -10,18 +9,11 @@ function ProductCard({ product, salePrice, removeFromWishlist }) {
 
   return (
     <article className="group relative rounded-small shadow-sm hover:shadow-xl overflow-hidden cursor-pointer duration-medium">
-      {removeFromWishlist && (
-        <button
-          onClick={() => handleRemoveFromWishlist(product.id)}
-          className="group absolute top-2 end-2 bg-primary-light shadow-md rounded-full duration-medium z-10"
-        >
-          <Icon
-            name="close"
-            className="m-2 text-content-medium-dark duration-medium"
-          />
-        </button>
-      )}
-      <ProductCardQuickButtons productId={product.id} />
+      <ProductCardQuickButtons
+        productId={product.id}
+        handleRemoveFromWishlist={handleRemoveFromWishlist}
+        removeFromWishlist={removeFromWishlist}
+      />
 
       <Link to={`/product/${product.id}`} state={product}>
         <div className="relative flex justify-center rounded-small group-hover:rounded-b-none overflow-hidden">
