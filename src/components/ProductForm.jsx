@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-// import AddToCartButton from "./AddToCartButton";
 import AddToWishlistButton from "./AddToWishlistButton";
 import Button from "./Button";
 import ProductQuantityInput from "./ProductQuantityInput";
 import ProductTermsAgreement from "./ProductTermsAgreement";
 
-function ProductForm({ productId }) {
+function ProductForm({ product }) {
   const [isInputChecked, setIsInputChecked] = useState(false);
   const [productQuantity, setProductQuantity] = useState(1);
 
@@ -27,7 +26,8 @@ function ProductForm({ productId }) {
               : "bg-gray-300"
           } rounded-medium`}
         />
-        <AddToWishlistButton productId={productId} variant="primary" />
+
+        <AddToWishlistButton productId={product.id} variant="primary" />
       </div>
 
       <div className="flex flex-col gap-4 px-1">

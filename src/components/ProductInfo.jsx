@@ -33,7 +33,7 @@ function ProductInfo({ product, totalStars, minimumStock }) {
 
       <ProductViewers />
 
-      <ProductForm productId={product.id} />
+      <ProductForm product={product} />
 
       <ProductInventoryInfo
         sku={product.sku}
