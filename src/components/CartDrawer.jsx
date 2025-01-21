@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import Modal from "../common/Modal";
 import { useCart } from "../context/CartContext";
+import CartProductList from "./CartProductList";
 import CartProductsCount from "./CartProductsCount";
 import EmptyCart from "./EmptyCart";
 import Icon from "./Icon";
@@ -28,7 +29,11 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
             onClickFunction={handleCloseCart}
           />
         </div>
-        <EmptyCart handleCloseCart={handleCloseCart} />
+        {cartList.length >= 1 ? (
+          <CartProductList cartList={cartList} />
+        ) : (
+          <EmptyCart handleCloseCart={handleCloseCart} />
+        )}
       </div>
     </Modal>
   );
