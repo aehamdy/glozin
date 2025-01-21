@@ -21,7 +21,7 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
       >
         <div className="flex justify-between items-center">
           <h4 className="font-semibold text-xl text-heading-dark">
-            Shopping Cart (0)
+            Shopping Cart ({cartList.length})
           </h4>
           <Icon
             name="close"
@@ -30,7 +30,6 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
           />
         </div>
         <EmptyCart handleCloseCart={handleCloseCart} />
-        <h2 className="font-bold text-lg text-red-500">{cartList.length}</h2>
       </div>
     </Modal>
   );
