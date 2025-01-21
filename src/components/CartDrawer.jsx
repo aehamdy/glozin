@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import Modal from "../common/Modal";
 import { useCart } from "../context/CartContext";
+import CartProductsCount from "./CartProductsCount";
 import EmptyCart from "./EmptyCart";
 import Icon from "./Icon";
 
@@ -20,9 +21,7 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
         }`}
       >
         <div className="flex justify-between items-center">
-          <h4 className="font-semibold text-xl text-heading-dark">
-            Shopping Cart ({cartList.length})
-          </h4>
+          <CartProductsCount value={cartList.length} />
           <Icon
             name="close"
             className="text-content-medium-dark hover:scale-150"
