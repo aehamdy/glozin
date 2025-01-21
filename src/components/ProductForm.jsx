@@ -4,10 +4,17 @@ import AddToWishlistButton from "./AddToWishlistButton";
 import Button from "./Button";
 import ProductQuantityInput from "./ProductQuantityInput";
 import ProductTermsAgreement from "./ProductTermsAgreement";
+import AddToCartButton from "./AddToCartButton";
+import { useCart } from "../context/CartContext";
 
 function ProductForm({ product }) {
   const [isInputChecked, setIsInputChecked] = useState(false);
   const [productQuantity, setProductQuantity] = useState(1);
+  const { addToCart } = useCart();
+
+  const handleClick = () => {
+    addToCart(product);
+  };
 
   return (
     <div className="flex flex-col gap-5 w-full my-5 pt-8 border-t">
@@ -17,14 +24,11 @@ function ProductForm({ product }) {
           productQuantity={productQuantity}
         />
 
-        <Button
-          value="Add to Cart"
+        <AddToCartButton
+          handleClick={handleClick}
           status={productQuantity <= 0}
-          className={`w-1/2 py-2.5 md:py-3 px-4 font-semibold text-base lg:text-lg text-primary-light ${
-            productQuantity > 0
-              ? "bg-secondary-dark hover:bg-primary-dark active:bg-gray-800"
-              : "bg-gray-300"
-          } rounded-medium`}
+          productQuantity={productQuantity}
+          variant="productDetails"
         />
 
         <AddToWishlistButton productId={product.id} variant="primary" />
