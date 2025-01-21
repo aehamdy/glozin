@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
       if (!prev.some((prod) => prod.id === product.id)) {
         return [product, ...prev];
       } else {
-        return;
+        return [...prev];
       }
     });
   };
