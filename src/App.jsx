@@ -12,6 +12,7 @@ import Collections from "./pages/Collections";
 import ProductDetails from "./pages/ProductDetails";
 import Wishlist from "./pages/Wishlist";
 import { WishlistProvider } from "./context/wishlistContext";
+import { CartProvider } from "./context/CartContext";
 
 const router = createBrowserRouter([
   {
@@ -64,9 +65,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <WishlistProvider>
-      <RouterProvider router={router} />
-    </WishlistProvider>
+    <CartProvider>
+      <WishlistProvider>
+        <RouterProvider router={router} />
+      </WishlistProvider>
+    </CartProvider>
   );
 }
 

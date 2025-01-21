@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
 import Modal from "../common/Modal";
+import { useCart } from "../context/CartContext";
 import EmptyCart from "./EmptyCart";
 import Icon from "./Icon";
 
 function CartDrawer({ isCartOpen, handleCloseCart }) {
+  const { cartList } = useCart();
+
   const handleClick = (e) => {
     e.stopPropagation();
   };
@@ -27,6 +30,7 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
           />
         </div>
         <EmptyCart handleCloseCart={handleCloseCart} />
+        <h2 className="font-bold text-lg text-red-500">{cartList.length}</h2>
       </div>
     </Modal>
   );

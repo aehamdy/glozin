@@ -10,7 +10,7 @@ function ProductCard({ product, salePrice, removeFromWishlist }) {
   return (
     <article className="group relative rounded-small shadow-sm hover:shadow-xl overflow-hidden cursor-pointer duration-medium">
       <ProductCardQuickButtons
-        productId={product.id}
+        product={product}
         removeFromWishlist={removeFromWishlist}
       />
 
