@@ -5,7 +5,7 @@ import SectionHeading from "./SectionHeading";
 function SectionHeader({ heading, desc }) {
   return (
     <div
-      className={`flex flex-col items-center gap-3 ${
+      className={`flex flex-col items-center gap-3 mt-14 ${
         desc && "mb-8"
       } mx-horizontal-spacing`}
     >
