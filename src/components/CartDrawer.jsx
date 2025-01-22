@@ -22,14 +22,14 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
         }`}
       >
         <div className="flex justify-between items-center">
-          <CartProductsCount value={cartList.length} />
+          <CartProductsCount value={cartList?.length} />
           <Icon
             name="close"
             className="text-content-medium-dark hover:scale-150"
             onClickFunction={handleCloseCart}
           />
         </div>
-        {cartList.length >= 1 ? (
+        {cartList?.length >= 1 ? (
           <CartProductList cartList={cartList} />
         ) : (
           <EmptyCart handleCloseCart={handleCloseCart} />

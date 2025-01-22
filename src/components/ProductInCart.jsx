@@ -1,7 +1,14 @@
 /* eslint-disable react/prop-types */
+import { useCart } from "../context/CartContext";
 import Icon from "./Icon";
 
 function ProductInCart({ product }) {
+  const { removeFromCart } = useCart();
+
+  const handleOnRemoveClick = (product) => {
+    removeFromCart(product);
+  };
+
   return (
     <article className="flex items-start pt-4 px-1 border-b">
       <div className="flex w-[120px] rounded-medium overflow-hidden">
@@ -14,7 +21,7 @@ function ProductInCart({ product }) {
         <h4>${product.price}</h4>
       </div>
       <div className="ms-auto">
-        <button>
+        <button onClick={() => handleOnRemoveClick(product)}>
           <Icon
             name="trash"
             size="16"

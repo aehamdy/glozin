@@ -9,7 +9,7 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
     setCartList((prev) => {
-      if (!prev.some((prod) => prod.id === product.id)) {
+      if (!prev?.some((prod) => prod.id === product.id)) {
         return [product, ...prev];
       } else {
         return [...prev];
@@ -17,8 +17,14 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  const removeFromCart = (product) => {
+    setCartList((prev) => {
+      return prev.filter((prod) => prod.id !== product.id);
+    });
+  };
+
   return (
-    <CartContext.Provider value={{ cartList, addToCart }}>
+    <CartContext.Provider value={{ cartList, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );
