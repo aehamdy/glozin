@@ -16,6 +16,7 @@ export default {
         'muted-blue': '#607890',
         'overlay': '#00000098',
         'navigation-dots': '#ffffff99',
+        'cloud-gray': '#F5F5F5',
         'rate-color': '#ff9c0f',
         primary: {
           dark: '#000',
