@@ -10,7 +10,7 @@ function ProductInCart({ product }) {
   };
 
   return (
-    <article className="flex items-start pt-4 px-1 border-b">
+    <article className="flex items-start py-4 border-b last:border-none">
       <div className="flex w-[120px] rounded-medium overflow-hidden">
         <div>
           <img src={product.images[0]} alt={product.title + " image"} />
