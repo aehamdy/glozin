@@ -3,6 +3,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { FaPinterestP, FaTiktok, FaYoutube } from "react-icons/fa";
 import { FaFacebookF, FaInstagram, FaTruckFast } from "react-icons/fa6";
 import { FiCheck, FiHeart, FiSearch, FiShoppingBag } from "react-icons/fi";
+import { GoTrash } from "react-icons/go";
 import { IoEyeOutline } from "react-icons/io5";
 import { MdClose } from "react-icons/md";
 import { PiPackage, PiUser } from "react-icons/pi";
@@ -13,6 +14,7 @@ import { TiStarFullOutline, TiStarOutline } from "react-icons/ti";
 const iconMap = {
   menu: RxHamburgerMenu,
   close: MdClose,
+  trash: GoTrash,
   search: FiSearch,
   user: PiUser,
   wishlist: FiHeart,
