@@ -10,7 +10,6 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     setCartList((prev) => {
       if (!prev.some((prod) => prod.id === product.id)) {
-        console.log(product);
         return [product, ...prev];
       } else {
         return [...prev];
