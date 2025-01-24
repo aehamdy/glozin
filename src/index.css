@@ -73,12 +73,12 @@ details > summary {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f9f9f9;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #607890;
+  background: #E5E5E5;
   border-radius: 10px;
 }
 

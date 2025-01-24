@@ -14,6 +14,8 @@ function CartDrawerPanel({ cartList }) {
         <div>Subtotal:</div>
         <div>${subtotal.toFixed(2)}</div>
       </div>
+      <button>View Cart</button>
+      <button>Checkout</button>
     </div>
   );
 }

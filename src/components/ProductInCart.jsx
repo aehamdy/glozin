@@ -10,7 +10,7 @@ function ProductInCart({ product }) {
   };
 
   return (
-    <article className="flex items-start py-4 border-b last:border-none">
+    <article className="flex items-start py-4 pe-2 border-b last:border-none">
       <div className="flex w-[120px] rounded-medium overflow-hidden">
         <div>
           <img src={product.images[0]} alt={product.title + " image"} />
@@ -25,7 +25,7 @@ function ProductInCart({ product }) {
           <Icon
             name="trash"
             size="16"
-            className="text-content-light-dark hover:text-secondary-dark"
+            className="text-content-light-dark hover:text-primary-red active:text-red-700"
           />
         </button>
       </div>
