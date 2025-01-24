@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import Icon from "./Icon";
 
-/* eslint-disable react/prop-types */
 function StoreNotification({ alert, message }) {
   let messageStyle;
   let notificationIcon;
@@ -14,10 +14,10 @@ function StoreNotification({ alert, message }) {
 
   return (
     <div
-      className={`flex gap-2 items-center py-1.5 px-3.5 ${messageStyle} border rounded-md`}
+      className={`flex gap-2 items-start py-1.5 px-3.5 text-start text-sm ${messageStyle} border rounded-md`}
     >
-      {<Icon name={notificationIcon} />}
-      <p>{message}</p>
+      <div>{<Icon name={notificationIcon} size="24" />}</div>
+      <p className="">{message}</p>
     </div>
   );
 }
