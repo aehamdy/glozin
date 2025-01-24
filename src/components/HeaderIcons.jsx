@@ -4,9 +4,11 @@ import Icon from "./Icon";
 import { useWishlist } from "../context/wishlistContext";
 import IconBadge from "./IconBadge";
 import Button from "./Button";
+import { useCart } from "../context/CartContext";
 
 function HeaderIcons({ handleOpenCart, handleSearchOpening }) {
   const { wishlistProducts } = useWishlist();
+  const { cartList } = useCart();
 
   return (
     <div className="flex gap-4">
@@ -25,7 +27,8 @@ function HeaderIcons({ handleOpenCart, handleSearchOpening }) {
           />
         </Link>
       </Button>
-      <Button>
+      <Button className="relative">
+        <IconBadge value={cartList.length} />
         <Icon
           name="cart"
           className="text-primary-dark hover:text-red-500"
