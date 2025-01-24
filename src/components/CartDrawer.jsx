@@ -17,7 +17,7 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
     <Modal isOpen={isCartOpen} onClose={handleCloseCart}>
       <div
         onClick={handleClick}
-        className={`fixed top-0 right-0 w-10/12 md:w-3/5 lg:w-2/5 h-full flex flex-col py-4 bg-primary-light rounded-l-small overflow-hidden z-top transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 w-10/12 md:w-3/5 lg:w-2/5 h-full flex flex-col pt-4 bg-primary-light rounded-l-small overflow-hidden z-top transition-transform duration-300 ease-in-out ${
           isCartOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
