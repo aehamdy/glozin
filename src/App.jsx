@@ -13,6 +13,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Wishlist from "./pages/Wishlist";
 import { WishlistProvider } from "./context/wishlistContext";
 import { CartProvider } from "./context/CartContext";
+import Checkout from "./pages/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: "/help",
         element: <HelpCenter />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
       },
     ],
   },
