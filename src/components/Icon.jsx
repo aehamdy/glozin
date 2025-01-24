@@ -7,7 +7,11 @@ import { GoTrash } from "react-icons/go";
 import { IoEyeOutline } from "react-icons/io5";
 import { MdClose } from "react-icons/md";
 import { PiPackage, PiUser } from "react-icons/pi";
-import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
+import {
+  RiArrowLeftSLine,
+  RiArrowRightSLine,
+  RiErrorWarningLine,
+} from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { TiStarFullOutline, TiStarOutline } from "react-icons/ti";
 
@@ -23,6 +27,7 @@ const iconMap = {
   leftArrow: RiArrowLeftSLine,
   filledStar: TiStarFullOutline,
   outlineStar: TiStarOutline,
+  warning: RiErrorWarningLine,
   check: FiCheck,
   plus: AiOutlinePlus,
   minus: AiOutlineMinus,
