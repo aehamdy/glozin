@@ -11,29 +11,25 @@ function HeaderIcons({ handleOpenCart, handleSearchOpening }) {
   const { cartList } = useCart();
 
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-3 lg:gap-4">
       <Button handleClick={handleSearchOpening}>
         <Icon name="search" className="text-primary-dark hover:text-red-500" />
       </Button>
       <Button className="hidden lg:block">
         <Icon name="user" className="text-primary-dark  hover:text-red-500" />
       </Button>
-      <Button>
-        <Link to="/wishlist" className="relative">
+      <Button className="relative hidden md:block">
+        <Link to="/wishlist">
           <IconBadge value={wishlistProducts.length} />
           <Icon
             name="wishlist"
-            className="hidden lg:block text-primary-dark  hover:text-red-500"
+            className="text-primary-dark  hover:text-red-500"
           />
         </Link>
       </Button>
-      <Button className="relative">
+      <Button handleClick={handleOpenCart} className="relative">
         <IconBadge value={cartList.length} />
-        <Icon
-          name="cart"
-          className="text-primary-dark hover:text-red-500"
-          onClickFunction={handleOpenCart}
-        />
+        <Icon name="cart" className="text-primary-dark hover:text-red-500" />
       </Button>
     </div>
   );
