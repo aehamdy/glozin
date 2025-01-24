@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function Button({ value, className, status, handleClick }) {
+function Button({ value, className, status, handleClick, children }) {
   return (
     <button
       onClick={() => handleClick()}
@@ -8,6 +8,7 @@ function Button({ value, className, status, handleClick }) {
       className={className}
     >
       {value}
+      {children}
     </button>
   );
 }
