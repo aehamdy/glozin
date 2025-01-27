@@ -33,6 +33,7 @@ function Checkout() {
                 id=""
                 placeholder="Type your email"
                 className="w-full py-1.5 px-2 bg-white border focus:border-blue-400 outline-none rounded-lg transition-all duration-short"
+                required
               />
             </div>
 
@@ -47,6 +48,7 @@ function Checkout() {
                       name="delivery"
                       id={method.inputId}
                       className="hidden peer"
+                      defaultChecked={index === 0}
                     />
                     <label
                       htmlFor={method.inputId}
@@ -68,6 +70,80 @@ function Checkout() {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* Ship form */}
+            <select
+              name=""
+              id=""
+              className="w-full p-2 bg-white border rounded-lg"
+            >
+              <option value="CH">China</option>
+              <option value="FR">France</option>
+              <option value="UK">United Kingdom</option>
+              <option value="US">United States</option>
+            </select>
+            <div className="flex items-center gap-3 w-full">
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                placeholder="First Name (optional)"
+                className="w-1/2 py-1 px-2 bg-white border focus:border-blue-400 outline-none rounded-md transition-all duration-short"
+              />
+              <input
+                type="text"
+                name="last-name"
+                id="last-name"
+                placeholder="Last Name"
+                className="w-1/2 py-1 px-2 bg-white border focus:border-blue-400 outline-none rounded-md transition-all duration-short"
+                required
+              />
+            </div>
+            <input
+              type="text"
+              name="address"
+              id="address"
+              placeholder="Address"
+              className="w-full py-1.5 px-2 bg-white border focus:border-blue-400 outline-none rounded-lg transition-all duration-short"
+              required
+            />
+            <input
+              type="text"
+              name="apartment"
+              id="apartment"
+              className="w-full py-1.5 px-2 bg-white border focus:border-blue-400 outline-none rounded-lg transition-all duration-short"
+              placeholder="Apartment, suite, etc. (optional)"
+            />
+            <div className="flex items-center gap-3 w-full">
+              <input
+                type="text"
+                name="city"
+                id="city"
+                placeholder="City"
+                className="w-1/2 py-1 px-2 bg-white border focus:border-blue-400 outline-none rounded-md transition-all duration-short"
+                required
+              />
+              <input
+                type="text"
+                name="zipcode"
+                id="zipcode"
+                placeholder="ZIP Code"
+                className="w-1/2 py-1 px-2 bg-white border focus:border-blue-400 outline-none rounded-md transition-all duration-short"
+                required
+              />
+            </div>
+
+            <div className="flex flex-col items-start gap-2 w-full text-sm">
+              <h2 className="font-semibold text-xl text-black">
+                Shipping method
+              </h2>
+              <div className="w-full p-4 text-start text-[#707070] bg-cloud-gray rounded-lg">
+                <p>
+                  Enter your shipping address to view available shipping
+                  methods.
+                </p>
+              </div>
             </div>
           </form>
         </div>
