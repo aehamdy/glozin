@@ -2,6 +2,10 @@
 import Icon from "./Icon";
 
 function StoreNotification({ alert, message }) {
+  const messageContent =
+    message === "payment unavailable"
+      ? "This store can't accept payments right now. Refresh this page or come back later."
+      : message;
   let messageStyle;
   let notificationIcon;
 
@@ -17,7 +21,7 @@ function StoreNotification({ alert, message }) {
       className={`flex gap-2 items-start py-1.5 px-3.5 text-start text-sm ${messageStyle} border rounded-md`}
     >
       <div>{<Icon name={notificationIcon} size="24" />}</div>
-      <p className="">{message}</p>
+      <p className="">{messageContent}</p>
     </div>
   );
 }

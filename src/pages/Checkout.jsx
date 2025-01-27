@@ -18,11 +18,7 @@ function Checkout() {
     <section className="grid grid-cols-1 lg:grid-cols-12 px-horizontal-spacing text-black">
       <div className="checkout-form col-span-6">
         <div className="flex flex-col items-start">
-          <StoreNotification
-            alert="error"
-            message="This store can't accept payments right now. Refresh this page
-            or come back later."
-          />
+          <StoreNotification alert="error" message="payment unavailable" />
           <form action="" className="flex flex-col items-start gap-4 w-full">
             <div className="flex flex-col items-start gap-2 w-full">
               <h2 className="font-semibold text-xl text-black">Contact</h2>
@@ -156,6 +152,8 @@ function Checkout() {
                 <p>This store can&apos;t accept payments right now.</p>
               </div>
             </div>
+
+            <StoreNotification alert="error" message="payment unavailable" />
           </form>
         </div>
       </div>
