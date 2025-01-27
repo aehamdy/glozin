@@ -1,19 +1,25 @@
 /* eslint-disable react/prop-types */
 import Icon from "./Icon";
 
-function DeliveryMethodSelector() {
+function DeliveryMethodSelector({ setContact }) {
   const deliveryMethods = [
     {
       method: "Ship",
       icon: "deliveryTruck",
       inputId: "delivery-ship",
+      value: "ship",
     },
     {
       method: "Pick in store",
       icon: "store",
       inputId: "delivery-instore",
+      value: "pick-in-store",
     },
   ];
+
+  const onInputChange = (e) => {
+    setContact({ deliveryMethod: e.target.value });
+  };
 
   return (
     <div className="flex flex-col items-start gap-2 w-full">
@@ -23,7 +29,9 @@ function DeliveryMethodSelector() {
         {deliveryMethods.map((method, index) => (
           <li key={index} className="w-full">
             <input
+              onChange={onInputChange}
               type="radio"
+              value={method.value}
               name="delivery"
               id={method.inputId}
               className="hidden peer"
