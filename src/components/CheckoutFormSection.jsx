@@ -1,14 +1,18 @@
-import ContactForm from "./ContactForm";
-import CountryDropdown from "./CountryDropdown";
+import { useEffect, useState } from "react";
 import DeliveryMethodSelector from "./DeliveryMethodSelector";
-import Icon from "./Icon";
 import PaymentStatus from "./PaymentStatus";
-import ShippingMethod from "./ShippingMethod";
 import StoreLocations from "./StoreLocations";
 import StoreNotification from "./StoreNotification";
 import TextInput from "./TextInput";
+import OrderDetailsForm from "./OrderDetailsForm";
 
 function CheckoutFormSection() {
+  const [contact, setContact] = useState({});
+
+  useEffect(() => {
+    console.log(contact);
+  }, [contact]);
+
   return (
     <div className="checkout-form col-span-6">
       <div className="flex flex-col items-start">
@@ -27,18 +31,11 @@ function CheckoutFormSection() {
               required
             />
           </div>
-
-          <DeliveryMethodSelector />
-
-          {/* Ship form */}
-          <CountryDropdown />
-          <ContactForm />
-          <ShippingMethod />
+          <DeliveryMethodSelector setContact={setContact} />
+          <OrderDetailsForm />
           <StoreLocations />
           <PaymentStatus />
-
           <StoreNotification alert="error" message="payment unavailable" />
-
           <input
             type="submit"
             value="Pay now"
