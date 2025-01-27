@@ -10,7 +10,7 @@ function StoreNotification({ alert, message }) {
   let notificationIcon;
 
   if (alert.toLowerCase() === "error") {
-    messageStyle = "text-red-700 bg-red-50 border-red-300";
+    messageStyle = "text-red-600 bg-red-50 border-red-200";
     notificationIcon = "warning";
   } else if (alert.toLowerCase() === "success") {
     messageStyle = "text-green-700 bg-green-50 border-green-300";
@@ -18,7 +18,7 @@ function StoreNotification({ alert, message }) {
 
   return (
     <div
-      className={`flex gap-2 items-start py-1.5 px-3.5 text-start text-sm ${messageStyle} border rounded-md`}
+      className={`flex items-center gap-2 w-full py-3 px-5 text-start text-sm ${messageStyle} border rounded-md`}
     >
       <div>{<Icon name={notificationIcon} size="24" />}</div>
       <p className="">{messageContent}</p>
