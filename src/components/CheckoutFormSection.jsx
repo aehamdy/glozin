@@ -1,7 +1,7 @@
 import Icon from "./Icon";
 import StoreNotification from "./StoreNotification";
 
-function CheckoutForm() {
+function CheckoutFormSection() {
   const deliveryMethods = [
     {
       method: "Ship",
@@ -178,4 +178,4 @@ function CheckoutForm() {
     </div>
   );
 }
-export default CheckoutForm;
+export default CheckoutFormSection;
