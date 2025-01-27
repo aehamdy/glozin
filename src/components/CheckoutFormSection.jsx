@@ -1,3 +1,4 @@
+import CountryDropdown from "./CountryDropdown";
 import DeliveryMethodSelector from "./DeliveryMethodSelector";
 import Icon from "./Icon";
 import StoreLocations from "./StoreLocations";
@@ -28,16 +29,8 @@ function CheckoutFormSection() {
           <DeliveryMethodSelector />
 
           {/* Ship form */}
-          <select
-            name=""
-            id=""
-            className="w-full p-2 bg-white border rounded-lg"
-          >
-            <option value="CH">China</option>
-            <option value="FR">France</option>
-            <option value="UK">United Kingdom</option>
-            <option value="US">United States</option>
-          </select>
+          <CountryDropdown />
+
           <div className="flex items-center gap-3 w-full">
             <input
               type="text"
