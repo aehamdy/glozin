@@ -3,6 +3,7 @@ import DeliveryMethodSelector from "./DeliveryMethodSelector";
 import Icon from "./Icon";
 import StoreLocations from "./StoreLocations";
 import StoreNotification from "./StoreNotification";
+import TextInput from "./TextInput";
 
 function CheckoutFormSection() {
   return (
@@ -16,12 +17,10 @@ function CheckoutFormSection() {
           <div className="flex flex-col items-start gap-2 w-full">
             <h2 className="font-semibold text-xl text-black">Contact</h2>
 
-            <input
+            <TextInput
               type="email"
-              name=""
-              id=""
               placeholder="Type your email"
-              className="w-full py-1.5 px-2 bg-white border focus:border-blue-400 outline-none rounded-lg transition-all duration-short"
+              className="w-full"
               required
             />
           </div>
@@ -32,52 +31,47 @@ function CheckoutFormSection() {
           <CountryDropdown />
 
           <div className="flex items-center gap-3 w-full">
-            <input
-              type="text"
-              name="first-name"
-              id="first-name"
-              placeholder="First Name (optional)"
-              className="w-1/2 py-1 px-2 bg-white border focus:border-blue-400 outline-none rounded-md transition-all duration-short"
+            <TextInput
+              name="firstName"
+              id="firstName"
+              placeholder="First Name (Optional)"
+              className="w-1/2"
             />
-            <input
-              type="text"
-              name="last-name"
-              id="last-name"
+            <TextInput
+              name="lastName"
+              id="lastName"
               placeholder="Last Name"
-              className="w-1/2 py-1 px-2 bg-white border focus:border-blue-400 outline-none rounded-md transition-all duration-short"
+              className="w-1/2"
               required
             />
           </div>
-          <input
-            type="text"
+          <TextInput
             name="address"
             id="address"
             placeholder="Address"
-            className="w-full py-1.5 px-2 bg-white border focus:border-blue-400 outline-none rounded-lg transition-all duration-short"
+            className="w-full"
             required
           />
-          <input
-            type="text"
+
+          <TextInput
             name="apartment"
             id="apartment"
-            className="w-full py-1.5 px-2 bg-white border focus:border-blue-400 outline-none rounded-lg transition-all duration-short"
-            placeholder="Apartment, suite, etc. (optional)"
+            placeholder="Apartment, suite, etc. (Optional)"
+            className="w-full"
           />
           <div className="flex items-center gap-3 w-full">
-            <input
-              type="text"
+            <TextInput
               name="city"
               id="city"
               placeholder="City"
-              className="w-1/2 py-1 px-2 bg-white border focus:border-blue-400 outline-none rounded-md transition-all duration-short"
+              className="w-1/2"
               required
             />
-            <input
-              type="text"
+            <TextInput
               name="zipcode"
               id="zipcode"
               placeholder="ZIP Code"
-              className="w-1/2 py-1 px-2 bg-white border focus:border-blue-400 outline-none rounded-md transition-all duration-short"
+              className="w-1/2"
               required
             />
           </div>
