@@ -5,12 +5,12 @@ function Checkout() {
   const deliveryMethods = [
     {
       method: "Ship",
-      icon: "wishlist",
+      icon: "deliveryTruck",
       inputId: "delivery-ship",
     },
     {
       method: "Pick in store",
-      icon: "filledStar",
+      icon: "store",
       inputId: "delivery-instore",
     },
   ];

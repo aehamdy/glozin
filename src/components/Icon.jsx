@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { BiStoreAlt } from "react-icons/bi";
 import { FaPinterestP, FaTiktok, FaYoutube } from "react-icons/fa";
 import { FaFacebookF, FaInstagram, FaTruckFast } from "react-icons/fa6";
 import { FiCheck, FiHeart, FiSearch, FiShoppingBag } from "react-icons/fi";
@@ -32,6 +33,7 @@ const iconMap = {
   plus: AiOutlinePlus,
   minus: AiOutlineMinus,
   deliveryTruck: FaTruckFast,
+  store: BiStoreAlt,
   package: PiPackage,
   eye: IoEyeOutline,
   facebook: FaFacebookF,
