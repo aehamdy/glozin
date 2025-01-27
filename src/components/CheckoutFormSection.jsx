@@ -2,6 +2,7 @@ import ContactForm from "./ContactForm";
 import CountryDropdown from "./CountryDropdown";
 import DeliveryMethodSelector from "./DeliveryMethodSelector";
 import Icon from "./Icon";
+import ShippingMethod from "./ShippingMethod";
 import StoreLocations from "./StoreLocations";
 import StoreNotification from "./StoreNotification";
 import TextInput from "./TextInput";
@@ -25,39 +26,14 @@ function CheckoutFormSection() {
               required
             />
           </div>
-
           <DeliveryMethodSelector />
-
           {/* Ship form */}
           <CountryDropdown />
           <ContactForm />
-
-          <div className="flex flex-col items-start gap-2 w-full text-sm">
-            <h2 className="font-semibold text-xl text-black">
-              Shipping method
-            </h2>
-            <div className="w-full p-4 text-start text-[#707070] bg-cloud-gray rounded-lg">
-              <p>
-                Enter your shipping address to view available shipping methods.
-              </p>
-            </div>
-          </div>
-
+          <ShippingMethod />
           <StoreLocations />
-
-          <div className="flex flex-col items-start gap-2 w-full text-sm text-[#707070]">
-            <h2 className="font-semibold text-xl text-black">Payment</h2>
-            <p>All transactions are secure and encrypted</p>
-            <div className="flex flex-col items-center w-full p-4 bg-cloud-gray rounded-lg">
-              <div className="relative">
-                <Icon name="warning" size="45" />
-              </div>
-              <p>This store can&apos;t accept payments right now.</p>
-            </div>
-          </div>
-
+          git
           <StoreNotification alert="error" message="payment unavailable" />
-
           <input
             type="submit"
             value="Pay now"
