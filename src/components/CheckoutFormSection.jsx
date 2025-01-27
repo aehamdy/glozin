@@ -1,3 +1,4 @@
+import ContactForm from "./ContactForm";
 import CountryDropdown from "./CountryDropdown";
 import DeliveryMethodSelector from "./DeliveryMethodSelector";
 import Icon from "./Icon";
@@ -29,52 +30,7 @@ function CheckoutFormSection() {
 
           {/* Ship form */}
           <CountryDropdown />
-
-          <div className="flex items-center gap-3 w-full">
-            <TextInput
-              name="firstName"
-              id="firstName"
-              placeholder="First Name (Optional)"
-              className="w-1/2"
-            />
-            <TextInput
-              name="lastName"
-              id="lastName"
-              placeholder="Last Name"
-              className="w-1/2"
-              required
-            />
-          </div>
-          <TextInput
-            name="address"
-            id="address"
-            placeholder="Address"
-            className="w-full"
-            required
-          />
-
-          <TextInput
-            name="apartment"
-            id="apartment"
-            placeholder="Apartment, suite, etc. (Optional)"
-            className="w-full"
-          />
-          <div className="flex items-center gap-3 w-full">
-            <TextInput
-              name="city"
-              id="city"
-              placeholder="City"
-              className="w-1/2"
-              required
-            />
-            <TextInput
-              name="zipcode"
-              id="zipcode"
-              placeholder="ZIP Code"
-              className="w-1/2"
-              required
-            />
-          </div>
+          <ContactForm />
 
           <div className="flex flex-col items-start gap-2 w-full text-sm">
             <h2 className="font-semibold text-xl text-black">
