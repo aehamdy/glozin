@@ -47,6 +47,8 @@ function ContactForm({ setContact, contact }) {
           id="city"
           placeholder="City"
           className="w-1/2"
+          value={contact.city}
+          setContact={setContact}
           required
         />
         <TextInput
