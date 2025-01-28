@@ -38,6 +38,8 @@ function ContactForm({ setContact, contact }) {
         id="apartment"
         placeholder="Apartment, suite, etc. (Optional)"
         className="w-full"
+        value={contact.apartment}
+        setContact={setContact}
       />
       <div className="flex items-center gap-3 w-full">
         <TextInput
