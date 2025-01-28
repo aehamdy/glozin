@@ -18,6 +18,8 @@ function ContactForm({ setContact, contact }) {
           id="lastName"
           placeholder="Last Name"
           className="w-1/2"
+          value={contact.lastName}
+          setContact={setContact}
           required
         />
       </div>
