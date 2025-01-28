@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import TextInput from "./TextInput";
+import FormInput from "./FormInput";
 
 function ContactForm({ setContact, contact }) {
   return (
     <>
       <div className="flex items-center gap-3 w-full">
-        <TextInput
+        <FormInput
           name="firstName"
           id="firstName"
           placeholder="First Name (Optional)"
@@ -13,7 +13,7 @@ function ContactForm({ setContact, contact }) {
           setContact={setContact}
           className="w-1/2"
         />
-        <TextInput
+        <FormInput
           name="lastName"
           id="lastName"
           placeholder="Last Name"
@@ -23,7 +23,7 @@ function ContactForm({ setContact, contact }) {
           required
         />
       </div>
-      <TextInput
+      <FormInput
         name="address"
         id="address"
         placeholder="Address"
@@ -33,7 +33,7 @@ function ContactForm({ setContact, contact }) {
         required
       />
 
-      <TextInput
+      <FormInput
         name="apartment"
         id="apartment"
         placeholder="Apartment, suite, etc. (Optional)"
@@ -42,7 +42,7 @@ function ContactForm({ setContact, contact }) {
         setContact={setContact}
       />
       <div className="flex items-center gap-3 w-full">
-        <TextInput
+        <FormInput
           name="city"
           id="city"
           placeholder="City"
@@ -51,7 +51,7 @@ function ContactForm({ setContact, contact }) {
           setContact={setContact}
           required
         />
-        <TextInput
+        <FormInput
           name="zipCode"
           id="zipcode"
           placeholder="ZIP Code"

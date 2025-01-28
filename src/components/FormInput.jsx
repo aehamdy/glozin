@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-function TextInput({
+function FormInput({
   type = "text",
   name,
   id,
@@ -32,4 +32,4 @@ function TextInput({
   );
 }
 
-export default TextInput;
+export default FormInput;

@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DeliveryMethodSelector from "./DeliveryMethodSelector";
 import PaymentStatus from "./PaymentStatus";
 import StoreLocations from "./StoreLocations";
 import StoreNotification from "./StoreNotification";
-import TextInput from "./TextInput";
+import FormInput from "./FormInput";
 import OrderDetailsForm from "./OrderDetailsForm";
 
 function CheckoutFormSection() {
@@ -20,10 +20,6 @@ function CheckoutFormSection() {
   };
   const [contact, setContact] = useState(INITIAL_VALUE);
 
-  useEffect(() => {
-    console.log(contact);
-  }, [contact]);
-
   return (
     <div className="checkout-form col-span-6">
       <div className="flex flex-col items-start">
@@ -35,7 +31,7 @@ function CheckoutFormSection() {
           <div className="flex flex-col items-start gap-2 w-full">
             <h2 className="font-semibold text-xl text-black">Contact</h2>
 
-            <TextInput
+            <FormInput
               type="email"
               name="email"
               placeholder="Type your email"
