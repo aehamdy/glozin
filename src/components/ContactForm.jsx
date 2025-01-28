@@ -52,10 +52,12 @@ function ContactForm({ setContact, contact }) {
           required
         />
         <TextInput
-          name="zipcode"
+          name="zipCode"
           id="zipcode"
           placeholder="ZIP Code"
           className="w-1/2"
+          value={contact.zipCode}
+          setContact={setContact}
           required
         />
       </div>
