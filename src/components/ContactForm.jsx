@@ -28,6 +28,8 @@ function ContactForm({ setContact, contact }) {
         id="address"
         placeholder="Address"
         className="w-full"
+        value={contact.address}
+        setContact={setContact}
         required
       />
 
