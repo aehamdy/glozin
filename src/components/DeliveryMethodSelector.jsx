@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useEffect } from "react";
 import Icon from "./Icon";
 
 function DeliveryMethodSelector({ setContact }) {
@@ -21,13 +22,20 @@ function DeliveryMethodSelector({ setContact }) {
     setContact((prev) => ({ ...(prev || {}), deliveryMethod: e.target.value }));
   };
 
+  useEffect(() => {
+    setContact((prev) => ({
+      ...(prev || {}),
+      deliveryMethod: deliveryMethods[0].value,
+    }));
+  }, []);
+
   return (
     <div className="flex flex-col items-start gap-2 w-full">
       <h2 className="font-semibold text-xl text-black">Delivery</h2>
 
       <ul className="w-full">
         {deliveryMethods.map((method, index) => (
-          <li key={index} className="w-full">
+          <li key={index} className="w-full hover:text-blue-500">
             <input
               onChange={onInputChange}
               type="radio"
