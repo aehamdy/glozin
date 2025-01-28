@@ -7,7 +7,18 @@ import TextInput from "./TextInput";
 import OrderDetailsForm from "./OrderDetailsForm";
 
 function CheckoutFormSection() {
-  const [contact, setContact] = useState({});
+  const DEFAULT_VALUE = {
+    email: "",
+    deliveryMethod: "",
+    country: "",
+    firstName: "",
+    lastName: "",
+    address: "",
+    apartment: "",
+    city: "",
+    zipCode: "",
+  };
+  const [contact, setContact] = useState(DEFAULT_VALUE);
 
   useEffect(() => {
     console.log(contact);
