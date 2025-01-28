@@ -7,7 +7,7 @@ import TextInput from "./TextInput";
 import OrderDetailsForm from "./OrderDetailsForm";
 
 function CheckoutFormSection() {
-  const DEFAULT_VALUE = {
+  const INITIAL_VALUE = {
     email: "",
     deliveryMethod: "",
     country: "",
@@ -18,7 +18,7 @@ function CheckoutFormSection() {
     city: "",
     zipCode: "",
   };
-  const [contact, setContact] = useState(DEFAULT_VALUE);
+  const [contact, setContact] = useState(INITIAL_VALUE);
 
   useEffect(() => {
     console.log(contact);
@@ -37,8 +37,11 @@ function CheckoutFormSection() {
 
             <TextInput
               type="email"
+              name="email"
               placeholder="Type your email"
               className="w-full"
+              value={contact.email}
+              setContact={setContact}
               required
             />
           </div>
