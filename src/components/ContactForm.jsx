@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import TextInput from "./TextInput";
 
-function ContactForm() {
+function ContactForm({ setContact, contact }) {
   return (
     <>
       <div className="flex items-center gap-3 w-full">
@@ -8,6 +9,8 @@ function ContactForm() {
           name="firstName"
           id="firstName"
           placeholder="First Name (Optional)"
+          value={contact.firstName}
+          setContact={setContact}
           className="w-1/2"
         />
         <TextInput

@@ -47,7 +47,7 @@ function CheckoutFormSection() {
           </div>
           <DeliveryMethodSelector setContact={setContact} />
           {contact.deliveryMethod === "ship" ? (
-            <OrderDetailsForm setContact={setContact} />
+            <OrderDetailsForm setContact={setContact} contact={contact} />
           ) : (
             contact.deliveryMethod === "pick-in-store" && <StoreLocations />
           )}

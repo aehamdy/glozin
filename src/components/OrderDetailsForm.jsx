@@ -3,11 +3,11 @@ import ContactForm from "./ContactForm";
 import CountryDropdown from "./CountryDropdown";
 import ShippingMethod from "./ShippingMethod";
 
-function OrderDetailsForm({ setContact }) {
+function OrderDetailsForm({ setContact, contact }) {
   return (
     <>
       <CountryDropdown setContact={setContact} />
-      <ContactForm />
+      <ContactForm setContact={setContact} contact={contact} />
       <ShippingMethod />
     </>
   );
