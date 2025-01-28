@@ -18,7 +18,7 @@ function DeliveryMethodSelector({ setContact }) {
   ];
 
   const onInputChange = (e) => {
-    setContact({ deliveryMethod: e.target.value });
+    setContact((prev) => ({ ...(prev || {}), deliveryMethod: e.target.value }));
   };
 
   return (
