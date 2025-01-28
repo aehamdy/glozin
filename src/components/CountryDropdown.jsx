@@ -1,4 +1,5 @@
-function CountryDropdown() {
+/* eslint-disable react/prop-types */
+function CountryDropdown({ setContact }) {
   const countries = [
     {
       value: "CH",
@@ -17,8 +18,18 @@ function CountryDropdown() {
       country: "United States",
     },
   ];
+
+  const onSelectChange = (e) => {
+    setContact((prev) => ({ ...(prev || {}), country: e.target.value }));
+  };
+
   return (
-    <select name="" id="" className="w-full p-2 bg-white border rounded-lg">
+    <select
+      onChange={onSelectChange}
+      name=""
+      id=""
+      className="w-full p-2 bg-white border rounded-lg"
+    >
       {countries.map((country, index) => (
         <option key={index} value={country.value}>
           {country.country}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DeliveryMethodSelector from "./DeliveryMethodSelector";
 import PaymentStatus from "./PaymentStatus";
 import StoreLocations from "./StoreLocations";
@@ -8,6 +8,10 @@ import OrderDetailsForm from "./OrderDetailsForm";
 
 function CheckoutFormSection() {
   const [contact, setContact] = useState({});
+
+  useEffect(() => {
+    console.log(contact);
+  }, [contact]);
 
   return (
     <div className="checkout-form col-span-6">
@@ -29,7 +33,7 @@ function CheckoutFormSection() {
           </div>
           <DeliveryMethodSelector setContact={setContact} />
           {contact.deliveryMethod === "ship" ? (
-            <OrderDetailsForm />
+            <OrderDetailsForm setContact={setContact} />
           ) : (
             contact.deliveryMethod === "pick-in-store" && <StoreLocations />
           )}
