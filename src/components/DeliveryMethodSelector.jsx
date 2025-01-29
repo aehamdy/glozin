@@ -30,8 +30,8 @@ function DeliveryMethodSelector({ setContact }) {
   }, []);
 
   return (
-    <div className="flex flex-col items-start gap-2 w-full">
-      <h2 className="font-semibold text-xl text-black">Delivery</h2>
+    <div className="flex flex-col items-start gap-2 w-full mt-2">
+      <h2 className="font-semibold text-xl text-black mb-1">Delivery</h2>
 
       <ul className="w-full">
         {deliveryMethods.map((method, index) => (

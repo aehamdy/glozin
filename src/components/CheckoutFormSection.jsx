@@ -21,15 +21,15 @@ function CheckoutFormSection() {
   const [contact, setContact] = useState(INITIAL_VALUE);
 
   return (
-    <div className="checkout-form col-span-6">
+    <div className="checkout-form col-span-6 py-8 lg:px-8">
       <div className="flex flex-col items-start">
         <StoreNotification alert="error" message="payment unavailable" />
         <form
           action=""
-          className="part-1 flex flex-col items-start gap-4 w-full"
+          className="part-1 flex flex-col items-start gap-4 w-full mt-6"
         >
           <div className="flex flex-col items-start gap-2 w-full">
-            <h2 className="font-semibold text-xl text-black">Contact</h2>
+            <h2 className="font-semibold text-xl text-black mb-1">Contact</h2>
 
             <FormInput
               type="email"

@@ -4,20 +4,20 @@ import FormInput from "./FormInput";
 function ContactForm({ setContact, contact }) {
   return (
     <>
-      <div className="flex items-center gap-3 w-full">
+      <div className="flex items-center flex-wrap gap-4 w-full">
         <FormInput
           name="firstName"
           id="firstName"
           placeholder="First Name (Optional)"
           value={contact.firstName}
           setContact={setContact}
-          className="w-1/2"
+          className="flex-1 min-w-[250px]"
         />
         <FormInput
           name="lastName"
           id="lastName"
           placeholder="Last Name"
-          className="w-1/2"
+          className="flex-1 min-w-[250px]"
           value={contact.lastName}
           setContact={setContact}
           required
@@ -41,7 +41,7 @@ function ContactForm({ setContact, contact }) {
         value={contact.apartment}
         setContact={setContact}
       />
-      <div className="flex items-center gap-3 w-full">
+      <div className="flex items-center gap-4 w-full">
         <FormInput
           name="city"
           id="city"
