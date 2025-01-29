@@ -18,7 +18,7 @@ function CartDrawerPanel({ cartList }) {
       </div>
       <div className="flex flex-col items-center gap-5">
         <Button className="block w-3/4 py-3 font-semibold text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-medium">
-          <Link to="">Checkout</Link>
+          <Link to="/checkout">Checkout</Link>
         </Button>
       </div>
     </div>
