@@ -11,7 +11,7 @@ function CheckoutCartSection() {
   }, [cartList]);
 
   return (
-    <div className="col-span-6 py-8 lg:px-8 text-[15px] text-black bg-cloud-gray">
+    <div className="col-span-6 sticky top-0 h-[100dvh] space-y-8 pt-8 pb-16 lg:px-8 text-[15px] text-black bg-cloud-gray">
       <div className="flex flex-col gap-3">
         {cartList.map((product, index) => (
           <ProductCartInCheckout key={index} product={product} />
