@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import Button from "./Button";
 import { Link } from "react-router-dom";
 
 function CartDrawerPanel({ cartList }) {
@@ -17,9 +16,12 @@ function CartDrawerPanel({ cartList }) {
         <div>${subtotal.toFixed(2)}</div>
       </div>
       <div className="flex flex-col items-center gap-5">
-        <Button className="block w-3/4 py-3 font-semibold text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-medium">
-          <Link to="/checkout">Checkout</Link>
-        </Button>
+        <Link
+          to="/checkout"
+          className=" w-3/4 py-3 font-semibold text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-medium"
+        >
+          Checkout
+        </Link>
       </div>
     </div>
   );

@@ -1,8 +1,12 @@
 /* eslint-disable react/prop-types */
 function Button({ value, className, status, handleClick, children }) {
+  const onClickHandler = () => {
+    handleClick();
+  };
+
   return (
     <button
-      onClick={() => handleClick()}
+      onClick={onClickHandler}
       type="button"
       disabled={status}
       className={className}
