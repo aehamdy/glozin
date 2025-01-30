@@ -5,6 +5,7 @@ import { FaPinterestP, FaTiktok, FaYoutube } from "react-icons/fa";
 import { FaFacebookF, FaInstagram, FaTruckFast } from "react-icons/fa6";
 import { FiCheck, FiHeart, FiSearch, FiShoppingBag } from "react-icons/fi";
 import { GoTrash } from "react-icons/go";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { IoEyeOutline } from "react-icons/io5";
 import { MdClose } from "react-icons/md";
 import { PiPackage, PiUser } from "react-icons/pi";
@@ -26,6 +27,8 @@ const iconMap = {
   cart: FiShoppingBag,
   rightArrow: RiArrowRightSLine,
   leftArrow: RiArrowLeftSLine,
+  upChevronArrow: IoIosArrowUp,
+  downChevronArrow: IoIosArrowDown,
   filledStar: TiStarFullOutline,
   outlineStar: TiStarOutline,
   warning: RiErrorWarningLine,

@@ -2,7 +2,7 @@
 
 function ProductCartInCheckout({ product }) {
   return (
-    <article className="flex justify-between gap-3">
+    <article className="flex justify-between gap-3 text-sm md:text-base">
       <div className="flex gap-3">
         <div className="relative w-[70px] border border-gray-300 rounded-md">
           <img src={`${product.images[0]}`} alt={`${product.title} image`} />
@@ -14,7 +14,7 @@ function ProductCartInCheckout({ product }) {
       </div>
 
       <div>
-        <span>${product.price}</span>
+        <span>$ {product.price}</span>
       </div>
     </article>
   );

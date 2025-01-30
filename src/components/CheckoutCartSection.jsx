@@ -38,7 +38,11 @@ function CheckoutCartSection() {
       >
         <div className="flex items-center gap-3 text-sm text-blue-800 cursor-pointer">
           <span>Order Summary</span>
-          <Icon name="wishlist" size="14" />
+          {summary ? (
+            <Icon name="upChevronArrow" size="14" />
+          ) : (
+            <Icon name="downChevronArrow" size="14" />
+          )}
         </div>
         <div></div>
       </button>
