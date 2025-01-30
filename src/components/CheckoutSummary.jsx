@@ -1,6 +1,11 @@
+/* eslint-disable react/prop-types */
+import { useCart } from "../context/CartContext";
 import Subtotal from "./Subtotal";
 
-function CheckoutSummary() {
+function CheckoutSummary({ shippingFees }) {
+  const { subtotal } = useCart();
+  const total = subtotal + shippingFees;
+
   return (
     <div className="flex flex-col gap-3">
       <div className="flex justify-between items-center">
@@ -17,20 +22,19 @@ function CheckoutSummary() {
       <div className="flex justify-between">
         <span>Shipping</span>
         <div>
-          <span className="font-normal text-sm text-price-originalPrice">
-            Enter shipping address
+          <span
+            className={`font-normal text-sm ${
+              shippingFees ? "text-black" : "text-price-originalPrice"
+            }`}
+          >
+            {shippingFees ? `$ ${shippingFees}` : "Enter shipping address"}
           </span>
         </div>
       </div>
 
       <div className="flex justify-between font-semibold text-lg">
         <span>Total</span>
-        <div className="flex gap-2">
-          <span className="font-normal text-sm text-price-originalPrice">
-            USD
-          </span>
-          <span>$</span>
-        </div>
+        <div className="flex gap-2">{total.toFixed(2)}</div>
       </div>
     </div>
   );

@@ -4,34 +4,45 @@ function CountryDropdown({ setContact }) {
     {
       value: "CH",
       country: "China",
+      shippingFees: 20,
     },
     {
       value: "FR",
       country: "France",
+      shippingFees: 18,
     },
     {
       value: "UK",
       country: "United Kingdom",
+      shippingFees: 15,
     },
     {
       value: "US",
       country: "United States",
+      shippingFees: 20,
     },
   ];
 
   const onSelectChange = (e) => {
-    setContact((prev) => ({ ...(prev || {}), country: e.target.value }));
+    const selectedCountry = countries.find((c) => c.value === e.target.value);
+    setContact((prev) => ({
+      ...(prev || {}),
+      country: selectedCountry.value,
+      shippingFees: selectedCountry.shippingFees,
+    }));
   };
 
   return (
     <select
       onChange={onSelectChange}
-      name=""
-      id=""
+      defaultValue=""
       className="w-full p-2 bg-white border rounded-lg"
     >
-      {countries.map((country, index) => (
-        <option key={index} value={country.value}>
+      <option value="" disabled>
+        Select country
+      </option>
+      {countries.map((country) => (
+        <option key={country.value} value={country.value}>
           {country.country}
         </option>
       ))}

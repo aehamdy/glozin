@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import ProductCartInCheckout from "./ProductCartInCheckout";
 import CheckoutSummary from "./CheckoutSummary";
 import OrderSummaryButton from "./OrderSummaryButton";
 
-function CheckoutCartSection() {
+function CheckoutCartSection({ shippingFees }) {
   const { cartList } = useCart();
   const [summary, setSummary] = useState(true);
 
@@ -43,7 +44,7 @@ function CheckoutCartSection() {
               ))}
             </div>
 
-            <CheckoutSummary />
+            <CheckoutSummary shippingFees={shippingFees} />
           </>
         )}
       </div>

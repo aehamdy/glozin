@@ -1,4 +1,4 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
 import DeliveryMethodSelector from "./DeliveryMethodSelector";
 import PaymentStatus from "./PaymentStatus";
 import StoreLocations from "./StoreLocations";
@@ -6,20 +6,7 @@ import StoreNotification from "./StoreNotification";
 import FormInput from "./FormInput";
 import OrderDetailsForm from "./OrderDetailsForm";
 
-function CheckoutFormSection() {
-  const INITIAL_VALUE = {
-    email: "",
-    deliveryMethod: "",
-    country: "",
-    firstName: "",
-    lastName: "",
-    address: "",
-    apartment: "",
-    city: "",
-    zipCode: "",
-  };
-  const [contact, setContact] = useState(INITIAL_VALUE);
-
+function CheckoutFormSection({ contact, setContact }) {
   return (
     <div className="col-span-6 order-2 lg:order-none p-5 lg:px-8">
       <div className="flex flex-col items-start">
