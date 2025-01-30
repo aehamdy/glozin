@@ -31,21 +31,19 @@ function CheckoutCartSection() {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={onSummaryClick}
-        className="lg:hidden py-4 px-5 bg-cloud-gray border"
-      >
-        <div className="flex items-center gap-3 text-sm text-blue-800 cursor-pointer">
-          <span>Order Summary</span>
-          {summary ? (
-            <Icon name="upChevronArrow" size="14" />
-          ) : (
-            <Icon name="downChevronArrow" size="14" />
-          )}
-        </div>
-        <div></div>
-      </button>
+      <div className="lg:hidden flex justify-between py-4 px-5 bg-cloud-gray border">
+        <button type="button" onClick={onSummaryClick} className="">
+          <div className="flex items-center gap-3 text-sm text-blue-800 cursor-pointer">
+            <span>Order Summary</span>
+            {summary ? (
+              <Icon name="upChevronArrow" size="14" />
+            ) : (
+              <Icon name="downChevronArrow" size="14" />
+            )}
+          </div>
+        </button>
+        <div className="font-semibold">$ {subtotal}</div>
+      </div>
 
       <div
         className={`lg:block ${summary ? "block" : "hidden"} 
