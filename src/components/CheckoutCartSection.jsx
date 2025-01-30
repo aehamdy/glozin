@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import ProductCartInCheckout from "./ProductCartInCheckout";
-import Icon from "./Icon";
-import Subtotal from "./Subtotal";
 import CheckoutSummary from "./CheckoutSummary";
+import OrderSummaryButton from "./OrderSummaryButton";
 
 function CheckoutCartSection() {
   const { cartList } = useCart();
   const [summary, setSummary] = useState(true);
 
-  const onSummaryClick = () => {
+  const handleSummary = () => {
     setSummary((prev) => !prev);
   };
 
@@ -28,21 +27,7 @@ function CheckoutCartSection() {
 
   return (
     <>
-      <div className="lg:hidden flex justify-between py-4 px-5 bg-cloud-gray border">
-        <button type="button" onClick={onSummaryClick} className="">
-          <div className="flex items-center gap-3 text-sm text-blue-800 cursor-pointer">
-            <span>Order Summary</span>
-            {summary ? (
-              <Icon name="upChevronArrow" size="14" />
-            ) : (
-              <Icon name="downChevronArrow" size="14" />
-            )}
-          </div>
-        </button>
-        <div className="font-semibold">
-          $ <Subtotal />
-        </div>
-      </div>
+      <OrderSummaryButton summary={summary} handleSummary={handleSummary} />
 
       <div
         className={`lg:block ${summary ? "block" : "hidden"} 
