@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
+  const [subtotal, setSubtotal] = useState(0);
 
   const addToCart = (product) => {
     setCartList((prev) => {
@@ -23,8 +23,14 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  useEffect(() => {
+    setSubtotal(cartList?.reduce((acc, curr) => acc + curr.price, 0));
+  }, [cartList]);
+
   return (
-    <CartContext.Provider value={{ cartList, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cartList, addToCart, removeFromCart, subtotal }}
+    >
       {children}
     </CartContext.Provider>
   );
