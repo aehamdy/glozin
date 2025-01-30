@@ -21,7 +21,7 @@ function CheckoutFormSection() {
   const [contact, setContact] = useState(INITIAL_VALUE);
 
   return (
-    <div className="col-span-6 pt-8 lg:px-8">
+    <div className="col-span-6 order-2 lg:order-none pt-8 lg:px-8">
       <div className="flex flex-col items-start">
         <StoreNotification alert="error" message="payment unavailable" />
         <form
