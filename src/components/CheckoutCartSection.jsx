@@ -28,7 +28,11 @@ function CheckoutCartSection({ shippingFees }) {
 
   return (
     <>
-      <OrderSummaryButton summary={summary} handleSummary={handleSummary} />
+      <OrderSummaryButton
+        summary={summary}
+        handleSummary={handleSummary}
+        shippingFees={shippingFees}
+      />
 
       <div
         className={`lg:block ${summary ? "block" : "hidden"} 

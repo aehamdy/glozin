@@ -34,7 +34,7 @@ function CheckoutSummary({ shippingFees }) {
 
       <div className="flex justify-between font-semibold text-lg">
         <span>Total</span>
-        <div className="flex gap-2">{total.toFixed(2)}</div>
+        <div className="flex gap-2">$ {total.toFixed(2)}</div>
       </div>
     </div>
   );
