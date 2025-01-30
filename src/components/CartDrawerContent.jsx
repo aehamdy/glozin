@@ -4,7 +4,7 @@ import EmptyCart from "./EmptyCart";
 
 function CartDrawerContent({ cartList, handleCloseCart }) {
   return (
-    <div className="px-4">
+    <div className="my-auto px-4">
       {cartList?.length >= 1 ? (
         <CartProductList cartList={cartList} />
       ) : (
