@@ -33,7 +33,7 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
           cartList={cartList}
           handleCloseCart={handleCloseCart}
         />
-        {cartList.length > 0 && <CartDrawerPanel cartList={cartList} />}
+        {cartList.length > 0 && <CartDrawerPanel />}
       </div>
     </Modal>
   );

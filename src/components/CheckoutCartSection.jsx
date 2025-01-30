@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import ProductCartInCheckout from "./ProductCartInCheckout";
 import Icon from "./Icon";
+import Subtotal from "./Subtotal";
 
 function CheckoutCartSection() {
   const { cartList } = useCart();
   const [summary, setSummary] = useState(true);
-  const [subtotal, setSubtotal] = useState(0);
 
   const onSummaryClick = () => {
     setSummary((prev) => !prev);
@@ -25,10 +25,6 @@ function CheckoutCartSection() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    setSubtotal(cartList.reduce((acc, curr) => acc + curr.price, 0));
-  }, [cartList]);
-
   return (
     <>
       <div className="lg:hidden flex justify-between py-4 px-5 bg-cloud-gray border">
@@ -42,7 +38,9 @@ function CheckoutCartSection() {
             )}
           </div>
         </button>
-        <div className="font-semibold">$ {subtotal}</div>
+        <div className="font-semibold">
+          $ <Subtotal />
+        </div>
       </div>
 
       <div
@@ -66,7 +64,9 @@ function CheckoutCartSection() {
                   <span className="w-1 h-1 bg-black rounded-full"></span>
                   <span>items</span>
                 </div>
-                <div>${subtotal.toFixed(2)}</div>
+                <div>
+                  $ <Subtotal />
+                </div>
               </div>
 
               <div className="flex justify-between">
