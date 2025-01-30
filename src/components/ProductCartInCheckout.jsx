@@ -8,7 +8,7 @@ function ProductCartInCheckout({ product }) {
           <img src={`${product.images[0]}`} alt={`${product.title} image`} />
         </div>
 
-        <div>
+        <div className="text-start">
           <span>{product.title}</span>
         </div>
       </div>
