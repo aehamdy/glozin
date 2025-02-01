@@ -7,10 +7,10 @@ export const CartProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
 
-  const addToCart = (product) => {
+  const addToCart = (product, prodQuantity) => {
     setCartList((prev) => {
       if (!prev?.some((prod) => prod.id === product.id)) {
-        return [{ ...product, orderQuantity: +1 }, ...prev];
+        return [{ ...product, orderQuantity: prodQuantity || +1 }, ...prev];
       } else {
         return [...prev];
       }
