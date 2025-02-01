@@ -24,7 +24,9 @@ export const CartProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    setSubtotal(cartList?.reduce((acc, curr) => acc + curr.price, 0));
+    setSubtotal(
+      cartList?.reduce((acc, curr) => acc + curr.price * curr.orderQuantity, 0)
+    );
   }, [cartList]);
 
   return (
