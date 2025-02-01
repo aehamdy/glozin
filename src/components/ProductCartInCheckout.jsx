@@ -13,12 +13,13 @@ function ProductCartInCheckout({ product }) {
           <img src={`${product.images[0]}`} alt={`${product.title} image`} />
         </div>
 
-        <div className="text-start">
+        <div className="flex flex-col items-start">
           <span>{product.title}</span>
+          <span className="text-price-originalPrice">$ {product.price}</span>
         </div>
       </div>
 
-      <div>
+      <div className="font-semibold">
         <span>$ {itemTotalPrice.toFixed(2)}</span>
       </div>
     </article>
