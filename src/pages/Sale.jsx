@@ -3,7 +3,6 @@ import saleVideo from "../assets/sale-video.mp4";
 import BrandStoryPanel from "../components/BrandStoryPanel";
 import FeaturesSection from "../components/FeaturesSection";
 import HorizontalScrollingText from "../components/HorizontalScrollingText";
-import ProductsWrapper from "../components/ProductsWrapper";
 import SaleBannersWrapper from "../components/SaleBannersWrapper";
 import SectionHeader from "../components/SectionHeader";
 import TestimonialsSection from "../components/TestimonialsSection";

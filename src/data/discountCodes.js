@@ -1,4 +1,4 @@
-const saleBanners = [
+const discountCodes = [
     {
         label: "holiday",
         discount: "30",
@@ -29,4 +29,4 @@ const saleBanners = [
     },
 ];
 
-export default saleBanners;
+export default discountCodes;
