@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useCart } from "../context/CartContext";
 import Icon from "./Icon";
+import ProductQuantityInput from "./ProductQuantityInput";
 
 function ProductInCart({ product }) {
   const { removeFromCart } = useCart();
@@ -16,10 +17,17 @@ function ProductInCart({ product }) {
           <img src={product.images[0]} alt={product.title + " image"} />
         </div>
       </div>
-      <div className="flex flex-col justify-start items-start gap-1 font-medium text-sm text-secondary-dark">
-        <h4>{product.title}</h4>
-        <h4>${product.price}</h4>
+
+      <div className="flex flex-col justify-between items-start gap-1 h-[90%] font-medium text-sm text-secondary-dark">
+        <div className="flex flex-col justify-start items-start gap-1 text-start">
+          <h4>{product.title}</h4>
+          <div className="flex gap-1 text-priceInCart">
+            <span>$ {product.price}</span>
+          </div>
+        </div>
+        <ProductQuantityInput productItem={product} variant="in-cart-drawer" />
       </div>
+
       <div className="ms-auto">
         <button onClick={() => handleOnRemoveClick(product)}>
           <Icon

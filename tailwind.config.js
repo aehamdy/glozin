@@ -35,6 +35,7 @@ export default {
         },
         price: {
           originalPrice: '#666',
+          priceInCart: '#111',
           salePrice: '#d0473e',
         },
         heading: {

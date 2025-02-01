@@ -20,6 +20,7 @@ function ProductForm({ product }) {
     <div className="flex flex-col gap-5 w-full my-5 pt-8 border-t">
       <div className="flex justify-between items-center gap-3 px-1">
         <ProductQuantityInput
+          productItem={product}
           setProductQuantity={setProductQuantity}
           productQuantity={productQuantity}
         />

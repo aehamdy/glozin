@@ -10,7 +10,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     setCartList((prev) => {
       if (!prev?.some((prod) => prod.id === product.id)) {
-        return [product, ...prev];
+        return [{ ...product, orderQuantity: +1 }, ...prev];
       } else {
         return [...prev];
       }
@@ -29,7 +29,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartList, addToCart, removeFromCart, subtotal }}
+      value={{ cartList, setCartList, addToCart, removeFromCart, subtotal }}
     >
       {children}
     </CartContext.Provider>
