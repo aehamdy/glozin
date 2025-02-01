@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 
 function ProductCartInCheckout({ product }) {
+  const itemTotalPrice = product.price * product.orderQuantity;
+
   return (
     <article className="flex justify-between gap-3 text-sm md:text-base">
       <div className="flex gap-3">
@@ -17,7 +19,7 @@ function ProductCartInCheckout({ product }) {
       </div>
 
       <div>
-        <span>$ {product.price}</span>
+        <span>$ {itemTotalPrice.toFixed(2)}</span>
       </div>
     </article>
   );
