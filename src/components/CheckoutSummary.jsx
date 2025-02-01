@@ -1,10 +1,16 @@
 /* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import Subtotal from "./Subtotal";
 
 function CheckoutSummary({ shippingFees }) {
-  const { subtotal } = useCart();
+  const [itemsCount, setItemsCount] = useState(0);
+  const { subtotal, cartList } = useCart();
   const total = subtotal + shippingFees;
+
+  useEffect(() => {
+    setItemsCount(cartList.reduce((acc, curr) => acc + curr.orderQuantity, 0));
+  }, [cartList]);
 
   return (
     <div className="flex flex-col gap-3">
@@ -12,7 +18,7 @@ function CheckoutSummary({ shippingFees }) {
         <div className="flex items-center gap-2">
           <span>Subtotal</span>
           <span className="w-1 h-1 bg-black rounded-full"></span>
-          <span>items</span>
+          <span>{itemsCount} items</span>
         </div>
         <div>
           $ <Subtotal />
