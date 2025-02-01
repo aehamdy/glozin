@@ -27,6 +27,13 @@ const discountCodes = [
         desc: `Extra 50% off for VIP customers.`,
         code: `vipsale50all`,
     },
+    {
+        label: "free shipping",
+        discount: "free-shipping",
+        title: `Free Shipping`,
+        desc: `Free shipping for orders above $500`,
+        code: `freship`,
+    },
 ];
 
 export default discountCodes;
