@@ -29,7 +29,6 @@ function ProductQuantityInput({ productItem, variant }) {
 
   return (
     <div className="flex items-center bg-[#F5F5F5] border rounded-medium overflow-hidden">
-      {console.log(productItem.orderQuantity)}
       <button
         type="button"
         onClick={decreaseQuantity}
