@@ -4,6 +4,7 @@ import { useCart } from "../context/CartContext";
 import ProductCartInCheckout from "./ProductCartInCheckout";
 import CheckoutSummary from "./CheckoutSummary";
 import OrderSummaryButton from "./OrderSummaryButton";
+import DiscountSection from "./DiscountSection";
 
 function CheckoutCartSection({ shippingFees }) {
   const { cartList } = useCart();
@@ -47,7 +48,7 @@ function CheckoutCartSection({ shippingFees }) {
                 <ProductCartInCheckout key={index} product={product} />
               ))}
             </div>
-
+            <DiscountSection />
             <CheckoutSummary shippingFees={shippingFees} />
           </>
         )}
