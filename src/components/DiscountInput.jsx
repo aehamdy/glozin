@@ -15,7 +15,7 @@ function DiscountInput() {
         placeholder="Enter discount code"
         onChange={onInputChange}
         value={couponCode}
-        className="w-9/12 md:w-1/2 lg:w-3/5 py-3 px-2 text-black placeholder:text-price-originalPrice bg-white border outline-none rounded-md"
+        className="w-9/12 md:w-1/2 lg:w-3/5 py-3 px-2 font-medium placeholder:font-normal text-black placeholder:text-price-originalPrice bg-white border-2 focus:border-blue-600 outline-none rounded-md"
       />
     </>
   );
