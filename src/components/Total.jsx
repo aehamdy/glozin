@@ -7,11 +7,12 @@ function Total({ total, newTotal }) {
       )}
       <div
         className={`flex gap-2 ${
-          total && "font-medium text-base text-secondary-dark line-through"
+          newTotal && "font-medium text-base text-secondary-dark line-through"
         }`}
       >
         $ {total.toFixed(2)}
       </div>
+      {console.log(newTotal)}
     </div>
   );
 }

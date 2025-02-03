@@ -12,7 +12,7 @@ function DiscountSection() {
     error: "",
   };
   const [discount, setDiscount] = useState(INITIAL_VALUE);
-  const { subtotal, setSubtotal, cartList } = useCart();
+  const { subtotal, setSubtotal, setNewSubtotal, cartList } = useCart();
   const errorMessage = "Enter a valid discount code";
   const cartTotal = calculateCartTotal(cartList);
 
@@ -41,7 +41,8 @@ function DiscountSection() {
 
   useEffect(() => {
     discount.discountValue > 0 &&
-      setSubtotal(subtotal - (subtotal * discount.discountValue) / 100);
+      // setSubtotal(subtotal - (subtotal * discount.discountValue) / 100);
+      setNewSubtotal(subtotal - (subtotal * discount.discountValue) / 100);
   }, [discount.discountValue]);
 
   return (
