@@ -13,26 +13,30 @@ function DiscountSection() {
   };
   const [discount, setDiscount] = useState(INITIAL_VALUE);
   const { subtotal, setSubtotal, cartList } = useCart();
-  const errorMessage = "Code isn't available";
+  const errorMessage = "Enter a valid discount code";
   const cartTotal = calculateCartTotal(cartList);
+
+  const checkCodeAvailability = () => {
+    return discountCodes.find(
+      (code) => code.code.toLowerCase() === discount.codeValue.toLowerCase()
+    );
+  };
 
   const checkExistingCode = () => {
     setSubtotal(cartTotal);
     setDiscount((prev) => ({ ...prev, codeValue: discount.codeValue }));
 
-    const codeStatus = discountCodes.find(
-      (code) => code.code.toLowerCase() === discount.codeValue.toLowerCase()
-    );
+    const codeAvailable = checkCodeAvailability();
 
-    codeStatus
+    codeAvailable
       ? setDiscount((prev) => ({
           ...prev,
-          discountValue: codeStatus.discountAmount,
+          discountValue: codeAvailable.discountAmount,
           error: "",
         }))
       : setDiscount((prev) => ({ ...prev, error: "Code isn't available" }));
 
-    return codeStatus;
+    return codeAvailable;
   };
 
   useEffect(() => {
