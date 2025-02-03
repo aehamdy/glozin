@@ -1,7 +1,7 @@
 const discountCodes = [
     {
         label: "holiday",
-        discount: "30",
+        discountAmount: "30",
         title: `Sale 30% Off`,
         desc: `30% off during the holiday season.`,
         code: `holiday30all`,
@@ -10,7 +10,7 @@ const discountCodes = [
     },
     {
         label: "bundle",
-        discount: "50",
+        discountAmount: "50",
         title: `Sale 50% Off`,
         desc: `Discount when buying combo.`,
         code: `bundledeal50`,
@@ -19,7 +19,7 @@ const discountCodes = [
     },
     {
         label: "flashsale",
-        discount: "75",
+        discountAmount: "75",
         title: `Sale 75% Off`,
         desc: `Big discounts for Flash Sale hours.`,
         code: `flashsale75`,
@@ -28,7 +28,7 @@ const discountCodes = [
     },
     {
         label: "white friday",
-        discount: "50",
+        discountAmount: "50",
         title: `Best Of Sale`,
         desc: `Extra 50% off for VIP customers.`,
         code: `vipsale50all`,
@@ -37,7 +37,7 @@ const discountCodes = [
     },
     {
         label: "free shipping",
-        discount: "free-shipping",
+        discountAmount: "free-shipping",
         title: `Free Shipping`,
         desc: `Free shipping for orders above $500`,
         code: `freship`,

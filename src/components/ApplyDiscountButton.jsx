@@ -1,11 +1,16 @@
 /* eslint-disable react/prop-types */
-function ApplyDiscountButton({ couponCode }) {
+function ApplyDiscountButton({ discount, checkExistingCode }) {
+  const onButtonClick = () => {
+    checkExistingCode();
+  };
+
   return (
     <button
-      disabled={!couponCode}
+      onClick={() => onButtonClick()}
+      disabled={!discount.couponCode}
       className={`px-4 ${
-        couponCode
-          ? "font-medium text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-700 duration-short"
+        discount.couponCode
+          ? "font-medium text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus:outline-none duration-short"
           : "text-content-light-dark bg-neutral-200"
       } rounded-md`}
     >
