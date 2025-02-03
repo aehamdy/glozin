@@ -6,6 +6,7 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
+  const [newSubtotal, setNewSubtotal] = useState(0);
   const cartTotal = calculateCartTotal(cartList);
 
   const addToCart = (product, prodQuantity) => {
@@ -37,6 +38,8 @@ export const CartProvider = ({ children }) => {
         removeFromCart,
         subtotal,
         setSubtotal,
+        newSubtotal,
+        setNewSubtotal,
       }}
     >
       {children}

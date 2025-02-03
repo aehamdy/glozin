@@ -2,11 +2,13 @@
 import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import Subtotal from "./Subtotal";
+import Total from "./Total";
 
 function CheckoutSummary({ shippingFees }) {
   const [itemsCount, setItemsCount] = useState(0);
-  const { subtotal, cartList } = useCart();
+  const { subtotal, newSubtotal, cartList } = useCart();
   const total = subtotal + shippingFees;
+  const newTotal = newSubtotal + shippingFees;
 
   useEffect(() => {
     setItemsCount(cartList.reduce((acc, curr) => acc + curr.orderQuantity, 0));
@@ -20,9 +22,7 @@ function CheckoutSummary({ shippingFees }) {
           <span className="w-1 h-1 bg-black rounded-full"></span>
           <span>{itemsCount} items</span>
         </div>
-        <div>
-          $ <Subtotal />
-        </div>
+        <Subtotal />
       </div>
 
       <div className="flex justify-between">
@@ -40,7 +40,7 @@ function CheckoutSummary({ shippingFees }) {
 
       <div className="flex justify-between font-semibold text-lg">
         <span>Total</span>
-        <div className="flex gap-2">$ {total.toFixed(2)}</div>
+        <Total total={total} newTotal={newTotal} />
       </div>
     </div>
   );
