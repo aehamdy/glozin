@@ -3,6 +3,7 @@ import ApplyDiscountButton from "./ApplyDiscountButton";
 import DiscountInput from "./DiscountInput";
 import { useCart } from "../context/CartContext";
 import discountCodes from "../data/discountCodes";
+import calculateCartTotal from "../utils/calculateCartTotal";
 
 function DiscountSection() {
   const INITIAL_VALUE = {
@@ -13,8 +14,10 @@ function DiscountSection() {
   const [discount, setDiscount] = useState(INITIAL_VALUE);
   const { subtotal, setSubtotal, cartList } = useCart();
   const errorMessage = "Code isn't available";
+  const cartTotal = calculateCartTotal(cartList);
 
   const checkExistingCode = () => {
+    setSubtotal(cartTotal);
     setDiscount((prev) => ({ ...prev, codeValue: discount.codeValue }));
 
     const codeStatus = discountCodes.find(
