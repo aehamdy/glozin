@@ -12,6 +12,7 @@ function DiscountSection() {
   };
   const [discount, setDiscount] = useState(INITIAL_VALUE);
   const { subtotal, setSubtotal, cartList } = useCart();
+  const errorMessage = "Code isn't available";
 
   const checkExistingCode = () => {
     setDiscount((prev) => ({ ...prev, codeValue: discount.codeValue }));
@@ -33,16 +34,21 @@ function DiscountSection() {
 
   useEffect(() => {
     discount.discountValue > 0 &&
-      setSubtotal((discount.discountValue * subtotal) / 100);
+      setSubtotal(subtotal - (subtotal * discount.discountValue) / 100);
   }, [discount.discountValue]);
 
   return (
-    <div className="flex justify-between">
-      <DiscountInput discount={discount} setDiscount={setDiscount} />
-      <ApplyDiscountButton
-        discount={discount}
-        checkExistingCode={checkExistingCode}
-      />
+    <div className="flex flex-col gap-2">
+      <div className="flex justify-between">
+        <DiscountInput discount={discount} setDiscount={setDiscount} />
+        <ApplyDiscountButton
+          discount={discount}
+          checkExistingCode={checkExistingCode}
+        />
+      </div>
+      {discount.error && (
+        <p className="ps-1 text-start text-red-500">{errorMessage}</p>
+      )}
     </div>
   );
 }
