@@ -2,22 +2,39 @@ import { useEffect, useState } from "react";
 import ApplyDiscountButton from "./ApplyDiscountButton";
 import DiscountInput from "./DiscountInput";
 import { useCart } from "../context/CartContext";
+import discountCodes from "../data/discountCodes";
 
 function DiscountSection() {
   const INITIAL_VALUE = {
-    couponCode: "",
-    discountAmount: 0,
+    codeValue: "",
+    discountValue: 0,
     error: "",
   };
   const [discount, setDiscount] = useState(INITIAL_VALUE);
   const { subtotal, setSubtotal, cartList } = useCart();
 
-  const checkExistingCode = () => {};
+  const checkExistingCode = () => {
+    setDiscount((prev) => ({ ...prev, codeValue: discount.codeValue }));
+
+    const codeStatus = discountCodes.find(
+      (code) => code.code.toLowerCase() === discount.codeValue.toLowerCase()
+    );
+
+    codeStatus
+      ? setDiscount((prev) => ({
+          ...prev,
+          discountValue: codeStatus.discountAmount,
+          error: "",
+        }))
+      : setDiscount((prev) => ({ ...prev, error: "Code isn't available" }));
+
+    return codeStatus;
+  };
 
   useEffect(() => {
-    discount.discountAmount > 0 &&
-      setSubtotal((discount.discountAmount * subtotal) / 100);
-  }, [discount.discountAmount]);
+    discount.discountValue > 0 &&
+      setSubtotal((discount.discountValue * subtotal) / 100);
+  }, [discount.discountValue]);
 
   return (
     <div className="flex justify-between">
