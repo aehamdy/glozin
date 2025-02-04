@@ -6,9 +6,7 @@ import Total from "./Total";
 
 function CheckoutSummary({ shippingFees }) {
   const [itemsCount, setItemsCount] = useState(0);
-  const { subtotal, newSubtotal, cartList } = useCart();
-  const total = subtotal + shippingFees;
-  const newTotal = newSubtotal + shippingFees;
+  const { cartList } = useCart();
 
   useEffect(() => {
     setItemsCount(cartList.reduce((acc, curr) => acc + curr.orderQuantity, 0));
@@ -40,7 +38,7 @@ function CheckoutSummary({ shippingFees }) {
 
       <div className="flex justify-between font-semibold text-lg">
         <span>Total</span>
-        <Total total={total} newTotal={newTotal} />
+        <Total total={total} newTotal={newTotal} shippingFees={shippingFees} />
       </div>
     </div>
   );

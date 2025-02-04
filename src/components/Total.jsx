@@ -1,5 +1,11 @@
 /* eslint-disable react/prop-types */
-function Total({ total, newTotal }) {
+import { useCart } from "../context/CartContext";
+
+function Total({ shippingFees }) {
+  const { subtotal, newSubtotal } = useCart();
+  const total = subtotal + shippingFees;
+  const newTotal = newSubtotal + shippingFees;
+
   return (
     <div className="flex items-center gap-3">
       {newTotal > 0 && (
