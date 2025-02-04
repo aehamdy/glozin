@@ -7,7 +7,7 @@ function CartDrawerPanel() {
       <div className="flex justify-between font-semibold">
         <div>Subtotal:</div>
         <div>
-          $ <Subtotal />
+          <Subtotal />
         </div>
       </div>
       <div className="flex flex-col items-center gap-5">

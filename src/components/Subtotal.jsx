@@ -2,8 +2,19 @@
 import { useCart } from "../context/CartContext";
 
 function Subtotal({ className }) {
-  const { subtotal } = useCart();
+  const { subtotal, newSubtotal } = useCart();
 
-  return <span className={`${className}`}>{subtotal.toFixed(2)}</span>;
+  return (
+    <div className="flex gap-3">
+      {newSubtotal > 0 && (
+        <span className={`${newSubtotal && "font-medium text-red-500"}`}>
+          $ {newSubtotal.toFixed(2)}
+        </span>
+      )}
+      <span className={`${className} ${newSubtotal && "line-through"}`}>
+        $ {subtotal.toFixed(2)}
+      </span>
+    </div>
+  );
 }
 export default Subtotal;
