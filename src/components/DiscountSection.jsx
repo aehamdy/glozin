@@ -25,17 +25,22 @@ function DiscountSection() {
 
   const checkExistingCode = () => {
     setSubtotal(cartTotal);
+    console.log(cartTotal);
+
     setDiscount((prev) => ({ ...prev, codeValue: discount.codeValue }));
 
     const codeAvailable = checkCodeAvailability();
 
-    codeAvailable
-      ? setDiscount((prev) => ({
-          ...prev,
-          discountValue: codeAvailable.discountAmount,
-          error: "",
-        }))
-      : setDiscount((prev) => ({ ...prev, error: "Code isn't available" }));
+    if (codeAvailable) {
+      setDiscount((prev) => ({
+        ...prev,
+        discountValue: codeAvailable.discountAmount,
+        error: "",
+      }));
+    } else {
+      setDiscount((prev) => ({ ...prev, error: "Code isn't available" }));
+      setNewSubtotal(0);
+    }
 
     return codeAvailable;
   };
