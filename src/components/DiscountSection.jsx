@@ -24,7 +24,6 @@ function DiscountSection() {
 
   const checkExistingCode = () => {
     setSubtotal(cartTotal);
-    console.log(cartTotal);
 
     setDiscount((prev) => ({ ...prev, codeValue: discount.codeValue }));
 
