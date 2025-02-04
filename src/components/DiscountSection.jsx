@@ -38,7 +38,11 @@ function DiscountSection() {
         error: "",
       }));
     } else {
-      setDiscount((prev) => ({ ...prev, error: "Code isn't available" }));
+      setDiscount((prev) => ({
+        ...prev,
+        discountValue: "",
+        error: "Code isn't available",
+      }));
       setNewSubtotal(0);
     }
 
