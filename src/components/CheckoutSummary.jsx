@@ -38,7 +38,7 @@ function CheckoutSummary({ shippingFees }) {
 
       <div className="flex justify-between font-semibold text-lg">
         <span>Total</span>
-        <Total total={total} newTotal={newTotal} shippingFees={shippingFees} />
+        <Total shippingFees={shippingFees} />
       </div>
     </div>
   );
