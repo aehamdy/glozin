@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
+import { useCart } from "../context/CartContext";
 import AddToWishlistButton from "./AddToWishlistButton";
 import ProductCardButton from "./ProductCardButton";
 
 function ProductCardSideButtons({ product, removeFromWishlist }) {
+  const { addToCart } = useCart();
+
   const handleRemoveFromWishlist = (productId) => {
     removeFromWishlist(productId);
   };
@@ -32,6 +35,9 @@ function ProductCardSideButtons({ product, removeFromWishlist }) {
               key={index}
               icon={button.icon}
               productId={product.id}
+              onClickFunc={
+                button.icon === "cart" ? () => addToCart(product) : undefined
+              }
             />
           )
         )}
