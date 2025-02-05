@@ -31,7 +31,9 @@ function ProductCardButton({
   return (
     <button
       onClick={() => onClickFunc(productId)}
-      className={`group relative flex justify-between p-1.5 md:p-3 top-1 md:top-0 -translate-y-1/4 md:-translate-y-0
+      className={`${
+        icon === "cart" && "lg:hidden"
+      } group relative flex justify-between p-1.5 md:p-3 top-1 md:top-0 -translate-y-1/4 md:-translate-y-0
       ${
         isInWishlist ? "bg-black" : "bg-slate-50"
       } text-secondary-dark hover:text-primary-light hover:bg-secondary-dark rounded-full shadow-md cursor-pointer duration-medium ${
