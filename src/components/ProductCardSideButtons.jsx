@@ -10,9 +10,9 @@ function ProductCardSideButtons({ product, removeFromWishlist }) {
     removeFromWishlist(productId);
   };
   const quickButtons = [
-    { icon: "cart" },
-    { icon: "wishlist" },
-    { icon: "eye" },
+    { icon: "cart", toolipValue: "add to cart" },
+    { icon: "wishlist", toolipValue: "add to wishlist" },
+    { icon: "eye", toolipValue: "quick view" },
   ];
 
   return (
@@ -35,6 +35,7 @@ function ProductCardSideButtons({ product, removeFromWishlist }) {
               key={index}
               icon={button.icon}
               productId={product.id}
+              tooltipValue={button.toolipValue}
               onClickFunc={
                 button.icon === "cart" ? () => addToCart(product) : undefined
               }
