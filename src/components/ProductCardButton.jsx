@@ -31,7 +31,7 @@ function ProductCardButton({
   return (
     <button
       onClick={() => onClickFunc(productId)}
-      className={`group relative flex justify-between top-0 -translate-y-1/4 md:-translate-y-0 end-0 p-1 md:p-3
+      className={`group relative flex justify-between top-1 md:top-0 -translate-y-1/4 md:-translate-y-0 -end-2.5 md:-end-1 lg:end-0 p-1.5 md:p-3
       ${
         isInWishlist ? "bg-black" : "bg-slate-50"
       } text-secondary-dark hover:text-primary-light hover:bg-secondary-dark rounded-full shadow-md cursor-pointer duration-medium ${
