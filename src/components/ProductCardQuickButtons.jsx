@@ -13,7 +13,7 @@ function ProductCardQuickButtons({ product, removeFromWishlist }) {
   return (
     <>
       <ProductCardSideButtons
-        productId={product.id}
+        product={product}
         removeFromWishlist={removeFromWishlist}
       />
       <AddToCartButton handleClick={handleClick} variant="quickButton" />

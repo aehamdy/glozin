@@ -2,7 +2,7 @@
 import AddToWishlistButton from "./AddToWishlistButton";
 import ProductCardButton from "./ProductCardButton";
 
-function ProductCardSideButtons({ productId, removeFromWishlist }) {
+function ProductCardSideButtons({ product, removeFromWishlist }) {
   const handleRemoveFromWishlist = (productId) => {
     removeFromWishlist(productId);
   };
@@ -22,17 +22,22 @@ function ProductCardSideButtons({ productId, removeFromWishlist }) {
                 key={index}
                 icon="close"
                 onClickFunc={handleRemoveFromWishlist}
-                productId={productId}
+                productId={product.id}
               />
             ) : (
-              <AddToWishlistButton key={index} productId={productId} />
+              <AddToWishlistButton key={index} productId={product.id} />
             )
           ) : (
-            <ProductCardButton key={index} icon={button.icon} />
+            <ProductCardButton
+              key={index}
+              icon={button.icon}
+              productId={product.id}
+            />
           )
         )}
       </div>
     </div>
   );
 }
+
 export default ProductCardSideButtons;
