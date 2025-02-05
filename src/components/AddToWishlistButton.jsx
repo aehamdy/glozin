@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
-import Icon from "./Icon";
 import { useFetchSingleProduct } from "../hooks/useFetchSingleProduct";
 import { useWishlist } from "../context/wishlistContext";
 import { useEffect, useState } from "react";
-import Tooltip from "./Tooltip";
+import ProductCardButton from "./ProductCardButton";
 
-function AddToWishlistButton({ productId, variant, onClick }) {
+function AddToWishlistButton({ productId, variant }) {
   const { addToWishlist, removeFromWishlist, wishlistProducts } = useWishlist();
-  const { product, loading, error } = useFetchSingleProduct(productId);
+  const { product } = useFetchSingleProduct(productId);
   const [isInWishlist, setIsInWishlist] = useState(false);
 
   useEffect(() => {
@@ -26,7 +25,7 @@ function AddToWishlistButton({ productId, variant, onClick }) {
     setIsInWishlist(inWishlist);
   }, []);
 
-  const handleWishlistToggle = (e) => {
+  const handleWishlistToggle = () => {
     if (product) {
       if (isInWishlist) {
         removeFromWishlist(productId);
@@ -37,28 +36,12 @@ function AddToWishlistButton({ productId, variant, onClick }) {
   };
 
   return (
-    <button
-      onClick={handleWishlistToggle}
-      className={`group relative top-0 shadow-md -translate-y-1/4 md:-translate-y-0 end-0 p-3 md:p-4  ${
-        isInWishlist
-          ? "text-white bg-primary-dark"
-          : variant === "primary"
-          ? "text-secondary-dark bg-primary-light border"
-          : "bg-slate-50"
-      } ${
-        variant !== "primary" && isInWishlist
-          ? "text-primary-light"
-          : "text-secondary-dark"
-      } hover:text-primary-light hover:bg-secondary-dark rounded-full cursor-pointer duration-medium`}
-    >
-      {variant === "primary" && (
-        <Tooltip
-          value={`${isInWishlist ? "Remove from wishlist" : "Add to wishlist"}`}
-          className="hidden lg:block absolute -top-5 group-hover:-top-7 start-0 -translate-x-1/4 w-24 py-1 text-xs text-primary-light bg-primary-dark rounded-md opacity-0 group-hover:opacity-100 z-[-1] group-hover:z-40 pointer-events-none duration-300"
-        />
-      )}
-      <Icon name="wishlist" size="18" />
-    </button>
+    <ProductCardButton
+      icon="wishlist"
+      onClickFunc={handleWishlistToggle}
+      isInWishlist={isInWishlist}
+      variant={variant}
+    />
   );
 }
 export default AddToWishlistButton;
