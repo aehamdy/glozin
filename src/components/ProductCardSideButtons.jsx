@@ -9,7 +9,7 @@ function ProductCardSideButtons({ productId, removeFromWishlist }) {
   const quickButtons = [{ icon: "wishlist" }, { icon: "eye" }];
 
   return (
-    <div className="absolute top-5 end-5 lg:-end-2 group-hover:end-5 flex flex-col gap-4 lg:opacity-0 lg:group-hover:opacity-100 group-hover:z-50 transition-all duration-medium">
+    <div className="absolute flex flex-col gap-4 top-5 end-2 lg:end-0 lg:translate-x-full group-hover:-translate-x-2 lg:opacity-0 lg:group-hover:opacity-100 group-hover:z-50 transition-all duration-medium">
       <div className="relative flex flex-col gap-3">
         {quickButtons.map((button, index) =>
           button.icon === "wishlist" ? (
