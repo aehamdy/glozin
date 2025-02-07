@@ -1,18 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useCart } from "../context/CartContext";
-import AddToWishlistButton from "./AddToWishlistButton";
+import WishlistButton from "./WishlistButton";
 import ProductCardButton from "./ProductCardButton";
 
 function ProductCardSideButtons({ product, removeFromWishlist }) {
   const { addToCart } = useCart();
 
-  const handleRemoveFromWishlist = (productId) => {
-    removeFromWishlist(productId);
-  };
   const quickButtons = [
-    { icon: "cart", toolipValue: "add to cart" },
-    { icon: "wishlist", toolipValue: "add to wishlist" },
-    { icon: "eye", toolipValue: "quick view" },
+    { icon: "cart", tooltipValue: "add to cart" },
+    { icon: "wishlist", tooltipValue: "add to wishlist" },
+    { icon: "eye", tooltipValue: "quick view" },
   ];
 
   return (
@@ -21,21 +18,26 @@ function ProductCardSideButtons({ product, removeFromWishlist }) {
         {quickButtons.map((button, index) =>
           button.icon === "wishlist" ? (
             removeFromWishlist ? (
-              <ProductCardButton
+              <WishlistButton
                 key={index}
-                icon="close"
-                onClickFunc={handleRemoveFromWishlist}
                 productId={product.id}
+                icon="close"
+                tooltipValue="remove from wishlist"
               />
             ) : (
-              <AddToWishlistButton key={index} productId={product.id} />
+              <WishlistButton
+                key={index}
+                productId={product.id}
+                icon="wishlist"
+                tooltipValue="add to wishlist"
+              />
             )
           ) : (
             <ProductCardButton
               key={index}
               icon={button.icon}
               productId={product.id}
-              tooltipValue={button.toolipValue}
+              tooltipValue={button.tooltipValue}
               onClickFunc={
                 button.icon === "cart" ? () => addToCart(product) : undefined
               }

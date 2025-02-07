@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import AddToWishlistButton from "./AddToWishlistButton";
+import WishlistButton from "./WishlistButton";
 import Button from "./Button";
 import ProductTermsAgreement from "./ProductTermsAgreement";
 import AddToCartButton from "./AddToCartButton";
@@ -66,7 +66,11 @@ function ProductForm({ product }) {
           variant="productDetails"
         />
 
-        <AddToWishlistButton productId={product.id} variant="primary" />
+        <WishlistButton
+          productId={product.id}
+          icon="wishlist"
+          variant="primary"
+        />
       </div>
 
       <div className="flex flex-col gap-4 px-1">

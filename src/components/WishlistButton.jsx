@@ -4,7 +4,7 @@ import { useWishlist } from "../context/wishlistContext";
 import { useEffect, useState } from "react";
 import ProductCardButton from "./ProductCardButton";
 
-function WishlistButton({ productId, variant, tooltipValue }) {
+function WishlistButton({ productId, variant, icon, tooltipValue }) {
   const { addToWishlist, removeFromWishlist, wishlistProducts } = useWishlist();
   const { product } = useFetchSingleProduct(productId);
   const [isInWishlist, setIsInWishlist] = useState(false);
@@ -37,11 +37,15 @@ function WishlistButton({ productId, variant, tooltipValue }) {
 
   return (
     <ProductCardButton
-      icon="wishlist"
+      icon={icon}
       onClickFunc={handleWishlistToggle}
       isInWishlist={isInWishlist}
       variant={variant}
-      tooltipValue={tooltipValue && tooltipValue}
+      // tooltipValue={tooltipValue && tooltipValue}
+      tooltipValue={
+        tooltipValue &&
+        (isInWishlist ? "remove from wishlist" : "add to wishlist")
+      }
     />
   );
 }
