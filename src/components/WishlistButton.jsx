@@ -41,7 +41,6 @@ function WishlistButton({ productId, variant, icon, tooltipValue }) {
       onClickFunc={handleWishlistToggle}
       isInWishlist={isInWishlist}
       variant={variant}
-      // tooltipValue={tooltipValue && tooltipValue}
       tooltipValue={
         tooltipValue &&
         (isInWishlist ? "remove from wishlist" : "add to wishlist")
