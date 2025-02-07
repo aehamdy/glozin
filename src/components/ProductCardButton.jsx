@@ -52,7 +52,7 @@ function ProductCardButton({
           : "text-secondary-dark"
       }`}
     >
-      <Tooltip value={tooltipValue} />
+      {tooltipValue && <Tooltip value={tooltipValue} />}
       <Icon name={icon} size={iconSize} />
     </button>
   );
