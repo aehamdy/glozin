@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import Icon from "./Icon";
+import Tooltip from "./Tooltip";
 
 function ProductCardButton({
   icon,
@@ -8,6 +9,7 @@ function ProductCardButton({
   productId,
   isInWishlist,
   variant,
+  tooltipValue,
 }) {
   const [iconSize, setIconSize] = useState(18);
 
@@ -31,12 +33,13 @@ function ProductCardButton({
   return (
     <button
       onClick={() => onClickFunc(productId)}
-      className={`${
-        icon === "cart" && "lg:hidden"
-      } group relative flex justify-between p-1.5 md:p-3 top-1 md:top-0 -translate-y-1/4 md:-translate-y-0
+      className={`group/button relative flex justify-center items-center p-2 md:p-3 text-secondary-dark 
+        hover:text-primary-light hover:bg-secondary-dark rounded-full shadow-md cursor-pointer duration-medium 
+        ${icon === "cart" && "lg:hidden"} 
       ${
         isInWishlist ? "bg-black" : "bg-slate-50"
-      } text-secondary-dark hover:text-primary-light hover:bg-secondary-dark rounded-full shadow-md cursor-pointer duration-medium ${
+      } text-secondary-dark hover:text-primary-light hover:bg-secondary-dark rounded-full shadow-md cursor-pointer duration-medium 
+      ${
         isInWishlist
           ? "text-white bg-primary-dark"
           : variant === "primary"
@@ -49,6 +52,7 @@ function ProductCardButton({
           : "text-secondary-dark"
       }`}
     >
+      <Tooltip value={tooltipValue} />
       <Icon name={icon} size={iconSize} />
     </button>
   );
