@@ -5,14 +5,15 @@ function CheckoutProductList() {
   const { cartList, buyNowProduct } = useCart();
 
   return (
-    <>
-      {buyNowProduct && <ProductCardInCheckout product={buyNowProduct} />}
-      <div className="flex flex-col gap-3">
-        {cartList.map((product, index) => (
+    <div className="flex flex-col gap-3">
+      {buyNowProduct ? (
+        <ProductCardInCheckout product={buyNowProduct} />
+      ) : (
+        cartList?.map((product, index) => (
           <ProductCardInCheckout key={index} product={product} />
-        ))}
-      </div>
-    </>
+        ))
+      )}
+    </div>
   );
 }
 export default CheckoutProductList;
