@@ -4,9 +4,9 @@ import { useCart } from "../context/CartContext";
 import Subtotal from "./Subtotal";
 import Total from "./Total";
 
-function CheckoutSummary({ shippingFees, product }) {
+function CheckoutSummary({ shippingFees }) {
   const [itemsCount, setItemsCount] = useState(0);
-  const { cartList } = useCart();
+  const { cartList, buyNowProduct } = useCart();
 
   useEffect(() => {
     setItemsCount(cartList.reduce((acc, curr) => acc + curr.orderQuantity, 0));
@@ -18,9 +18,9 @@ function CheckoutSummary({ shippingFees, product }) {
         <div className="flex items-center gap-2">
           <span>Subtotal</span>
           <span className="w-1 h-1 bg-black rounded-full"></span>
-          <span>{product ? "1 item" : `${itemsCount} items`}</span>
+          <span>{buyNowProduct ? "1 item" : `${itemsCount} items`}</span>
         </div>
-        <Subtotal selectedProduct={product} />
+        <Subtotal />
       </div>
 
       <div className="flex justify-between">

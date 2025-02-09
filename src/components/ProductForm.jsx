@@ -5,13 +5,12 @@ import Button from "./Button";
 import ProductTermsAgreement from "./ProductTermsAgreement";
 import AddToCartButton from "./AddToCartButton";
 import { useCart } from "../context/CartContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ProductForm({ product }) {
   const [isInputChecked, setIsInputChecked] = useState(false);
   const [productQuantity, setProductQuantity] = useState(1);
-  const { addToCart } = useCart();
-  const navigate = useNavigate();
+  const { addToCart, setBuyNowProduct, setSubtotal } = useCart();
 
   const handleClick = () => {
     const prod = { ...product, orderQuantity: productQuantity };
@@ -26,12 +25,9 @@ function ProductForm({ product }) {
     setProductQuantity((prev) => prev + 1);
   };
 
-  const handleBuyNow = () => {
-    navigate("/checkout", {
-      state: {
-        selectedProduct: { ...product, orderQuantity: 1 },
-      },
-    });
+  const handleBuyNow = (product) => {
+    setBuyNowProduct(product);
+    setSubtotal(product.price);
   };
 
   return (
@@ -87,24 +83,14 @@ function ProductForm({ product }) {
         <ProductTermsAgreement setIsInputChecked={setIsInputChecked} />
         <Link
           to="/checkout"
-          state={{ selectedProduct: { ...product, orderQuantity: 1 } }}
           className={`text-primary-light py-2.5 rounded-medium ${
             isInputChecked
               ? "bg-red-500 hover:bg-red-600 active:bg-red-700"
               : "bg-red-300"
           } duration-short`}
-          onClick={handleBuyNow}
+          onClick={() => handleBuyNow(product)}
         >
-          <Button
-            value="Buy Now"
-            status={!isInputChecked}
-            // handleClick={handleBuyNow}
-            // className={`text-primary-light py-2.5 rounded-medium ${
-            //   isInputChecked
-            //     ? "bg-red-500 hover:bg-red-600 active:bg-red-700"
-            //     : "bg-red-300"
-            // } duration-short`}
-          />
+          <Button value="Buy Now" status={!isInputChecked} />
         </Link>
       </div>
     </div>

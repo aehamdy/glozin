@@ -12,7 +12,8 @@ function DiscountSection() {
     error: "",
   };
   const [discount, setDiscount] = useState(INITIAL_VALUE);
-  const { subtotal, setSubtotal, setNewSubtotal, cartList } = useCart();
+  const { subtotal, setSubtotal, setNewSubtotal, cartList, buyNowProduct } =
+    useCart();
   const errorMessage = "Enter a valid discount code";
   const cartTotal = calculateCartTotal(cartList);
 
@@ -23,7 +24,11 @@ function DiscountSection() {
   };
 
   const checkExistingCode = () => {
-    setSubtotal(cartTotal);
+    if (buyNowProduct) {
+      setSubtotal(buyNowProduct.price);
+    } else {
+      setSubtotal(cartTotal);
+    }
 
     setDiscount((prev) => ({ ...prev, codeValue: discount.codeValue }));
 

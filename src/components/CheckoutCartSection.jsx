@@ -5,13 +5,10 @@ import ProductCardInCheckout from "./ProductCardInCheckout";
 import CheckoutSummary from "./CheckoutSummary";
 import OrderSummaryButton from "./OrderSummaryButton";
 import DiscountSection from "./DiscountSection";
-import { useLocation } from "react-router-dom";
 
 function CheckoutCartSection({ shippingFees }) {
-  const { cartList } = useCart();
+  const { cartList, buyNowProduct } = useCart();
   const [summary, setSummary] = useState(true);
-  const location = useLocation();
-  const buyNowItem = location.state?.selectedProduct;
 
   const handleSummary = () => {
     setSummary((prev) => !prev);
@@ -46,14 +43,17 @@ function CheckoutCartSection({ shippingFees }) {
       >
         {summary && (
           <>
-            {buyNowItem && <ProductCardInCheckout product={buyNowItem} />}
+            {buyNowProduct && <ProductCardInCheckout product={buyNowProduct} />}
             <div className="flex flex-col gap-3">
               {cartList.map((product, index) => (
                 <ProductCardInCheckout key={index} product={product} />
               ))}
             </div>
             <DiscountSection />
-            <CheckoutSummary shippingFees={shippingFees} product={buyNowItem} />
+            <CheckoutSummary
+              shippingFees={shippingFees}
+              product={buyNowProduct}
+            />
           </>
         )}
       </div>
