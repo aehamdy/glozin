@@ -12,7 +12,7 @@ function Subtotal({ className, selectedProduct }) {
         </span>
       )}
       <span className={`${className} ${newSubtotal && "line-through"}`}>
-        $ {selectedProduct ? selectedProduct.price : subtotal.toFixed(2)}
+        $ {selectedProduct ? selectedProduct.price : subtotal?.toFixed(2)}
       </span>
     </div>
   );
