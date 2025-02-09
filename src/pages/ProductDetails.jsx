@@ -22,7 +22,6 @@ function ProductDetails() {
   return (
     <section className="m-horizontal-spacing lg:p-horizontal-spacing">
       <GoBackButton />
-
       <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-9 my-6 lg:px-6">
         <ProductImages images={product.images} productTitle={product.title} />
         <ProductInfo

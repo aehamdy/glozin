@@ -4,7 +4,7 @@ import { useCart } from "../context/CartContext";
 import Subtotal from "./Subtotal";
 import Total from "./Total";
 
-function CheckoutSummary({ shippingFees }) {
+function CheckoutSummary({ shippingFees, product }) {
   const [itemsCount, setItemsCount] = useState(0);
   const { cartList } = useCart();
 
@@ -20,7 +20,7 @@ function CheckoutSummary({ shippingFees }) {
           <span className="w-1 h-1 bg-black rounded-full"></span>
           <span>{itemsCount} items</span>
         </div>
-        <Subtotal />
+        <Subtotal selectedProduct={product} />
       </div>
 
       <div className="flex justify-between">

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useCart } from "../context/CartContext";
 
-function Subtotal({ className }) {
+function Subtotal({ className, selectedProduct }) {
   const { subtotal, newSubtotal } = useCart();
 
   return (
@@ -12,7 +12,7 @@ function Subtotal({ className }) {
         </span>
       )}
       <span className={`${className} ${newSubtotal && "line-through"}`}>
-        $ {subtotal.toFixed(2)}
+        $ {selectedProduct ? selectedProduct.price : subtotal.toFixed(2)}
       </span>
     </div>
   );

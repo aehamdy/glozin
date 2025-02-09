@@ -53,7 +53,7 @@ function CheckoutCartSection({ shippingFees }) {
               ))}
             </div>
             <DiscountSection />
-            <CheckoutSummary shippingFees={shippingFees} />
+            <CheckoutSummary shippingFees={shippingFees} product={buyNowItem} />
           </>
         )}
       </div>
