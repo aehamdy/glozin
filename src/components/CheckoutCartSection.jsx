@@ -1,13 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import { useCart } from "../context/CartContext";
-import ProductCardInCheckout from "./ProductCardInCheckout";
 import CheckoutSummary from "./CheckoutSummary";
 import OrderSummaryButton from "./OrderSummaryButton";
 import DiscountSection from "./DiscountSection";
+import CheckoutProductList from "./CheckoutProductList";
 
 function CheckoutCartSection({ shippingFees }) {
-  const { cartList, buyNowProduct } = useCart();
   const [summary, setSummary] = useState(true);
 
   const handleSummary = () => {
@@ -43,17 +41,9 @@ function CheckoutCartSection({ shippingFees }) {
       >
         {summary && (
           <>
-            {buyNowProduct && <ProductCardInCheckout product={buyNowProduct} />}
-            <div className="flex flex-col gap-3">
-              {cartList.map((product, index) => (
-                <ProductCardInCheckout key={index} product={product} />
-              ))}
-            </div>
+            <CheckoutProductList />
             <DiscountSection />
-            <CheckoutSummary
-              shippingFees={shippingFees}
-              product={buyNowProduct}
-            />
+            <CheckoutSummary shippingFees={shippingFees} />
           </>
         )}
       </div>
