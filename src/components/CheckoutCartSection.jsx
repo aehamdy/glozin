@@ -46,6 +46,7 @@ function CheckoutCartSection({ shippingFees }) {
       >
         {summary && (
           <>
+            {buyNowItem && <ProductCardInCheckout product={buyNowItem} />}
             <div className="flex flex-col gap-3">
               {cartList.map((product, index) => (
                 <ProductCardInCheckout key={index} product={product} />
