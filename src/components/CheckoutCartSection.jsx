@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
-import ProductCartInCheckout from "./ProductCartInCheckout";
+import ProductCardInCheckout from "./ProductCardInCheckout";
 import CheckoutSummary from "./CheckoutSummary";
 import OrderSummaryButton from "./OrderSummaryButton";
 import DiscountSection from "./DiscountSection";
+import { useLocation } from "react-router-dom";
 
 function CheckoutCartSection({ shippingFees }) {
   const { cartList } = useCart();
   const [summary, setSummary] = useState(true);
+  const location = useLocation();
+  const buyNowItem = location.state?.selectedProduct;
 
   const handleSummary = () => {
     setSummary((prev) => !prev);
@@ -45,7 +48,7 @@ function CheckoutCartSection({ shippingFees }) {
           <>
             <div className="flex flex-col gap-3">
               {cartList.map((product, index) => (
-                <ProductCartInCheckout key={index} product={product} />
+                <ProductCardInCheckout key={index} product={product} />
               ))}
             </div>
             <DiscountSection />
