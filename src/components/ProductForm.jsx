@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import WishlistButton from "./WishlistButton";
-import Button from "./Button";
 import ProductTermsAgreement from "./ProductTermsAgreement";
 import AddToCartButton from "./AddToCartButton";
 import { useCart } from "../context/CartContext";
-import { Link } from "react-router-dom";
+import BuyNowButton from "./BuyNowButton";
 
 function ProductForm({ product }) {
   const [isInputChecked, setIsInputChecked] = useState(false);
@@ -25,9 +24,13 @@ function ProductForm({ product }) {
     setProductQuantity((prev) => prev + 1);
   };
 
-  const handleBuyNow = (product) => {
-    setBuyNowProduct(product);
-    setSubtotal(product.price);
+  const handleBuyNowClick = (e, product) => {
+    if (isInputChecked) {
+      setBuyNowProduct(product);
+      setSubtotal(product.price);
+    } else {
+      e.preventDefault();
+    }
   };
 
   return (
@@ -81,17 +84,7 @@ function ProductForm({ product }) {
 
       <div className="flex flex-col gap-4 px-1">
         <ProductTermsAgreement setIsInputChecked={setIsInputChecked} />
-        <Link
-          to="/checkout"
-          className={`text-primary-light py-2.5 rounded-medium ${
-            isInputChecked
-              ? "bg-red-500 hover:bg-red-600 active:bg-red-700"
-              : "bg-red-300"
-          } duration-short`}
-          onClick={() => handleBuyNow(product)}
-        >
-          <Button value="Buy Now" status={!isInputChecked} />
-        </Link>
+        <BuyNowButton />
       </div>
     </div>
   );
