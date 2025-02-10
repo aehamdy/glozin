@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-function DiscountInput({ setDiscount, discount, checkExistingCode }) {
+function DiscountInput({ setDiscount, discount, handleOnApplyClick }) {
   const onInputChange = (e) => {
     setDiscount({ ...discount, codeValue: e.target.value.toUpperCase() });
   };
 
   const handleEnterKeyPress = (e) => {
-    e.key === "Enter" && checkExistingCode();
+    e.key === "Enter" && handleOnApplyClick();
   };
   return (
     <>

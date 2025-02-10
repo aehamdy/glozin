@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-function ApplyDiscountButton({ discount, checkExistingCode }) {
+function ApplyDiscountButton({ discount, handleOnApplyClick }) {
   const onButtonClick = () => {
-    checkExistingCode();
+    handleOnApplyClick();
   };
 
   return (

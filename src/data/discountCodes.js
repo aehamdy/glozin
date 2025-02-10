@@ -39,7 +39,7 @@ const discountCodes = [
         label: "free shipping",
         discountAmount: 0,
         title: `Free Shipping`,
-        desc: `Free shipping for orders above $500`,
+        desc: `Enjoy free shipping for your orders`,
         code: `freship`,
         viewOnApp: true,
         active: true,

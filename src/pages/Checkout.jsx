@@ -23,6 +23,8 @@ function Checkout() {
       <CheckoutCartSection
         shippingFees={contact.shippingFees}
         selectedCountry={contact.country}
+        contact={contact}
+        setContact={setContact}
       />
     </section>
   );

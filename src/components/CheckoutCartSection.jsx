@@ -5,7 +5,7 @@ import OrderSummaryButton from "./OrderSummaryButton";
 import DiscountSection from "./DiscountSection";
 import CheckoutProductList from "./CheckoutProductList";
 
-function CheckoutCartSection({ shippingFees, selectedCountry }) {
+function CheckoutCartSection({ shippingFees, selectedCountry, setContact }) {
   const [summary, setSummary] = useState(true);
 
   const handleSummary = () => {
@@ -42,7 +42,7 @@ function CheckoutCartSection({ shippingFees, selectedCountry }) {
         {summary && (
           <>
             <CheckoutProductList />
-            <DiscountSection />
+            <DiscountSection setContact={setContact} />
             <CheckoutSummary
               shippingFees={shippingFees}
               selectedCountry={selectedCountry}

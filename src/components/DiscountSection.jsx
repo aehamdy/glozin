@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import ApplyDiscountButton from "./ApplyDiscountButton";
 import DiscountInput from "./DiscountInput";
@@ -5,10 +6,11 @@ import { useCart } from "../context/CartContext";
 import discountCodes from "../data/discountCodes";
 import calculateCartTotal from "../utils/calculateCartTotal";
 
-function DiscountSection() {
+function DiscountSection({ setContact }) {
   const INITIAL_VALUE = {
     codeValue: "",
     discountValue: 0,
+    isShippingFree: false,
     error: "",
   };
   const [discount, setDiscount] = useState(INITIAL_VALUE);
@@ -23,7 +25,7 @@ function DiscountSection() {
     );
   };
 
-  const checkExistingCode = () => {
+  const handleOnApplyClick = () => {
     if (buyNowProduct) {
       setSubtotal(buyNowProduct.price);
     } else {
@@ -34,7 +36,15 @@ function DiscountSection() {
 
     const codeAvailable = checkCodeAvailability();
 
-    if (codeAvailable) {
+    if (
+      codeAvailable &&
+      codeAvailable.label.toLowerCase() === "free shipping"
+    ) {
+      setContact((prev) => ({
+        ...prev,
+        shippingFees: 0,
+      }));
+    } else if (codeAvailable) {
       setDiscount((prev) => ({
         ...prev,
         discountValue: codeAvailable.discountAmount,
@@ -63,11 +73,11 @@ function DiscountSection() {
         <DiscountInput
           discount={discount}
           setDiscount={setDiscount}
-          checkExistingCode={checkExistingCode}
+          handleOnApplyClick={handleOnApplyClick}
         />
         <ApplyDiscountButton
           discount={discount}
-          checkExistingCode={checkExistingCode}
+          handleOnApplyClick={handleOnApplyClick}
         />
       </div>
       {discount.error && (
