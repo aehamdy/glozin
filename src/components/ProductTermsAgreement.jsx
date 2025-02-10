@@ -10,7 +10,7 @@ function ProductTermsAgreement({ setIsAgreementChecked }) {
   const toggleInput = () => setIsAgreementChecked((prev) => !prev);
 
   return (
-    <div className="flex items-cetner gap-4">
+    <div className="flex items-cetner gap-2">
       <input
         type="checkbox"
         name="terms-conditions-agreement"
@@ -20,20 +20,20 @@ function ProductTermsAgreement({ setIsAgreementChecked }) {
       />
       <label
         htmlFor="terms-agreement"
-        className="flex gap-1 text-sm md:text-base text-secondary-dark"
+        className="flex text-sm md:text-base text-secondary-dark"
       >
         I agree with{" "}
-        <button
-          type="button"
-          className="font-semibold text-secondary-dark"
-          onClick={toggleModal}
-        >
-          Terms & Conditions
-        </button>
-        <Modal isOpen={isModalOpen} onClose={toggleModal}>
-          <TermsAndConditions toggleModal={toggleModal} />
-        </Modal>
       </label>
+      <button
+        type="button"
+        className="font-semibold text-secondary-dark"
+        onClick={toggleModal}
+      >
+        Terms & Conditions
+      </button>
+      <Modal isOpen={isModalOpen} onClose={toggleModal}>
+        <TermsAndConditions toggleModal={toggleModal} />
+      </Modal>
     </div>
   );
 }
