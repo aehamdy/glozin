@@ -3,11 +3,11 @@ import { useState } from "react";
 import Modal from "../common/Modal";
 import TermsAndConditions from "./TermsAndConditions";
 
-function ProductTermsAgreement({ setIsInputChecked }) {
+function ProductTermsAgreement({ setIsAgreementChecked }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => setIsModalOpen((prev) => !prev);
-  const toggleInput = () => setIsInputChecked((prev) => !prev);
+  const toggleInput = () => setIsAgreementChecked((prev) => !prev);
 
   return (
     <div className="flex items-cetner gap-4">

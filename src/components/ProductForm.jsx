@@ -7,7 +7,7 @@ import { useCart } from "../context/CartContext";
 import BuyNowButton from "./BuyNowButton";
 
 function ProductForm({ product }) {
-  const [isInputChecked, setIsInputChecked] = useState(false);
+  const [isAgreementChecked, setIsAgreementChecked] = useState(false);
   const [productQuantity, setProductQuantity] = useState(1);
   const { addToCart, setBuyNowProduct, setSubtotal } = useCart();
 
@@ -25,7 +25,7 @@ function ProductForm({ product }) {
   };
 
   const handleBuyNowClick = (e, product) => {
-    if (isInputChecked) {
+    if (isAgreementChecked) {
       setBuyNowProduct(product);
       setSubtotal(product.price);
     } else {
@@ -83,7 +83,7 @@ function ProductForm({ product }) {
       </div>
 
       <div className="flex flex-col gap-4 px-1">
-        <ProductTermsAgreement setIsInputChecked={setIsInputChecked} />
+        <ProductTermsAgreement setIsAgreementChecked={setIsAgreementChecked} />
         <BuyNowButton />
       </div>
     </div>
