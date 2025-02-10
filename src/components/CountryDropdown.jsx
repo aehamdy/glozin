@@ -1,5 +1,9 @@
+import { useCart } from "../context/CartContext";
+
 /* eslint-disable react/prop-types */
 function CountryDropdown({ setContact }) {
+  const { subtotal } = useCart();
+
   const countries = [
     {
       value: "CH",
@@ -28,7 +32,7 @@ function CountryDropdown({ setContact }) {
     setContact((prev) => ({
       ...(prev || {}),
       country: selectedCountry.value,
-      shippingFees: selectedCountry.shippingFees,
+      shippingFees: subtotal >= 500 ? 0 : selectedCountry.shippingFees,
     }));
   };
 

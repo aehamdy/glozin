@@ -7,7 +7,7 @@ function Checkout() {
     email: "",
     deliveryMethod: "",
     country: "",
-    shippingFees: 0,
+    shippingFees: null,
     firstName: "",
     lastName: "",
     address: "",
@@ -20,7 +20,10 @@ function Checkout() {
   return (
     <section className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-0 text-black">
       <CheckoutFormSection contact={contact} setContact={setContact} />
-      <CheckoutCartSection shippingFees={contact.shippingFees} />
+      <CheckoutCartSection
+        shippingFees={contact.shippingFees}
+        selectedCountry={contact.country}
+      />
     </section>
   );
 }
