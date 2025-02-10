@@ -84,7 +84,11 @@ function ProductForm({ product }) {
 
       <div className="flex flex-col gap-4 px-1">
         <ProductTermsAgreement setIsAgreementChecked={setIsAgreementChecked} />
-        <BuyNowButton />
+        <BuyNowButton
+          product={product}
+          isAgreementChecked={isAgreementChecked}
+          handleBuyNowClick={handleBuyNowClick}
+        />
       </div>
     </div>
   );
