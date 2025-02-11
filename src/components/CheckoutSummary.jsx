@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import Subtotal from "./Subtotal";
 import Total from "./Total";
+import FREE_SHIPPING_THRESHOLD from "../config/freeShippingThreshold";
 
 function CheckoutSummary({ shippingFees, selectedCountry }) {
   const [itemsCount, setItemsCount] = useState(0);
   const { cartList, buyNowProduct, subtotal } = useCart();
-  const FREE_SHIPPING_THRESHOLD = 500;
   const isEligibleForFreeShipping = subtotal >= FREE_SHIPPING_THRESHOLD;
 
   useEffect(() => {
