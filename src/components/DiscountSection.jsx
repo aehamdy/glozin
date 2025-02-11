@@ -19,6 +19,7 @@ function DiscountSection({ contact, setContact }) {
     useCart();
   const errorMessage = "Enter a valid discount code";
   const cartTotal = calculateCartTotal(cartList);
+
   const updateShippingFees = (country) => {
     return countries.find(
       (c) => c.value.toLowerCase() === country.toLowerCase()
@@ -27,7 +28,9 @@ function DiscountSection({ contact, setContact }) {
 
   const checkCodeAvailability = () => {
     return discountCodes.find(
-      (code) => code.code.toLowerCase() === discount.codeValue.toLowerCase()
+      (code) =>
+        code.code.toLowerCase() === discount.codeValue.toLowerCase() &&
+        code.active
     );
   };
 
@@ -80,10 +83,6 @@ function DiscountSection({ contact, setContact }) {
     discount.discountValue > 0 &&
       setNewSubtotal(subtotal - (subtotal * discount.discountValue) / 100);
   }, [discount.discountValue]);
-
-  useEffect(() => {
-    console.log(contact);
-  }, [contact, discount]);
 
   return (
     <div className="flex flex-col gap-2">
