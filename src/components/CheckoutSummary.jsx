@@ -27,13 +27,15 @@ function CheckoutSummary({ shippingFees, selectedCountry }) {
 
       <div className="flex justify-between">
         <span>Shipping</span>
+
         <div className="flex items-center gap-5">
-          {(isEligibleForFreeShipping && selectedCountry) ||
-            (shippingFees === 0 && (
-              <span className="font-semibold text-xs text-green-500">
-                You&apos;ve got free shipping
-              </span>
-            ))}
+          {((isEligibleForFreeShipping && selectedCountry) ||
+            shippingFees === 0) && (
+            <span className="font-semibold text-xs text-green-500">
+              You&apos;ve got free shipping
+            </span>
+          )}
+
           <span
             className={`font-normal text-sm ${
               shippingFees ? "text-black" : "text-price-originalPrice"
