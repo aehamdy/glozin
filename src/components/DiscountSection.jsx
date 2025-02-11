@@ -5,6 +5,7 @@ import DiscountInput from "./DiscountInput";
 import { useCart } from "../context/CartContext";
 import discountCodes from "../data/discountCodes";
 import calculateCartTotal from "../utils/calculateCartTotal";
+import countries from "../data/countries";
 
 function DiscountSection({ contact, setContact }) {
   const INITIAL_VALUE = {
@@ -18,6 +19,11 @@ function DiscountSection({ contact, setContact }) {
     useCart();
   const errorMessage = "Enter a valid discount code";
   const cartTotal = calculateCartTotal(cartList);
+  const updateShippingFees = (country) => {
+    return countries.find(
+      (c) => c.value.toLowerCase() === country.toLowerCase()
+    );
+  };
 
   const checkCodeAvailability = () => {
     return discountCodes.find(
@@ -31,6 +37,16 @@ function DiscountSection({ contact, setContact }) {
     } else {
       setSubtotal(cartTotal);
     }
+
+    setDiscount((prev) => ({
+      ...prev,
+      codeValue: discount.codeValue,
+      error: "",
+    }));
+    setContact((prev) => ({
+      ...prev,
+      shippingFees: updateShippingFees(contact.country).shippingFees,
+    }));
 
     const codeAvailable = checkCodeAvailability();
 
