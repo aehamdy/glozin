@@ -1,31 +1,9 @@
-import { useCart } from "../context/CartContext";
-
 /* eslint-disable react/prop-types */
+import { useCart } from "../context/CartContext";
+import countries from "../data/countries";
+
 function CountryDropdown({ setContact }) {
   const { subtotal } = useCart();
-
-  const countries = [
-    {
-      value: "CH",
-      country: "China",
-      shippingFees: 20,
-    },
-    {
-      value: "FR",
-      country: "France",
-      shippingFees: 18,
-    },
-    {
-      value: "UK",
-      country: "United Kingdom",
-      shippingFees: 15,
-    },
-    {
-      value: "US",
-      country: "United States",
-      shippingFees: 20,
-    },
-  ];
 
   const onSelectChange = (e) => {
     const selectedCountry = countries.find((c) => c.value === e.target.value);

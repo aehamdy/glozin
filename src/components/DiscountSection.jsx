@@ -6,7 +6,7 @@ import { useCart } from "../context/CartContext";
 import discountCodes from "../data/discountCodes";
 import calculateCartTotal from "../utils/calculateCartTotal";
 
-function DiscountSection({ setContact }) {
+function DiscountSection({ contact, setContact }) {
   const INITIAL_VALUE = {
     codeValue: "",
     discountValue: 0,
@@ -31,8 +31,6 @@ function DiscountSection({ setContact }) {
     } else {
       setSubtotal(cartTotal);
     }
-
-    setDiscount((prev) => ({ ...prev, codeValue: discount.codeValue }));
 
     const codeAvailable = checkCodeAvailability();
 
@@ -66,6 +64,10 @@ function DiscountSection({ setContact }) {
     discount.discountValue > 0 &&
       setNewSubtotal(subtotal - (subtotal * discount.discountValue) / 100);
   }, [discount.discountValue]);
+
+  useEffect(() => {
+    console.log(contact);
+  }, [contact, discount]);
 
   return (
     <div className="flex flex-col gap-2">
