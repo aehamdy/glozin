@@ -2,16 +2,27 @@
 import { useEffect, useState } from "react";
 import Icon from "./Icon";
 import Tooltip from "./Tooltip";
+import { useCart } from "../context/CartContext";
 
 function ProductCardButton({
   icon,
-  onClickFunc,
-  productId,
+  product,
   isInWishlist,
   variant,
   tooltipValue,
 }) {
   const [iconSize, setIconSize] = useState(18);
+  const { addToCart } = useCart();
+
+  const handleOnButtonClick = () => {
+    if (icon === "cart") {
+      addToCart(product);
+    } else if (icon === "wishlist") {
+      console.log("Wishlist button has been clicked");
+    } else if (icon === "eye") {
+      console.log("Quick View button has been clicked");
+    }
+  };
 
   useEffect(() => {
     const updateSize = () => {
@@ -32,7 +43,7 @@ function ProductCardButton({
 
   return (
     <button
-      onClick={() => onClickFunc(productId)}
+      onClick={handleOnButtonClick}
       className={`group/button relative flex justify-center items-center p-2 md:p-3 text-secondary-dark 
         hover:text-primary-light hover:bg-secondary-dark rounded-full shadow-md cursor-pointer duration-medium 
         ${icon === "cart" && "lg:hidden"} 
