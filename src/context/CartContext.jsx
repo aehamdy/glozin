@@ -16,21 +16,24 @@ const initialState = {
 
 const reducer = (state, action) => {
   let updatedCartList;
+
   switch (action.type) {
     case "addToCart":
-      updatedCartList = state.cartList.some((p) => action.payload.id === p.id)
+      updatedCartList = state.cartList?.some((p) => action.payload.id === p.id)
         ? { ...state, cartList: [...state.cartList] }
         : {
             ...state,
             cartList: [
-              {
-                ...action.payload,
-                orderQuantity: 1,
-              },
+              { ...action.payload, orderQuantity: 1 },
               ...state.cartList,
             ],
           };
       return updatedCartList;
+    case "removeFromCart":
+      updatedCartList = state.cartList.filter(
+        (p) => p.id !== action.payload.id
+      );
+      return { ...state, cartList: updatedCartList };
   }
 };
 
