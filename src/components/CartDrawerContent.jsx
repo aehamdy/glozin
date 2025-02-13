@@ -5,11 +5,12 @@ import EmptyCart from "./EmptyCart";
 
 function CartDrawerContent({ handleCloseCart }) {
   const { cartState } = useCart();
+  const { cartList } = cartState;
 
   return (
     <div className="my-auto px-4">
-      {cartState.cartList?.length >= 1 ? (
-        <CartProductList cartList={cartState.cartList} />
+      {cartList?.length >= 1 ? (
+        <CartProductList cartList={cartList} />
       ) : (
         <EmptyCart handleCloseCart={handleCloseCart} />
       )}
