@@ -25,7 +25,7 @@ function ProductInCart({ product }) {
             <span>$ {product.price}</span>
           </div>
         </div>
-        <ProductQuantityInput productItem={product} variant="in-cart-drawer" />
+        <ProductQuantityInput product={product} variant="in-cart-drawer" />
       </div>
 
       <div className="ms-auto">

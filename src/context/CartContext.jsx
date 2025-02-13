@@ -38,6 +38,14 @@ const reducer = (state, action) => {
       );
       return { ...state, cartList: updatedCartList };
 
+    case "decreaseQuantity":
+      updatedCartList = state.cartList.map((p) =>
+        p.id === action.payload.id && p.orderQuantity > 1
+          ? { ...p, orderQuantity: p.orderQuantity - 1 }
+          : { ...p, orderQuantity: 1 }
+      );
+      return { ...state, cartList: updatedCartList };
+
     default:
       return state;
   }
@@ -51,22 +59,6 @@ export const CartProvider = ({ children }) => {
   const [buyNowProduct, setBuyNowProduct] = useState(null);
   const cartTotal = calculateCartTotal(cartState.cartList);
 
-  const addToCart = (product, prodQuantity) => {
-    setCartList((prev) => {
-      if (!prev?.some((prod) => prod.id === product.id)) {
-        return [{ ...product, orderQuantity: prodQuantity || +1 }, ...prev];
-      } else {
-        return [...prev];
-      }
-    });
-  };
-
-  const removeFromCart = (product) => {
-    setCartList((prev) => {
-      return prev.filter((prod) => prod.id !== product.id);
-    });
-  };
-
   useEffect(() => {
     setSubtotal(cartTotal);
   }, [cartState.cartList]);
@@ -76,8 +68,6 @@ export const CartProvider = ({ children }) => {
       value={{
         cartList,
         setCartList,
-        addToCart,
-        removeFromCart,
         subtotal,
         setSubtotal,
         newSubtotal,
