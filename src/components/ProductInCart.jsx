@@ -4,10 +4,10 @@ import Icon from "./Icon";
 import ProductQuantityInput from "./ProductQuantityInput";
 
 function ProductInCart({ product }) {
-  const { removeFromCart } = useCart();
+  const { dispatchCart } = useCart();
 
   const handleOnRemoveClick = (product) => {
-    removeFromCart(product);
+    dispatchCart({ type: "removeFromCart", payload: product });
   };
 
   return (
