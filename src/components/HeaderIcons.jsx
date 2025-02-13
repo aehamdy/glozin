@@ -8,7 +8,8 @@ import { useCart } from "../context/CartContext";
 
 function HeaderIcons({ handleOpenCart, handleSearchOpening }) {
   const { wishlistProducts } = useWishlist();
-  const { cartList } = useCart();
+  const { cartState } = useCart();
+  const { cartList } = cartState;
 
   return (
     <div className="flex gap-3 lg:gap-4">
