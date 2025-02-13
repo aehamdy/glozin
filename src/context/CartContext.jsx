@@ -17,7 +17,7 @@ const initialState = {
 const reducer = (state, action) => {
   let updatedCartList;
   switch (action.type) {
-    case "addProduct":
+    case "addToCart":
       updatedCartList = state.cartList.some((p) => action.payload.id === p.id)
         ? { ...state, cartList: [...state.cartList] }
         : { ...state, cartList: [action.payload, ...state.cartList] };
