@@ -7,7 +7,8 @@ import CartProductsCount from "./CartProductsCount";
 import Icon from "./Icon";
 
 function CartDrawer({ isCartOpen, handleCloseCart }) {
-  const { cartList } = useCart();
+  const { cartState } = useCart();
+  const { cartList } = cartState;
 
   const handleClick = (e) => {
     e.stopPropagation();
@@ -29,10 +30,7 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
             onClickFunction={handleCloseCart}
           />
         </div>
-        <CartDrawerContent
-          cartList={cartList}
-          handleCloseCart={handleCloseCart}
-        />
+        <CartDrawerContent handleCloseCart={handleCloseCart} />
         {cartList.length > 0 && <CartDrawerPanel />}
       </div>
     </Modal>
