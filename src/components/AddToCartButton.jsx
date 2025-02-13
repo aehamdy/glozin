@@ -1,7 +1,14 @@
 /* eslint-disable react/prop-types */
+import { useCart } from "../context/CartContext";
 import Button from "./Button";
 
-function AddToCartButton({ variant, productQuantity, handleClick }) {
+function AddToCartButton({ variant, productQuantity, product }) {
+  const { dispatchCart } = useCart();
+
+  const handleClick = () => {
+    dispatchCart({ type: "addToCart", payload: product });
+  };
+
   let styles;
   if (variant === "quickButton") {
     styles =
@@ -15,7 +22,11 @@ function AddToCartButton({ variant, productQuantity, handleClick }) {
   }
 
   return (
-    <Button value="Add to Cart" handleClick={handleClick} className={styles} />
+    <Button
+      value="Add to Cart"
+      handleClick={() => handleClick()}
+      className={styles}
+    />
   );
 }
 export default AddToCartButton;
