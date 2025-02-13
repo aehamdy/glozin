@@ -34,7 +34,7 @@ const reducer = (state, action) => {
       updatedCartList = state.cartList.map((p) =>
         p.id === action.payload.id
           ? { ...p, orderQuantity: p.orderQuantity + 1 }
-          : { p }
+          : p
       );
       return { ...state, cartList: updatedCartList };
 
