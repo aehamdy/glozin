@@ -26,7 +26,7 @@ const reducer = (state, action) => {
 };
 
 export const CartProvider = ({ children }) => {
-  const [cartState, dispatch] = useReducer(reducer, initialState);
+  const [cartState, dispatchCart] = useReducer(reducer, initialState);
   const [cartList, setCartList] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
   const [newSubtotal, setNewSubtotal] = useState(0);
@@ -66,7 +66,7 @@ export const CartProvider = ({ children }) => {
         setNewSubtotal,
         buyNowProduct,
         setBuyNowProduct,
-        dispatch,
+        dispatchCart,
         cartState,
       }}
     >
