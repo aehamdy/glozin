@@ -20,15 +20,9 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "addToCart":
       updatedCartList = state.cartList?.some((p) => action.payload.id === p.id)
-        ? { ...state, cartList: [...state.cartList] }
-        : {
-            ...state,
-            cartList: [
-              { ...action.payload, orderQuantity: 1 },
-              ...state.cartList,
-            ],
-          };
-      return updatedCartList;
+        ? state.cartList
+        : [{ ...action.payload, orderQuantity: 1 }, ...state.cartList];
+      return { ...state, cartList: updatedCartList };
     case "removeFromCart":
       updatedCartList = state.cartList.filter(
         (p) => p.id !== action.payload.id
