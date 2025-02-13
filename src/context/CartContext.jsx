@@ -23,11 +23,15 @@ const reducer = (state, action) => {
         ? state.cartList
         : [{ ...action.payload, orderQuantity: 1 }, ...state.cartList];
       return { ...state, cartList: updatedCartList };
+
     case "removeFromCart":
       updatedCartList = state.cartList.filter(
         (p) => p.id !== action.payload.id
       );
       return { ...state, cartList: updatedCartList };
+
+    default:
+      return state;
   }
 };
 
