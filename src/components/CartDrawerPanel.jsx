@@ -4,7 +4,8 @@ import { useCart } from "../context/CartContext";
 import calculateCartTotal from "../utils/calculateCartTotal";
 
 function CartDrawerPanel() {
-  const { setBuyNowProduct, cartList, setSubtotal } = useCart();
+  const { setBuyNowProduct, cartState, setSubtotal } = useCart();
+  const { cartList } = cartState;
   const cartTotal = calculateCartTotal(cartList);
 
   const handleClick = () => {
