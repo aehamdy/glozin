@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
+import { useCart } from "../context/CartContext";
 import WishlistButton from "./WishlistButton";
 import ProductCardButton from "./ProductCardButton";
 
 function ProductCardSideButtons({ product, removeFromWishlist }) {
+  const { dispatchCart } = useCart();
+
   const quickButtons = [
     { icon: "cart", tooltipValue: "add to cart" },
     { icon: "wishlist", tooltipValue: "add to wishlist" },
@@ -33,8 +36,13 @@ function ProductCardSideButtons({ product, removeFromWishlist }) {
             <ProductCardButton
               key={index}
               icon={button.icon}
-              product={product}
+              productId={product.id}
               tooltipValue={button.tooltipValue}
+              onClickFunc={
+                button.icon === "cart"
+                  ? () => dispatchCart({ type: "addToCart", payload: product })
+                  : undefined
+              }
             />
           )
         )}
