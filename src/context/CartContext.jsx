@@ -30,6 +30,14 @@ const reducer = (state, action) => {
       );
       return { ...state, cartList: updatedCartList };
 
+    case "increaseQuantity":
+      updatedCartList = state.cartList.map((p) =>
+        p.id === action.payload.id
+          ? { ...p, orderQuantity: p.orderQuantity + 1 }
+          : { p }
+      );
+      return { ...state, cartList: updatedCartList };
+
     default:
       return state;
   }

@@ -2,53 +2,55 @@
 import { useCart } from "../context/CartContext";
 
 function ProductQuantityInput({ productItem, variant }) {
-  const { cartList, setCartList } = useCart();
+  const { dispatchCart } = useCart();
 
-  const produc = cartList?.find((prod) => prod.id === productItem.id);
-  const productQuantity = produc ? produc.orderQuantity : 1;
+  // const produc = cartList?.find((prod) => prod.id === productItem.id);
+  // const productQuantity = produc ? produc.orderQuantity : 1;
 
-  const decreaseQuantity = () => {
-    setCartList((prev) =>
-      prev.map((prod) =>
-        prod.id === productItem.id && prod.orderQuantity > 1
-          ? { ...prod, orderQuantity: prod.orderQuantity - 1 }
-          : prod
-      )
-    );
-  };
+  // const decreaseQuantity = () => {
+  //   setCartList((prev) =>
+  //     prev.map((prod) =>
+  //       prod.id === productItem.id && prod.orderQuantity > 1
+  //         ? { ...prod, orderQuantity: prod.orderQuantity - 1 }
+  //         : prod
+  //     )
+  //   );
+  // };
 
-  const increaseQuantity = () => {
-    setCartList((prev) =>
-      prev.map((prod) =>
-        prod.id === productItem.id
-          ? { ...prod, orderQuantity: prod.orderQuantity + 1 }
-          : prod
-      )
-    );
-  };
+  // const increaseQuantity = () => {
+  //   setCartList((prev) =>
+  //     prev.map((prod) =>
+  //       prod.id === productItem.id
+  //         ? { ...prod, orderQuantity: prod.orderQuantity + 1 }
+  //         : prod
+  //     )
+  //   );
+  // };
 
   return (
     <div className="flex items-center bg-[#F5F5F5] border rounded-medium overflow-hidden">
-      <button
+      {/* <button
         type="button"
         onClick={decreaseQuantity}
         className={`${
           variant === "in-cart-drawer"
             ? "py-1 px-2"
             : "py-2 md:py-3 px-3 md:px-4 text-xl"
-        } ${
+        } 
+        ${
           productQuantity <= 1
             ? "text-gray-300"
             : "text-primary-dark bg-transparent hover:bg-gray-200"
-        } `}
+        } 
+        `}
         aria-label="Decrease amount"
       >
         -
-      </button>
+      </button> */}
 
       <input
         type="number"
-        value={productQuantity}
+        value={productItem.orderQuantity}
         readOnly
         className={`quantity-input ${
           variant === "in-cart-drawer" ? "w-6 text-sm" : "w-12 py-2 md:py-3"
@@ -58,7 +60,9 @@ function ProductQuantityInput({ productItem, variant }) {
 
       <button
         type="button"
-        onClick={increaseQuantity}
+        onClick={() =>
+          dispatchCart({ type: "increaseQuantity", payload: productItem })
+        }
         className={`${
           variant === "in-cart-drawer"
             ? "py-1 px-2"
