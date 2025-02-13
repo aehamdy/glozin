@@ -41,7 +41,7 @@ export const CartProvider = ({ children }) => {
   const [subtotal, setSubtotal] = useState(0);
   const [newSubtotal, setNewSubtotal] = useState(0);
   const [buyNowProduct, setBuyNowProduct] = useState(null);
-  const cartTotal = calculateCartTotal(cartList);
+  const cartTotal = calculateCartTotal(cartState.cartList);
 
   const addToCart = (product, prodQuantity) => {
     setCartList((prev) => {
@@ -61,7 +61,7 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     setSubtotal(cartTotal);
-  }, [cartList]);
+  }, [cartState.cartList]);
 
   return (
     <CartContext.Provider

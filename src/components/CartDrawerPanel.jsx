@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Subtotal from "./Subtotal";
 import { useCart } from "../context/CartContext";
 import calculateCartTotal from "../utils/calculateCartTotal";
-import { useEffect } from "react";
 
 function CartDrawerPanel() {
   const { setBuyNowProduct, cartState, setSubtotal } = useCart();
@@ -13,10 +12,6 @@ function CartDrawerPanel() {
     setBuyNowProduct(null);
     setSubtotal(cartTotal);
   };
-
-  useEffect(() => {
-    setSubtotal(cartTotal);
-  }, [cartList]);
 
   return (
     <div className="flex flex-col justify-between gap-6 mt-auto pt-4 pb-4 px-4 text-secondary-dark bg-cloud-gray border-t">
