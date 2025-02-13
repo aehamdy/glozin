@@ -1,9 +1,32 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import calculateCartTotal from "../utils/calculateCartTotal";
+
 const CartContext = createContext();
 
+const initialState = {
+  cartList: [],
+};
+
+const reducer = (state, action) => {
+  let updatedCartList;
+  switch (action.type) {
+    case "addProduct":
+      updatedCartList = state.cartList.some((p) => action.payload.id === p.id)
+        ? { ...state, cartList: [...state.cartList] }
+        : { ...state, cartList: [action.payload, ...state.cartList] };
+      return updatedCartList;
+  }
+};
+
 export const CartProvider = ({ children }) => {
+  const [cartState, dispatch] = useReducer(reducer, initialState);
   const [cartList, setCartList] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
   const [newSubtotal, setNewSubtotal] = useState(0);
@@ -43,6 +66,8 @@ export const CartProvider = ({ children }) => {
         setNewSubtotal,
         buyNowProduct,
         setBuyNowProduct,
+        dispatch,
+        cartState,
       }}
     >
       {children}
