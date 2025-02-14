@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { REMOVE_FROM_CART } from "../constants/actionTypes";
 import { useCart } from "../context/CartContext";
 import Icon from "./Icon";
 import ProductQuantityInput from "./ProductQuantityInput";
@@ -7,7 +8,7 @@ function ProductInCart({ product }) {
   const { dispatchCart } = useCart();
 
   const handleOnRemoveClick = (product) => {
-    dispatchCart({ type: "removeFromCart", payload: product });
+    dispatchCart({ type: REMOVE_FROM_CART, payload: product });
   };
 
   return (

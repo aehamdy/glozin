@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { ADD_TO_CART } from "../constants/actionTypes";
 import { useCart } from "../context/CartContext";
 import Button from "./Button";
 
@@ -6,7 +7,7 @@ function AddToCartButton({ variant, productQuantity, product }) {
   const { dispatchCart } = useCart();
 
   const handleClick = () => {
-    dispatchCart({ type: "addToCart", payload: product });
+    dispatchCart({ type: ADD_TO_CART, payload: product });
   };
 
   let styles;

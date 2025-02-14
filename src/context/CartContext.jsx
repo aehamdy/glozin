@@ -7,6 +7,12 @@ import {
   useState,
 } from "react";
 import calculateCartTotal from "../utils/calculateCartTotal";
+import {
+  ADD_TO_CART,
+  DECREASE_QUANTITY,
+  INCREASE_QUANTITY,
+  REMOVE_FROM_CART,
+} from "../constants/actionTypes";
 
 const CartContext = createContext();
 
@@ -18,19 +24,19 @@ const reducer = (state, action) => {
   let updatedCartList;
 
   switch (action.type) {
-    case "addToCart":
+    case ADD_TO_CART:
       updatedCartList = state.cartList?.some((p) => action.payload.id === p.id)
         ? state.cartList
         : [{ ...action.payload, orderQuantity: 1 }, ...state.cartList];
       return { ...state, cartList: updatedCartList };
 
-    case "removeFromCart":
+    case REMOVE_FROM_CART:
       updatedCartList = state.cartList.filter(
         (p) => p.id !== action.payload.id
       );
       return { ...state, cartList: updatedCartList };
 
-    case "increaseQuantity":
+    case INCREASE_QUANTITY:
       updatedCartList = state.cartList.map((p) =>
         p.id === action.payload.id
           ? { ...p, orderQuantity: p.orderQuantity + 1 }
@@ -38,7 +44,7 @@ const reducer = (state, action) => {
       );
       return { ...state, cartList: updatedCartList };
 
-    case "decreaseQuantity":
+    case DECREASE_QUANTITY:
       updatedCartList = state.cartList.map((p) =>
         p.id === action.payload.id && p.orderQuantity > 1
           ? { ...p, orderQuantity: p.orderQuantity - 1 }

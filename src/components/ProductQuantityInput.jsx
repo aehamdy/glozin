@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { DECREASE_QUANTITY, INCREASE_QUANTITY } from "../constants/actionTypes";
 import { useCart } from "../context/CartContext";
 
 function ProductQuantityInput({ product, variant }) {
@@ -9,7 +10,7 @@ function ProductQuantityInput({ product, variant }) {
       <button
         type="button"
         onClick={() =>
-          dispatchCart({ type: "decreaseQuantity", payload: product })
+          dispatchCart({ type: DECREASE_QUANTITY, payload: product })
         }
         className={`${
           variant === "in-cart-drawer"
@@ -40,7 +41,7 @@ function ProductQuantityInput({ product, variant }) {
       <button
         type="button"
         onClick={() =>
-          dispatchCart({ type: "increaseQuantity", payload: product })
+          dispatchCart({ type: INCREASE_QUANTITY, payload: product })
         }
         className={`${
           variant === "in-cart-drawer"

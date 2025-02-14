@@ -2,6 +2,7 @@
 import { useCart } from "../context/CartContext";
 import WishlistButton from "./WishlistButton";
 import ProductCardButton from "./ProductCardButton";
+import { ADD_TO_CART } from "../constants/actionTypes";
 
 function ProductCardSideButtons({ product, removeFromWishlist }) {
   const { dispatchCart } = useCart();
@@ -40,7 +41,7 @@ function ProductCardSideButtons({ product, removeFromWishlist }) {
               tooltipValue={button.tooltipValue}
               onClickFunc={
                 button.icon === "cart"
-                  ? () => dispatchCart({ type: "addToCart", payload: product })
+                  ? () => dispatchCart({ type: ADD_TO_CART, payload: product })
                   : undefined
               }
             />
