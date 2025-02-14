@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useCart } from "../context/CartContext";
+import { useCheckout } from "../context/CheckoutContext";
 
 function Total({ shippingFees }) {
-  const { subtotal, newSubtotal } = useCart();
+  const { newSubtotal } = useCart();
+  const { checkoutState } = useCheckout();
+  const { subtotal } = checkoutState;
   const total = subtotal + shippingFees;
   const newTotal = newSubtotal + shippingFees;
 
