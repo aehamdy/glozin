@@ -1,16 +1,12 @@
 import { Link } from "react-router-dom";
 import Subtotal from "./Subtotal";
 import { useCart } from "../context/CartContext";
-import calculateCartTotal from "../utils/calculateCartTotal";
 
 function CartDrawerPanel() {
-  const { setBuyNowProduct, cartState, setSubtotal } = useCart();
-  const { cartList } = cartState;
-  const cartTotal = calculateCartTotal(cartList);
+  const { setBuyNowProduct } = useCart();
 
   const handleClick = () => {
     setBuyNowProduct(null);
-    setSubtotal(cartTotal);
   };
 
   return (

@@ -4,7 +4,6 @@ import ApplyDiscountButton from "./ApplyDiscountButton";
 import DiscountInput from "./DiscountInput";
 import { useCart } from "../context/CartContext";
 import discountCodes from "../data/discountCodes";
-import calculateCartTotal from "../utils/calculateCartTotal";
 import countries from "../data/countries";
 
 function DiscountSection({ contact, setContact }) {
@@ -15,10 +14,8 @@ function DiscountSection({ contact, setContact }) {
     error: "",
   };
   const [discount, setDiscount] = useState(INITIAL_VALUE);
-  const { subtotal, setSubtotal, setNewSubtotal, cartList, buyNowProduct } =
-    useCart();
+  const { subtotal, setSubtotal, setNewSubtotal, buyNowProduct } = useCart();
   const errorMessage = "Enter a valid discount code";
-  const cartTotal = calculateCartTotal(cartList);
 
   const updateShippingFees = (country) => {
     return countries.find(
@@ -37,8 +34,6 @@ function DiscountSection({ contact, setContact }) {
   const handleOnApplyClick = () => {
     if (buyNowProduct) {
       setSubtotal(buyNowProduct.price);
-    } else {
-      setSubtotal(cartTotal);
     }
 
     setDiscount((prev) => ({
