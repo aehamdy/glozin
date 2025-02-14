@@ -9,12 +9,7 @@ import BuyNowButton from "./BuyNowButton";
 function ProductForm({ product }) {
   const [isAgreementChecked, setIsAgreementChecked] = useState(false);
   const [productQuantity, setProductQuantity] = useState(1);
-  const { addToCart, setBuyNowProduct, setSubtotal } = useCart();
-
-  const handleClick = () => {
-    const prod = { ...product, orderQuantity: productQuantity };
-    addToCart(prod, productQuantity);
-  };
+  const { setBuyNowProduct, setSubtotal } = useCart();
 
   const decreaseQuantity = () => {
     setProductQuantity((prev) => (prev === 1 ? 1 : prev - 1));
@@ -69,10 +64,10 @@ function ProductForm({ product }) {
         </div>
 
         <AddToCartButton
-          handleClick={handleClick}
           status={productQuantity <= 0}
           productQuantity={productQuantity}
           variant="productDetails"
+          product={product}
         />
 
         <WishlistButton

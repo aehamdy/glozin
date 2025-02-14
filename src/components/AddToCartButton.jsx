@@ -7,7 +7,13 @@ function AddToCartButton({ variant, productQuantity, product }) {
   const { dispatchCart } = useCart();
 
   const handleClick = () => {
-    dispatchCart({ type: ADD_TO_CART, payload: product });
+    dispatchCart({
+      type: ADD_TO_CART,
+      payload: {
+        ...product,
+        orderQuantity: productQuantity ? productQuantity : 1,
+      },
+    });
   };
 
   let styles;
@@ -23,11 +29,7 @@ function AddToCartButton({ variant, productQuantity, product }) {
   }
 
   return (
-    <Button
-      value="Add to Cart"
-      handleClick={() => handleClick()}
-      className={styles}
-    />
+    <Button value="Add to Cart" handleClick={handleClick} className={styles} />
   );
 }
 export default AddToCartButton;

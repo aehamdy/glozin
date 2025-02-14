@@ -27,7 +27,13 @@ const reducer = (state, action) => {
     case ADD_TO_CART:
       updatedCartList = state.cartList?.some((p) => action.payload.id === p.id)
         ? state.cartList
-        : [{ ...action.payload, orderQuantity: 1 }, ...state.cartList];
+        : [
+            {
+              ...action.payload,
+              orderQuantity: action.payload.orderQuantity || 1,
+            },
+            ...state.cartList,
+          ];
       return { ...state, cartList: updatedCartList };
 
     case REMOVE_FROM_CART:
