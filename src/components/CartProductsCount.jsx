@@ -1,8 +1,13 @@
-/* eslint-disable react/prop-types */
-function CartProductsCount({ value }) {
+import { useCart } from "../context/CartContext";
+
+function CartProductsCount() {
+  const {
+    cartState: { cartList },
+  } = useCart();
+
   return (
     <h4 className="font-semibold text-xl text-heading-dark">
-      Shopping Cart ({value ? value : 0})
+      Shopping Cart ({cartList.length})
     </h4>
   );
 }

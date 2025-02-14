@@ -23,7 +23,7 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
         }`}
       >
         <div className="flex justify-between items-center px-4">
-          <CartProductsCount value={cartList?.length} />
+          <CartProductsCount />
           <Icon
             name="close"
             className="text-content-medium-dark hover:scale-150"
