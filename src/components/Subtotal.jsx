@@ -2,8 +2,7 @@
 import { useCheckout } from "../context/CheckoutContext";
 
 function Subtotal({ className }) {
-  const { checkoutState } = useCheckout();
-  const { subtotal, discountedSubtotal } = checkoutState;
+  const { subtotal, discountedSubtotal } = useCheckout();
 
   return (
     <div className="flex gap-3">

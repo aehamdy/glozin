@@ -44,15 +44,25 @@ export const CheckoutProvider = ({ children }) => {
   const { cartList } = cartState;
 
   useEffect(() => {
-    cartList.length > 0 &&
+    if (cartList.length > 0) {
       dispatchCheckout({
         type: SET_SUBTOTAL,
         payload: cartList,
       });
+    }
   }, [cartList]);
 
   return (
-    <CheckoutContext.Provider value={{ dispatchCheckout, checkoutState }}>
+    <CheckoutContext.Provider
+      value={{
+        dispatchCheckout,
+        checkoutState,
+        subtotal: checkoutState.subtotal,
+        discountedSubtotal: checkoutState.discountedSubtotal,
+        total: checkoutState.total,
+        discountedTotal: checkoutState.discountTotal,
+      }}
+    >
       {children}
     </CheckoutContext.Provider>
   );

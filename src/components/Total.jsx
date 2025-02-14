@@ -4,8 +4,7 @@ import { useCheckout } from "../context/CheckoutContext";
 
 function Total({ shippingFees }) {
   const { newSubtotal } = useCart();
-  const { checkoutState } = useCheckout();
-  const { subtotal } = checkoutState;
+  const { subtotal } = useCheckout();
   const total = subtotal + shippingFees;
   const newTotal = newSubtotal + shippingFees;
 
