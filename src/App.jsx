@@ -14,6 +14,7 @@ import Wishlist from "./pages/Wishlist";
 import { WishlistProvider } from "./context/wishlistContext";
 import { CartProvider } from "./context/CartContext";
 import Checkout from "./pages/Checkout";
+import { CheckoutProvider } from "./context/CheckoutContext";
 
 const router = createBrowserRouter([
   {
@@ -72,7 +73,9 @@ function App() {
   return (
     <CartProvider>
       <WishlistProvider>
-        <RouterProvider router={router} />
+        <CheckoutProvider>
+          <RouterProvider router={router} />
+        </CheckoutProvider>
       </WishlistProvider>
     </CartProvider>
   );
