@@ -1,12 +1,6 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
-import calculateCartTotal from "../utils/calculateCartTotal";
+import { createContext, useContext, useReducer, useState } from "react";
 import {
   ADD_TO_CART,
   DECREASE_QUANTITY,
@@ -20,7 +14,7 @@ const initialState = {
   cartList: [],
 };
 
-const reducer = (state, action) => {
+const cartReducer = (state, action) => {
   let updatedCartList;
 
   switch (action.type) {
@@ -64,26 +58,12 @@ const reducer = (state, action) => {
 };
 
 export const CartProvider = ({ children }) => {
-  const [cartState, dispatchCart] = useReducer(reducer, initialState);
-  const [cartList, setCartList] = useState([]);
-  const [subtotal, setSubtotal] = useState(0);
-  const [newSubtotal, setNewSubtotal] = useState(0);
+  const [cartState, dispatchCart] = useReducer(cartReducer, initialState);
   const [buyNowProduct, setBuyNowProduct] = useState(null);
-  const cartTotal = calculateCartTotal(cartState.cartList);
-
-  useEffect(() => {
-    setSubtotal(cartTotal);
-  }, [cartState.cartList]);
 
   return (
     <CartContext.Provider
       value={{
-        cartList,
-        setCartList,
-        subtotal,
-        setSubtotal,
-        newSubtotal,
-        setNewSubtotal,
         buyNowProduct,
         setBuyNowProduct,
         dispatchCart,
