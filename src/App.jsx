@@ -15,6 +15,7 @@ import { WishlistProvider } from "./context/wishlistContext";
 import { CartProvider } from "./context/CartContext";
 import Checkout from "./pages/Checkout";
 import { CheckoutProvider } from "./context/CheckoutContext";
+import { UserDataProvider } from "./context/UserDataContext";
 
 const router = createBrowserRouter([
   {
@@ -74,7 +75,9 @@ function App() {
     <CartProvider>
       <WishlistProvider>
         <CheckoutProvider>
-          <RouterProvider router={router} />
+          <UserDataProvider>
+            <RouterProvider router={router} />
+          </UserDataProvider>
         </CheckoutProvider>
       </WishlistProvider>
     </CartProvider>

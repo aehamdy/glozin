@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import Subtotal from "./Subtotal";
 import Total from "./Total";
-import FREE_SHIPPING_THRESHOLD from "../config/freeShippingThreshold";
+// import FREE_SHIPPING_THRESHOLD from "../config/freeShippingThreshold";
 import { useCheckout } from "../context/CheckoutContext";
 
 function CheckoutSummary({ selectedCountry }) {

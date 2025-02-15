@@ -1,7 +1,15 @@
-/* eslint-disable react/prop-types */
+import { useUserData } from "../context/UserDataContext";
 import FormInput from "./FormInput";
 
-function ContactForm({ setContact, contact }) {
+function ContactForm() {
+  const {
+    firstNameValue,
+    lastNameValue,
+    addressValue,
+    apartmentValue,
+    cityValue,
+    zipCodeValue,
+  } = useUserData();
   return (
     <>
       <div className="flex items-center flex-wrap gap-4 w-full">
@@ -9,8 +17,7 @@ function ContactForm({ setContact, contact }) {
           name="firstName"
           id="firstName"
           placeholder="First Name (Optional)"
-          value={contact.firstName}
-          setContact={setContact}
+          value={firstNameValue}
           className="flex-1 min-w-[250px]"
         />
         <FormInput
@@ -18,8 +25,7 @@ function ContactForm({ setContact, contact }) {
           id="lastName"
           placeholder="Last Name"
           className="flex-1 min-w-[250px]"
-          value={contact.lastName}
-          setContact={setContact}
+          value={lastNameValue}
           required
         />
       </div>
@@ -28,8 +34,7 @@ function ContactForm({ setContact, contact }) {
         id="address"
         placeholder="Address"
         className="w-full"
-        value={contact.address}
-        setContact={setContact}
+        value={addressValue}
         required
       />
 
@@ -38,8 +43,7 @@ function ContactForm({ setContact, contact }) {
         id="apartment"
         placeholder="Apartment, suite, etc. (Optional)"
         className="w-full"
-        value={contact.apartment}
-        setContact={setContact}
+        value={apartmentValue}
       />
       <div className="flex items-center gap-4 w-full">
         <FormInput
@@ -47,8 +51,7 @@ function ContactForm({ setContact, contact }) {
           id="city"
           placeholder="City"
           className="w-1/2"
-          value={contact.city}
-          setContact={setContact}
+          value={cityValue}
           required
         />
         <FormInput
@@ -56,8 +59,7 @@ function ContactForm({ setContact, contact }) {
           id="zipcode"
           placeholder="ZIP Code"
           className="w-1/2"
-          value={contact.zipCode}
-          setContact={setContact}
+          value={zipCodeValue}
           required
         />
       </div>

@@ -1,13 +1,12 @@
-/* eslint-disable react/prop-types */
 import ContactForm from "./ContactForm";
 import CountryDropdown from "./CountryDropdown";
 import ShippingMethod from "./ShippingMethod";
 
-function OrderDetailsForm({ setContact, contact }) {
+function OrderDetailsForm() {
   return (
     <>
       <CountryDropdown />
-      <ContactForm setContact={setContact} contact={contact} />
+      <ContactForm />
       <ShippingMethod />
     </>
   );

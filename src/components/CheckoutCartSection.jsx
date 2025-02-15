@@ -1,16 +1,10 @@
-/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import CheckoutSummary from "./CheckoutSummary";
 import OrderSummaryButton from "./OrderSummaryButton";
 import DiscountSection from "./DiscountSection";
 import CheckoutProductList from "./CheckoutProductList";
 
-function CheckoutCartSection({
-  shippingFees,
-  selectedCountry,
-  contact,
-  setContact,
-}) {
+function CheckoutCartSection() {
   const [summary, setSummary] = useState(true);
 
   const handleSummary = () => {
@@ -32,11 +26,7 @@ function CheckoutCartSection({
 
   return (
     <>
-      <OrderSummaryButton
-        summary={summary}
-        handleSummary={handleSummary}
-        shippingFees={shippingFees}
-      />
+      <OrderSummaryButton summary={summary} handleSummary={handleSummary} />
 
       <div
         className={`lg:block ${summary ? "block" : "hidden"} 
@@ -47,11 +37,8 @@ function CheckoutCartSection({
         {summary && (
           <>
             <CheckoutProductList />
-            <DiscountSection contact={contact} setContact={setContact} />
-            <CheckoutSummary
-              shippingFees={shippingFees}
-              selectedCountry={selectedCountry}
-            />
+            <DiscountSection />
+            <CheckoutSummary />
           </>
         )}
       </div>
