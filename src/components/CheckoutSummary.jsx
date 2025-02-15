@@ -8,7 +8,7 @@ import { useUserData } from "../context/UserDataContext";
 function CheckoutSummary() {
   const [itemsCount, setItemsCount] = useState(0);
   const { cartList, buyNowProduct } = useCart();
-  const { shippingFees, subtotal } = useCheckout();
+  const { shippingFees, isEligibleForFreeShipping } = useCheckout();
   const { countryValue } = useUserData();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function CheckoutSummary() {
         <span>Shipping</span>
 
         <div className="flex items-center gap-5">
-          {subtotal > 0 && shippingFees === 0 && countryValue && (
+          {isEligibleForFreeShipping && countryValue && (
             <span className="font-semibold text-xs text-green-500">
               You&apos;ve got free shipping
             </span>
@@ -43,6 +43,9 @@ function CheckoutSummary() {
           >
             {shippingFees && countryValue
               ? `$ ${shippingFees}`
+              : isEligibleForFreeShipping ||
+                (isEligibleForFreeShipping && countryValue)
+              ? "$0"
               : "Select country"}
           </span>
         </div>

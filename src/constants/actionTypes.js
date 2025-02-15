@@ -10,6 +10,7 @@ export const SET_DISCOUNTED_SUBTOTAL = "SET_DISCOUNTED_SUBTOTAL";
 export const SET_TOTAL = "SET_TOTAL";
 export const SET_DISCOUNTED_TOTAL = "SET_DISCOUNTED_TOTAL";
 export const SET_SHIPPING_FEES = "SET_SHIPPING_FEES";
+export const SET_FREE_SHIPPING = "SET_FREE_SHIPPING";
 
 //UserData Action Types
 export const SET_EMAIL = "SET_EMAIL";

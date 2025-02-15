@@ -5,6 +5,7 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import {
   SET_DISCOUNTED_SUBTOTAL,
   SET_DISCOUNTED_TOTAL,
+  SET_FREE_SHIPPING,
   SET_SHIPPING_FEES,
   SET_SUBTOTAL,
   SET_TOTAL,
@@ -36,13 +37,21 @@ const checkoutReducer = (state, action) => {
 
     case SET_DISCOUNTED_SUBTOTAL:
       return null;
+
     case SET_TOTAL:
       return { ...state, total: action.payload };
+
     case SET_DISCOUNTED_TOTAL:
       return null;
 
     case SET_SHIPPING_FEES:
-      return { ...state, shippingFees: +action.payload };
+      return {
+        ...state,
+        shippingFees: state.isEligibleForFreeShipping ? 0 : +action.payload,
+      };
+
+    case SET_FREE_SHIPPING:
+      return { ...state, isEligibleForFreeShipping: action.payload };
 
     default:
       return state;
@@ -82,6 +91,14 @@ export const CheckoutProvider = ({ children }) => {
     });
   }, [checkoutState.subtotal, checkoutState.shippingFees]);
 
+  useEffect(() => {
+    if (checkoutState.subtotal >= FREE_SHIPPING_THRESHOLD) {
+      dispatchCheckout({ type: SET_FREE_SHIPPING, payload: true });
+    } else {
+      dispatchCheckout({ type: SET_FREE_SHIPPING, payload: false });
+    }
+  }, [checkoutState.subtotal]);
+
   return (
     <CheckoutContext.Provider
       value={{
@@ -92,6 +109,7 @@ export const CheckoutProvider = ({ children }) => {
         total: checkoutState.total,
         discountedTotal: checkoutState.discountTotal,
         shippingFees: checkoutState.shippingFees,
+        isEligibleForFreeShipping: checkoutState.isEligibleForFreeShipping,
       }}
     >
       {children}
