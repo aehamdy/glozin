@@ -1,17 +1,18 @@
 /* eslint-disable react/prop-types */
-import { useCart } from "../context/CartContext";
+import { SET_SHIPPING_FEES } from "../constants/actionTypes";
+import { useCheckout } from "../context/CheckoutContext";
 import countries from "../data/countries";
 
-function CountryDropdown({ setContact }) {
-  const { subtotal } = useCart();
+function CountryDropdown() {
+  const { dispatchCheckout, subtotal } = useCheckout();
 
   const onSelectChange = (e) => {
     const selectedCountry = countries.find((c) => c.value === e.target.value);
-    setContact((prev) => ({
-      ...(prev || {}),
-      country: selectedCountry.value,
-      shippingFees: subtotal >= 500 ? 0 : selectedCountry.shippingFees,
-    }));
+
+    dispatchCheckout({
+      type: SET_SHIPPING_FEES,
+      payload: selectedCountry.shippingFees,
+    });
   };
 
   return (

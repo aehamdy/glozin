@@ -4,11 +4,13 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import {
   SET_DISCOUNTED_SUBTOTAL,
   SET_DISCOUNTED_TOTAL,
+  SET_SHIPPING_FEES,
   SET_SUBTOTAL,
   SET_TOTAL,
 } from "../constants/actionTypes";
 import { useCart } from "./CartContext";
 import calculateCartTotal from "../utils/calculateCartTotal";
+import FREE_SHIPPING_THRESHOLD from "../config/freeShippingThreshold";
 
 const CheckoutContext = createContext();
 
@@ -17,18 +19,29 @@ const initialState = {
   discountedSubtotal: 0,
   total: 0,
   discountedTotal: 0,
+  isEligibleForFreeShipping: false,
+  shippingFees: null,
 };
 
 const checkoutReducer = (state, action) => {
   switch (action.type) {
     case SET_SUBTOTAL:
-      return { ...state, subtotal: calculateCartTotal(action.payload) };
+      return {
+        ...state,
+        subtotal: calculateCartTotal(action.payload),
+        shippingFees:
+          state.subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : state.shippingFees,
+      };
+
     case SET_DISCOUNTED_SUBTOTAL:
       return null;
     case SET_TOTAL:
       return null;
     case SET_DISCOUNTED_TOTAL:
       return null;
+
+    case SET_SHIPPING_FEES:
+      return { ...state, shippingFees: +action.payload };
 
     default:
       return state;
@@ -51,6 +64,16 @@ export const CheckoutProvider = ({ children }) => {
     }
   }, [cartList]);
 
+  useEffect(() => {
+    dispatchCheckout({
+      type: SET_SHIPPING_FEES,
+      payload:
+        checkoutState.subtotal >= FREE_SHIPPING_THRESHOLD
+          ? 0
+          : checkoutState.shippingFees,
+    });
+  }, [checkoutState.subtotal]);
+
   return (
     <CheckoutContext.Provider
       value={{
@@ -60,6 +83,7 @@ export const CheckoutProvider = ({ children }) => {
         discountedSubtotal: checkoutState.discountedSubtotal,
         total: checkoutState.total,
         discountedTotal: checkoutState.discountTotal,
+        shippingFees: checkoutState.shippingFees,
       }}
     >
       {children}

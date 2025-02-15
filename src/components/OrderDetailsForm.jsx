@@ -6,7 +6,7 @@ import ShippingMethod from "./ShippingMethod";
 function OrderDetailsForm({ setContact, contact }) {
   return (
     <>
-      <CountryDropdown setContact={setContact} />
+      <CountryDropdown />
       <ContactForm setContact={setContact} contact={contact} />
       <ShippingMethod />
     </>
