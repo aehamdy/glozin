@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import {
   SET_ADDRESS,
   SET_APARTMENT,
@@ -10,8 +11,11 @@ import {
   SET_EMAIL,
   SET_FIRST_NAME,
   SET_LAST_NAME,
+  SET_SHIPPING_COST,
+  SET_SHIPPING_FEES,
   SET_ZIP_CODE,
 } from "../constants/actionTypes";
+import { useCheckout } from "./CheckoutContext";
 
 const UserDataContext = createContext();
 
@@ -25,7 +29,7 @@ const initialState = {
   apartment: "",
   city: "",
   zipCode: "",
-  locationFees: null,
+  shippingCost: null,
   isCouponUsed: false,
 };
 
@@ -58,6 +62,9 @@ const userDataReducer = (state, action) => {
     case SET_ZIP_CODE:
       return { ...state, zipCode: action.payload };
 
+    case SET_SHIPPING_COST:
+      return { ...state, shippingCost: action.payload };
+
     default:
       return state;
   }
@@ -68,6 +75,17 @@ export const UserDataProvider = ({ children }) => {
     userDataReducer,
     initialState
   );
+  const { dispatchCheckout } = useCheckout();
+
+  useEffect(() => {
+    if (userDataState.shippingCost > 0) {
+      dispatchCheckout({
+        type: SET_SHIPPING_FEES,
+        payload: userDataState.shippingCost,
+      });
+    }
+  }, [userDataState.shippingCost]);
+
   return (
     <UserDataContext.Provider
       value={{

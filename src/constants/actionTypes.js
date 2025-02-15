@@ -21,5 +21,5 @@ export const SET_ADDRESS = "SET_ADDRESS";
 export const SET_APARTMENT = "SET_APARTMENT";
 export const SET_CITY = "SET_CITY";
 export const SET_ZIP_CODE = "SET_ZIP_CODE";
-export const SET_LOCATION_FEES = "SET_LOCATION_FEES";
+export const SET_SHIPPING_COST = "SET_SHIPPING_COST";
 export const SET_IS_COUPON_USED = "SET_IS_COUPON_USED";

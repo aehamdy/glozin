@@ -2,22 +2,22 @@ const countries = [
     {
         value: "CH",
         country: "China",
-        shippingFees: 20,
+        shippingCost: 20,
     },
     {
         value: "FR",
         country: "France",
-        shippingFees: 18,
+        shippingCost: 18,
     },
     {
         value: "UK",
         country: "United Kingdom",
-        shippingFees: 15,
+        shippingCost: 15,
     },
     {
         value: "US",
         country: "United States",
-        shippingFees: 20,
+        shippingCost: 20,
     },
 ];
 
