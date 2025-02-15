@@ -2,8 +2,7 @@ import { useCart } from "../context/CartContext";
 import ProductCardInCheckout from "./ProductCardInCheckout";
 
 function CheckoutProductList() {
-  const { cartState, buyNowProduct } = useCart();
-  const { cartList } = cartState;
+  const { cartList, buyNowProduct } = useCart();
 
   return (
     <div className="flex flex-col gap-3">

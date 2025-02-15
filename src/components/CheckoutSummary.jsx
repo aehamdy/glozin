@@ -7,8 +7,7 @@ import FREE_SHIPPING_THRESHOLD from "../config/freeShippingThreshold";
 
 function CheckoutSummary({ shippingFees, selectedCountry }) {
   const [itemsCount, setItemsCount] = useState(0);
-  const { cartState, buyNowProduct, subtotal } = useCart();
-  const { cartList } = cartState;
+  const { cartList, buyNowProduct, subtotal } = useCart();
   const isEligibleForFreeShipping = subtotal >= FREE_SHIPPING_THRESHOLD;
 
   useEffect(() => {

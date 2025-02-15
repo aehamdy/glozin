@@ -7,8 +7,7 @@ import CartProductsCount from "./CartProductsCount";
 import Icon from "./Icon";
 
 function CartDrawer({ isCartOpen, handleCloseCart }) {
-  const { cartState } = useCart();
-  const { cartList } = cartState;
+  const { cartList } = useCart();
 
   const handleClick = (e) => {
     e.stopPropagation();

@@ -40,8 +40,7 @@ export const CheckoutProvider = ({ children }) => {
     checkoutReducer,
     initialState
   );
-  const { cartState } = useCart();
-  const { cartList } = cartState;
+  const { cartList } = useCart();
 
   useEffect(() => {
     if (cartList.length > 0) {
