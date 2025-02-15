@@ -37,7 +37,7 @@ const checkoutReducer = (state, action) => {
     case SET_DISCOUNTED_SUBTOTAL:
       return null;
     case SET_TOTAL:
-      return null;
+      return { ...state, total: action.payload };
     case SET_DISCOUNTED_TOTAL:
       return null;
 
@@ -74,6 +74,13 @@ export const CheckoutProvider = ({ children }) => {
           : checkoutState.shippingFees,
     });
   }, [checkoutState.subtotal]);
+
+  useEffect(() => {
+    dispatchCheckout({
+      type: SET_TOTAL,
+      payload: checkoutState.subtotal + checkoutState.shippingFees,
+    });
+  }, [checkoutState.subtotal, checkoutState.shippingFees]);
 
   return (
     <CheckoutContext.Provider
