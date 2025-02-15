@@ -2,9 +2,9 @@
 import { useCart } from "../context/CartContext";
 import { useCheckout } from "../context/CheckoutContext";
 
-function Total({ shippingFees }) {
+function Total() {
   const { newSubtotal } = useCart();
-  const { subtotal } = useCheckout();
+  const { subtotal, shippingFees } = useCheckout();
   const total = subtotal + shippingFees;
   const newTotal = newSubtotal + shippingFees;
 

@@ -92,6 +92,7 @@ export const UserDataProvider = ({ children }) => {
         dispatchUserData,
         emailValue: userDataState.email,
         deliveryMethodValue: userDataState.deliveryMethod,
+        countryValue: userDataState.country,
         firstNameValue: userDataState.firstName,
         lastNameValue: userDataState.lastName,
         addressValue: userDataState.address,

@@ -3,17 +3,14 @@ import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import Subtotal from "./Subtotal";
 import Total from "./Total";
-import FREE_SHIPPING_THRESHOLD from "../config/freeShippingThreshold";
 import { useCheckout } from "../context/CheckoutContext";
+import { useUserData } from "../context/UserDataContext";
 
-function CheckoutSummary({ selectedCountry }) {
+function CheckoutSummary() {
   const [itemsCount, setItemsCount] = useState(0);
   const { cartList, buyNowProduct } = useCart();
   const { shippingFees, subtotal } = useCheckout();
-  // const [isEligibleForFreeShipping, setIsEligibleForFreeShipping] = useState(
-  //   subtotal >= FREE_SHIPPING_THRESHOLD
-  // );
-  // const isEligibleForFreeShipping = subtotal >= FREE_SHIPPING_THRESHOLD;
+  const { countryValue } = useUserData();
 
   useEffect(() => {
     setItemsCount(cartList.reduce((acc, curr) => acc + curr.orderQuantity, 0));
@@ -34,7 +31,7 @@ function CheckoutSummary({ selectedCountry }) {
         <span>Shipping</span>
 
         <div className="flex items-center gap-5">
-          {subtotal > 0 && shippingFees === 0 && selectedCountry && (
+          {subtotal > 0 && shippingFees === 0 && countryValue && (
             <span className="font-semibold text-xs text-green-500">
               You&apos;ve got free shipping
             </span>
@@ -45,7 +42,7 @@ function CheckoutSummary({ selectedCountry }) {
               shippingFees ? "text-black" : "text-price-originalPrice"
             }`}
           >
-            {shippingFees && selectedCountry
+            {shippingFees && countryValue
               ? `$ ${shippingFees}`
               : "Select country"}
           </span>
@@ -54,7 +51,7 @@ function CheckoutSummary({ selectedCountry }) {
 
       <div className="flex justify-between font-semibold text-lg">
         <span>Total</span>
-        <Total shippingFees={shippingFees} />
+        <Total />
       </div>
     </div>
   );
