@@ -30,7 +30,7 @@ function CheckoutSummary() {
         <span>Shipping</span>
 
         <div className="flex items-center gap-5">
-          {isEligibleForFreeShipping && countryValue && (
+          {isEligibleForFreeShipping && (
             <span className="font-semibold text-xs text-green-500">
               You&apos;ve got free shipping
             </span>
@@ -43,9 +43,10 @@ function CheckoutSummary() {
           >
             {shippingFees && countryValue
               ? `$ ${shippingFees}`
-              : isEligibleForFreeShipping ||
-                (isEligibleForFreeShipping && countryValue)
+              : isEligibleForFreeShipping && countryValue
               ? "$0"
+              : isEligibleForFreeShipping && !countryValue
+              ? "Select country"
               : "Select country"}
           </span>
         </div>
