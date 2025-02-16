@@ -6,7 +6,7 @@ import { useCheckout } from "../context/CheckoutContext";
 
 function CartDrawerPanel() {
   const { dispatchCart, cartList } = useCart();
-  const { dispatchCheckout } = useCheckout();
+  const { dispatchCheckout, subtotal } = useCheckout();
 
   const handleOnClick = () => {
     dispatchCart({ type: SET_BUY_NOW_PRODUCT, payload: null });
@@ -17,7 +17,7 @@ function CartDrawerPanel() {
     <div className="flex flex-col justify-between gap-6 mt-auto pt-4 pb-4 px-4 text-secondary-dark bg-cloud-gray border-t">
       <div className="flex justify-between font-semibold">
         <div>Subtotal:</div>
-        <Subtotal />
+        <Subtotal subtotalValue={subtotal} />
       </div>
       <div className="flex flex-col items-center gap-5">
         <Link

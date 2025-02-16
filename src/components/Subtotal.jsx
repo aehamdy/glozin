@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useCheckout } from "../context/CheckoutContext";
 
-function Subtotal({ className }) {
-  const { subtotal, discountedSubtotal } = useCheckout();
+function Subtotal({ className, subtotalValue }) {
+  const { discountedSubtotal } = useCheckout();
 
   return (
     <div className="flex gap-3">
@@ -12,7 +12,7 @@ function Subtotal({ className }) {
         </span>
       )}
       <span className={`${className} ${discountedSubtotal && "line-through"}`}>
-        $ {subtotal?.toFixed(2)}
+        $ {subtotalValue}
       </span>
     </div>
   );

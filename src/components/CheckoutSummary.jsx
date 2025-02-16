@@ -8,8 +8,12 @@ import { useUserData } from "../context/UserDataContext";
 function CheckoutSummary() {
   const [itemsCount, setItemsCount] = useState(0);
   const { cartList, buyNowProduct } = useCart();
-  const { shippingFees, isEligibleForFreeShipping, discountedShippingFees } =
-    useCheckout();
+  const {
+    subtotal,
+    shippingFees,
+    isEligibleForFreeShipping,
+    discountedShippingFees,
+  } = useCheckout();
   const { countryValue } = useUserData();
 
   useEffect(() => {
@@ -24,7 +28,9 @@ function CheckoutSummary() {
           <span className="w-1 h-1 bg-black rounded-full"></span>
           <span>{buyNowProduct ? "1 item" : `${itemsCount} items`}</span>
         </div>
-        <Subtotal />
+        <Subtotal
+          subtotalValue={buyNowProduct ? buyNowProduct.price : subtotal}
+        />
       </div>
 
       <div className="flex justify-between">

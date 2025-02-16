@@ -1,17 +1,19 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useReducer, useState } from "react";
+import { createContext, useContext, useReducer } from "react";
 import {
   ADD_TO_CART,
   DECREASE_QUANTITY,
   INCREASE_QUANTITY,
   REMOVE_FROM_CART,
+  SET_BUY_NOW_PRODUCT,
 } from "../constants/actionTypes";
 
 const CartContext = createContext();
 
 const initialState = {
   cartList: [],
+  buyNowProduct: null,
 };
 
 const cartReducer = (state, action) => {
@@ -52,6 +54,9 @@ const cartReducer = (state, action) => {
       );
       return { ...state, cartList: updatedCartList };
 
+    case SET_BUY_NOW_PRODUCT:
+      return { ...state, buyNowProduct: action.payload };
+
     default:
       return state;
   }
@@ -59,7 +64,6 @@ const cartReducer = (state, action) => {
 
 export const CartProvider = ({ children }) => {
   const [cartState, dispatchCart] = useReducer(cartReducer, initialState);
-  const [buyNowProduct, setBuyNowProduct] = useState(null);
 
   return (
     <CartContext.Provider
@@ -67,8 +71,7 @@ export const CartProvider = ({ children }) => {
         dispatchCart,
         cartState,
         cartList: cartState.cartList,
-        buyNowProduct,
-        setBuyNowProduct,
+        buyNowProduct: cartState.buyNowProduct,
       }}
     >
       {children}
