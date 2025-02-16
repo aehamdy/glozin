@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import { createContext, useContext, useEffect, useReducer } from "react";
 import {
+  SET_BUY_NOW_PRODUCT_PRICE,
   SET_DISCOUNTED_SHIPPING_FEES,
   SET_DISCOUNTED_SUBTOTAL,
   SET_DISCOUNTED_TOTAL,
@@ -21,6 +22,7 @@ const initialState = {
   discountedSubtotal: 0,
   total: 0,
   discountedTotal: 0,
+  buyNowProductPrice: null,
   shippingFees: null,
   isEligibleForFreeShipping: false,
   discountedShippingFees: null,
@@ -29,12 +31,7 @@ const initialState = {
 const checkoutReducer = (state, action) => {
   switch (action.type) {
     case SET_SUBTOTAL:
-      return {
-        ...state,
-        subtotal: calculateCartTotal(action.payload),
-        // shippingFees:
-        //   state.subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : state.shippingFees,
-      };
+      return { ...state, subtotal: calculateCartTotal(action.payload) };
 
     case SET_DISCOUNTED_SUBTOTAL:
       return null;
@@ -44,6 +41,9 @@ const checkoutReducer = (state, action) => {
 
     case SET_DISCOUNTED_TOTAL:
       return null;
+
+    case SET_BUY_NOW_PRODUCT_PRICE:
+      return { ...state, buyNowProductPrice: action.payload };
 
     case SET_SHIPPING_FEES:
       return {
@@ -67,7 +67,7 @@ export const CheckoutProvider = ({ children }) => {
     checkoutReducer,
     initialState
   );
-  const { cartList } = useCart();
+  const { cartList, buyNowProduct } = useCart();
 
   useEffect(() => {
     if (cartList.length > 0) {
@@ -112,6 +112,15 @@ export const CheckoutProvider = ({ children }) => {
       dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: null });
     }
   }, [checkoutState.subtotal]);
+
+  useEffect(() => {
+    if (buyNowProduct) {
+      dispatchCheckout({
+        type: SET_BUY_NOW_PRODUCT_PRICE,
+        payload: buyNowProduct.price,
+      });
+    }
+  }, [buyNowProduct]);
 
   return (
     <CheckoutContext.Provider
