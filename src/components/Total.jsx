@@ -1,7 +1,9 @@
+import { useCart } from "../context/CartContext";
 import { useCheckout } from "../context/CheckoutContext";
 
 function Total() {
   const { total } = useCheckout();
+  const { buyNowProduct } = useCart();
 
   return (
     <div className="flex items-center gap-3">
@@ -16,7 +18,7 @@ function Total() {
           ""
         }`}
       >
-        $ {total && total.toFixed(2)}
+        {buyNowProduct ? buyNowProduct.price.toFixed(2) : total.toFixed(2)}
       </div>
     </div>
   );
