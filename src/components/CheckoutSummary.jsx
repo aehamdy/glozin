@@ -42,8 +42,10 @@ function CheckoutSummary() {
               shippingFees ? "text-black" : "text-price-originalPrice"
             }`}
           >
-            {isEligibleForFreeShipping
+            {isEligibleForFreeShipping && countryValue
               ? `$ ${discountedShippingFees}`
+              : isEligibleForFreeShipping && !countryValue
+              ? "Select country"
               : shippingFees && countryValue
               ? `$ ${shippingFees}`
               : "Select country"}
