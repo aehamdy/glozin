@@ -8,7 +8,8 @@ import { useUserData } from "../context/UserDataContext";
 function CheckoutSummary() {
   const [itemsCount, setItemsCount] = useState(0);
   const { cartList, buyNowProduct } = useCart();
-  const { shippingFees, isEligibleForFreeShipping } = useCheckout();
+  const { shippingFees, isEligibleForFreeShipping, discountedShippingFees } =
+    useCheckout();
   const { countryValue } = useUserData();
 
   useEffect(() => {
@@ -41,12 +42,10 @@ function CheckoutSummary() {
               shippingFees ? "text-black" : "text-price-originalPrice"
             }`}
           >
-            {shippingFees && countryValue
+            {isEligibleForFreeShipping
+              ? `$ ${discountedShippingFees}`
+              : shippingFees && countryValue
               ? `$ ${shippingFees}`
-              : isEligibleForFreeShipping && countryValue
-              ? "$0"
-              : isEligibleForFreeShipping && !countryValue
-              ? "Select country"
               : "Select country"}
           </span>
         </div>
