@@ -3,13 +3,11 @@ import { useState } from "react";
 import WishlistButton from "./WishlistButton";
 import ProductTermsAgreement from "./ProductTermsAgreement";
 import AddToCartButton from "./AddToCartButton";
-import { useCart } from "../context/CartContext";
 import BuyNowButton from "./BuyNowButton";
 
 function ProductForm({ product }) {
   const [isAgreementChecked, setIsAgreementChecked] = useState(false);
   const [productQuantity, setProductQuantity] = useState(1);
-  const { setBuyNowProduct, setSubtotal } = useCart();
 
   const decreaseQuantity = () => {
     setProductQuantity((prev) => (prev === 1 ? 1 : prev - 1));
@@ -17,15 +15,6 @@ function ProductForm({ product }) {
 
   const increaseQuantity = () => {
     setProductQuantity((prev) => prev + 1);
-  };
-
-  const handleBuyNowClick = (e, product) => {
-    if (isAgreementChecked) {
-      setBuyNowProduct(product);
-      setSubtotal(product.price);
-    } else {
-      e.preventDefault();
-    }
   };
 
   return (
@@ -82,7 +71,6 @@ function ProductForm({ product }) {
         <BuyNowButton
           product={product}
           isAgreementChecked={isAgreementChecked}
-          handleBuyNowClick={handleBuyNowClick}
         />
       </div>
     </div>
