@@ -1,8 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { createContext, useContext, useEffect, useReducer } from "react";
 import {
+  SET_DISCOUNTED_SHIPPING_FEES,
   SET_DISCOUNTED_SUBTOTAL,
   SET_DISCOUNTED_TOTAL,
   SET_FREE_SHIPPING,
@@ -21,8 +21,9 @@ const initialState = {
   discountedSubtotal: 0,
   total: 0,
   discountedTotal: 0,
-  isEligibleForFreeShipping: false,
   shippingFees: null,
+  isEligibleForFreeShipping: false,
+  discountedShippingFees: null,
 };
 
 const checkoutReducer = (state, action) => {
@@ -31,8 +32,8 @@ const checkoutReducer = (state, action) => {
       return {
         ...state,
         subtotal: calculateCartTotal(action.payload),
-        shippingFees:
-          state.subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : state.shippingFees,
+        // shippingFees:
+        //   state.subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : state.shippingFees,
       };
 
     case SET_DISCOUNTED_SUBTOTAL:
@@ -52,6 +53,9 @@ const checkoutReducer = (state, action) => {
 
     case SET_FREE_SHIPPING:
       return { ...state, isEligibleForFreeShipping: action.payload };
+
+    case SET_DISCOUNTED_SHIPPING_FEES:
+      return { ...state, discountedShippingFees: action.payload };
 
     default:
       return state;
@@ -75,27 +79,37 @@ export const CheckoutProvider = ({ children }) => {
   }, [cartList]);
 
   useEffect(() => {
-    dispatchCheckout({
-      type: SET_SHIPPING_FEES,
-      payload:
-        checkoutState.subtotal >= FREE_SHIPPING_THRESHOLD
-          ? 0
-          : checkoutState.shippingFees,
-    });
-  }, [checkoutState.subtotal]);
-
-  useEffect(() => {
-    dispatchCheckout({
-      type: SET_TOTAL,
-      payload: checkoutState.subtotal + checkoutState.shippingFees,
-    });
-  }, [checkoutState.subtotal, checkoutState.shippingFees]);
+    if (
+      !checkoutState.isEligibleForFreeShipping &&
+      checkoutState.discountedShippingFees === null
+    ) {
+      dispatchCheckout({
+        type: SET_TOTAL,
+        payload: checkoutState.subtotal + checkoutState.shippingFees,
+      });
+    } else if (
+      checkoutState.isEligibleForFreeShipping &&
+      checkoutState.discountedShippingFees === 0
+    ) {
+      dispatchCheckout({
+        type: SET_TOTAL,
+        payload: checkoutState.subtotal + checkoutState.discountedShippingFees,
+      });
+    }
+  }, [
+    checkoutState.subtotal,
+    checkoutState.shippingFees,
+    checkoutState.isEligibleForFreeShipping,
+    checkoutState.discountedShippingFees,
+  ]);
 
   useEffect(() => {
     if (checkoutState.subtotal >= FREE_SHIPPING_THRESHOLD) {
       dispatchCheckout({ type: SET_FREE_SHIPPING, payload: true });
+      dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: 0 });
     } else {
       dispatchCheckout({ type: SET_FREE_SHIPPING, payload: false });
+      dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: null });
     }
   }, [checkoutState.subtotal]);
 
@@ -110,6 +124,7 @@ export const CheckoutProvider = ({ children }) => {
         discountedTotal: checkoutState.discountTotal,
         shippingFees: checkoutState.shippingFees,
         isEligibleForFreeShipping: checkoutState.isEligibleForFreeShipping,
+        discountedShippingFees: checkoutState.discountedShippingFees,
       }}
     >
       {children}
