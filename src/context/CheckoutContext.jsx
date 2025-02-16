@@ -48,7 +48,7 @@ const checkoutReducer = (state, action) => {
     case SET_SHIPPING_FEES:
       return {
         ...state,
-        shippingFees: state.isEligibleForFreeShipping ? 0 : +action.payload,
+        shippingFees: +action.payload,
       };
 
     case SET_FREE_SHIPPING:
