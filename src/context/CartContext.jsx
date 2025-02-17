@@ -72,6 +72,7 @@ export const CartProvider = ({ children }) => {
         cartState,
         cartList: cartState.cartList,
         buyNowProduct: cartState.buyNowProduct,
+        buyNowProductPrice: cartState.buyNowProduct?.price,
       }}
     >
       {children}

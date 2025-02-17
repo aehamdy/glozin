@@ -78,7 +78,7 @@ export const UserDataProvider = ({ children }) => {
   const { dispatchCheckout } = useCheckout();
 
   useEffect(() => {
-    if (userDataState.shippingCost > 0) {
+    if (userDataState.shippingCost) {
       dispatchCheckout({
         type: SET_SHIPPING_FEES,
         payload: userDataState.shippingCost,
@@ -99,6 +99,7 @@ export const UserDataProvider = ({ children }) => {
         apartmentValue: userDataState.apartment,
         cityValue: userDataState.city,
         zipCodeValue: userDataState.zipCode,
+        shippingCost: userDataState.shippingCost,
       }}
     >
       {children}
