@@ -16,7 +16,7 @@ function Total() {
           ""
         }`}
       >
-        $ {total.toFixed(2)}
+        $ {total}
       </div>
     </div>
   );
