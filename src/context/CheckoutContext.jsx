@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 import { createContext, useContext, useEffect, useReducer } from "react";
@@ -31,7 +32,10 @@ const initialState = {
 const checkoutReducer = (state, action) => {
   switch (action.type) {
     case SET_SUBTOTAL:
-      return { ...state, subtotal: calculateCartTotal(action.payload) };
+      return {
+        ...state,
+        subtotal: calculateCartTotal(action.payload),
+      };
 
     case SET_DISCOUNTED_SUBTOTAL:
       return null;
@@ -67,7 +71,7 @@ export const CheckoutProvider = ({ children }) => {
     checkoutReducer,
     initialState
   );
-  const { cartList, buyNowProduct } = useCart();
+  const { cartList, buyNowProduct, buyNowProductPrice } = useCart();
 
   useEffect(() => {
     if (cartList.length > 0) {
@@ -85,15 +89,20 @@ export const CheckoutProvider = ({ children }) => {
     ) {
       dispatchCheckout({
         type: SET_TOTAL,
-        payload: checkoutState.subtotal + checkoutState.shippingFees,
+        payload: checkoutState.shippingFees
+          ? +checkoutState.shippingFees + +checkoutState.subtotal
+          : +checkoutState.subtotal,
       });
     } else if (
       checkoutState.isEligibleForFreeShipping &&
-      checkoutState.discountedShippingFees === 0
+      checkoutState.discountedShippingFees >= 0
     ) {
       dispatchCheckout({
         type: SET_TOTAL,
-        payload: checkoutState.subtotal + checkoutState.discountedShippingFees,
+        payload:
+          checkoutState.discountedShippingFees > 0
+            ? checkoutState.subtotal + checkoutState.discountedShippingFees
+            : checkoutState.subtotal,
       });
     }
   }, [
@@ -122,6 +131,19 @@ export const CheckoutProvider = ({ children }) => {
     }
   }, [buyNowProduct]);
 
+  useEffect(() => {
+    if (checkoutState.shippingFees) {
+      dispatchCheckout({
+        type: SET_TOTAL,
+        payload:
+          (buyNowProductPrice ? buyNowProductPrice : +checkoutState.subtotal) +
+          (checkoutState.discountedShippingFees !== null
+            ? +checkoutState.discountedShippingFees
+            : +checkoutState.shippingFees),
+      });
+    }
+  }, [checkoutState.shippingFees]);
+
   return (
     <CheckoutContext.Provider
       value={{
@@ -130,7 +152,7 @@ export const CheckoutProvider = ({ children }) => {
         subtotal: checkoutState.subtotal,
         discountedSubtotal: checkoutState.discountedSubtotal,
         total: checkoutState.total,
-        discountedTotal: checkoutState.discountTotal,
+        discountedTotal: checkoutState.discountedTotal,
         shippingFees: checkoutState.shippingFees,
         isEligibleForFreeShipping: checkoutState.isEligibleForFreeShipping,
         discountedShippingFees: checkoutState.discountedShippingFees,
