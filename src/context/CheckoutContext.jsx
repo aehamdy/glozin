@@ -29,7 +29,7 @@ const initialState = {
   shippingFees: null,
   isEligibleForFreeShipping: false,
   discountedShippingFees: null,
-  usedCouponCode: undefined,
+  usedCouponCode: "",
   discountAmount: undefined,
 };
 
@@ -175,6 +175,8 @@ export const CheckoutProvider = ({ children }) => {
         shippingFees: checkoutState.shippingFees,
         isEligibleForFreeShipping: checkoutState.isEligibleForFreeShipping,
         discountedShippingFees: checkoutState.discountedShippingFees,
+        usedCouponCode: checkoutState.usedCouponCode,
+        discountAmount: checkoutState.discountAmount,
       }}
     >
       {children}
