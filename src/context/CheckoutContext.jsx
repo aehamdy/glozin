@@ -5,6 +5,7 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import {
   SET_BUY_NOW_PRODUCT_PRICE,
   SET_COUPON_CODE,
+  SET_COUPON_ERROR_MESSAGE,
   SET_DISCOUNT_AMOUNT,
   SET_DISCOUNTED_SHIPPING_FEES,
   SET_DISCOUNTED_SUBTOTAL,
@@ -30,7 +31,8 @@ const initialState = {
   isEligibleForFreeShipping: false,
   discountedShippingFees: null,
   usedCouponCode: "",
-  discountAmount: undefined,
+  discountAmount: 0,
+  couponErrorMessage: "",
 };
 
 const checkoutReducer = (state, action) => {
@@ -67,6 +69,9 @@ const checkoutReducer = (state, action) => {
 
     case SET_COUPON_CODE:
       return { ...state, usedCouponCode: action.payload };
+
+    case SET_COUPON_ERROR_MESSAGE:
+      return { ...state, couponErrorMessage: action.payload };
 
     case SET_DISCOUNT_AMOUNT:
       return { ...state, discountAmount: action.payload };
@@ -177,6 +182,7 @@ export const CheckoutProvider = ({ children }) => {
         discountedShippingFees: checkoutState.discountedShippingFees,
         usedCouponCode: checkoutState.usedCouponCode,
         discountAmount: checkoutState.discountAmount,
+        couponErrorMessage: checkoutState.couponErrorMessage,
       }}
     >
       {children}
