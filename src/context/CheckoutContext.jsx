@@ -4,6 +4,8 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import {
   SET_BUY_NOW_PRODUCT_PRICE,
+  SET_COUPON_CODE,
+  SET_DISCOUNT_AMOUNT,
   SET_DISCOUNTED_SHIPPING_FEES,
   SET_DISCOUNTED_SUBTOTAL,
   SET_DISCOUNTED_TOTAL,
@@ -27,6 +29,8 @@ const initialState = {
   shippingFees: null,
   isEligibleForFreeShipping: false,
   discountedShippingFees: null,
+  usedCouponCode: undefined,
+  discountAmount: undefined,
 };
 
 const checkoutReducer = (state, action) => {
@@ -60,6 +64,12 @@ const checkoutReducer = (state, action) => {
 
     case SET_DISCOUNTED_SHIPPING_FEES:
       return { ...state, discountedShippingFees: action.payload };
+
+    case SET_COUPON_CODE:
+      return { ...state, usedCouponCode: action.payload };
+
+    case SET_DISCOUNT_AMOUNT:
+      return { ...state, discountAmount: action.payload };
 
     default:
       return state;
