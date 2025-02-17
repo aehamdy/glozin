@@ -1,12 +1,23 @@
+import { SET_COUPON_CODE } from "../constants/actionTypes";
+import { useCheckout } from "../context/CheckoutContext";
+
 /* eslint-disable react/prop-types */
-function DiscountInput({ setDiscount, discount, handleOnApplyClick }) {
+function DiscountInput({ handleOnApplyClick }) {
+  const { dispatchCheckout, usedCouponCode, discountError } = useCheckout();
+
   const onInputChange = (e) => {
-    setDiscount({ ...discount, codeValue: e.target.value.toUpperCase() });
+    dispatchCheckout({
+      type: SET_COUPON_CODE,
+      payload: e.target.value.toUpperCase(),
+    });
   };
 
   const handleEnterKeyPress = (e) => {
-    e.key === "Enter" && handleOnApplyClick();
+    if (usedCouponCode && e.key === "Enter") {
+      handleOnApplyClick();
+    }
   };
+
   return (
     <>
       <input
@@ -14,9 +25,9 @@ function DiscountInput({ setDiscount, discount, handleOnApplyClick }) {
         placeholder="Enter discount code"
         onChange={onInputChange}
         onKeyUp={handleEnterKeyPress}
-        value={discount.codeValue}
+        value={usedCouponCode}
         className={`w-8/12 md:w-1/2 lg:w-3/5 py-3 px-2 font-medium placeholder:font-normal text-black placeholder:text-price-originalPrice bg-white border-2 ${
-          discount.error && "border-red-400 focus:border-red-400"
+          discountError && "border-red-400 focus:border-red-400"
         } focus:border-blue-500 outline-none rounded-md`}
       />
     </>
