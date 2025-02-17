@@ -1,5 +1,9 @@
+import { useCheckout } from "../context/CheckoutContext";
+
 /* eslint-disable react/prop-types */
-function ApplyDiscountButton({ discount, handleOnApplyClick }) {
+function ApplyDiscountButton({ handleOnApplyClick }) {
+  const { usedCouponCode } = useCheckout();
+
   const onButtonClick = () => {
     handleOnApplyClick();
   };
@@ -7,11 +11,11 @@ function ApplyDiscountButton({ discount, handleOnApplyClick }) {
   return (
     <button
       onClick={() => onButtonClick()}
-      disabled={!discount.codeValue}
+      disabled={!usedCouponCode}
       className={`px-4 ${
-        discount.codeValue
+        usedCouponCode
           ? "font-medium text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus:outline-none duration-short"
-          : "text-content-light-dark bg-neutral-200"
+          : "text-content-light-dark bg-neutral-200 cursor-not-allowed"
       } rounded-md`}
     >
       Apply
