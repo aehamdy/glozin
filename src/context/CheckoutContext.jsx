@@ -128,6 +128,15 @@ export const CheckoutProvider = ({ children }) => {
         type: SET_BUY_NOW_PRODUCT_PRICE,
         payload: buyNowProduct.price,
       });
+      dispatchCheckout({
+        type: SET_TOTAL,
+        payload: buyNowProduct.price + checkoutState.shippingFees,
+      });
+    } else {
+      dispatchCheckout({
+        type: SET_TOTAL,
+        payload: checkoutState.subtotal + checkoutState.shippingFees,
+      });
     }
   }, [buyNowProduct]);
 
