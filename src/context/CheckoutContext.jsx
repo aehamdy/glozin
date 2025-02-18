@@ -4,7 +4,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import {
   SET_BUY_NOW_PRODUCT_PRICE,
-  SET_COUPON_CODE,
+  SET_COUPON_CODE_AVAILABILITY,
   SET_COUPON_ERROR_MESSAGE,
   SET_DISCOUNT_AMOUNT,
   SET_DISCOUNTED_SHIPPING_FEES,
@@ -14,6 +14,7 @@ import {
   SET_SHIPPING_FEES,
   SET_SUBTOTAL,
   SET_TOTAL,
+  SET_USED_COUPON_CODE,
 } from "../constants/actionTypes";
 import { useCart } from "./CartContext";
 import calculateCartTotal from "../utils/calculateCartTotal";
@@ -30,6 +31,7 @@ const initialState = {
   shippingFees: null,
   isEligibleForFreeShipping: false,
   discountedShippingFees: null,
+  isCouponCodeAvailable: false,
   usedCouponCode: "",
   discountAmount: 0,
   couponErrorMessage: "",
@@ -67,7 +69,10 @@ const checkoutReducer = (state, action) => {
     case SET_DISCOUNTED_SHIPPING_FEES:
       return { ...state, discountedShippingFees: action.payload };
 
-    case SET_COUPON_CODE:
+    case SET_COUPON_CODE_AVAILABILITY:
+      return { ...state, isCouponCodeAvailable: action.payload };
+
+    case SET_USED_COUPON_CODE:
       return { ...state, usedCouponCode: action.payload };
 
     case SET_COUPON_ERROR_MESSAGE:
@@ -177,9 +182,11 @@ export const CheckoutProvider = ({ children }) => {
         discountedSubtotal: checkoutState.discountedSubtotal,
         total: checkoutState.total,
         discountedTotal: checkoutState.discountedTotal,
+        buyNowProductPrice: checkoutState.buyNowProductPrice,
         shippingFees: checkoutState.shippingFees,
         isEligibleForFreeShipping: checkoutState.isEligibleForFreeShipping,
         discountedShippingFees: checkoutState.discountedShippingFees,
+        isCouponCodeAvailable: checkoutState.isCouponCodeAvailable,
         usedCouponCode: checkoutState.usedCouponCode,
         discountAmount: checkoutState.discountAmount,
         couponErrorMessage: checkoutState.couponErrorMessage,
