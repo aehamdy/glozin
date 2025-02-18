@@ -3,9 +3,14 @@ import ApplyDiscountButton from "./ApplyDiscountButton";
 import DiscountInput from "./DiscountInput";
 import discountCodes from "../data/discountCodes";
 import { useCheckout } from "../context/CheckoutContext";
+import {
+  SET_COUPON_CODE_AVAILABILITY,
+  SET_USED_COUPON_CODE,
+} from "../constants/actionTypes";
 
 function DiscountSection() {
-  const { enteredCouponCode, couponErrorMessage } = useCheckout();
+  const { dispatchCheckout, enteredCouponCode, couponErrorMessage } =
+    useCheckout();
 
   const checkCodeAvailability = () => {
     return discountCodes.find(
@@ -17,6 +22,13 @@ function DiscountSection() {
 
   const handleOnApplyClick = () => {
     const availableCode = checkCodeAvailability();
+
+    if (availableCode) {
+      dispatchCheckout({ type: SET_COUPON_CODE_AVAILABILITY, payload: true });
+      dispatchCheckout({ type: SET_USED_COUPON_CODE, payload: availableCode });
+    } else {
+      dispatchCheckout({ type: SET_COUPON_CODE_AVAILABILITY, payload: false });
+    }
 
     return availableCode;
   };
