@@ -37,18 +37,21 @@ function CheckoutSummary() {
         <span>Shipping</span>
 
         <div className="flex items-center gap-5">
-          {isEligibleForFreeShipping && (
-            <span className="font-semibold text-xs text-green-500">
-              You&apos;ve got free shipping
-            </span>
-          )}
+          {isEligibleForFreeShipping ||
+            (discountedShippingFees === 0 && (
+              <span className="font-semibold text-xs text-green-500">
+                You&apos;ve got free shipping
+              </span>
+            ))}
 
           <span
             className={`font-normal text-sm ${
               shippingFees ? "text-black" : "text-price-originalPrice"
             }`}
           >
-            {isEligibleForFreeShipping && countryValue
+            {discountedShippingFees === 0 || discountedShippingFees > 0
+              ? `$ ${discountedShippingFees}`
+              : isEligibleForFreeShipping && countryValue
               ? `$ ${discountedShippingFees}`
               : isEligibleForFreeShipping && !countryValue
               ? "Select country"
