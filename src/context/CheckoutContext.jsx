@@ -10,6 +10,7 @@ import {
   SET_DISCOUNTED_SHIPPING_FEES,
   SET_DISCOUNTED_SUBTOTAL,
   SET_DISCOUNTED_TOTAL,
+  SET_ENTERED_COUPON_CODE,
   SET_FREE_SHIPPING,
   SET_SHIPPING_FEES,
   SET_SUBTOTAL,
@@ -32,6 +33,7 @@ const initialState = {
   isEligibleForFreeShipping: false,
   discountedShippingFees: null,
   isCouponCodeAvailable: false,
+  enteredCouponCode: "",
   usedCouponCode: "",
   discountAmount: 0,
   couponErrorMessage: "",
@@ -46,13 +48,13 @@ const checkoutReducer = (state, action) => {
       };
 
     case SET_DISCOUNTED_SUBTOTAL:
-      return null;
+      return { ...state, discountedSubtotal: action.payload };
 
     case SET_TOTAL:
       return { ...state, total: action.payload };
 
     case SET_DISCOUNTED_TOTAL:
-      return null;
+      return { ...state, discountedTotal: action.payload };
 
     case SET_BUY_NOW_PRODUCT_PRICE:
       return { ...state, buyNowProductPrice: action.payload };
@@ -71,6 +73,9 @@ const checkoutReducer = (state, action) => {
 
     case SET_COUPON_CODE_AVAILABILITY:
       return { ...state, isCouponCodeAvailable: action.payload };
+
+    case SET_ENTERED_COUPON_CODE:
+      return { ...state, enteredCouponCode: action.payload };
 
     case SET_USED_COUPON_CODE:
       return { ...state, usedCouponCode: action.payload };
@@ -187,6 +192,7 @@ export const CheckoutProvider = ({ children }) => {
         isEligibleForFreeShipping: checkoutState.isEligibleForFreeShipping,
         discountedShippingFees: checkoutState.discountedShippingFees,
         isCouponCodeAvailable: checkoutState.isCouponCodeAvailable,
+        enteredCouponCode: checkoutState.enteredCouponCode,
         usedCouponCode: checkoutState.usedCouponCode,
         discountAmount: checkoutState.discountAmount,
         couponErrorMessage: checkoutState.couponErrorMessage,
