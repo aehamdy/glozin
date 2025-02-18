@@ -1,100 +1,34 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
 import ApplyDiscountButton from "./ApplyDiscountButton";
 import DiscountInput from "./DiscountInput";
-import { useCart } from "../context/CartContext";
 import discountCodes from "../data/discountCodes";
-import countries from "../data/countries";
+import { useCheckout } from "../context/CheckoutContext";
 
-function DiscountSection({ contact, setContact }) {
-  const INITIAL_VALUE = {
-    codeValue: "",
-    discountValue: 0,
-    isShippingFree: false,
-    error: "",
-  };
-  const [discount, setDiscount] = useState(INITIAL_VALUE);
-  const { subtotal, setSubtotal, setNewSubtotal, buyNowProduct } = useCart();
-  const errorMessage = "Enter a valid discount code";
-
-  const updateShippingFees = (country) => {
-    return countries.find(
-      (c) => c.value.toLowerCase() === country.toLowerCase()
-    );
-  };
+function DiscountSection() {
+  const { enteredCouponCode, couponErrorMessage } = useCheckout();
 
   const checkCodeAvailability = () => {
     return discountCodes.find(
       (code) =>
-        code.code.toLowerCase() === discount.codeValue.toLowerCase() &&
+        code.code.toLowerCase() === enteredCouponCode.toLowerCase() &&
         code.active
     );
   };
 
   const handleOnApplyClick = () => {
-    if (buyNowProduct) {
-      setSubtotal(buyNowProduct.price);
-    }
+    const availableCode = checkCodeAvailability();
 
-    setDiscount((prev) => ({
-      ...prev,
-      codeValue: discount.codeValue,
-      error: "",
-    }));
-    setContact((prev) => ({
-      ...prev,
-      shippingFees: updateShippingFees(contact.country).shippingFees,
-    }));
-
-    const codeAvailable = checkCodeAvailability();
-
-    if (
-      codeAvailable &&
-      codeAvailable.label.toLowerCase() === "free shipping"
-    ) {
-      setContact((prev) => ({
-        ...prev,
-        shippingFees: 0,
-      }));
-    } else if (codeAvailable) {
-      setDiscount((prev) => ({
-        ...prev,
-        discountValue: codeAvailable.discountAmount,
-        error: "",
-      }));
-    } else {
-      setDiscount((prev) => ({
-        ...prev,
-        discountValue: "",
-        error: "Code isn't available",
-      }));
-      setNewSubtotal(0);
-    }
-
-    return codeAvailable;
+    return availableCode;
   };
-
-  useEffect(() => {
-    discount.discountValue > 0 &&
-      setNewSubtotal(subtotal - (subtotal * discount.discountValue) / 100);
-  }, [discount.discountValue]);
 
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-between">
-        <DiscountInput
-          discount={discount}
-          setDiscount={setDiscount}
-          handleOnApplyClick={handleOnApplyClick}
-        />
-        <ApplyDiscountButton
-          discount={discount}
-          handleOnApplyClick={handleOnApplyClick}
-        />
+        <DiscountInput handleOnApplyClick={handleOnApplyClick} />
+        <ApplyDiscountButton handleOnApplyClick={handleOnApplyClick} />
       </div>
-      {discount.error && (
-        <p className="ps-1 text-start text-red-500">{errorMessage}</p>
+      {couponErrorMessage && (
+        <p className="ps-1 text-start text-red-500">{couponErrorMessage}</p>
       )}
     </div>
   );
