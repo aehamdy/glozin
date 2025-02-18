@@ -97,6 +97,7 @@ export const CheckoutProvider = ({ children }) => {
     initialState
   );
   const { cartList, buyNowProduct, buyNowProductPrice } = useCart();
+  const couponCodeFieldErrorMessage = "Enter a valid coupon code";
 
   useEffect(() => {
     if (cartList.length > 0) {
@@ -177,6 +178,18 @@ export const CheckoutProvider = ({ children }) => {
       });
     }
   }, [checkoutState.shippingFees]);
+
+  useEffect(() => {
+    if (!checkoutState.isCouponCodeAvailable) {
+      dispatchCheckout({ type: SET_DISCOUNT_AMOUNT, payload: null });
+      dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: null });
+      dispatchCheckout({ type: SET_USED_COUPON_CODE, payload: "" });
+      dispatchCheckout({
+        type: SET_COUPON_ERROR_MESSAGE,
+        payload: couponCodeFieldErrorMessage,
+      });
+    }
+  }, [checkoutState.isCouponCodeAvailable]);
 
   return (
     <CheckoutContext.Provider
