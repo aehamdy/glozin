@@ -30,7 +30,7 @@ const initialState = {
   shippingFees: null,
   isEligibleForFreeShipping: false,
   discountedShippingFees: null,
-  isCouponCodeAvailable: false,
+  isCouponCodeAvailable: "",
   enteredCouponCode: "",
   usedCouponCode: "",
   discountAmount: 0,
@@ -94,6 +94,7 @@ export const CheckoutProvider = ({ children }) => {
   const { cartList, buyNowProduct, buyNowProductPrice } = useCart();
   const couponCodeFieldErrorMessage = "Enter a valid coupon code";
 
+  // set subtotal when cartlist has more than one item
   useEffect(() => {
     if (cartList.length > 0) {
       dispatchCheckout({
@@ -103,6 +104,18 @@ export const CheckoutProvider = ({ children }) => {
     }
   }, [cartList]);
 
+  // Adjust free shipping eligibility acorrding to subtotal amount
+  useEffect(() => {
+    if (checkoutState.subtotal >= FREE_SHIPPING_THRESHOLD) {
+      dispatchCheckout({ type: SET_FREE_SHIPPING, payload: true });
+      dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: 0 });
+    } else {
+      dispatchCheckout({ type: SET_FREE_SHIPPING, payload: false });
+      dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: null });
+    }
+  }, [checkoutState.subtotal]);
+
+  //
   useEffect(() => {
     if (
       !checkoutState.isEligibleForFreeShipping &&
@@ -133,16 +146,7 @@ export const CheckoutProvider = ({ children }) => {
     checkoutState.discountedShippingFees,
   ]);
 
-  useEffect(() => {
-    if (checkoutState.subtotal >= FREE_SHIPPING_THRESHOLD) {
-      dispatchCheckout({ type: SET_FREE_SHIPPING, payload: true });
-      dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: 0 });
-    } else {
-      dispatchCheckout({ type: SET_FREE_SHIPPING, payload: false });
-      dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: null });
-    }
-  }, [checkoutState.subtotal]);
-
+  // Adjust total calculations depending on buy now product existance
   useEffect(() => {
     if (buyNowProduct) {
       dispatchCheckout({
@@ -161,6 +165,7 @@ export const CheckoutProvider = ({ children }) => {
     }
   }, [buyNowProduct]);
 
+  // Adjust total calculations depending on shipping fees
   useEffect(() => {
     if (checkoutState.shippingFees) {
       dispatchCheckout({
@@ -174,37 +179,41 @@ export const CheckoutProvider = ({ children }) => {
     }
   }, [checkoutState.shippingFees]);
 
+  // Adjust discount according to entered discount code
   useEffect(() => {
     if (checkoutState.isCouponCodeAvailable) {
       dispatchCheckout({ type: SET_COUPON_ERROR_MESSAGE, payload: "" });
 
       if (
         checkoutState.usedCouponCode &&
-        checkoutState.usedCouponCode.label.toLowerCase() === "free shipping"
+        checkoutState.usedCouponCode?.label.toLowerCase() === "free shipping"
       ) {
         dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: 0 });
         dispatchCheckout({
           type: SET_TOTAL,
           payload:
-            checkoutState.subtotal + checkoutState.discountedShippingFees,
+            +checkoutState.subtotal + checkoutState.discountedShippingFees,
         });
-      } else {
+      } else if (checkoutState.usedCouponCode) {
         dispatchCheckout({
           type: SET_DISCOUNT_AMOUNT,
           payload: checkoutState.usedCouponCode.discountAmount,
         });
+
+        const newDiscountedSubtotal =
+          +checkoutState.subtotal * (+checkoutState.discountAmount / 100);
+        const discountedSubtotal = +newDiscountedSubtotal.toFixed(2);
+
         dispatchCheckout({
           type: SET_DISCOUNTED_SUBTOTAL,
-          payload:
-            (checkoutState.subtotal * checkoutState.discountAmount) / 100,
+          payload: discountedSubtotal,
         });
         dispatchCheckout({
           type: SET_TOTAL,
-          payload:
-            checkoutState.discountedSubtotal + checkoutState.shippingFees,
+          payload: discountedSubtotal + +checkoutState.shippingFees, // Use the newly calculated value
         });
       }
-    } else if (!checkoutState.isCouponCodeAvailable) {
+    } else if (checkoutState.isCouponCodeAvailable === false) {
       dispatchCheckout({ type: SET_DISCOUNT_AMOUNT, payload: null });
       dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: null });
       dispatchCheckout({ type: SET_USED_COUPON_CODE, payload: "" });
