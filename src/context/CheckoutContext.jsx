@@ -222,7 +222,12 @@ export const CheckoutProvider = ({ children }) => {
         payload: couponCodeFieldErrorMessage,
       });
     }
-  }, [checkoutState.isCouponCodeAvailable]);
+  }, [
+    checkoutState.isCouponCodeAvailable,
+    checkoutState.subtotal,
+    checkoutState.usedCouponCode,
+    checkoutState.discountAmount,
+  ]);
 
   return (
     <CheckoutContext.Provider
