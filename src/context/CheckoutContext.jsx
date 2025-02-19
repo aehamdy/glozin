@@ -201,16 +201,16 @@ export const CheckoutProvider = ({ children }) => {
         });
 
         const newDiscountedSubtotal =
-          +checkoutState.subtotal * (+checkoutState.discountAmount / 100);
-        const discountedSubtotal = +newDiscountedSubtotal.toFixed(2);
+          +checkoutState.subtotal -
+          (+checkoutState.subtotal * +checkoutState.discountAmount) / 100;
 
         dispatchCheckout({
           type: SET_DISCOUNTED_SUBTOTAL,
-          payload: discountedSubtotal,
+          payload: newDiscountedSubtotal,
         });
         dispatchCheckout({
           type: SET_TOTAL,
-          payload: discountedSubtotal + +checkoutState.shippingFees, // Use the newly calculated value
+          payload: newDiscountedSubtotal + +checkoutState.shippingFees, // Use the newly calculated value
         });
       }
     } else if (checkoutState.isCouponCodeAvailable === false) {
