@@ -38,6 +38,8 @@ const initialState = {
 };
 
 const checkoutReducer = (state, action) => {
+  let value;
+
   switch (action.type) {
     case SET_SUBTOTAL:
       return {
@@ -49,7 +51,8 @@ const checkoutReducer = (state, action) => {
       return { ...state, discountedSubtotal: action.payload };
 
     case SET_TOTAL:
-      return { ...state, total: action.payload };
+      value = action.payload.toFixed(2);
+      return { ...state, total: value };
 
     case SET_BUY_NOW_PRODUCT_PRICE:
       return { ...state, buyNowProductPrice: action.payload };
