@@ -3,7 +3,12 @@ import { useCheckout } from "../context/CheckoutContext";
 
 /* eslint-disable react/prop-types */
 function DiscountInput({ handleOnApplyClick }) {
-  const { dispatchCheckout, enteredCouponCode, discountError } = useCheckout();
+  const {
+    dispatchCheckout,
+    enteredCouponCode,
+    usedCouponCode,
+    couponErrorMessage,
+  } = useCheckout();
 
   const onInputChange = (e) => {
     dispatchCheckout({
@@ -27,7 +32,9 @@ function DiscountInput({ handleOnApplyClick }) {
         onKeyUp={handleEnterKeyPress}
         value={enteredCouponCode}
         className={`w-8/12 md:w-1/2 lg:w-3/5 py-3 px-2 font-medium placeholder:font-normal text-black placeholder:text-price-originalPrice bg-white border-2 ${
-          discountError && "border-red-400 focus:border-red-400"
+          couponErrorMessage
+            ? "border-red-400 focus:border-red-400"
+            : usedCouponCode && "border-green-500 focus:border-green-500"
         } focus:border-blue-500 outline-none rounded-md`}
       />
     </>
