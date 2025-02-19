@@ -51,7 +51,7 @@ const checkoutReducer = (state, action) => {
       return { ...state, discountedSubtotal: action.payload };
 
     case SET_TOTAL:
-      value = action.payload.toFixed(2);
+      value = action.payload;
       return { ...state, total: value };
 
     case SET_BUY_NOW_PRODUCT_PRICE:
@@ -206,11 +206,41 @@ export const CheckoutProvider = ({ children }) => {
         checkoutState.usedCouponCode &&
         checkoutState.usedCouponCode?.type.toLowerCase() === "free_shipping"
       ) {
-        dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: 0 });
+        if (buyNowProduct) {
+          dispatchCheckout({
+            type: SET_DISCOUNTED_SHIPPING_FEES,
+            payload: 0,
+          });
+          dispatchCheckout({
+            type: SET_TOTAL,
+            payload: buyNowProductPrice + checkoutState.discountedShippingFees,
+          });
+        } else {
+          dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: 0 });
+          dispatchCheckout({
+            type: SET_TOTAL,
+            payload:
+              +checkoutState.subtotal + checkoutState.discountedShippingFees,
+          });
+        }
+      } else if (buyNowProduct && checkoutState.usedCouponCode) {
+        dispatchCheckout({
+          type: SET_DISCOUNT_AMOUNT,
+          payload: checkoutState.usedCouponCode.discountAmount,
+        });
+
+        const newDiscountedSubtotal =
+          +checkoutState.buyNowProductPrice -
+          (+checkoutState.buyNowProductPrice * +checkoutState.discountAmount) /
+            100;
+
+        dispatchCheckout({
+          type: SET_DISCOUNTED_SUBTOTAL,
+          payload: newDiscountedSubtotal,
+        });
         dispatchCheckout({
           type: SET_TOTAL,
-          payload:
-            +checkoutState.subtotal + checkoutState.discountedShippingFees,
+          payload: newDiscountedSubtotal + +checkoutState.shippingFees,
         });
       } else if (checkoutState.usedCouponCode) {
         dispatchCheckout({
@@ -231,6 +261,11 @@ export const CheckoutProvider = ({ children }) => {
           payload: newDiscountedSubtotal + +checkoutState.shippingFees,
         });
       }
+    } else if (buyNowProduct && checkoutState.isCouponCodeAvailable === false) {
+      dispatchCheckout({
+        type: SET_TOTAL,
+        payload: buyNowProductPrice + checkoutState.shippingFees,
+      });
     } else if (checkoutState.isCouponCodeAvailable === false) {
       resetCouponState();
     }
