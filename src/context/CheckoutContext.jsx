@@ -37,33 +37,35 @@ const initialState = {
   couponErrorMessage: "",
 };
 
+const roundToTwoDecimals = (value) => Number(value.toFixed(2));
+
 const checkoutReducer = (state, action) => {
   switch (action.type) {
     case SET_SUBTOTAL:
       return {
         ...state,
-        subtotal: calculateCartTotal(action.payload),
+        subtotal: roundToTwoDecimals(calculateCartTotal(action.payload)),
       };
 
     case SET_DISCOUNTED_SUBTOTAL:
       return {
         ...state,
-        discountedSubtotal: action.payload,
+        discountedSubtotal: roundToTwoDecimals(action.payload),
       };
 
     case SET_TOTAL:
-      return { ...state, total: action.payload };
+      return { ...state, total: roundToTwoDecimals(action.payload) };
 
     case SET_BUY_NOW_PRODUCT_PRICE:
       return {
         ...state,
-        buyNowProductPrice: action.payload,
+        buyNowProductPrice: roundToTwoDecimals(action.payload),
       };
 
     case SET_SHIPPING_FEES:
       return {
         ...state,
-        shippingFees: action.payload,
+        shippingFees: roundToTwoDecimals(action.payload),
       };
 
     case SET_FREE_SHIPPING:
