@@ -22,6 +22,7 @@ function DiscountSection() {
 
     if (!discountCode || !discountCode.active) {
       dispatchCheckout({ type: SET_COUPON_CODE_AVAILABILITY, payload: false });
+      dispatchCheckout({ type: SET_USED_COUPON_CODE, payload: "" });
     } else {
       dispatchCheckout({ type: SET_COUPON_CODE_AVAILABILITY, payload: true });
       dispatchCheckout({ type: SET_USED_COUPON_CODE, payload: discountCode });
