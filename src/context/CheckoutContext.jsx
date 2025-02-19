@@ -44,7 +44,7 @@ const checkoutReducer = (state, action) => {
     case SET_SUBTOTAL:
       return {
         ...state,
-        subtotal: roundToTwoDecimals(calculateCartTotal(action.payload)),
+        subtotal: calculateCartTotal(action.payload),
       };
 
     case SET_DISCOUNTED_SUBTOTAL:
@@ -107,6 +107,7 @@ export const CheckoutProvider = ({ children }) => {
     dispatchCheckout({ type: SET_DISCOUNT_AMOUNT, payload: null });
     dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: null });
     dispatchCheckout({ type: SET_USED_COUPON_CODE, payload: "" });
+    dispatchCheckout({ type: SET_COUPON_CODE_AVAILABILITY, payload: "" });
     dispatchCheckout({
       type: SET_COUPON_ERROR_MESSAGE,
       payload: couponCodeFieldErrorMessage,
@@ -208,9 +209,12 @@ export const CheckoutProvider = ({ children }) => {
         checkoutState.usedCouponCode?.type.toLowerCase() === "free_shipping"
       ) {
         if (buyNowProduct) {
-          resetCouponState();
           dispatchCheckout({
             type: SET_DISCOUNTED_SHIPPING_FEES,
+            payload: 0,
+          });
+          dispatchCheckout({
+            type: SET_DISCOUNTED_SUBTOTAL,
             payload: 0,
           });
           dispatchCheckout({
@@ -267,8 +271,9 @@ export const CheckoutProvider = ({ children }) => {
           payload: newDiscountedSubtotal + checkoutState.shippingFees,
         });
       }
-    } else if (buyNowProduct && checkoutState.isCouponCodeAvailable === false) {
+    } else if (buyNowProduct && !checkoutState.isCouponCodeAvailable) {
       resetCouponState();
+      dispatchCheckout({ type: SET_SUBTOTAL, payload: buyNowProductPrice });
       dispatchCheckout({
         type: SET_TOTAL,
         payload: buyNowProductPrice + checkoutState.shippingFees,
