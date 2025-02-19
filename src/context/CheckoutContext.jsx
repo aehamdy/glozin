@@ -186,7 +186,7 @@ export const CheckoutProvider = ({ children }) => {
 
       if (
         checkoutState.usedCouponCode &&
-        checkoutState.usedCouponCode?.label.toLowerCase() === "free shipping"
+        checkoutState.usedCouponCode?.type.toLowerCase() === "free_shipping"
       ) {
         dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: 0 });
         dispatchCheckout({
