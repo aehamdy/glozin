@@ -97,6 +97,21 @@ export const CheckoutProvider = ({ children }) => {
   const { cartList, buyNowProduct, buyNowProductPrice } = useCart();
   const couponCodeFieldErrorMessage = "Enter a valid coupon code";
 
+  const resetCouponState = () => {
+    dispatchCheckout({ type: SET_DISCOUNTED_SUBTOTAL, payload: 0 });
+    dispatchCheckout({
+      type: SET_TOTAL,
+      payload: +checkoutState.subtotal + +checkoutState.shippingFees,
+    });
+    dispatchCheckout({ type: SET_DISCOUNT_AMOUNT, payload: null });
+    dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: null });
+    dispatchCheckout({ type: SET_USED_COUPON_CODE, payload: "" });
+    dispatchCheckout({
+      type: SET_COUPON_ERROR_MESSAGE,
+      payload: couponCodeFieldErrorMessage,
+    });
+  };
+
   // set subtotal when cartlist has more than one item
   useEffect(() => {
     if (cartList.length > 0) {
@@ -217,18 +232,7 @@ export const CheckoutProvider = ({ children }) => {
         });
       }
     } else if (checkoutState.isCouponCodeAvailable === false) {
-      dispatchCheckout({ type: SET_DISCOUNTED_SUBTOTAL, payload: 0 });
-      dispatchCheckout({
-        type: SET_TOTAL,
-        payload: +checkoutState.subtotal + +checkoutState.shippingFees,
-      });
-      dispatchCheckout({ type: SET_DISCOUNT_AMOUNT, payload: null });
-      dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: null });
-      dispatchCheckout({ type: SET_USED_COUPON_CODE, payload: "" });
-      dispatchCheckout({
-        type: SET_COUPON_ERROR_MESSAGE,
-        payload: couponCodeFieldErrorMessage,
-      });
+      resetCouponState();
     }
   }, [
     checkoutState.isCouponCodeAvailable,
