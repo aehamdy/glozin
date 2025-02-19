@@ -208,6 +208,7 @@ export const CheckoutProvider = ({ children }) => {
         checkoutState.usedCouponCode?.type.toLowerCase() === "free_shipping"
       ) {
         if (buyNowProduct) {
+          resetCouponState();
           dispatchCheckout({
             type: SET_DISCOUNTED_SHIPPING_FEES,
             payload: 0,
@@ -225,6 +226,10 @@ export const CheckoutProvider = ({ children }) => {
           });
         }
       } else if (buyNowProduct && checkoutState.usedCouponCode) {
+        dispatchCheckout({
+          type: SET_DISCOUNTED_SHIPPING_FEES,
+          payload: null,
+        });
         dispatchCheckout({
           type: SET_DISCOUNT_AMOUNT,
           payload: checkoutState.usedCouponCode.discountAmount,
