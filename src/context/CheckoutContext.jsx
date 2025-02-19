@@ -40,11 +40,14 @@ const initialState = {
 const roundToTwoDecimals = (value) => Number(value.toFixed(2));
 
 const checkoutReducer = (state, action) => {
+  let value;
+
   switch (action.type) {
     case SET_SUBTOTAL:
+      value = calculateCartTotal(action.payload);
       return {
         ...state,
-        subtotal: calculateCartTotal(action.payload),
+        subtotal: roundToTwoDecimals(value),
       };
 
     case SET_DISCOUNTED_SUBTOTAL:
