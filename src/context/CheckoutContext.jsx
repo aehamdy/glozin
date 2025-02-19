@@ -213,10 +213,15 @@ export const CheckoutProvider = ({ children }) => {
         });
         dispatchCheckout({
           type: SET_TOTAL,
-          payload: newDiscountedSubtotal + +checkoutState.shippingFees, // Use the newly calculated value
+          payload: newDiscountedSubtotal + +checkoutState.shippingFees,
         });
       }
     } else if (checkoutState.isCouponCodeAvailable === false) {
+      dispatchCheckout({ type: SET_DISCOUNTED_SUBTOTAL, payload: 0 });
+      dispatchCheckout({
+        type: SET_TOTAL,
+        payload: +checkoutState.subtotal + +checkoutState.shippingFees,
+      });
       dispatchCheckout({ type: SET_DISCOUNT_AMOUNT, payload: null });
       dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: null });
       dispatchCheckout({ type: SET_USED_COUPON_CODE, payload: "" });
