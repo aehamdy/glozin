@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import ApplyDiscountButton from "./ApplyDiscountButton";
 import DiscountInput from "./DiscountInput";
 import discountCodes from "../data/discountCodes";
@@ -14,23 +13,19 @@ function DiscountSection() {
 
   const checkCodeAvailability = () => {
     return discountCodes.find(
-      (code) =>
-        code.code.toLowerCase() === enteredCouponCode.toLowerCase() &&
-        code.active
+      (coupon) => coupon.code.toLowerCase() === enteredCouponCode.toLowerCase()
     );
   };
 
   const handleOnApplyClick = () => {
-    const availableCode = checkCodeAvailability();
+    const discountCode = checkCodeAvailability();
 
-    if (availableCode) {
-      dispatchCheckout({ type: SET_COUPON_CODE_AVAILABILITY, payload: true });
-      dispatchCheckout({ type: SET_USED_COUPON_CODE, payload: availableCode });
-    } else {
+    if (!discountCode || !discountCode.active) {
       dispatchCheckout({ type: SET_COUPON_CODE_AVAILABILITY, payload: false });
+    } else {
+      dispatchCheckout({ type: SET_COUPON_CODE_AVAILABILITY, payload: true });
+      dispatchCheckout({ type: SET_USED_COUPON_CODE, payload: discountCode });
     }
-
-    return availableCode;
   };
 
   return (
