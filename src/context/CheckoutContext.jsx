@@ -46,18 +46,24 @@ const checkoutReducer = (state, action) => {
       };
 
     case SET_DISCOUNTED_SUBTOTAL:
-      return { ...state, discountedSubtotal: action.payload };
+      return {
+        ...state,
+        discountedSubtotal: action.payload,
+      };
 
     case SET_TOTAL:
       return { ...state, total: action.payload };
 
     case SET_BUY_NOW_PRODUCT_PRICE:
-      return { ...state, buyNowProductPrice: action.payload };
+      return {
+        ...state,
+        buyNowProductPrice: action.payload,
+      };
 
     case SET_SHIPPING_FEES:
       return {
         ...state,
-        shippingFees: +action.payload,
+        shippingFees: action.payload,
       };
 
     case SET_FREE_SHIPPING:
@@ -135,8 +141,8 @@ export const CheckoutProvider = ({ children }) => {
       dispatchCheckout({
         type: SET_TOTAL,
         payload: checkoutState.shippingFees
-          ? +checkoutState.shippingFees + +checkoutState.subtotal
-          : +checkoutState.subtotal,
+          ? checkoutState.shippingFees + checkoutState.subtotal
+          : checkoutState.subtotal,
       });
     } else if (
       checkoutState.isEligibleForFreeShipping &&
@@ -182,7 +188,7 @@ export const CheckoutProvider = ({ children }) => {
       dispatchCheckout({
         type: SET_TOTAL,
         payload:
-          (buyNowProductPrice ? buyNowProductPrice : +checkoutState.subtotal) +
+          (buyNowProductPrice ? buyNowProductPrice : checkoutState.subtotal) +
           (checkoutState.discountedShippingFees !== null
             ? +checkoutState.discountedShippingFees
             : +checkoutState.shippingFees),
@@ -213,7 +219,7 @@ export const CheckoutProvider = ({ children }) => {
           dispatchCheckout({
             type: SET_TOTAL,
             payload:
-              +checkoutState.subtotal + checkoutState.discountedShippingFees,
+              checkoutState.subtotal + checkoutState.discountedShippingFees,
           });
         }
       } else if (buyNowProduct && checkoutState.usedCouponCode) {
@@ -223,8 +229,8 @@ export const CheckoutProvider = ({ children }) => {
         });
 
         const newDiscountedSubtotal =
-          +checkoutState.buyNowProductPrice -
-          (+checkoutState.buyNowProductPrice * +checkoutState.discountAmount) /
+          checkoutState.buyNowProductPrice -
+          (checkoutState.buyNowProductPrice * checkoutState.discountAmount) /
             100;
 
         dispatchCheckout({
@@ -233,7 +239,7 @@ export const CheckoutProvider = ({ children }) => {
         });
         dispatchCheckout({
           type: SET_TOTAL,
-          payload: newDiscountedSubtotal + +checkoutState.shippingFees,
+          payload: newDiscountedSubtotal + checkoutState.shippingFees,
         });
       } else if (checkoutState.usedCouponCode) {
         dispatchCheckout({
@@ -243,7 +249,7 @@ export const CheckoutProvider = ({ children }) => {
 
         const newDiscountedSubtotal =
           +checkoutState.subtotal -
-          (+checkoutState.subtotal * +checkoutState.discountAmount) / 100;
+          (+checkoutState.subtotal * checkoutState.discountAmount) / 100;
 
         dispatchCheckout({
           type: SET_DISCOUNTED_SUBTOTAL,
@@ -251,7 +257,7 @@ export const CheckoutProvider = ({ children }) => {
         });
         dispatchCheckout({
           type: SET_TOTAL,
-          payload: newDiscountedSubtotal + +checkoutState.shippingFees,
+          payload: newDiscountedSubtotal + checkoutState.shippingFees,
         });
       }
     } else if (buyNowProduct && checkoutState.isCouponCodeAvailable === false) {
@@ -264,7 +270,7 @@ export const CheckoutProvider = ({ children }) => {
       resetCouponState();
       dispatchCheckout({
         type: SET_TOTAL,
-        payload: +checkoutState.subtotal + +checkoutState.shippingFees,
+        payload: checkoutState.subtotal + checkoutState.shippingFees,
       });
     }
   }, [
