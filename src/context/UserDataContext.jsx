@@ -92,34 +92,23 @@ export const UserDataProvider = ({ children }) => {
   }, [userDataState.shippingCost]);
 
   useEffect(() => {
-    if (
-      userDataState.email &&
-      userDataState.deliveryMethod &&
-      userDataState.country &&
-      userDataState.firstName &&
-      userDataState.lastName &&
-      userDataState.address &&
-      userDataState.apartment &&
-      userDataState.city &&
-      userDataState.zipCode &&
-      userDataState.shippingCost
-    ) {
-      dispatchUserData({ type: SET_IS_USER_DATA_VALID, payload: true });
-    } else {
-      dispatchUserData({ type: SET_IS_USER_DATA_VALID, payload: false });
+    const isValid = Object.values({
+      email: userDataState.email,
+      deliveryMethod: userDataState.deliveryMethod,
+      country: userDataState.country,
+      firstName: userDataState.firstName,
+      lastName: userDataState.lastName,
+      address: userDataState.address,
+      apartment: userDataState.apartment,
+      city: userDataState.city,
+      zipCode: userDataState.zipCode,
+      shippingCost: userDataState.shippingCost,
+    }).every(Boolean);
+
+    if (userDataState.isUserDataValid !== isValid) {
+      dispatchUserData({ type: SET_IS_USER_DATA_VALID, payload: isValid });
     }
-  }, [
-    userDataState.email,
-    userDataState.deliveryMethod,
-    userDataState.country,
-    userDataState.firstName,
-    userDataState.lastName,
-    userDataState.address,
-    userDataState.apartment,
-    userDataState.city,
-    userDataState.zipCode,
-    userDataState.shippingCost,
-  ]);
+  }, [userDataState]);
 
   return (
     <UserDataContext.Provider
@@ -135,6 +124,7 @@ export const UserDataProvider = ({ children }) => {
         cityValue: userDataState.city,
         zipCodeValue: userDataState.zipCode,
         shippingCost: userDataState.shippingCost,
+        isUserDataValid: userDataState.isUserDataValid,
       }}
     >
       {children}
