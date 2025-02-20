@@ -10,6 +10,7 @@ import {
   SET_DELIVERY_METHOD,
   SET_EMAIL,
   SET_FIRST_NAME,
+  SET_IS_USER_DATA_VALID,
   SET_LAST_NAME,
   SET_SHIPPING_COST,
   SET_SHIPPING_FEES,
@@ -31,6 +32,7 @@ const initialState = {
   zipCode: "",
   shippingCost: null,
   isCouponUsed: false,
+  isUserDataValid: false,
 };
 
 const userDataReducer = (state, action) => {
@@ -64,6 +66,9 @@ const userDataReducer = (state, action) => {
 
     case SET_SHIPPING_COST:
       return { ...state, shippingCost: action.payload };
+
+    case SET_IS_USER_DATA_VALID:
+      return { ...state, isUserDataValid: action.payload };
 
     default:
       return state;
