@@ -31,3 +31,4 @@ export const SET_CITY = "SET_CITY";
 export const SET_ZIP_CODE = "SET_ZIP_CODE";
 export const SET_SHIPPING_COST = "SET_SHIPPING_COST";
 export const SET_IS_COUPON_USED = "SET_IS_COUPON_USED";
+export const SET_IS_USER_DATA_VALID = "SET_IS_USER_DATA_VALID";
