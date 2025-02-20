@@ -4,8 +4,8 @@ import storeData from "../data/storeData";
 
 function OrderConfirmation() {
   return (
-    <section className="h-[86dvh] py-10 px-4 bg-emerald-600">
-      <div className="flex flex-col items-center gap-3 lg:w-3/4 lg:mx-auto">
+    <section className="py-10 px-4 bg-emerald-600">
+      <div className="flex flex-col items-center gap-0 lg:w-3/4 lg:mx-auto">
         <div className="flex flex-col gap-3">
           <h2 className="font-bold text-4xl">
             Woohoo! Your order is confirmed.
@@ -19,8 +19,8 @@ function OrderConfirmation() {
           </p>
           <div>
             <p className="">
-              Delivery time are estimated. If you&apos;re experiencing with this
-              order.
+              Delivery times are estimated. If you&apos;re experiencing
+              difficulty with this order.
             </p>
             <p>
               Please{" "}
@@ -31,16 +31,14 @@ function OrderConfirmation() {
           </div>
         </div>
 
-        <div>
-          <h3>Order Details</h3>
-          <div className="flex gap-2">
-            <p>Order Number:</p>
-            <h4>#RandomNumber</h4>
+        <div className="my-4">
+          <h3 className="mb-2 font-semibold text-2xl">Order Details</h3>
+          <div className="flex gap-2 p-2 font-semibold text-zinc-900 bg-yellow-300 rounded-md">
+            <p className="">Order Number:</p>
+            <h4 className="font-light">#1234</h4>
           </div>
         </div>
       </div>
-
-      <div>order details</div>
     </section>
   );
 }
