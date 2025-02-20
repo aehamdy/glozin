@@ -2,7 +2,6 @@
 import DeliveryMethodSelector from "./DeliveryMethodSelector";
 import PaymentStatus from "./PaymentStatus";
 import StoreLocations from "./StoreLocations";
-import StoreNotification from "./StoreNotification";
 import FormInput from "./FormInput";
 import OrderDetailsForm from "./OrderDetailsForm";
 import { useUserData } from "../context/UserDataContext";
@@ -11,9 +10,8 @@ function CheckoutFormSection({ contact, setContact }) {
   const { emailValue, deliveryMethodValue } = useUserData();
 
   return (
-    <div className="col-span-6 order-2 lg:order-none p-5 lg:px-8">
+    <div className="col-span-6 order-2 lg:order-none p-4 lg:px-8">
       <div className="flex flex-col items-start">
-        <StoreNotification alert="error" message="payment unavailable" />
         <form
           action=""
           className="part-1 flex flex-col items-start gap-4 w-full mt-6"
@@ -38,7 +36,6 @@ function CheckoutFormSection({ contact, setContact }) {
             deliveryMethodValue === "pick-in-store" && <StoreLocations />
           )}
           <PaymentStatus />
-          <StoreNotification alert="error" message="payment unavailable" />
           <input
             type="submit"
             value="Pay now"
