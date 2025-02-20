@@ -91,6 +91,36 @@ export const UserDataProvider = ({ children }) => {
     }
   }, [userDataState.shippingCost]);
 
+  useEffect(() => {
+    if (
+      userDataState.email &&
+      userDataState.deliveryMethod &&
+      userDataState.country &&
+      userDataState.firstName &&
+      userDataState.lastName &&
+      userDataState.address &&
+      userDataState.apartment &&
+      userDataState.city &&
+      userDataState.zipCode &&
+      userDataState.shippingCost
+    ) {
+      dispatchUserData({ type: SET_IS_USER_DATA_VALID, payload: true });
+    } else {
+      dispatchUserData({ type: SET_IS_USER_DATA_VALID, payload: false });
+    }
+  }, [
+    userDataState.email,
+    userDataState.deliveryMethod,
+    userDataState.country,
+    userDataState.firstName,
+    userDataState.lastName,
+    userDataState.address,
+    userDataState.apartment,
+    userDataState.city,
+    userDataState.zipCode,
+    userDataState.shippingCost,
+  ]);
+
   return (
     <UserDataContext.Provider
       value={{
