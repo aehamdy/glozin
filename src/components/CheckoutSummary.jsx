@@ -21,8 +21,8 @@ function CheckoutSummary() {
   }, [cartList]);
 
   const shippingMessage =
-    isEligibleForFreeShipping ||
-    (discountedShippingFees === 0 && "You’ve got free shipping");
+    (isEligibleForFreeShipping || discountedShippingFees === 0) &&
+    "You’ve got free shipping";
 
   const shippingCost =
     // discountedShippingFees === 0 ||
