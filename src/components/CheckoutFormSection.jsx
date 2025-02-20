@@ -5,6 +5,7 @@ import StoreLocations from "./StoreLocations";
 import FormInput from "./FormInput";
 import OrderDetailsForm from "./OrderDetailsForm";
 import { useUserData } from "../context/UserDataContext";
+import PlaceOrderButton from "./PlaceOrderButton";
 
 function CheckoutFormSection({ contact, setContact }) {
   const { emailValue, deliveryMethodValue } = useUserData();
@@ -36,12 +37,7 @@ function CheckoutFormSection({ contact, setContact }) {
             deliveryMethodValue === "pick-in-store" && <StoreLocations />
           )}
           <PaymentStatus />
-          <input
-            type="submit"
-            value="Pay now"
-            className="w-full mt-4 py-3 font-semibold text-lg text-[#707070] bg-cloud-gray"
-            disabled
-          />
+          <PlaceOrderButton />
         </form>
       </div>
     </div>
