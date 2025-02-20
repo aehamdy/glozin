@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import ROUTES from "../config/routes";
+import storeData from "../data/storeData";
+
 function OrderConfirmation() {
   return (
     <section className="h-[86dvh] py-10 px-4 bg-emerald-600">
@@ -7,8 +11,11 @@ function OrderConfirmation() {
             Woohoo! Your order is confirmed.
           </h2>
           <p className="text-lg">
-            <span className="font-bold">Glozin</span> will start working on this
-            right away.
+            <span className="font-bold">
+              {storeData.name.charAt(0).toUpperCase() +
+                storeData.name.slice(1).toLowerCase()}
+            </span>{" "}
+            will start working on this right away.
           </p>
           <div>
             <p className="">
@@ -16,7 +23,10 @@ function OrderConfirmation() {
               order.
             </p>
             <p>
-              Please <span className="underline">Contact us</span>
+              Please{" "}
+              <Link to={ROUTES.CONTACT} className="underline">
+                Contact us
+              </Link>
             </p>
           </div>
         </div>
