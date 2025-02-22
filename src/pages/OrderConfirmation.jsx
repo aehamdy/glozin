@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import ROUTES from "../config/routes";
 import storeData from "../data/storeData";
 import { useCart } from "../context/CartContext";
-import ProductCardInCheckout from "../components/ProductCardInCheckout";
 import { useCheckout } from "../context/CheckoutContext";
 import { useUserData } from "../context/UserDataContext";
 
@@ -123,7 +122,21 @@ function OrderConfirmation() {
         <div className="flex flex-col  py-5 px-4 md:px-6 text-sm md:text-base bg-slate-50 shadow-2xl rounded-md">
           <div className="flex flex-col">
             {buyNowProduct ? (
-              <ProductCardInCheckout product={buyNowProduct} />
+              <article className={`flex gap-3 py-3 border-b`}>
+                <div className="w-[70px] border border-gray-300 rounded-md">
+                  <img
+                    src={buyNowProduct.images[0]}
+                    alt={`${buyNowProduct.title} image`}
+                  />
+                </div>
+                <div className="flex justify-between w-full">
+                  <span className="w-[160px] text-start">
+                    {buyNowProduct.title}
+                  </span>
+                  <span className="">1x</span>
+                  <span>$ {buyNowProduct.price.toFixed(2)}</span>
+                </div>
+              </article>
             ) : (
               cartList?.map((product, index) => (
                 <article
@@ -142,7 +155,7 @@ function OrderConfirmation() {
                     <span className="w-[160px] text-start">
                       {product.title}
                     </span>
-                    <span className="">x{product.orderQuantity}</span>
+                    <span className="">{product.orderQuantity}x</span>
                     <span>$ {product.price.toFixed(2)}</span>
                   </div>
                 </article>
@@ -181,11 +194,11 @@ function OrderConfirmation() {
           <div className="flex justify-between items-center gap-3">
             <div className="flex flex-col md:flex-row items-center gap-3">
               <span className="font-semibold text-gray-700">Subtotal</span>
-              <span>$ {subtotal}</span>
+              <span>$ {buyNowProduct ? buyNowProduct.price : subtotal}</span>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-3">
               <span className="font-semibold text-gray-700">Shipping</span>
-              <span>${shippingFees}</span>
+              <span>$ {shippingFees}</span>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-3">
               <span className="font-semibold text-gray-700">Total:</span>
