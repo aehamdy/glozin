@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import ROUTES from "../config/routes";
 import storeData from "../data/storeData";
+import { useCart } from "../context/CartContext";
+import ProductCardInCheckout from "../components/ProductCardInCheckout";
 
 function OrderConfirmation() {
+  const { buyNowProduct, cartList } = useCart();
+
   return (
     <section className="py-10 px-4 bg-emerald-600">
       <div className="w-fit mx-auto">
@@ -97,6 +101,39 @@ function OrderConfirmation() {
           <div className="flex gap-2 p-2 font-semibold text-zinc-900 bg-yellow-300 rounded-md">
             <p className="">Order Number:</p>
             <h4 className="font-light">#1234</h4>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-3 md:w-3/4  mx-auto text-black">
+        <div className="flex flex-col  py-5 px-4 md:px-6 text-sm md:text-base bg-slate-50 shadow-2xl rounded-md">
+          <div className="flex flex-col">
+            {buyNowProduct ? (
+              <ProductCardInCheckout product={buyNowProduct} />
+            ) : (
+              cartList?.map((product, index) => (
+                <article
+                  key={index}
+                  className={`flex gap-3 py-3 border-b ${
+                    index === cartList.length - 1 && "border-none"
+                  }`}
+                >
+                  <div className="w-[70px] border border-gray-300 rounded-md">
+                    <img
+                      src={product.images[0]}
+                      alt={`${product.title} image`}
+                    />
+                  </div>
+                  <div className="flex justify-between w-full">
+                    <span className="w-[160px] text-start">
+                      {product.title}
+                    </span>
+                    <span className="">x{product.orderQuantity}</span>
+                    <span>$ {product.price.toFixed(2)}</span>
+                  </div>
+                </article>
+              ))
+            )}
           </div>
         </div>
       </div>
