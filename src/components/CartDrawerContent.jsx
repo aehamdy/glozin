@@ -4,8 +4,7 @@ import CartProductList from "./CartProductList";
 import EmptyCart from "./EmptyCart";
 
 function CartDrawerContent({ handleCloseCart }) {
-  const { cartState } = useCart();
-  const { cartList } = cartState;
+  const { cartList } = useCart();
 
   return (
     <div className="my-auto px-4">
