@@ -150,27 +150,29 @@ function OrderConfirmation() {
             )}
           </div>
 
-          <div className="flex flex-col text-start gap-2 mt-6 pt-5 bg-slate-50 border-t">
+          <div className="flex flex-col text-start gap-2 mt-6 pt-5 md:text-base bg-slate-50 border-t">
             <div className="flex justify-between">
               <div>
-                <span>Customer Name: </span>
+                <span className="font-semibold">Name: </span>
                 <span>{firstNameValue + " " + lastNameValue}</span>
               </div>
               <div className="">
-                <span>Order Date:</span>
+                <span className="font-semibold">Date: </span>
                 <span>April 16, 2025</span>
               </div>
             </div>
             <div>
-              <span>Payment Method: </span>
+              <span className="font-semibold">Payment Method: </span>
               <span>COD</span>
             </div>
-            <div className="flex">
-              <span>Shipping Details:</span>
-              <span>Address: {addressValue}</span>
-              <span>Apartment: {apartmentValue}</span>
-              <span>City: {cityValue}</span>
-              <span>Country: {countryValue}</span>
+            <div className="flex flex-col">
+              <span className="font-semibold">Shipping Details:</span>
+              <div className="flex flex-col lg:flex-row lg:gap-1">
+                <span>{addressValue},</span>
+                <span>{apartmentValue},</span>
+                <span>{cityValue},</span>
+                <span>{countryValue}.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -182,16 +184,12 @@ function OrderConfirmation() {
               <span>$ {subtotal}</span>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-3">
-              <span className="font-semibold text-gray-700">Discount</span>
-              <span>x%</span>
-            </div>
-            <div className="flex flex-col md:flex-row items-center gap-3">
               <span className="font-semibold text-gray-700">Shipping</span>
               <span>${shippingFees}</span>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-3">
               <span className="font-semibold text-gray-700">Total:</span>
-              <span>$ {total}</span>
+              <span className="font-semibold">$ {total}</span>
             </div>
           </div>
         </div>
