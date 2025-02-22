@@ -18,7 +18,15 @@ export const SET_ENTERED_COUPON_CODE = "SET_ENTERED_COUPON_CODE";
 export const SET_USED_COUPON_CODE = "SET_USED_COUPON_CODE";
 export const SET_COUPON_ERROR_MESSAGE = "SET_COUPON_ERROR_MESSAGE";
 export const SET_DISCOUNT_AMOUNT = "SET_DISCOUNT_AMOUNT";
-export const SET_ORDER_DATE = "SET_ORDER_DATE"
+export const SET_ORDER = {
+    items: "SET_ORDER_ITEMS",
+    subtotal: "SET_ORDER_SUBTOTAL",
+    shipping: "SET_ORDER_SHIPPING",
+    total: "SET_ORDER_TOTAL",
+    coupon: "SET_ORDER_COUPON",
+    discount: "SET_ORDER_DISCOUNT",
+    date: "SET_ORDER_DATE",
+}
 
 //UserData Action Types
 export const SET_EMAIL = "SET_EMAIL";
