@@ -11,6 +11,7 @@ import {
   SET_DISCOUNTED_SUBTOTAL,
   SET_ENTERED_COUPON_CODE,
   SET_FREE_SHIPPING,
+  SET_ORDER_DATE,
   SET_SHIPPING_FEES,
   SET_SUBTOTAL,
   SET_TOTAL,
@@ -35,6 +36,7 @@ const initialState = {
   usedCouponCode: "",
   discountAmount: 0,
   couponErrorMessage: "",
+  orderDate: "",
 };
 
 const roundToTwoDecimals = (value) => Number(value.toFixed(2));
@@ -91,6 +93,9 @@ const checkoutReducer = (state, action) => {
 
     case SET_DISCOUNT_AMOUNT:
       return { ...state, discountAmount: action.payload };
+
+    case SET_ORDER_DATE:
+      return { ...state, orderDate: action.payload };
 
     default:
       return state;
@@ -312,6 +317,7 @@ export const CheckoutProvider = ({ children }) => {
         usedCouponCode: checkoutState.usedCouponCode,
         discountAmount: checkoutState.discountAmount,
         couponErrorMessage: checkoutState.couponErrorMessage,
+        orderDate: checkoutState.orderDate,
       }}
     >
       {children}
