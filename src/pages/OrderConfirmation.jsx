@@ -8,7 +8,7 @@ import { useUserData } from "../context/UserDataContext";
 
 function OrderConfirmation() {
   const { buyNowProduct, cartList } = useCart();
-  const { subtotal, total, shippingFees } = useCheckout();
+  const { subtotal, total, shippingFees, orderDate } = useCheckout();
   const {
     countryValue,
     firstNameValue,
@@ -158,7 +158,7 @@ function OrderConfirmation() {
               </div>
               <div className="">
                 <span className="font-semibold">Date: </span>
-                <span>April 16, 2025</span>
+                <span>{orderDate}</span>
               </div>
             </div>
             <div>
