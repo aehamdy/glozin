@@ -18,7 +18,8 @@ function OrderConfirmation() {
   } = useUserData();
 
   return (
-    <section className="py-10 px-4 bg-emerald-600">
+    <section className="relative py-10 px-4 overflow-hidden">
+      <div className="absolute top-0 start-0 w-full h-full z-[-1] skew-y-[-45deg] sm:skew-y-[-40deg] md:skew-y-[-38deg] lg:skew-y-[-30deg] origin-top-left  bg-emerald-600"></div>
       <div className="w-fit mx-auto">
         <svg
           width="200"
@@ -118,8 +119,8 @@ function OrderConfirmation() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-3 md:w-3/4  mx-auto text-black">
-        <div className="flex flex-col  py-5 px-4 md:px-6 text-sm md:text-base bg-slate-50 shadow-2xl rounded-md">
+      <div className="order-details-shadow flex flex-col gap-3 md:w-3/4 my-4 mx-auto text-black">
+        <div className="order-details-shadow flex flex-col  py-5 px-4 md:px-6 text-sm md:text-base bg-slate-50 rounded-md">
           <div className="flex flex-col">
             {buyNowProduct ? (
               <article className={`flex gap-3 py-3 border-b`}>
