@@ -3,9 +3,11 @@ import ROUTES from "../config/routes";
 import storeData from "../data/storeData";
 import { useCart } from "../context/CartContext";
 import ProductCardInCheckout from "../components/ProductCardInCheckout";
+import { useCheckout } from "../context/CheckoutContext";
 
 function OrderConfirmation() {
   const { buyNowProduct, cartList } = useCart();
+  const { subtotal, total, shippingFees } = useCheckout();
 
   return (
     <section className="py-10 px-4 bg-emerald-600">
@@ -134,6 +136,27 @@ function OrderConfirmation() {
                 </article>
               ))
             )}
+          </div>
+        </div>
+
+        <div className="py-5 px-4 md:px-6 text-sm md:text-base bg-slate-50 shadow-2xl rounded-md">
+          <div className="flex justify-between items-center gap-3">
+            <div className="flex flex-col md:flex-row items-center gap-3">
+              <span className="font-semibold text-gray-700">Subtotal</span>
+              <span>$ {subtotal}</span>
+            </div>
+            <div className="flex flex-col md:flex-row items-center gap-3">
+              <span className="font-semibold text-gray-700">Discount</span>
+              <span>x%</span>
+            </div>
+            <div className="flex flex-col md:flex-row items-center gap-3">
+              <span className="font-semibold text-gray-700">Shipping</span>
+              <span>${shippingFees}</span>
+            </div>
+            <div className="flex flex-col md:flex-row items-center gap-3">
+              <span className="font-semibold text-gray-700">Total:</span>
+              <span>$ {total}</span>
+            </div>
           </div>
         </div>
       </div>
