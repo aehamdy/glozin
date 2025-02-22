@@ -100,7 +100,10 @@ function OrderConfirmation() {
             </p>
             <p>
               Please{" "}
-              <Link to={ROUTES.CONTACT} className="underline">
+              <Link
+                to={ROUTES.CONTACT}
+                className="hover:text-white active:text-yellow-500 underline duration-medium"
+              >
                 Contact us
               </Link>
             </p>
