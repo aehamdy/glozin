@@ -119,8 +119,8 @@ function OrderConfirmation() {
         </div>
       </div>
 
-      <div className="order-details-shadow flex flex-col gap-3 md:w-3/4 my-4 mx-auto text-black">
-        <div className="order-details-shadow flex flex-col  py-5 px-4 md:px-6 text-sm md:text-base bg-slate-50 rounded-md">
+      <div className="flex flex-col gap-8 md:w-3/4 my-4 mx-auto text-black">
+        <div className="flex flex-col  py-5 px-4 md:px-6 text-sm md:text-base bg-slate-50 rounded-md shadow-order-details">
           <div className="flex flex-col">
             {buyNowProduct ? (
               <article className={`flex gap-3 py-3 border-b`}>
@@ -191,7 +191,7 @@ function OrderConfirmation() {
           </div>
         </div>
 
-        <div className="py-5 px-4 md:px-6 text-sm md:text-base bg-slate-50 shadow-2xl rounded-md">
+        <div className="py-5 px-4 md:px-6 text-sm md:text-base bg-slate-50 shadow-order-details rounded-md">
           <div className="flex justify-between items-center gap-3">
             <div className="flex flex-col md:flex-row items-center gap-3">
               <span className="font-semibold text-gray-700">Subtotal</span>

@@ -66,6 +66,9 @@ export default {
         medium: "500ms",
         long: "700ms",
       },
+      boxShadow: {
+        'order-details': '0px 0px 40px 5px rgba(0,0,0,0.25)',
+      },
       keyframes: {
         'horizontal-text-move': {
           to: {transform: 'translateX(-33.33%)'}
