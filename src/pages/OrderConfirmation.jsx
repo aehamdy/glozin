@@ -4,10 +4,19 @@ import storeData from "../data/storeData";
 import { useCart } from "../context/CartContext";
 import ProductCardInCheckout from "../components/ProductCardInCheckout";
 import { useCheckout } from "../context/CheckoutContext";
+import { useUserData } from "../context/UserDataContext";
 
 function OrderConfirmation() {
   const { buyNowProduct, cartList } = useCart();
   const { subtotal, total, shippingFees } = useCheckout();
+  const {
+    countryValue,
+    firstNameValue,
+    lastNameValue,
+    addressValue,
+    apartmentValue,
+    cityValue,
+  } = useUserData();
 
   return (
     <section className="py-10 px-4 bg-emerald-600">
@@ -136,6 +145,30 @@ function OrderConfirmation() {
                 </article>
               ))
             )}
+          </div>
+
+          <div className="flex flex-col text-start gap-2 mt-6 pt-5 bg-slate-50 border-t">
+            <div className="flex justify-between">
+              <div>
+                <span>Customer Name: </span>
+                <span>{firstNameValue + " " + lastNameValue}</span>
+              </div>
+              <div className="">
+                <span>Order Date:</span>
+                <span>April 16, 2025</span>
+              </div>
+            </div>
+            <div>
+              <span>Payment Method: </span>
+              <span>COD</span>
+            </div>
+            <div className="flex">
+              <span>Shipping Details:</span>
+              <span>Address: {addressValue}</span>
+              <span>Apartment: {apartmentValue}</span>
+              <span>City: {cityValue}</span>
+              <span>Country: {countryValue}</span>
+            </div>
           </div>
         </div>
 
