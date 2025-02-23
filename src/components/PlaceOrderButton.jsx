@@ -4,7 +4,19 @@ import getNowDate from "../utils/getNowDate";
 import ROUTES from "../config/routes";
 import { useCheckout } from "../context/CheckoutContext";
 import { useCart } from "../context/CartContext";
-import { SET_ORDER } from "../constants/actionTypes";
+import {
+  SET_BUY_NOW_PRODUCT_PRICE,
+  SET_COUPON_CODE_AVAILABILITY,
+  SET_COUPON_ERROR_MESSAGE,
+  SET_DISCOUNT_AMOUNT,
+  SET_DISCOUNTED_SHIPPING_FEES,
+  SET_DISCOUNTED_SUBTOTAL,
+  SET_FREE_SHIPPING,
+  SET_ORDER,
+  SET_SUBTOTAL,
+  SET_TOTAL,
+  SET_USED_COUPON_CODE,
+} from "../constants/actionTypes";
 
 function PlaceOrderButton() {
   const { isUserDataValid } = useUserData();
@@ -26,8 +38,22 @@ function PlaceOrderButton() {
     dispatchCheckout({ type: SET_ORDER.date, payload: getNowDate() });
   };
 
+  const resetCheckout = () => {
+    dispatchCheckout({ type: SET_SUBTOTAL, payload: 0 });
+    dispatchCheckout({ type: SET_DISCOUNTED_SUBTOTAL, payload: 0 });
+    dispatchCheckout({ type: SET_TOTAL, payload: 0 });
+    dispatchCheckout({ type: SET_BUY_NOW_PRODUCT_PRICE, payload: null });
+    dispatchCheckout({ type: SET_FREE_SHIPPING, payload: false });
+    dispatchCheckout({ type: SET_DISCOUNTED_SHIPPING_FEES, payload: null });
+    dispatchCheckout({ type: SET_COUPON_CODE_AVAILABILITY, payload: "" });
+    dispatchCheckout({ type: SET_USED_COUPON_CODE, payload: "" });
+    dispatchCheckout({ type: SET_DISCOUNT_AMOUNT, payload: 0 });
+    dispatchCheckout({ type: SET_COUPON_ERROR_MESSAGE, payload: 0 });
+  };
+
   const onClickHandler = () => {
     setOrder();
+    resetCheckout();
   };
 
   return isValid ? (
