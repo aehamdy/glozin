@@ -51,7 +51,7 @@ const cartReducer = (state, action) => {
       updatedCartList = state.cartList.map((p) =>
         p.id === action.payload.id && p.orderQuantity > 1
           ? { ...p, orderQuantity: p.orderQuantity - 1 }
-          : { ...p, orderQuantity: 1 }
+          : p
       );
       return { ...state, cartList: updatedCartList };
 
