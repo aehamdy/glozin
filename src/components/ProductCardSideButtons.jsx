@@ -1,12 +1,8 @@
 /* eslint-disable react/prop-types */
-import { useCart } from "../context/CartContext";
 import WishlistButton from "./WishlistButton";
 import ProductCardButton from "./ProductCardButton";
-import { ADD_TO_CART } from "../constants/actionTypes";
 
 function ProductCardSideButtons({ product, removeFromWishlist }) {
-  const { dispatchCart } = useCart();
-
   const quickButtons = [
     { icon: "cart", tooltipValue: "add to cart" },
     { icon: "wishlist", tooltipValue: "add to wishlist" },
@@ -39,11 +35,14 @@ function ProductCardSideButtons({ product, removeFromWishlist }) {
               icon={button.icon}
               productId={product.id}
               tooltipValue={button.tooltipValue}
-              onClickFunc={
-                button.icon === "cart"
-                  ? () => dispatchCart({ type: ADD_TO_CART, payload: product })
-                  : undefined
-              }
+              product={product}
+              // onClickFunc={
+              //   button.icon === "cart"
+              //     ? () => dispatchCart({ type: ADD_TO_CART, payload: product })
+              //     : button.icon === "eye"
+              //     ? () => console.log(product)
+              //     : undefined
+              // }
             />
           )
         )}
