@@ -11,7 +11,7 @@ import {
   SET_DISCOUNTED_SUBTOTAL,
   SET_ENTERED_COUPON_CODE,
   SET_FREE_SHIPPING,
-  SET_ORDER_DATE,
+  SET_ORDER,
   SET_SHIPPING_FEES,
   SET_SUBTOTAL,
   SET_TOTAL,
@@ -36,10 +36,18 @@ const initialState = {
   usedCouponCode: "",
   discountAmount: 0,
   couponErrorMessage: "",
-  orderDate: "",
+  order: {
+    items: [],
+    coupon: 0,
+    discount: 0,
+    subtotal: 0,
+    shipping: 0,
+    total: 0,
+    date: "",
+  },
 };
 
-const roundToTwoDecimals = (value) => Number(value.toFixed(2));
+const roundToTwoDecimals = (value) => Number(value?.toFixed(2));
 
 const checkoutReducer = (state, action) => {
   let value;
@@ -94,8 +102,26 @@ const checkoutReducer = (state, action) => {
     case SET_DISCOUNT_AMOUNT:
       return { ...state, discountAmount: action.payload };
 
-    case SET_ORDER_DATE:
-      return { ...state, orderDate: action.payload };
+    case SET_ORDER.items:
+      return { ...state, order: { ...state.items, items: action.payload } };
+
+    case SET_ORDER.coupon:
+      return { ...state, order: { ...state.order, coupon: action.payload } };
+
+    case SET_ORDER.discount:
+      return { ...state, order: { ...state.order, discount: action.payload } };
+
+    case SET_ORDER.subtotal:
+      return { ...state, order: { ...state.order, subtotal: action.payload } };
+
+    case SET_ORDER.shipping:
+      return { ...state, order: { ...state.order, shipping: action.payload } };
+
+    case SET_ORDER.total:
+      return { ...state, order: { ...state.order, total: action.payload } };
+
+    case SET_ORDER.date:
+      return { ...state, order: { ...state.order, date: action.payload } };
 
     default:
       return state;
@@ -317,7 +343,7 @@ export const CheckoutProvider = ({ children }) => {
         usedCouponCode: checkoutState.usedCouponCode,
         discountAmount: checkoutState.discountAmount,
         couponErrorMessage: checkoutState.couponErrorMessage,
-        orderDate: checkoutState.orderDate,
+        order: checkoutState.order,
       }}
     >
       {children}
