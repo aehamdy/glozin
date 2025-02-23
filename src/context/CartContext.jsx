@@ -6,6 +6,7 @@ import {
   DECREASE_QUANTITY,
   INCREASE_QUANTITY,
   REMOVE_FROM_CART,
+  RESET_CART,
   SET_BUY_NOW_PRODUCT,
 } from "../constants/actionTypes";
 
@@ -56,6 +57,9 @@ const cartReducer = (state, action) => {
 
     case SET_BUY_NOW_PRODUCT:
       return { ...state, buyNowProduct: action.payload };
+
+    case RESET_CART:
+      return { ...state, cartList: [], buyNowProduct: null };
 
     default:
       return state;

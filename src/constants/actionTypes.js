@@ -4,6 +4,7 @@ export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const INCREASE_QUANTITY = "INCREASE_QUANTITY";
 export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
 export const SET_BUY_NOW_PRODUCT = "SET_BUY_NOW_PRODUCT";
+export const RESET_CART = "RESET_CART";
 
 // Checkout Action Types
 export const SET_SUBTOTAL = "SET_SUBTOTAL";
