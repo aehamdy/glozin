@@ -5,6 +5,7 @@ import ROUTES from "../config/routes";
 import { useCheckout } from "../context/CheckoutContext";
 import { useCart } from "../context/CartContext";
 import {
+  RESET_CART,
   SET_BUY_NOW_PRODUCT_PRICE,
   SET_COUPON_CODE_AVAILABILITY,
   SET_COUPON_ERROR_MESSAGE,
@@ -20,7 +21,7 @@ import {
 
 function PlaceOrderButton() {
   const { isUserDataValid } = useUserData();
-  const { cartList, buyNowProduct } = useCart();
+  const { dispatchCart, cartList, buyNowProduct } = useCart();
   const { dispatchCheckout, subtotal, shippingFees, total } = useCheckout();
   const isValid = isUserDataValid;
   const buttonValue = "Place Order";
@@ -51,9 +52,14 @@ function PlaceOrderButton() {
     dispatchCheckout({ type: SET_COUPON_ERROR_MESSAGE, payload: 0 });
   };
 
+  const resetCart = () => {
+    dispatchCart({ type: RESET_CART });
+  };
+
   const onClickHandler = () => {
     setOrder();
     resetCheckout();
+    resetCart();
   };
 
   return isValid ? (
