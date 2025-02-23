@@ -24,10 +24,7 @@ function ProductInfo({ product, totalStars, minimumStock }) {
         />
       </div>
 
-      <ProductPrice
-        productPrice={product.price}
-        productDiscountPercentage={product.discountPercentage}
-      />
+      <ProductPrice productPrice={product.price} />
 
       <ProductDesc productDesc={product.description} />
 
