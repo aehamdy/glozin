@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 import ROUTES from "../config/routes";
 import storeData from "../data/storeData";
-import { useCart } from "../context/CartContext";
 import { useCheckout } from "../context/CheckoutContext";
 import { useUserData } from "../context/UserDataContext";
 
 function OrderConfirmation() {
-  const { buyNowProduct, cartList } = useCart();
-  const { subtotal, total, shippingFees, orderDate } = useCheckout();
+  const { order } = useCheckout();
   const {
     countryValue,
     firstNameValue,
@@ -102,7 +100,7 @@ function OrderConfirmation() {
               Please{" "}
               <Link
                 to={ROUTES.CONTACT}
-                className="hover:text-white active:text-yellow-500 underline duration-medium"
+                className="hover:text-yellow-400 active:text-yellow-500 underline duration-medium"
               >
                 Contact us
               </Link>
@@ -122,46 +120,23 @@ function OrderConfirmation() {
       <div className="flex flex-col gap-8 md:w-3/4 my-4 mx-auto text-black">
         <div className="flex flex-col  py-5 px-4 md:px-6 text-sm md:text-base bg-slate-50 rounded-md shadow-order-details">
           <div className="flex flex-col">
-            {buyNowProduct ? (
-              <article className={`flex gap-3 py-3 border-b`}>
+            {order.items?.map((product, index) => (
+              <article
+                key={index}
+                className={`flex gap-3 py-3 border-b ${
+                  index === order.items.length - 1 && "border-none"
+                }`}
+              >
                 <div className="w-[70px] border border-gray-300 rounded-md">
-                  <img
-                    src={buyNowProduct.images[0]}
-                    alt={`${buyNowProduct.title} image`}
-                  />
+                  <img src={product.images[0]} alt={`${product.title} image`} />
                 </div>
                 <div className="flex justify-between w-full">
-                  <span className="w-[160px] text-start">
-                    {buyNowProduct.title}
-                  </span>
-                  <span className="">1x</span>
-                  <span>$ {buyNowProduct.price.toFixed(2)}</span>
+                  <span className="w-[160px] text-start">{product.title}</span>
+                  <span className="">{product.orderQuantity}x</span>
+                  <span>$ {product.price.toFixed(2)}</span>
                 </div>
               </article>
-            ) : (
-              cartList?.map((product, index) => (
-                <article
-                  key={index}
-                  className={`flex gap-3 py-3 border-b ${
-                    index === cartList.length - 1 && "border-none"
-                  }`}
-                >
-                  <div className="w-[70px] border border-gray-300 rounded-md">
-                    <img
-                      src={product.images[0]}
-                      alt={`${product.title} image`}
-                    />
-                  </div>
-                  <div className="flex justify-between w-full">
-                    <span className="w-[160px] text-start">
-                      {product.title}
-                    </span>
-                    <span className="">{product.orderQuantity}x</span>
-                    <span>$ {product.price.toFixed(2)}</span>
-                  </div>
-                </article>
-              ))
-            )}
+            ))}
           </div>
 
           <div className="flex flex-col text-start gap-2 mt-6 pt-5 md:text-base bg-slate-50 border-t">
@@ -172,7 +147,7 @@ function OrderConfirmation() {
               </div>
               <div className="">
                 <span className="font-semibold">Date: </span>
-                <span>{orderDate}</span>
+                <span>{order.date}</span>
               </div>
             </div>
             <div>
@@ -195,15 +170,20 @@ function OrderConfirmation() {
           <div className="flex justify-between items-center gap-3">
             <div className="flex flex-col md:flex-row items-center gap-3">
               <span className="font-semibold text-gray-700">Subtotal</span>
-              <span>$ {buyNowProduct ? buyNowProduct.price : subtotal}</span>
+              <span>
+                ${" "}
+                {order.items.length === 1
+                  ? order.items[0].price
+                  : order.subtotal}
+              </span>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-3">
               <span className="font-semibold text-gray-700">Shipping</span>
-              <span>$ {shippingFees}</span>
+              <span>$ {order.shipping}</span>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-3">
               <span className="font-semibold text-gray-700">Total:</span>
-              <span className="font-semibold">$ {total}</span>
+              <span className="font-semibold">$ {order.total}</span>
             </div>
           </div>
         </div>
