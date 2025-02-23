@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useFetchSingleProduct } from "../hooks/useFetchSingleProduct";
 import { useWishlist } from "../context/wishlistContext";
@@ -38,7 +39,7 @@ function WishlistButton({ productId, variant, icon, tooltipValue }) {
   return (
     <ProductCardButton
       icon={icon}
-      onClickFunc={handleWishlistToggle}
+      onClickFun={handleWishlistToggle}
       isInWishlist={isInWishlist}
       variant={variant}
       tooltipValue={

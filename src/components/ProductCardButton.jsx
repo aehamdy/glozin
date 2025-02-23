@@ -8,6 +8,7 @@ import { useCart } from "../context/CartContext";
 function ProductCardButton({
   icon,
   product,
+  onClickFun,
   isInWishlist,
   variant,
   tooltipValue,
@@ -18,6 +19,10 @@ function ProductCardButton({
   const handleOnClick = () => {
     if (icon === "cart") {
       dispatchCart({ type: ADD_TO_CART, payload: product });
+    } else if (icon === "wishlist") {
+      onClickFun();
+    } else if (icon === "close") {
+      onClickFun();
     } else if (icon === "eye") {
       console.log(product);
     }
