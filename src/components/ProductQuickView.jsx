@@ -22,7 +22,7 @@ function ProductQuickView({ product, onClose }) {
   return (
     // <Modal>
     <div className="fixed top-0 bottom-0 start-0 end-0 bg-black bg-opacity-50 backdrop-blur-sm z-overlay">
-      <article className="absolute top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2 grid grid-cols-1 md:grid-cols-2 w-4/5 h-4/5 mx-auto text-black bg-white rounded-xl overflow-hidden">
+      <article className="absolute top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2 grid grid-cols-1 md:grid-cols-2 w-11/12 lg:w-4/5 h-4/5 mx-auto text-black bg-white rounded-xl overflow-hidden">
         <Icon
           name="close"
           size="30"
@@ -31,7 +31,7 @@ function ProductQuickView({ product, onClose }) {
         />
         <ProductImages images={product.images} productTitle={product.title} />
 
-        <div className="flex flex-col gap-4 h-auto p-8 overflow-y-auto">
+        <div className="flex flex-col gap-4 h-auto p-4 md:p-8 overflow-y-auto">
           <div className="flex flex-col items-start gap-1">
             {product.brand && <ProductBrandName brandName={product.brand} />}
             <ProductName productName={product.title} />
