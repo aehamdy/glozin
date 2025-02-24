@@ -11,11 +11,11 @@ function ProductCard({ product, removeFromWishlist }) {
       />
 
       <Link to={`/product/${product.id}`} state={product}>
-        <div className="relative flex justify-center rounded-small group-hover:rounded-b-none overflow-hidden">
+        <div className="relative aspect-square flex justify-center rounded-small group-hover:rounded-b-none overflow-hidden">
           <img
             src={product.images[0]}
             alt={product.title + " Image"}
-            className="w-full h-auto object-cover"
+            className="object-cover"
           />
         </div>
 
