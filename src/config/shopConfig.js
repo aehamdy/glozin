@@ -7,4 +7,6 @@ export const shopConfig = {
         title: "Return Policies",
         content: "Provided the conditions in our refund policy have been met, refunds will be processed using the original form of payment. You can return an item purchased online by posting it to us. Please contact customer service for return address. Please note that delivery costs will be excluded from the refund unless goods are returned in accordance with your statutory rights (e.g. they are faulty or not as ordered). The items with the original receipt are returned within 30 days of purchase. Items must be in the original condition as purchased with all labels/tickets attached. Provided the conditions in our refund policy have been met, refunds will be processed using the original form of payment. You can return an item purchased online by posting it to us. Please contact customer service for return address. Please note that delivery costs will be excluded from the refund unless goods are returned in accordance with your statutory rights (e.g. they are faulty or not as ordered).",
     },
+    ratingTotalStars: 5,
+    minimumStockLimit: 5,
 };
