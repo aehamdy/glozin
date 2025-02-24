@@ -17,6 +17,7 @@ import Checkout from "./pages/Checkout";
 import { CheckoutProvider } from "./context/CheckoutContext";
 import { UserDataProvider } from "./context/UserDataContext";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import { QuickViewProvider } from "./context/QuickViewContext";
 
 const router = createBrowserRouter([
   {
@@ -81,7 +82,9 @@ function App() {
       <WishlistProvider>
         <CheckoutProvider>
           <UserDataProvider>
-            <RouterProvider router={router} />
+            <QuickViewProvider>
+              <RouterProvider router={router} />
+            </QuickViewProvider>
           </UserDataProvider>
         </CheckoutProvider>
       </WishlistProvider>
