@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-// import Modal from "../common/Modal";
 import { shopConfig } from "../config/shopConfig";
 import Icon from "./Icon";
 import ProductBrandName from "./ProductBrandName";
@@ -20,8 +19,10 @@ function ProductQuickView({ product, onClose }) {
   };
 
   return (
-    // <Modal>
-    <div className="fixed top-0 bottom-0 start-0 end-0 bg-black bg-opacity-50 backdrop-blur-sm z-overlay">
+    <div
+      onClick={handleOnCloseClick}
+      className="fixed top-0 bottom-0 start-0 end-0 bg-black bg-opacity-50 backdrop-blur-sm z-overlay"
+    >
       <article className="absolute top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2 grid grid-cols-1 md:grid-cols-2 w-11/12 lg:w-4/5 h-4/5 mx-auto text-black bg-white rounded-xl overflow-hidden">
         <Icon
           name="close"
@@ -59,7 +60,6 @@ function ProductQuickView({ product, onClose }) {
         </div>
       </article>
     </div>
-    // </Modal>
   );
 }
 export default ProductQuickView;
