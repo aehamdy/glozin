@@ -1,5 +1,3 @@
-export const freeShippingThreshold = 150;
-
 export const shopConfig = {
     shippingDetails: {
         title: "Shipping & Returns",
