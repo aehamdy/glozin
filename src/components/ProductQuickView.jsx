@@ -21,10 +21,18 @@ function ProductQuickView({ product, onClose }) {
   };
 
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        handleOnCloseClick();
+      }
+    };
+
     if (product) {
+      document.addEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "hidden";
     }
     return () => {
+      document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
   }, []);
