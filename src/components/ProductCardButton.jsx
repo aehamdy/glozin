@@ -4,6 +4,7 @@ import Icon from "./Icon";
 import Tooltip from "./Tooltip";
 import { ADD_TO_CART } from "../constants/actionTypes";
 import { useCart } from "../context/CartContext";
+import { useQuickView } from "../context/QuickViewContext";
 
 function ProductCardButton({
   icon,
@@ -15,6 +16,7 @@ function ProductCardButton({
 }) {
   const [iconSize, setIconSize] = useState(18);
   const { dispatchCart } = useCart();
+  const { openQuickView } = useQuickView();
 
   const handleOnClick = () => {
     if (icon === "cart") {
@@ -24,7 +26,7 @@ function ProductCardButton({
     } else if (icon === "close") {
       onClickFun();
     } else if (icon === "eye") {
-      console.log(product);
+      openQuickView(product);
     }
   };
 
@@ -47,7 +49,6 @@ function ProductCardButton({
 
   return (
     <button
-      // onClick={() => onClickFunc(productId)}
       onClick={() => handleOnClick()}
       className={`group/button relative flex justify-center items-center p-2 md:p-3 text-secondary-dark 
         hover:text-primary-light hover:bg-secondary-dark rounded-full shadow-md cursor-pointer duration-medium 
