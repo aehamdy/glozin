@@ -1,4 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
+import { useEffect } from "react";
 import { shopConfig } from "../config/shopConfig";
 import Icon from "./Icon";
 import ProductBrandName from "./ProductBrandName";
@@ -17,6 +19,14 @@ function ProductQuickView({ product, onClose }) {
   const handleOnCloseClick = () => {
     onClose();
   };
+
+  useEffect(() => {
+    if (product) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, []);
 
   return (
     <div
