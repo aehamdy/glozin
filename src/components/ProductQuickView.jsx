@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 // import Modal from "../common/Modal";
+import { shopConfig } from "../config/shopConfig";
 import Icon from "./Icon";
 import ProductBrandName from "./ProductBrandName";
 import ProductDeliveryShippingDetails from "./ProductDeliveryShippingDetails";
@@ -14,9 +15,6 @@ import ProductSafeCheckout from "./ProductSafeCheckout";
 import ProductViewers from "./ProductViewers";
 
 function ProductQuickView({ product, onClose }) {
-  const RATING_TOTAL_STARS = 5;
-  const MINIMUM_STOCK_LIMIT = 5;
-
   const handleOnCloseClick = () => {
     onClose();
   };
@@ -40,7 +38,7 @@ function ProductQuickView({ product, onClose }) {
             <ProductRate
               productRate={product.rating}
               productReviews={product.reviews}
-              totalStars={RATING_TOTAL_STARS}
+              totalStars={shopConfig.ratingTotalStars}
             />
           </div>
 
@@ -52,7 +50,7 @@ function ProductQuickView({ product, onClose }) {
           <ProductInventoryInfo
             sku={product.sku}
             stock={product.stock}
-            minimumStock={MINIMUM_STOCK_LIMIT}
+            minimumStock={shopConfig.minimumStockLimit}
           />
 
           <ProductDeliveryShippingDetails />
