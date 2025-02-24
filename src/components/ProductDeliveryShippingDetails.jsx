@@ -1,4 +1,4 @@
-import { freeShippingThreshold } from "../config/shopConfig";
+import FREE_SHIPPING_THRESHOLD from "../config/freeShippingThreshold";
 import Icon from "./Icon";
 
 function ProductDeliveryShippingDetails() {
@@ -22,7 +22,7 @@ function ProductDeliveryShippingDetails() {
         <div>
           <p className="mb-1">Free shipping & returns: </p>
           <span className="font-semibold text-secondary-dark">
-            {`On all orders over $${freeShippingThreshold}`}
+            {`On all orders over $${FREE_SHIPPING_THRESHOLD}`}
           </span>
         </div>
       </div>
