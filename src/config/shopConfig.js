@@ -1,7 +1,9 @@
+import FREE_SHIPPING_THRESHOLD from "./freeShippingThreshold";
+
 export const shopConfig = {
     shippingDetails: {
         title: "Shipping & Returns",
-        content: `We offer fast and reliable shipping for all our clothing items. Orders are processed within 1-2 business days and shipped via standard delivery, which typically takes 3-5 business days. Express shipping options are also available at checkout for an additional fee, ensuring your fashion essentials arrive even sooner. Enjoy free shipping on orders over $${freeShippingThreshold}. For any questions regarding your order, please contact our customer service team for assistance.`,
+        content: `We offer fast and reliable shipping for all our clothing items. Orders are processed within 1-2 business days and shipped via standard delivery, which typically takes 3-5 business days. Express shipping options are also available at checkout for an additional fee, ensuring your fashion essentials arrive even sooner. Enjoy free shipping on orders over $${FREE_SHIPPING_THRESHOLD}. For any questions regarding your order, please contact our customer service team for assistance.`,
     },
     returnPolicies: {
         title: "Return Policies",
