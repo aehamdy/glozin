@@ -23,9 +23,10 @@ function ProductQuickView({ product, onClose }) {
   useEffect(() => {
     if (product) {
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
     }
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, []);
 
   return (
@@ -43,7 +44,7 @@ function ProductQuickView({ product, onClose }) {
         <ProductImages images={product.images} productTitle={product.title} />
 
         <div className="flex flex-col gap-4 h-auto p-4 md:p-8 overflow-y-auto">
-          <div className="flex flex-col items-start gap-1">
+          <div className="flex flex-col items-start gap-1 text-start">
             {product.brand && <ProductBrandName brandName={product.brand} />}
             <ProductName productName={product.title} />
             <ProductRate
