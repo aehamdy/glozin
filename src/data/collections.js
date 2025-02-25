@@ -5,43 +5,18 @@ import sportsCollection from "../assets/category-sports.webp";
 import kidsCollection from "../assets/category-kids.webp";
 import babyCollection from "../assets/category-baby.webp";
 import homeCollection from "../assets/category-home.webp";
+import { productCategoryKey } from "../config/apiConstants";
+
 
 const collections = [
-    {
-        name: "Men",
-        image: menCollection,
-        link: "/men-collection"
-    },
-    {
-        name: "Women",
-        image: womenCollection,
-        link: "/women-collection"
-    },
-    {
-        name: "Women Divided",
-        image: womenDividedCollection,
-        link: "/women-divided-collection"
-    },
-    {
-        name: "Sports Wear",
-        image: sportsCollection,
-        link: "/sportswear-collection"
-    },
-    {
-        name: "Kids",
-        image: kidsCollection,
-        link: "/kids-collection"
-    },
-    {
-        name: "Baby",
-        image: babyCollection,
-        link: "/baby-collection"
-    },
-    {
-        name: "Home",
-        image: homeCollection,
-        link: "/home-collection"
-    },
+    {name: "dresses", image: menCollection, endPoint: `${productCategoryKey}womens-dresses`},
+    {name: "tops", image: menCollection, endPoint: `${productCategoryKey}tops`},
+    {name: "bags", image: womenCollection, endPoint: `${productCategoryKey}womens-bags`},
+    {name: "jewellery", image: womenDividedCollection, endPoint: `${productCategoryKey}womens-jewellery`},
+    {name: "shoes", image: sportsCollection, endPoint: `${productCategoryKey}womens-shoes`},
+    {name: "fragrances", image: kidsCollection, endPoint: `${productCategoryKey}fragrances`},
+    {name: "watches", image: babyCollection, endPoint: `${productCategoryKey}womens-watches`},
+    {name: "beauty", image: homeCollection, endPoint: `${productCategoryKey}beauty`},
 ];
 
 export default collections;
