@@ -8,8 +8,8 @@ const navData = [
         url: "/shop",
     },
     {
-        label: "collections",
-        url: "/collections",
+        label: "categories",
+        url: "/categories",
     },
     {
         label: "contact",
