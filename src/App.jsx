@@ -18,6 +18,8 @@ import { CheckoutProvider } from "./context/CheckoutContext";
 import { UserDataProvider } from "./context/UserDataContext";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import { QuickViewProvider } from "./context/QuickViewContext";
+import CategoryProducts from "./components/CategoryProducts";
+import { productCategoryKey } from "./config/apiConstants";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/collections",
         element: <Collections />,
+      },
+      {
+        path: `${productCategoryKey}:categoryName`,
+        element: <CategoryProducts />,
       },
       {
         path: "/sale",
