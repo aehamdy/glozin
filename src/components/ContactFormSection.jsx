@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "./Button";
 
 function ContactFormSection() {
-  const [isPrivacyChecked, setIsPrivacyChecked] = useState(true);
+  const [isPrivacyChecked, setIsPrivacyChecked] = useState(false);
 
   const handlePrivacyInputToggle = () => {
     setIsPrivacyChecked((prev) => !prev);
@@ -67,7 +67,11 @@ function ContactFormSection() {
         <Button
           value="Send"
           status={isPrivacyChecked}
-          className="w-fit me-auto py-2 px-12 text-primary-light bg-secondary-dark hover:bg-primary-dark border rounded-medium"
+          className={`w-fit me-auto py-2 px-12 ${
+            isPrivacyChecked
+              ? "text-primary-light bg-secondary-dark hover:bg-primary-dark border cursor-pointer"
+              : "text-primary-light bg-gray-400 cursor-not-allowed"
+          } rounded-medium`}
         />
       </form>
     </div>
