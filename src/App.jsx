@@ -8,7 +8,7 @@ import OurStores from "./pages/OurStores";
 import HelpCenter from "./pages/HelpCenter";
 import Shop from "./pages/Shop";
 import Sale from "./pages/Sale";
-import Collections from "./pages/Collections";
+import Categories from "./pages/Categories";
 import ProductDetails from "./pages/ProductDetails";
 import Wishlist from "./pages/Wishlist";
 import { WishlistProvider } from "./context/wishlistContext";
@@ -19,7 +19,6 @@ import { UserDataProvider } from "./context/UserDataContext";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import { QuickViewProvider } from "./context/QuickViewContext";
 import CategoryProducts from "./components/CategoryProducts";
-import { productCategoryKey } from "./config/apiConstants";
 
 const router = createBrowserRouter([
   {
@@ -39,11 +38,11 @@ const router = createBrowserRouter([
         element: <ProductDetails />,
       },
       {
-        path: "/collections",
-        element: <Collections />,
+        path: "/categories",
+        element: <Categories />,
       },
       {
-        path: `${productCategoryKey}:categoryName`,
+        path: `/categories/:categoryName`,
         element: <CategoryProducts />,
       },
       {
