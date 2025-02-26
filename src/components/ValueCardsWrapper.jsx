@@ -1,7 +1,7 @@
 import valueImage1 from "../assets/about_banner_1.webp";
 import valueImage2 from "../assets/about_banner_2.webp";
 import valueImage3 from "../assets/about_banner_3.webp";
-import ValueCard from "../assets/ValueCard";
+import ValueCard from "./ValueCard";
 
 const values = [
   {

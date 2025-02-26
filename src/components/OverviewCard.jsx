@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import Button from "../components/Button";
+import Button from "./Button";
 
 function OverviewCard({ item, index }) {
   return (
