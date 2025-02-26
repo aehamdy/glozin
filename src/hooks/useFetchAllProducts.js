@@ -1,17 +1,50 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { BASE_API_URL, productCategoryKey } from "../config/apiConstants";
 
-function useFetchAllProducts(setState) {
-    let url = "https://dummyjson.com/products/category/womens-dresses";
+function useFetchAllProducts () {
+    const [productList, setProductList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            setState(data.products)
-        })
-        .catch(err => console.error("Error happened: ", err));
+        const fetchAllProducts = async () => {
+            try {
+                const categories = ['smartphones', 'womens-dresses'];
+
+                const responses = await Promise.all(categories.map(
+                    category => 
+                        fetch(`${BASE_API_URL}${productCategoryKey}/${category}`)
+                    )
+                );
+
+                for (const response of responses) {
+                    if (!response.ok) {
+                        throw new Error ('Something went wrong while fetching products.');
+                    }
+                }
+
+                const data = await Promise.all(responses.map(response => response.json()));
+
+                const allProducts = data.flatMap(categoryData => categoryData.products);
+
+                setProductList(allProducts);
+
+            } catch (error) {
+
+                setError(error.message);
+
+            } finally {
+
+                setIsLoading(false);
+
+            }
+        }
+
+        fetchAllProducts();
+
     }, []);
-        
-}
+
+    return [productList, isLoading, error];
+};
 
 export default useFetchAllProducts;
