@@ -6,7 +6,13 @@ function CategoriesWrapper({ variant }) {
   const displayedCategories = variant ? categories.slice(0, 6) : categories;
 
   return (
-    <ul className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10 md:gap-5 lg:gap-8 px-horizontal-spacing">
+    <ul
+      className={`grid grid-cols-3 ${
+        variant
+          ? "md:grid-cols-4 lg:grid-cols-6"
+          : "md:grid-cols-3 lg:grid-cols-4"
+      } gap-10 md:gap-5 lg:gap-8 px-horizontal-spacing`}
+    >
       {displayedCategories.map((category, index) => (
         <CategoryCard key={index} category={category} variant={variant} />
       ))}
