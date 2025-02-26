@@ -10,7 +10,9 @@ function CategoryCard({ category, variant = "default" }) {
   return (
     <li
       className={`group ${
-        isCircle ? "rounded-full" : "relative rounded-tiny hover:shadow-xl"
+        isCircle
+          ? "rounded-full"
+          : "relative h-[200px] sm:h-[280px] md:h-[280px] rounded-tiny shadow-md hover:shadow-xl"
       } duration-medium cursor-pointer`}
     >
       <Link
@@ -22,7 +24,7 @@ function CategoryCard({ category, variant = "default" }) {
         <div
           className={`${
             isCircle &&
-            "aspect-square flex justify-center items-center overflow-hidden rounded-full"
+            "aspect-square flex justify-center items-center shadow overflow-hidden rounded-full"
           }`}
         >
           <img
@@ -39,7 +41,7 @@ function CategoryCard({ category, variant = "default" }) {
             {categoryName}
           </span>
         ) : (
-          <div className="absolute w-8/12 start-1/2 bottom-4 lg:bottom-8 -translate-x-1/2 py-2.5 md:py-4 lg:py-3 px-3 md:px-6 lg:px-8 font-semibold text-primary-dark group-hover:text-primary-light bg-primary-light group-hover:bg-secondary-dark rounded-medium duration-medium">
+          <div className="absolute w-fit start-1/2 bottom-2 sm:bottom-1 md:bottom-2 lg:bottom-3 -translate-x-1/2 py-2.5 md:py-3 lg:py-3 px-3 md:px-6 lg:px-8 font-semibold text-primary-dark group-hover:text-primary-light bg-primary-light group-hover:bg-secondary-dark rounded-medium duration-medium">
             {categoryName}
           </div>
         )}
