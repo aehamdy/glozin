@@ -7,7 +7,7 @@ function CategoriesWrapper({ variant }) {
 
   return (
     <ul
-      className={`grid grid-cols-3 ${
+      className={`grid grid-cols-2 ${
         variant
           ? "md:grid-cols-4 lg:grid-cols-6"
           : "md:grid-cols-3 lg:grid-cols-4"
