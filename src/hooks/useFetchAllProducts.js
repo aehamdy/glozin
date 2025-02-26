@@ -13,7 +13,7 @@ function useFetchAllProducts() {
 
         const responses = await Promise.all(
           Object.values(endPoints).map((category) =>
-            fetch(`${url}/${category}`)
+            fetch(`${url}${category}`)
           )
         );
 
