@@ -12,8 +12,8 @@ function CategoryCard({ category, variant = "default" }) {
       className={`group ${
         isCircle
           ? "rounded-full"
-          : "relative h-[200px] sm:h-[280px] md:h-[280px] rounded-tiny shadow-md hover:shadow-xl"
-      } duration-medium cursor-pointer`}
+          : "relative h-[200px] sm:h-[280px] md:h-[280px] rounded-tiny shadow-sm hover:shadow-xl"
+      } overflow-hidden duration-medium cursor-pointer`}
     >
       <Link
         to={`/categories${category.endPoint}`}
@@ -24,7 +24,7 @@ function CategoryCard({ category, variant = "default" }) {
         <div
           className={`${
             isCircle &&
-            "aspect-square flex justify-center items-center shadow overflow-hidden rounded-full"
+            "flex justify-center items-center shadow overflow-hidden rounded-full"
           }`}
         >
           <img
@@ -32,7 +32,9 @@ function CategoryCard({ category, variant = "default" }) {
             alt={`${category.name}'s image`}
             loading="lazy"
             className={`w-full h-full object-cover object-center ${
-              isCircle ? "group-hover:scale-110 duration-medium" : ""
+              isCircle
+                ? "group-hover:scale-110 rounded-full duration-medium"
+                : "absolute"
             }`}
           />
         </div>
