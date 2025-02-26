@@ -1,5 +1,5 @@
 import SectionHeader from "./SectionHeader";
-import TopCollectionCardsWrapper from "./TopCollectionCardsWrapper";
+import CategoriesWrapper from "./CategoriesWrapper";
 
 function TopCollectionsSection() {
   return (
@@ -8,7 +8,7 @@ function TopCollectionsSection() {
         heading="Top Collections"
         desc="Express your style with our standout collection—fashion meets sophistication."
       />
-      <TopCollectionCardsWrapper />
+      <CategoriesWrapper variant="circle" />
     </section>
   );
 }
