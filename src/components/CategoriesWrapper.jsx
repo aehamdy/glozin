@@ -1,11 +1,12 @@
+/* eslint-disable react/prop-types */
 import categories from "../data/categories";
 import CategoryCard from "./CategoryCard";
 
-function CategoriesWrapper() {
+function CategoriesWrapper({ variant }) {
   return (
-    <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-5 lg:gap-8 px-horizontal-spacing">
+    <ul className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10 md:gap-5 lg:gap-8 px-horizontal-spacing">
       {categories.map((category, index) => (
-        <CategoryCard key={index} category={category} />
+        <CategoryCard key={index} category={category} variant={variant} />
       ))}
     </ul>
   );
