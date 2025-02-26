@@ -5,9 +5,15 @@ import CategoryCard from "./CategoryCard";
 function CategoriesWrapper({ variant }) {
   return (
     <ul className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10 md:gap-5 lg:gap-8 px-horizontal-spacing">
-      {categories.map((category, index) => (
-        <CategoryCard key={index} category={category} variant={variant} />
-      ))}
+      {variant
+        ? categories
+            .slice(0, 6)
+            .map((category, index) => (
+              <CategoryCard key={index} category={category} variant={variant} />
+            ))
+        : categories.map((category, index) => (
+            <CategoryCard key={index} category={category} variant={variant} />
+          ))}
     </ul>
   );
 }
