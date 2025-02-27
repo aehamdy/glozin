@@ -1,3 +1,4 @@
+import LoadingIndicator from "../components/LoadingIndicator";
 import ProductsWrapper from "../components/ProductsWrapper";
 import SectionHeader from "../components/SectionHeader";
 import useFetchAllProducts from "../hooks/useFetchAllProducts";
@@ -5,10 +6,8 @@ import useFetchAllProducts from "../hooks/useFetchAllProducts";
 function Shop() {
   const [productList, isLoading, error] = useFetchAllProducts();
 
-  if (isLoading)
-    return (
-      <p className="font-bold text-3xl text-black">Fetching Products...</p>
-    );
+  if (isLoading) return <LoadingIndicator loader="pipe" />;
+
   if (error)
     return (
       <p className="font-semibold text-2xl text-red-600">
