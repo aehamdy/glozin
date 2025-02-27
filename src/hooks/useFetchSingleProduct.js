@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { BASE_API_URL } from "../config/apiConstants";
 
 export const useFetchSingleProduct = (id) => {
     const [product, setProduct] = useState(null);
@@ -10,7 +11,9 @@ export const useFetchSingleProduct = (id) => {
         if(!id) return;
         
         setLoading(true);
-        fetch(`https://dummyjson.com/products/${id}`)
+        const url = `${BASE_API_URL}/products/${id}`;
+
+        fetch(url)
         .then((res) => res.json())
         .then((data) => {
             setLoading(false);
