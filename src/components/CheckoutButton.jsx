@@ -9,25 +9,32 @@ function CheckoutButton() {
   const { dispatchCart, cartList } = useCart();
   const { dispatchCheckout } = useCheckout();
   const [isLoading, setIsLoading] = useState(false);
+  const navigateTo = useNavigate();
+  const navigationTime = 2200;
 
   const handleOnClick = () => {
     setIsLoading(true);
 
-    dispatchCart({ type: SET_BUY_NOW_PRODUCT, payload: null });
-    dispatchCheckout({ type: SET_SUBTOTAL, payload: cartList });
+    setTimeout(() => {
+      dispatchCart({ type: SET_BUY_NOW_PRODUCT, payload: null });
+      dispatchCheckout({ type: SET_SUBTOTAL, payload: cartList });
+      setIsLoading(false);
+
+      navigateTo("/checkout");
+    }, navigationTime);
   };
 
   return (
     <div className="flex flex-col items-center gap-5">
       <Link
-        to="/checkout"
+        to={() => {}}
         onClick={handleOnClick}
         className=" w-3/4 py-3 font-semibold text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-medium"
       >
         {isLoading ? (
           <LoaderCircular
             loaderColor="border-blue-500"
-            text="Processing... 🛒"
+            text="Packing your order... 🎁"
           />
         ) : (
           "Checkout"
