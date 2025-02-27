@@ -2,40 +2,35 @@ import { useEffect, useState } from "react";
 import { BASE_API_URL, productCategoryKey } from "../config/apiConstants";
 
 const useFetchCategoryProducts = (categoryName) => {
-    const [productList, setProductList] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(null);
+  const [productList, setProductList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(null);
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const url = `${BASE_API_URL}${productCategoryKey}/${categoryName}`
-                
-                const response = await fetch(url);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const url = `${BASE_API_URL}${productCategoryKey}/${categoryName}`;
 
-                if (!response.ok) {
-                    throw new Error('Faild to fetch products');
-                }
+        const response = await fetch(url);
 
-                const data = await response.json()
+        if (!response.ok) {
+          throw new Error("Faild to fetch products");
+        }
 
-                setProductList(data.products);
+        const data = await response.json();
 
-            } catch(error) {
+        setProductList(data.products);
+      } catch (error) {
+        setIsError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-                setIsError(error.message);
+    fetchProducts();
+  }, [categoryName]);
 
-            } finally {
-
-                setIsLoading(false);
-
-            }
-        };
-
-        fetchProducts()
-    }, [categoryName]);
-
-    return [productList, isLoading, isError]
+  return [productList, isLoading, isError];
 };
 
 export default useFetchCategoryProducts;
