@@ -12,7 +12,11 @@ function LoadingIndicator({ loader, loaderSize = "large" }) {
 
   return (
     <div className="w-fit mx-auto">
-      {loader.toLowerCase() === "pipe" && <LoaderPipe />}
+      {loader.toLowerCase() === "pipe" && (
+        <section className="flex items-center h-[85dvh]">
+          <LoaderPipe />
+        </section>
+      )}
     </div>
   );
 }
