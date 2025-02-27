@@ -1,29 +1,25 @@
-import { useState } from "react";
 import ProductsWrapper from "../components/ProductsWrapper";
 import SectionHeader from "../components/SectionHeader";
-import ProductsLoadingIndicator from "../components/ProductsLoadingIndicator";
-// import fetchData from "../utils/fetchData";
-// import endpoint from "../config/endpoint";
 import useFetchAllProducts from "../hooks/useFetchAllProducts";
 
 function Shop() {
-  const [products, setProducts] = useState([]);
+  const [productList, isLoading, error] = useFetchAllProducts();
 
-  useFetchAllProducts(setProducts);
-
-  // useEffect(() => {
-  //   fetchData(endpoint.menShirts, setProducts);
-  // }, []);
+  if (isLoading)
+    return (
+      <p className="font-bold text-3xl text-black">Fetching Products...</p>
+    );
+  if (error)
+    return (
+      <p className="font-semibold text-2xl text-red-600">
+        Oops...Something went wrong!
+      </p>
+    );
 
   return (
     <section className="py-vertical-spacing px-horizontal-spacing">
       <SectionHeader heading="Shop" desc="Enjoy exploring all our products" />
-
-      {Array.isArray(products) && products.length > 0 ? (
-        <ProductsWrapper products={products} />
-      ) : (
-        <ProductsLoadingIndicator />
-      )}
+      <ProductsWrapper products={productList} />
     </section>
   );
 }
