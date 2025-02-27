@@ -4,6 +4,7 @@ import { useCheckout } from "../context/CheckoutContext";
 import { SET_BUY_NOW_PRODUCT, SET_SUBTOTAL } from "../constants/actionTypes";
 import { useState } from "react";
 import LoaderCircular from "./LoaderCircular";
+import ROUTES from "../config/routes";
 
 function CheckoutButton() {
   const { dispatchCart, cartList } = useCart();
@@ -20,7 +21,7 @@ function CheckoutButton() {
       dispatchCheckout({ type: SET_SUBTOTAL, payload: cartList });
       setIsLoading(false);
 
-      navigateTo("/checkout");
+      navigateTo(ROUTES.CHECKOUT);
     }, navigationTime);
   };
 
