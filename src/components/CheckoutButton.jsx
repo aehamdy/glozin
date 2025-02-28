@@ -13,7 +13,8 @@ function CheckoutButton() {
   const navigateTo = useNavigate();
   const navigationTime = 2200;
 
-  const handleOnClick = () => {
+  const handleOnClick = (e) => {
+    e.preventDefault();
     setIsLoading(true);
 
     setTimeout(() => {
@@ -28,7 +29,6 @@ function CheckoutButton() {
   return (
     <div className="flex flex-col items-center gap-5">
       <Link
-        to={() => {}}
         onClick={handleOnClick}
         className=" w-3/4 py-3 font-semibold text-primary-light bg-secondary-dark hover:bg-primary-dark rounded-medium"
       >
