@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useUserData } from "../context/UserDataContext";
 import getNowDate from "../utils/getNowDate";
 import ROUTES from "../config/routes";
@@ -29,6 +29,7 @@ function PlaceOrderButton() {
   const [isLoading, setIsLoading] = useState(false);
   const buttonValue = "Place Order";
   const defaultStyles = "w-full mt-4 py-3 font-semibold text-lg";
+  const navigateTo = useNavigate();
   const navigationTime = 3000;
 
   const setOrder = () => {
@@ -66,28 +67,29 @@ function PlaceOrderButton() {
     resetCart();
   };
 
-  const onClickHandler = () => {
+  const onClickHandler = (e) => {
+    e.preventDefault();
     setIsLoading(true);
 
     setTimeout(() => {
       setAndReset();
       setIsLoading(false);
+      navigateTo(ROUTES.ORDER_CONFIRMATION);
     }, navigationTime);
   };
 
   return isValid ? (
     <Link
-      to={ROUTES.ORDER_CONFIRMATION}
       onClick={onClickHandler}
       className={`${defaultStyles} text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-700 shadow-md hover:shadow-xl active:shadow-none transition-all duration-short cursor-pointer`}
     >
       {isLoading ? (
         <LoaderCircular
           loaderColor="border-white"
-          text="Preparing the order... 🎁"
+          text="Confirming your order... 📜"
         />
       ) : (
-        { buttonValue }
+        buttonValue
       )}
     </Link>
   ) : (
