@@ -29,6 +29,7 @@ function PlaceOrderButton() {
   const [isLoading, setIsLoading] = useState(false);
   const buttonValue = "Place Order";
   const defaultStyles = "w-full mt-4 py-3 font-semibold text-lg";
+  const navigationTime = 3000;
 
   const setOrder = () => {
     if (buyNowProduct) {
@@ -59,10 +60,19 @@ function PlaceOrderButton() {
     dispatchCart({ type: RESET_CART });
   };
 
-  const onClickHandler = () => {
+  const setAndReset = () => {
     setOrder();
     resetCheckout();
     resetCart();
+  };
+
+  const onClickHandler = () => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setAndReset();
+      setIsLoading(false);
+    }, navigationTime);
   };
 
   return isValid ? (
