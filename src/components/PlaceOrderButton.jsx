@@ -18,12 +18,15 @@ import {
   SET_TOTAL,
   SET_USED_COUPON_CODE,
 } from "../constants/actionTypes";
+import { useState } from "react";
+import LoaderCircular from "./LoaderCircular";
 
 function PlaceOrderButton() {
   const { isUserDataValid } = useUserData();
   const { dispatchCart, cartList, buyNowProduct } = useCart();
   const { dispatchCheckout, subtotal, shippingFees, total } = useCheckout();
   const isValid = isUserDataValid;
+  const [isLoading, setIsLoading] = useState(false);
   const buttonValue = "Place Order";
   const defaultStyles = "w-full mt-4 py-3 font-semibold text-lg";
 
@@ -68,7 +71,14 @@ function PlaceOrderButton() {
       onClick={onClickHandler}
       className={`${defaultStyles} text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-700 shadow-md hover:shadow-xl active:shadow-none transition-all duration-short cursor-pointer`}
     >
-      {buttonValue}
+      {isLoading ? (
+        <LoaderCircular
+          loaderColor="border-white"
+          text="Preparing the order... 🎁"
+        />
+      ) : (
+        { buttonValue }
+      )}
     </Link>
   ) : (
     <button
