@@ -1,20 +1,35 @@
 /* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import Modal from "../common/Modal";
 import Icon from "./Icon";
 import PanelTitle from "./PanelTitle";
 
 function SearchPanel({ isSearchOpen, handleSearchClosing }) {
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
   const handleClick = (e) => {
     e.stopPropagation();
   };
 
-  return (
-    <Modal isOpen={isSearchOpen} onClose={handleSearchClosing}>
+  useEffect(() => {
+    if (isSearchOpen) {
+      setIsVisible(true);
+      setTimeout(() => setIsAnimating(true), 10);
+    } else {
+      setIsAnimating(false);
+      setTimeout(() => setIsVisible(false), 300);
+    }
+  }, [isSearchOpen]);
+
+  return isVisible ? (
+    <Modal isOpen={isVisible} onClose={handleSearchClosing}>
       <div
         onClick={handleClick}
-        className={`fixed top-0 start-0 w-full h-[90%] flex flex-col gap-5 py-3 px-4 bg-primary-light rounded-b-small shadow-lg z-top transform
-        ${isSearchOpen ? "translate-y-0" : "-translate-y-full"}
-        transition-transform duration-medium ease-in-out`}
+        className={`fixed top-0 start-0 w-full h-[90%] flex flex-col gap-5 py-3 px-4 bg-primary-light rounded-b-small shadow-lg z-top transform 
+        transition-transform duration-500 ease-in-out ${
+          isAnimating ? "translate-y-0" : "-translate-y-full"
+        }`}
       >
         <Icon
           name="close"
@@ -42,6 +57,6 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
         </form>
       </div>
     </Modal>
-  );
+  ) : null;
 }
 export default SearchPanel;
