@@ -24,7 +24,13 @@ import LoaderCircular from "./LoaderCircular";
 function PlaceOrderButton() {
   const { isUserDataValid } = useUserData();
   const { dispatchCart, cartList, buyNowProduct } = useCart();
-  const { dispatchCheckout, subtotal, shippingFees, total } = useCheckout();
+  const {
+    dispatchCheckout,
+    subtotal,
+    shippingFees,
+    total,
+    discountedShippingFees,
+  } = useCheckout();
   const isValid = isUserDataValid;
   const [isLoading, setIsLoading] = useState(false);
   const buttonValue = "Place Order";
@@ -39,7 +45,11 @@ function PlaceOrderButton() {
       dispatchCheckout({ type: SET_ORDER.items, payload: cartList });
     }
     dispatchCheckout({ type: SET_ORDER.subtotal, payload: subtotal });
-    dispatchCheckout({ type: SET_ORDER.shipping, payload: shippingFees });
+    dispatchCheckout({
+      type: SET_ORDER.shipping,
+      payload:
+        discountedShippingFees >= 0 ? discountedShippingFees : shippingFees,
+    });
     dispatchCheckout({ type: SET_ORDER.total, payload: total });
     dispatchCheckout({ type: SET_ORDER.date, payload: getNowDate() });
   };
