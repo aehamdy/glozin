@@ -39,7 +39,7 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
           <CartProductsCount />
           <Icon
             name="close"
-            className="text-content-medium-dark hover:rotate-180 duration-700"
+            className="text-content-medium-dark hover:scale-110 hover:rotate-180 duration-700"
             onClickFunction={handleCloseCart}
           />
         </div>
