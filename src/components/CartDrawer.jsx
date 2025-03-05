@@ -44,7 +44,9 @@ function CartDrawer({ isCartOpen, handleCloseCart }) {
           />
         </div>
         <CartDrawerContent handleCloseCart={handleCloseCart} />
-        {cartList.length > 0 && <CartDrawerPanel />}
+        {cartList.length > 0 && (
+          <CartDrawerPanel handleCloseCart={handleCloseCart} />
+        )}
       </div>
     </Modal>
   ) : null;

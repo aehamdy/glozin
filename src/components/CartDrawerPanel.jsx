@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import Subtotal from "./Subtotal";
 import { useCheckout } from "../context/CheckoutContext";
 import CheckoutButton from "./CheckoutButton";
 
-function CartDrawerPanel() {
+function CartDrawerPanel({ handleCloseCart }) {
   const { subtotal } = useCheckout();
 
   return (
@@ -11,7 +12,7 @@ function CartDrawerPanel() {
         <div>Subtotal:</div>
         <Subtotal subtotalValue={subtotal} />
       </div>
-      <CheckoutButton />
+      <CheckoutButton handleCloseCart={handleCloseCart} />
     </div>
   );
 }

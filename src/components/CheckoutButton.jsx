@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useCheckout } from "../context/CheckoutContext";
@@ -6,7 +7,7 @@ import { useState } from "react";
 import LoaderCircular from "./LoaderCircular";
 import ROUTES from "../config/routes";
 
-function CheckoutButton() {
+function CheckoutButton({ handleCloseCart }) {
   const { dispatchCart, cartList } = useCart();
   const { dispatchCheckout } = useCheckout();
   const [isLoading, setIsLoading] = useState(false);
@@ -21,7 +22,7 @@ function CheckoutButton() {
       dispatchCart({ type: SET_BUY_NOW_PRODUCT, payload: null });
       dispatchCheckout({ type: SET_SUBTOTAL, payload: cartList });
       setIsLoading(false);
-
+      handleCloseCart();
       navigateTo(ROUTES.CHECKOUT);
     }, navigationTime);
   };
