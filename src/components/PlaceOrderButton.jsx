@@ -27,6 +27,7 @@ function PlaceOrderButton() {
   const {
     dispatchCheckout,
     subtotal,
+    discountedSubtotal,
     shippingFees,
     total,
     discountedShippingFees,
@@ -44,11 +45,18 @@ function PlaceOrderButton() {
     } else {
       dispatchCheckout({ type: SET_ORDER.items, payload: cartList });
     }
-    dispatchCheckout({ type: SET_ORDER.subtotal, payload: subtotal });
+    dispatchCheckout({
+      type: SET_ORDER.subtotal,
+      payload: discountedSubtotal ? discountedSubtotal : subtotal,
+    });
     dispatchCheckout({
       type: SET_ORDER.shipping,
       payload:
-        discountedShippingFees >= 0 ? discountedShippingFees : shippingFees,
+        discountedShippingFees === 0
+          ? 0
+          : discountedShippingFees > 0
+          ? discountedShippingFees
+          : shippingFees,
     });
     dispatchCheckout({ type: SET_ORDER.total, payload: total });
     dispatchCheckout({ type: SET_ORDER.date, payload: getNowDate() });
