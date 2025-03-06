@@ -63,7 +63,7 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
             />
           </div>
         </form>
-        <div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-h-[400px] p-4 overflow-y-auto">
           {searchList.length > 0 &&
             searchList.map((product) => (
               <div
