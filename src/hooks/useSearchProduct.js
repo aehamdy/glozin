@@ -25,8 +25,13 @@ const useSearchProduct = () => {
             }
         }
 
+        const debounceTimeout = setTimeout(() => {
             searchProduct();
+        }, 800);
 
+        return () => {
+            clearTimeout(debounceTimeout);
+        }
     }, [searchInput])
 
     return [searchInput, setSearchInput, searchList, isError];
