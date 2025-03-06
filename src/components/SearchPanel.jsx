@@ -3,10 +3,16 @@ import { useEffect, useState } from "react";
 import Modal from "../common/Modal";
 import Icon from "./Icon";
 import PanelTitle from "./PanelTitle";
+import useSearchProduct from "../hooks/useSearchProduct";
 
 function SearchPanel({ isSearchOpen, handleSearchClosing }) {
+  const [searchInput, setSearchInput, searchList] = useSearchProduct();
   const [isAnimating, setIsAnimating] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+
+  const onInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
 
   const handleClick = (e) => {
     e.stopPropagation();
@@ -40,9 +46,11 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
           title="search our site"
           styles="text-2xl text-secondary-dark"
         />
-        <form action="">
+        <form action="#">
           <div className="group relative w-[90%] lg:w-[65%] mx-auto">
             <input
+              onChange={onInputChange}
+              value={searchInput}
               type="search"
               name="search"
               id=""
@@ -55,6 +63,27 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
             />
           </div>
         </form>
+        <div>
+          {searchList.length > 0 &&
+            searchList.map((product) => (
+              <div
+                key={product.id}
+                className="bg-white p-0 rounded-lg shadow-md h-[250px] flex flex-col justify-between"
+              >
+                <div className="aspect-square flex justify-center items-center overflow-hidden">
+                  <img
+                    src={product.images[0]}
+                    alt={product.title}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <h3 className="text-sm font-semibold text-black">
+                  {product.title}
+                </h3>
+                <p className="font-semibold text-gray-700">${product.price}</p>
+              </div>
+            ))}
+        </div>
       </div>
     </Modal>
   ) : null;
