@@ -18,6 +18,10 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
     e.stopPropagation();
   };
 
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
   useEffect(() => {
     if (isSearchOpen) {
       setIsVisible(true);
@@ -46,7 +50,7 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
           title="search our site"
           styles="text-2xl text-secondary-dark"
         />
-        <form action="#">
+        <form action="#" onSubmit={onFormSubmit}>
           <div className="group relative w-[90%] lg:w-[65%] mx-auto">
             <input
               onChange={onInputChange}
