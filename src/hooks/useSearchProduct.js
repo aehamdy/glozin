@@ -7,6 +7,11 @@ const useSearchProduct = () => {
     const [isError, setIsError] = useState(null);
 
     useEffect(() => {
+        if(!searchInput.trim()) {
+            setSearchList([]);
+            return;
+        }
+        
         const controller = new AbortController();
         const { signal } = controller;
 
