@@ -19,6 +19,7 @@ import { UserDataProvider } from "./context/UserDataContext";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import { QuickViewProvider } from "./context/QuickViewContext";
 import CategoryProducts from "./components/CategoryProducts";
+import { ToastProvider } from "./context/ToastContext";
 
 const router = createBrowserRouter([
   {
@@ -83,17 +84,19 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <CartProvider>
-      <WishlistProvider>
-        <CheckoutProvider>
-          <UserDataProvider>
-            <QuickViewProvider>
-              <RouterProvider router={router} />
-            </QuickViewProvider>
-          </UserDataProvider>
-        </CheckoutProvider>
-      </WishlistProvider>
-    </CartProvider>
+    <ToastProvider>
+      <CartProvider>
+        <WishlistProvider>
+          <CheckoutProvider>
+            <UserDataProvider>
+              <QuickViewProvider>
+                <RouterProvider router={router} />
+              </QuickViewProvider>
+            </UserDataProvider>
+          </CheckoutProvider>
+        </WishlistProvider>
+      </CartProvider>
+    </ToastProvider>
   );
 }
 
