@@ -7,10 +7,13 @@ const useSearchProduct = () => {
     const [isError, setIsError] = useState(null);
 
     useEffect(() => {
+        const controller = new AbortController();
+        const { signal } = controller;
+
         const searchProduct = async () => {
             try {
                 const url = `${BASE_API_URL}/products/search?q=${searchInput}`;
-                const response = await fetch(url);
+                const response = await fetch(url, { signal });
 
                 if(!response.ok) {
                     throw new Error("Failed to search products");
@@ -21,7 +24,9 @@ const useSearchProduct = () => {
                 setSearchList(data.products || []);
 
             } catch (error) {
+                if(error.name !== "AbortError") {
                     setIsError(error.message);
+                }
             }
         }
 
@@ -31,6 +36,7 @@ const useSearchProduct = () => {
 
         return () => {
             clearTimeout(debounceTimeout);
+            controller.abort();
         }
     }, [searchInput])
 
