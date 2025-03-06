@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 import { ADD_TO_CART } from "../constants/actionTypes";
 import { useCart } from "../context/CartContext";
+import { useToast } from "../context/ToastContext";
+import toastMessages from "../data/toastMessages";
 import Button from "./Button";
 
 function AddToCartButton({ variant, productQuantity, product }) {
   const { dispatchCart } = useCart();
+  const { showToast } = useToast();
 
   const handleClick = () => {
     dispatchCart({
@@ -14,6 +17,7 @@ function AddToCartButton({ variant, productQuantity, product }) {
         orderQuantity: productQuantity ? productQuantity : 1,
       },
     });
+    showToast(toastMessages.addToCart);
   };
 
   let styles;
