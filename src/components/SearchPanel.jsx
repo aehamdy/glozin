@@ -68,9 +68,9 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
             />
           </div>
         </form>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-h-[400px] p-4 overflow-y-auto">
-          {searchList.length > 0 &&
-            searchList.map((product) => (
+        {searchList.length > 0 && (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-h-[400px] p-4 overflow-y-auto">
+            {searchList.map((product) => (
               <Link
                 key={product.id}
                 to={`/product/${product.id}`}
@@ -94,7 +94,13 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
                 </div>
               </Link>
             ))}
-        </div>
+          </div>
+        )}
+        {searchList.length <= 0 && searchInput && (
+          <p className="mx-auto font-medium text-lg text-slate-600">
+            No products found.
+          </p>
+        )}
       </div>
     </Modal>
   ) : null;
