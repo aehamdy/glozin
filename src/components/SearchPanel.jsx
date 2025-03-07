@@ -4,6 +4,7 @@ import Modal from "../common/Modal";
 import Icon from "./Icon";
 import PanelTitle from "./PanelTitle";
 import useSearchProduct from "../hooks/useSearchProduct";
+import { Link } from "react-router-dom";
 
 function SearchPanel({ isSearchOpen, handleSearchClosing }) {
   const [searchInput, setSearchInput, searchList] = useSearchProduct();
@@ -43,7 +44,7 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
       >
         <Icon
           name="close"
-          className="ml-auto text-content-medium-dark hover:scale-150"
+          className="ml-auto text-content-medium-dark hover:scale-110 hover:rotate-180"
           onClickFunction={handleSearchClosing}
         />
         <PanelTitle
@@ -58,7 +59,7 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
               type="search"
               name="search"
               id=""
-              placeholder="I'm looking for..."
+              placeholder="Try corset, watch, dress, bag or earring...etc"
               className=" w-full py-3 px-8 font-medium text-sm text-content-medium-dark bg-transparent border border-[#ebebeb] focus:outline-none focus:border-2 focus:border-primary-border rounded-medium"
             />
             <Icon
@@ -70,22 +71,27 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-h-[400px] p-4 overflow-y-auto">
           {searchList.length > 0 &&
             searchList.map((product) => (
-              <div
+              <Link
                 key={product.id}
-                className="bg-white p-0 rounded-lg shadow-md h-[250px] flex flex-col justify-between"
+                to={`/product/${product.id}`}
+                state={product}
               >
-                <div className="aspect-square flex justify-center items-center overflow-hidden">
-                  <img
-                    src={product.images[0]}
-                    alt={product.title}
-                    className="w-full h-full object-contain"
-                  />
+                <div className="bg-white p-0 rounded-lg shadow-md h-[250px] flex flex-col justify-between">
+                  <div className="aspect-square flex justify-center items-center overflow-hidden">
+                    <img
+                      src={product.images[0]}
+                      alt={product.title}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h3 className="text-sm font-semibold text-black">
+                    {product.title}
+                  </h3>
+                  <p className="font-semibold text-gray-700">
+                    ${product.price}
+                  </p>
                 </div>
-                <h3 className="text-sm font-semibold text-black">
-                  {product.title}
-                </h3>
-                <p className="font-semibold text-gray-700">${product.price}</p>
-              </div>
+              </Link>
             ))}
         </div>
       </div>
