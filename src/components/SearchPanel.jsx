@@ -74,6 +74,7 @@ function SearchPanel({ isSearchOpen, handleSearchClosing }) {
               <Link
                 key={product.id}
                 to={`/product/${product.id}`}
+                onClick={() => handleSearchClosing()}
                 state={product}
               >
                 <div className="bg-white p-0 rounded-lg shadow-md h-[250px] flex flex-col justify-between">
