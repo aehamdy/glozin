@@ -11,7 +11,7 @@ function TopBar({ hideAnnouncementBar }) {
       </p>
       <Icon
         name="close"
-        className="absolute end-1.5 text-slate-300 hover:text-primary-light"
+        className="absolute end-1.5 text-slate-300 hover:text-primary-light hover:rotate-180"
         onClickFunction={hideAnnouncementBar}
       />
     </div>
