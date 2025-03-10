@@ -20,62 +20,63 @@ import OrderConfirmation from "./pages/OrderConfirmation";
 import { QuickViewProvider } from "./context/QuickViewContext";
 import CategoryProducts from "./components/CategoryProducts";
 import { ToastProvider } from "./context/ToastContext";
+import ROUTES from "./config/routes";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: ROUTES.HOME,
     element: <PageLayout />,
     children: [
       {
-        path: "/",
+        path: ROUTES.HOME,
         element: <Home />,
       },
       {
-        path: "/shop",
+        path: ROUTES.SHOP,
         element: <Shop />,
       },
       {
-        path: "/product/:id",
+        path: ROUTES.PRODUCT_DETAILS,
         element: <ProductDetails />,
       },
       {
-        path: "/categories",
+        path: ROUTES.CATEGORIES,
         element: <Categories />,
       },
       {
-        path: `/categories/:categoryName`,
+        path: ROUTES.CATEGORY_PRODUCT,
         element: <CategoryProducts />,
       },
       {
-        path: "/sale",
+        path: ROUTES.SALE,
         element: <Sale />,
       },
       {
-        path: "/wishlist",
+        path: ROUTES.WISHLIST,
         element: <Wishlist />,
       },
       {
-        path: "/about",
+        path: ROUTES.ABOUT,
         element: <AboutUs />,
       },
       {
-        path: "/contact",
+        path: ROUTES.CONTACT,
         element: <ContactUs />,
       },
       {
-        path: "/ourstores",
+        path: ROUTES.OUR_STORES,
         element: <OurStores />,
       },
       {
-        path: "/help",
+        path: ROUTES.HELP,
         element: <HelpCenter />,
       },
       {
-        path: "/checkout",
+        path: ROUTES.CHECKOUT,
         element: <Checkout />,
       },
       {
-        path: "/order-confirmation",
+        path: ROUTES.ORDER_CONFIRMATION,
         element: <OrderConfirmation />,
       },
     ],
