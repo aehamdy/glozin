@@ -16,9 +16,7 @@ function HeaderIcons({ handleOpenCart, handleSearchOpening }) {
       <Button handleClick={handleSearchOpening}>
         <Icon name="search" className="text-primary-dark hover:text-red-500" />
       </Button>
-      <Button className="hidden lg:block">
-        <Icon name="user" className="text-primary-dark  hover:text-red-500" />
-      </Button>
+
       <Button className="relative hidden md:block">
         <Link to="/wishlist">
           <IconBadge value={wishlistProducts.length} />
@@ -28,6 +26,7 @@ function HeaderIcons({ handleOpenCart, handleSearchOpening }) {
           />
         </Link>
       </Button>
+
       <Button handleClick={handleOpenCart} className="relative">
         <IconBadge value={cartList.length} />
         <Icon name="cart" className="text-primary-dark hover:text-red-500" />
