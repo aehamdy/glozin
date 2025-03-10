@@ -6,11 +6,15 @@ import Logo from "./Logo";
 import Nav from "./Nav";
 import Icon from "./Icon";
 import SearchPanel from "./SearchPanel";
+import { useLocation } from "react-router-dom";
+import ROUTES from "../config/routes";
 
 function Header({ handleOpenCart }) {
   const [barVisibility, setBarVisibility] = useState(true);
   const [navVisibility, setNavVisibility] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const location = useLocation();
+  const hiddenRoutes = [ROUTES.CHECKOUT, ROUTES.ORDER_CONFIRMATION];
 
   const hideAnnouncementBar = () => {
     setBarVisibility(false);
@@ -51,11 +55,15 @@ function Header({ handleOpenCart }) {
       />
       <Logo />
 
-      <Nav navVisibility={navVisibility} closeSideNav={closeSideNav} />
-      <HeaderIcons
-        handleOpenCart={handleOpenCart}
-        handleSearchOpening={openSearchWindow}
-      />
+      {!hiddenRoutes.includes(location.pathname) && (
+        <>
+          <Nav navVisibility={navVisibility} closeSideNav={closeSideNav} />
+          <HeaderIcons
+            handleOpenCart={handleOpenCart}
+            handleSearchOpening={openSearchWindow}
+          />
+        </>
+      )}
     </header>
   );
 }
