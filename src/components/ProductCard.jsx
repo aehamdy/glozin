@@ -4,7 +4,7 @@ import ProductCardQuickButtons from "./ProductCardQuickButtons";
 
 function ProductCard({ product, removeFromWishlist }) {
   return (
-    <article className="group relative rounded-small shadow-sm hover:shadow-xl overflow-hidden cursor-pointer duration-medium">
+    <article className="group relative bg-gray-50 rounded-small shadow-sm hover:shadow-xl overflow-hidden cursor-pointer duration-medium">
       <ProductCardQuickButtons
         product={product}
         removeFromWishlist={removeFromWishlist}
