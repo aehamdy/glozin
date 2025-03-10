@@ -13,9 +13,13 @@ function ProductInCart({ product }) {
 
   return (
     <article className="flex items-start py-4 pe-2 border-b last:border-none">
-      <div className="flex w-[120px] rounded-medium overflow-hidden">
+      <div className="flex justify-center w-[120px] h-[120px] rounded-medium overflow-hidden">
         <div>
-          <img src={product.images[0]} alt={product.title + " image"} />
+          <img
+            src={product.images[0]}
+            alt={product.title + " image"}
+            className="h-full object-cover"
+          />
         </div>
       </div>
 
