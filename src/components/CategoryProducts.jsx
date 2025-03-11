@@ -2,6 +2,7 @@ import ProductsWrapper from "./ProductsWrapper";
 import useFetchCategoryProducts from "../hooks/useFetchCategoryProducts";
 import { useParams } from "react-router-dom";
 import SkeletonWrapper from "./SkeletonWrapper";
+import GoBackButton from "./GoBackButton";
 
 function CategoryProducts() {
   const { categoryName } = useParams();
@@ -17,7 +18,8 @@ function CategoryProducts() {
   if (isError) return <p className="text-black">Error: {isError}</p>;
 
   return (
-    <section className="text-black pt-10">
+    <section className="text-black pt-10 m-horizontal-spacing lg:p-horizontal-spacing">
+      <GoBackButton />
       <div className="flex flex-col items-center gap-2">
         <h1 className="font-bold text-3xl text-secondary-dark">
           {productsCategory.toUpperCase()}
