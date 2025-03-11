@@ -17,7 +17,7 @@ function Categories() {
   return (
     <section className="pt-vertical-spacing px-horizontal-spacing">
       <SectionHeader
-        heading="Collections List"
+        heading="Category List"
         desc="Posuere in netus a eu varius adipiscing suspendisse elementum vitae temporsuspendisse ullamcorper aenean taciti morbi potenti."
       />
       <div className="transition-opacity duration-500 ease-in-out">
