@@ -170,12 +170,7 @@ function OrderConfirmation() {
           <div className="flex justify-between items-center gap-3">
             <div className="flex flex-col md:flex-row items-center gap-3">
               <span className="font-semibold text-gray-700">Subtotal</span>
-              <span>
-                ${" "}
-                {order.items.length === 1
-                  ? order.items[0].price
-                  : order.subtotal}
-              </span>
+              <span>$ {order.subtotal}</span>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-3">
               <span className="font-semibold text-gray-700">Shipping</span>
