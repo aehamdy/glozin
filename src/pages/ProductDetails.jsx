@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import GoBackButton from "../components/GoBackButton";
 import ProductImages from "../components/ProductImages";
 import ProductInfo from "../components/ProductInfo";
@@ -6,7 +6,6 @@ import ProductReviews from "../components/ProductReviews";
 import { shopConfig } from "../config/shopConfig";
 
 function ProductDetails() {
-  const { id } = useParams();
   const location = useLocation();
   const product = location.state;
 
