@@ -148,7 +148,7 @@ export const CheckoutProvider = ({ children }) => {
     });
   };
 
-  // set subtotal when cartlist has more than one item
+  // set subtotal when cartlist has at least one item
   useEffect(() => {
     if (cartList.length > 0) {
       dispatchCheckout({
@@ -169,7 +169,6 @@ export const CheckoutProvider = ({ children }) => {
     }
   }, [checkoutState.subtotal]);
 
-  //
   useEffect(() => {
     if (
       !checkoutState.isEligibleForFreeShipping &&
