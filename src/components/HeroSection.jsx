@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "motion/react";
 import image1 from "../assets/hero-image-1.jpg";
 import image2 from "../assets/hero-image-2.jpg";
 import image3 from "../assets/hero-image-3.jpg";
@@ -25,6 +26,18 @@ const slides = [
     heading: "Super Comfort",
   },
 ];
+
+const containerVariants = {
+  hidden: {
+    x: "100vw",
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: { type: "spring", duration: 1.5 },
+  },
+};
 
 function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -71,11 +84,14 @@ function HeroSection() {
   }, []);
 
   return (
-    <section
+    <motion.section
       className="relative flex justify-center items-center w-full h-heroHeightSmall md:h-[75dvh] lg:h-[75dvh] mb-8 px-horizontal-spacing"
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
     >
       <HeroSlide slides={slides} currentSlide={currentSlide} />
       <NavigationDotsWrapper
@@ -84,7 +100,7 @@ function HeroSection() {
         slidesLength={slides.length}
         currentSlide={currentSlide}
       />
-    </section>
+    </motion.section>
   );
 }
 
