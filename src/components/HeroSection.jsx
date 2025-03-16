@@ -72,7 +72,7 @@ function HeroSection() {
 
   return (
     <section
-      className="relative flex justify-center items-center w-full h-heroHeightSmall md:h-[32dvh] lg:h-[75dvh] mb-8 px-horizontal-spacing"
+      className="relative flex justify-center items-center w-full h-heroHeightSmall md:h-[75dvh] lg:h-[75dvh] mb-8 px-horizontal-spacing"
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
