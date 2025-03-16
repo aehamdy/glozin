@@ -100,7 +100,11 @@ function PlaceOrderButton({ deliveryMethodValue }) {
   return isValid && deliveryMethodValue.toLowerCase() === "ship" ? (
     <Link
       onClick={onClickHandler}
-      className={`${defaultStyles} text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-700 shadow-md hover:shadow-xl active:shadow-none transition-all duration-short cursor-pointer`}
+      className={`${defaultStyles} text-white bg-blue-500 ${
+        isLoading
+          ? ""
+          : "hover:bg-blue-600 active:bg-blue-700 hover:scale-105 active:scale-95 hover:shadow-xl active:shadow-none"
+      }  shadow-md transition-all duration-short cursor-pointer`}
     >
       {isLoading ? (
         <LoaderCircular
