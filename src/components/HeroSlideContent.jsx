@@ -1,23 +1,15 @@
 /* eslint-disable react/prop-types */
+import { motion } from "motion/react";
+import { fadeInAnimation } from "../animations/variants";
 import Button from "./Button";
 import HeroSlideHeading from "./HeroSlideHeading";
 import HeroSlideSubheading from "./HeroSlideSubheading";
-import { motion } from "motion/react";
-
-const containerVariants = {
-  hidden: { y: "100%", opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { type: "spring", damping: 8, duration: 1, delay: 0.8 },
-  },
-};
 
 function HeroSlideContent({ index, slides, currentSlide }) {
   return (
     <motion.div
-      className="absolute bottom-12 start-4 flex flex-col items-start gap-3 text-primary-light"
-      variants={containerVariants}
+      className="absolute bottom-12 start-4 flex flex-col items-start gap-1 text-primary-light"
+      variants={fadeInAnimation("up", 0.4)}
       initial="hidden"
       animate="visible"
     >
