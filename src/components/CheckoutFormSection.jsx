@@ -37,7 +37,7 @@ function CheckoutFormSection({ contact, setContact }) {
             deliveryMethodValue === "pick-in-store" && <StoreLocations />
           )}
           <PaymentStatus />
-          <PlaceOrderButton />
+          <PlaceOrderButton deliveryMethodValue={deliveryMethodValue} />
         </form>
       </div>
     </div>

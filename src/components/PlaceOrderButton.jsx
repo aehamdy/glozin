@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link, useNavigate } from "react-router-dom";
 import { useUserData } from "../context/UserDataContext";
 import getNowDate from "../utils/getNowDate";
@@ -21,7 +22,7 @@ import {
 import { useState } from "react";
 import LoaderCircular from "./LoaderCircular";
 
-function PlaceOrderButton() {
+function PlaceOrderButton({ deliveryMethodValue }) {
   const { isUserDataValid } = useUserData();
   const { dispatchCart, cartList, buyNowProduct } = useCart();
   const {
@@ -96,7 +97,7 @@ function PlaceOrderButton() {
     }, navigationTime);
   };
 
-  return isValid ? (
+  return isValid && deliveryMethodValue.toLowerCase() === "ship" ? (
     <Link
       onClick={onClickHandler}
       className={`${defaultStyles} text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-700 shadow-md hover:shadow-xl active:shadow-none transition-all duration-short cursor-pointer`}
