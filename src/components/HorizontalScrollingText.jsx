@@ -1,11 +1,33 @@
 /* eslint-disable react/prop-types */
+import { motion } from "motion/react";
+
+const containerVariants = {
+  hidden: {
+    x: "100vw",
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      mass: 0.5,
+      damping: 6,
+      // duration: 2,
+      delay: 0.9,
+    },
+  },
+};
 
 function HorizontalScrollingText({ scrollingText, mode, fullWidth }) {
   return (
-    <div
+    <motion.div
       className={`${!fullWidth && "mx-horizontal-spacing "} py-5 ${
         mode === "light" ? "bg-primary-light" : "bg-primary-dark"
       } overflow-clip`}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
     >
       <div
         className={`scrolling-text h-[22px] flex items-center gap-3 ps-4 uppercase font-semibold text-[13px] ${
@@ -39,7 +61,7 @@ function HorizontalScrollingText({ scrollingText, mode, fullWidth }) {
             </div>
           ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 export default HorizontalScrollingText;
