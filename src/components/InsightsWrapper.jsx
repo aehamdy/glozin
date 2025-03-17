@@ -28,7 +28,7 @@ function InsightsWrapper() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
       {insights.map((insight, index) => (
-        <InsightCard key={index} item={insight} />
+        <InsightCard key={index} index={index} item={insight} />
       ))}
     </div>
   );

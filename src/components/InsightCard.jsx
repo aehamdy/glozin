@@ -1,8 +1,16 @@
 /* eslint-disable react/prop-types */
+import { motion } from "motion/react";
+import { fadeInAnimation } from "../animations/variants";
 
-function InsightCard({ item }) {
+function InsightCard({ index, item }) {
   return (
-    <article className="flex flex-col gap-3">
+    <motion.article
+      className="flex flex-col gap-3"
+      variants={fadeInAnimation("up", index * 0.3)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.3 }}
+    >
       <div className="group rounded-small overflow-hidden">
         <img
           src={item.image}
@@ -18,7 +26,7 @@ function InsightCard({ item }) {
           {item.description}
         </p>
       </div>
-    </article>
+    </motion.article>
   );
 }
 export default InsightCard;
