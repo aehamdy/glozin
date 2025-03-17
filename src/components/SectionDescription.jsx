@@ -9,7 +9,7 @@ function SectionDescription({ desc }) {
       variants={fadeInAnimation("down", 0.3)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.5 }}
     >
       {desc}
     </motion.p>

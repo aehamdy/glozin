@@ -9,7 +9,7 @@ function InsightCard({ index, item }) {
       variants={fadeInAnimation("up", index * 0.3)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.3 }}
     >
       <div className="group rounded-small overflow-hidden">
         <img

@@ -15,7 +15,7 @@ function OverviewCard({ item, index }) {
         variants={fadeInAnimation(index % 2 === 0 ? "down" : "up")}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <img src={item.image} alt="overview image" className="object-fit" />
       </motion.div>
