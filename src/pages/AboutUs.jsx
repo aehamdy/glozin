@@ -6,7 +6,7 @@ import OverviewWrapper from "../components/OverviewWrapper";
 
 function AboutUs() {
   return (
-    <section>
+    <section className="overflow-hidden">
       <StatsSection />
       <ValuesSection />
       <VissionMessage />
