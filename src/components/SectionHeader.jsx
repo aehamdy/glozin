@@ -1,7 +1,7 @@
+/* eslint-disable react/prop-types */
 import SectionDescription from "./SectionDescription";
 import SectionHeading from "./SectionHeading";
 
-/* eslint-disable react/prop-types */
 function SectionHeader({ heading, desc }) {
   return (
     <div

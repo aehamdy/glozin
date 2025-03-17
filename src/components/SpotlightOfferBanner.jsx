@@ -11,7 +11,7 @@ function SpotlightOfferBanner({ banner, index }) {
       variants={fadeInAnimation("up", index * 0.2)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.15 }}
+      viewport={{ once: true, amount: 0.15 }}
     >
       <BannerImage image={banner.image} />
       <BannerContent
