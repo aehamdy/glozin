@@ -1,8 +1,15 @@
+import { motion } from "motion/react";
 import storeData from "../data/storeData";
+import { fadeInAnimation } from "../animations/variants";
 
 function CustomerSupport() {
   return (
-    <div className="flex flex-col items-start gap-4 text-start">
+    <motion.div
+      className="flex flex-col items-start gap-4 text-start"
+      variants={fadeInAnimation("right", 0.8)}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="flex flex-col items-start">
         <h3 className="font-semibold text-xl md:text-2xl text-secondary-dark">
           Support Customer
@@ -35,7 +42,7 @@ function CustomerSupport() {
         </p>
         <p>Email: {storeData.pressEmail}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 export default CustomerSupport;

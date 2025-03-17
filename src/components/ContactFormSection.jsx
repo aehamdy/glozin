@@ -1,5 +1,7 @@
+import { motion } from "motion/react";
 import { useState } from "react";
 import Button from "./Button";
+import { fadeInAnimation } from "../animations/variants";
 
 function ContactFormSection() {
   const [isPrivacyChecked, setIsPrivacyChecked] = useState(false);
@@ -9,7 +11,12 @@ function ContactFormSection() {
   };
 
   return (
-    <div className="lg:col-span-2 space-y-4 text-secondary-dark text-start">
+    <motion.div
+      className="lg:col-span-2 space-y-4 text-secondary-dark text-start"
+      variants={fadeInAnimation("left", 0.8)}
+      initial="hidden"
+      animate="visible"
+    >
       <div>
         <h3 className="font-semibold text-xl md:text-2xl">Contact Us</h3>
         <p className="text-start text-content-medium-dark">
@@ -19,20 +26,20 @@ function ContactFormSection() {
       </div>
 
       <form action="" className="flex flex-col gap-5">
-        <div className="flex justify-between gap-5">
+        <div className="flex flex-wrap justify-between gap-5">
           <input
             type="text"
             name=""
             id=""
             placeholder="Your Name"
-            className="w-full py-3 px-4 bg-primary-light border border-primary-border rounded-medium placeholder:text-sm"
+            className="flex-1 py-3 px-4 bg-primary-light border border-primary-border rounded-medium placeholder:text-sm"
           />
           <input
             type="email"
             name=""
             id=""
             placeholder="Your Email"
-            className="w-full py-3 px-4 bg-primary-light border border-primary-border rounded-medium placeholder:text-sm"
+            className="flex-1 py-3 px-4 bg-primary-light border border-primary-border rounded-medium placeholder:text-sm"
           />
         </div>
 
@@ -45,14 +52,13 @@ function ContactFormSection() {
 
         <label htmlFor="privacy-policy" className="flex gap-3">
           <input
-            // disabled
             type="checkbox"
             name=""
             id="privacy-policy"
             className="cursor-pointer"
             onChange={handlePrivacyInputToggle}
           />
-          <p>
+          <p className="text-sm sm:text-base">
             I agree to the{" "}
             <a
               href="#"
@@ -67,14 +73,14 @@ function ContactFormSection() {
         <Button
           value="Send"
           status={isPrivacyChecked}
-          className={`w-fit me-auto py-2 px-12 ${
+          className={`w-full md:w-1/2 me-auto md:mx-auto py-3 px-12 ${
             isPrivacyChecked
               ? "text-primary-light bg-secondary-dark hover:bg-primary-dark border cursor-pointer"
               : "text-primary-light bg-gray-400 cursor-not-allowed"
           } rounded-medium`}
         />
       </form>
-    </div>
+    </motion.div>
   );
 }
 export default ContactFormSection;
