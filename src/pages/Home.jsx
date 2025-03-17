@@ -9,7 +9,7 @@ import TopCollectionsSection from "../components/TopCollectionsSection";
 
 function Home() {
   return (
-    <>
+    <section className="overflow-hidden">
       <HorizontalScrollingText
         scrollingText={[
           "Great-Free returns product within 10 days",
@@ -28,7 +28,7 @@ function Home() {
       />
       <ShopByGramSection />
       <FeaturesSection />
-    </>
+    </section>
   );
 }
 
