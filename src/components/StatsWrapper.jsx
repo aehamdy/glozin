@@ -27,6 +27,7 @@ function StatsWrapper() {
       {stats.map((stat, index) => (
         <StatCard
           key={index}
+          index={index}
           title={stat.title}
           subtitle={stat.subtitle}
           desc={stat.description}
