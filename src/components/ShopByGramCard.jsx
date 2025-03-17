@@ -1,7 +1,16 @@
 /* eslint-disable react/prop-types */
-function ShopByGramCard({ media }) {
+import { motion } from "motion/react";
+import { fadeInAnimation } from "../animations/variants";
+
+function ShopByGramCard({ index, media }) {
   return (
-    <article className="relative w-1/2 md:w-2/6 lg:w-[200px] h-[200px] rounded-xl overflow-hidden snap-start flex-shrink-0">
+    <motion.article
+      className="relative w-1/2 md:w-2/6 lg:w-[200px] h-[200px] rounded-xl overflow-hidden snap-start flex-shrink-0"
+      variants={fadeInAnimation("up", index * 0.25)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.15 }}
+    >
       {media.image ? (
         <img
           src={media.image}
@@ -18,7 +27,7 @@ function ShopByGramCard({ media }) {
           <source src={media.video} type="video/mp4" />
         </video>
       )}
-    </article>
+    </motion.article>
   );
 }
 export default ShopByGramCard;

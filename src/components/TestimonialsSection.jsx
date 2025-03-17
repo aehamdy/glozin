@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
+import { motion } from "motion/react";
 import { useRef, useState } from "react";
 import testimonialsData from "../data/testimonialsData";
 import TestimonialCard from "./TestimonialCard";
 import SectionHeader from "./SectionHeader";
+import { fadeInAnimation } from "../animations/variants";
 
 function TestimonialsSection({
   variant,
@@ -32,17 +34,6 @@ function TestimonialsSection({
     setIsDragging(false);
   };
 
-  // const handleTouchStart = (e) => {
-  //   setStartX(e.touches[0].pageX);
-  //   setScrollLeft(containerRef.current.scrollLeft);
-  // };
-
-  // const handleTouchMove = (e) => {
-  //   const x = e.touches[0].pageX;
-  //   const walk = (x - startX) * 1.5;
-  //   containerRef.current.scrollLeft = scrollLeft - walk;
-  // };
-
   return (
     <section
       className={`relative flex flex-col gap-3 w-full my-vertical-spacing ${
@@ -53,27 +44,30 @@ function TestimonialsSection({
         heading="Customer Say!"
         desc="Customers love our products and we always strive to please them all."
       />
-      <div
+      <motion.div
         ref={containerRef}
         className="flex gap-3 w-[98%] mx-horizontal-spacing pe-1 overflow-x-auto snap-x snap-mandatory scroll-smooth cursor-grab hide-scrollbar"
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUpOrLeave}
         onMouseLeave={handleMouseUpOrLeave}
-        // onTouchStart={handleTouchStart}
-        // onTouchMove={handleTouchMove}
+        variants={fadeInAnimation("up")}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.25 }}
       >
         {testimonialsData
           .slice(0, testimonialsCount)
           .map((testimonial, index) => (
             <TestimonialCard
               key={index}
+              index={index}
               variant={variant}
               testimonial={testimonial}
               showCustomerImage={showCustomerImage}
             />
           ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

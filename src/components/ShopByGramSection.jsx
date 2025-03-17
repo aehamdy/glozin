@@ -25,7 +25,7 @@ function ShopByGramSection() {
       />
       <div className="flex justify-evenly items-center gap-2 w-full mx-horizontal-spacing pe-5 overflow-x-auto snap-x snap-mandatory">
         {mediaData.map((media, index) => (
-          <ShopByGramCard key={index} media={media} />
+          <ShopByGramCard key={index} index={index} media={media} />
         ))}
       </div>
     </section>
