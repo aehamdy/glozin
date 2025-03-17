@@ -22,7 +22,7 @@ function FeaturesSection() {
   return (
     <section className="flex flex-col sm:flex-row justify-between items-center gap-5 md:gap-0 mx-horizontal-spacing">
       {features.map((feature, index) => (
-        <FeatureCard key={index} feature={feature} />
+        <FeatureCard key={index} index={index} feature={feature} />
       ))}
     </section>
   );

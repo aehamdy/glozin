@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
-function FeatureCard({ feature }) {
+import { motion } from "motion/react";
+import { fadeInAnimation } from "../animations/variants";
+
+function FeatureCard({ index, feature }) {
   const shippingIcon = (
     <svg viewBox="0 0 32 32" width="32" fill="none">
       <path
@@ -25,6 +28,7 @@ function FeatureCard({ feature }) {
       ></path>
     </svg>
   );
+
   const returnsIcon = (
     <svg viewBox="0 0 32 32" fill="none" width="32">
       <path
@@ -43,6 +47,7 @@ function FeatureCard({ feature }) {
       ></path>
     </svg>
   );
+
   const supportIcon = (
     <svg viewBox="0 0 32 32" width="32" fill="none">
       <path
@@ -70,6 +75,7 @@ function FeatureCard({ feature }) {
       ></path>
     </svg>
   );
+
   const icon =
     feature.icon === "shipping"
       ? shippingIcon
@@ -80,13 +86,19 @@ function FeatureCard({ feature }) {
       : "";
 
   return (
-    <div className="flex flex-col items-center gap-3 text-black">
+    <motion.div
+      className="flex flex-col items-center gap-3 text-black"
+      variants={fadeInAnimation("up", index * 0.2)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.4 }}
+    >
       <div className="">{icon}</div>
       <h3 className="font-semibold text-secondary-dark">{feature.title}</h3>
       <p className="w-[84%] text-[15px] text-center text-content-medium-dark">
         {feature.text}
       </p>
-    </div>
+    </motion.div>
   );
 }
 export default FeatureCard;
