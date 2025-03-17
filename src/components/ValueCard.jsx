@@ -1,8 +1,16 @@
 /* eslint-disable react/prop-types */
+import { motion } from "motion/react";
+import { fadeInAnimation } from "../animations/variants";
 
-function ValueCard({ image, heading, desc }) {
+function ValueCard({ index, image, heading, desc }) {
   return (
-    <article className="flex flex-col items-center gap-4">
+    <motion.article
+      className="flex flex-col items-center gap-4"
+      variants={fadeInAnimation("up", index * 0.3)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+    >
       <div className="group rounded-small overflow-hidden">
         <img
           src={image}
@@ -16,7 +24,7 @@ function ValueCard({ image, heading, desc }) {
           {desc}
         </p>
       </div>
-    </article>
+    </motion.article>
   );
 }
 export default ValueCard;

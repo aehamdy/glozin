@@ -30,6 +30,7 @@ function ValueCardsWrapper() {
       {values.map((value, index) => (
         <ValueCard
           key={index}
+          index={index}
           image={value.image}
           heading={value.heading}
           desc={value.description}
