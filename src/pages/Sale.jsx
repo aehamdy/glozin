@@ -6,29 +6,16 @@ import HorizontalScrollingText from "../components/HorizontalScrollingText";
 import SaleBannersWrapper from "../components/SaleBannersWrapper";
 import SectionHeader from "../components/SectionHeader";
 import TestimonialsSection from "../components/TestimonialsSection";
+import discountCodes from "../data/discountCodes";
 
 function Sale() {
-  // const [products, setProducts] = useState([]);
-  // const url = apiUrls.womenDivided;
-
-  // useEffect(() => {
-  // async function getProducts() {
-  //   try {
-  //     const fetchedProducts = await fetchProducts(url, apiOptions);
-  //     // const filteredProducts = fetchedProducts.filter(
-  //     //   (product) => product.sale
-  //     // );
-
-  //     setProducts(fetchedProducts || []);
-  //   } catch (error) {
-  //     console.error("Error fetching products. ", error);
-  //     setProducts([]);
-  //   }
-  // }
-
-  // getProducts();
-  // console.log(products);
-  // }, [products, url]);
+  const selectedOffer = discountCodes.find(
+    (offer) => offer.label === "flash sale"
+  );
+  const formattedLabel = selectedOffer.label
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 
   return (
     <section className="relative">
@@ -43,12 +30,13 @@ function Sale() {
         <div className="relative flex flex-col items-center gap-6 md:gap-10 z-10">
           <div className="flex flex-col items-center gap-5 text-primary-light ">
             <h2 className="font-bold text-5xl md:text-6xl tracking-tight">
-              White Friday
+              {formattedLabel}
               <br />
-              Sale Up To 75% Off
+              Up To {selectedOffer.discountAmount}% Off
             </h2>
             <p className="text-lg">
-              White Friday sale up to 75% all items. Hurry up!
+              White Friday sale up to {selectedOffer.discountAmount}% all items.
+              Hurry up!
             </p>
           </div>
           <SaleBannersWrapper />
