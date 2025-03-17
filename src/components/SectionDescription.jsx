@@ -5,7 +5,7 @@ import { fadeInAnimation } from "../animations/variants";
 function SectionDescription({ desc }) {
   return (
     <motion.p
-      className="max-w-[90%] text-content-medium-dark"
+      className="max-w-[90%] text-neutral-400"
       variants={fadeInAnimation("down", 0.3)}
       initial="hidden"
       whileInView="visible"
