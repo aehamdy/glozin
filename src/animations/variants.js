@@ -2,6 +2,7 @@ export const fadeInAnimation = (
   direction,
   delay = 0,
   opacity = 0,
+  duration = 1,
   transitionType = "tween"
 ) => {
   return {
@@ -26,7 +27,7 @@ export const fadeInAnimation = (
       opacity: 1,
       transition: {
         type: transitionType,
-        duration: 1.2,
+        duration: duration,
         delay: delay,
         ease: "easeInOut",
       },
