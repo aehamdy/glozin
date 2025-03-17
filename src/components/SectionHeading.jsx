@@ -6,7 +6,7 @@ function SectionHeading({ heading }) {
   return (
     <motion.h2
       className="font-semibold text-3xl md:text-4xl text-secondary-dark tracking-tight"
-      variants={fadeInAnimation("left")}
+      variants={fadeInAnimation("down")}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}

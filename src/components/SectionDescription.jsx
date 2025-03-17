@@ -6,7 +6,7 @@ function SectionDescription({ desc }) {
   return (
     <motion.p
       className="max-w-[90%] text-content-medium-dark"
-      variants={fadeInAnimation("left", 0.3)}
+      variants={fadeInAnimation("down", 0.3)}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
