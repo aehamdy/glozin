@@ -14,9 +14,9 @@ export const fadeInAnimation = (
           : 0,
       x:
         direction.toLowerCase() === "left"
-          ? 40
+          ? 50
           : direction.toLowerCase() === "right"
-          ? -40
+          ? -50
           : 0,
       opacity: opacity,
     },
