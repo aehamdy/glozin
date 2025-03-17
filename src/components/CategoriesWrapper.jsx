@@ -14,7 +14,12 @@ function CategoriesWrapper({ variant }) {
       } gap-10 md:gap-5 lg:gap-8 px-horizontal-spacing`}
     >
       {displayedCategories.map((category, index) => (
-        <CategoryCard key={index} category={category} variant={variant} />
+        <CategoryCard
+          key={index}
+          index={index}
+          category={category}
+          variant={variant}
+        />
       ))}
     </ul>
   );
