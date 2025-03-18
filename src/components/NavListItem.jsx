@@ -2,13 +2,16 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import NavItemBadge from "./NavItemBadge";
+import { useEffect, useState } from "react";
 
 const divVariants = {
   hidden: { x: 0 },
-  visible: { x: 40, transition: { duration: 0.2 } },
+  visible: { x: 40, transition: { duration: 0.3 } },
 };
 
 function NavListItem({ item }) {
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
+
   const capitalizedLabel =
     item.label.charAt(0).toUpperCase() + item.label.slice(1).toLowerCase();
 
@@ -16,13 +19,25 @@ function NavListItem({ item }) {
     item.label.toLowerCase() === "sale" ||
     item.label.toLowerCase() === "clearance";
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <li className="flex w-full">
       <motion.div
         className="w-full"
-        variants={divVariants}
-        initial="hidden"
-        whileHover="visible"
+        {...(!isLargeScreen && {
+          variants: divVariants,
+          initial: "hidden",
+          whileHover: "visible",
+        })}
       >
         <Link
           to={item.url}
