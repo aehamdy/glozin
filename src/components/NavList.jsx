@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import navData from "../data/navData";
 import NavListItem from "./NavListItem";
 
-function NavList() {
+function NavList({ closeSideNav }) {
   const renderNavItems = () => {
     return navData.map((item, index) => (
-      <NavListItem key={index} item={item} />
+      <NavListItem key={index} item={item} closeSideNav={closeSideNav} />
     ));
   };
 

@@ -41,12 +41,15 @@ function Nav({ navVisibility, closeSideNav }) {
                 <PanelTitle title="menu" styles="text-primary-light" />
                 <Icon
                   name="close"
-                  className="text-primary-light hover:scale-110 hover:rotate-180 duration-700"
+                  className="text-primary-light hover:scale-110 hover:rotate-90 duration-700"
                   onClickFunction={closeSideNav}
                 />
               </div>
 
-              <NavList navVisibility={navVisibility} />
+              <NavList
+                navVisibility={navVisibility}
+                closeSideNav={closeSideNav}
+              />
             </div>
           </nav>
         </Modal>
