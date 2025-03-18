@@ -6,10 +6,10 @@ import { useEffect, useState } from "react";
 
 const divVariants = {
   hidden: { x: 0 },
-  visible: { x: 40, transition: { duration: 0.3 } },
+  visible: { x: 20, transition: { duration: 0.2 } },
 };
 
-function NavListItem({ item }) {
+function NavListItem({ item, closeSideNav }) {
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 
   const capitalizedLabel =
@@ -41,6 +41,7 @@ function NavListItem({ item }) {
       >
         <Link
           to={item.url}
+          onClick={closeSideNav}
           className={`relative before:absolute before:start-0 before:bottom-0 before:h-[2px] before:w-0
         lg:hover:before:w-full before:bg-secondary-red flex items-center gap-5 lg:gap-0 w-full lg:p-2 font-semibold py-4 lg:py-1
       ${
