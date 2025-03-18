@@ -57,13 +57,7 @@ details > summary {
     scale: 1.05;
   }
   .header-nav:has(a:hover) a:not(:hover) {
-  opacity: 0.2;
-  }
-}
-
-@media (max-width: 1023px) {
-  .header-nav a:hover {
-    padding-inline-start: 10px;
+    opacity: 0.2;
   }
 }
 
@@ -78,7 +72,7 @@ details > summary {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #E5E5E5;
+  background: #e5e5e5;
   border-radius: 10px;
 }
 
@@ -86,7 +80,6 @@ details > summary {
 ::-webkit-scrollbar-thumb:hover {
   background: #999;
 }
-
 
 .pipe-loader {
   width: 85px;
