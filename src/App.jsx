@@ -11,16 +11,16 @@ import Sale from "./pages/Sale";
 import Categories from "./pages/Categories";
 import ProductDetails from "./pages/ProductDetails";
 import Wishlist from "./pages/Wishlist";
-import { WishlistProvider } from "./context/wishlistContext";
-import { CartProvider } from "./context/CartContext";
 import Checkout from "./pages/Checkout";
+import ROUTES from "./config/routes";
+import OrderConfirmation from "./pages/OrderConfirmation";
+import CategoryProducts from "./components/CategoryProducts";
+import { WishlistProvider } from "./context/WishlistContext";
+import { QuickViewProvider } from "./context/QuickViewContext";
 import { CheckoutProvider } from "./context/CheckoutContext";
 import { UserDataProvider } from "./context/UserDataContext";
-import OrderConfirmation from "./pages/OrderConfirmation";
-import { QuickViewProvider } from "./context/QuickViewContext";
-import CategoryProducts from "./components/CategoryProducts";
+import { CartProvider } from "./context/CartContext";
 import { ToastProvider } from "./context/ToastContext";
-import ROUTES from "./config/routes";
 
 const router = createBrowserRouter([
   {
