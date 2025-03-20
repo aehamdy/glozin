@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useFetchSingleProduct } from "../hooks/useFetchSingleProduct";
-import { useWishlist } from "../context/wishlistContext";
+import { useWishlist } from "../context/WishlistContext";
 import { useEffect, useState } from "react";
 import ProductCardButton from "./ProductCardButton";
 import { useToast } from "../context/ToastContext";
