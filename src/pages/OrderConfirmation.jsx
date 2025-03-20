@@ -1,8 +1,10 @@
+import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import ROUTES from "../config/routes";
 import storeData from "../data/storeData";
 import { useCheckout } from "../context/CheckoutContext";
 import { useUserData } from "../context/UserDataContext";
+import { fadeInAnimation } from "../animations/variants";
 
 function OrderConfirmation() {
   const { order } = useCheckout();
@@ -117,7 +119,9 @@ function OrderConfirmation() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-8 md:w-3/4 my-4 mx-auto text-black">
+      <motion.div className="flex flex-col gap-8 md:w-3/4 my-4 mx-auto text-black"
+      variants={fadeInAnimation()}
+      >
         <div className="flex flex-col  py-5 px-4 md:px-6 text-sm md:text-base bg-slate-50 rounded-md shadow-order-details">
           <div className="flex flex-col">
             {order.items?.map((product, index) => (
@@ -182,7 +186,7 @@ function OrderConfirmation() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
