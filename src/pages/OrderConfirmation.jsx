@@ -124,7 +124,7 @@ function OrderConfirmation() {
         variants={fadeInAnimation("up")}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.35 }}
       >
         <div className="flex flex-col  py-5 px-4 md:px-6 text-sm md:text-base bg-slate-50 rounded-md shadow-order-details">
           <div className="flex flex-col">
@@ -135,7 +135,7 @@ function OrderConfirmation() {
                   index === order.items.length - 1 && "border-none"
                 }`}
               >
-                <div className="w-[70px] border border-gray-300 rounded-md">
+                <div className="flex justify-center w-[90px] h-[90px] border border-gray-300 rounded-md">
                   <img src={product.images[0]} alt={`${product.title} image`} />
                 </div>
                 <div className="flex justify-between w-full">
