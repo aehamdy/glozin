@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import BannerMainText from "./BannerMainText";
-import BannerSubText from "./BannerSubText";
+import BannerSubtext from "./BannerSubtext";
 import BannerText from "./BannerText";
 import Button from "./Button";
 
@@ -12,7 +12,7 @@ function BannerContent({ content, mainTextStyle, subTextStyle }) {
   return (
     <div className="absolute top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col justify-center items-center gap-5 w-full md:w-5/6 lg:w-4/6">
       <div className="flex flex-col gap-2">
-        <BannerSubText subText={content.subText} className={subTextStyle} />
+        <BannerSubtext subText={content.subText} className={subTextStyle} />
         <BannerMainText mainText={content.mainText} className={mainTextStyle} />
       </div>
 
