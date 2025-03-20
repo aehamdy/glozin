@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import Icon from "./Icon";
-import { useWishlist } from "../context/wishlistContext";
+import { useWishlist } from "../context/WishlistContext";
 import IconBadge from "./IconBadge";
 import Button from "./Button";
 import { useCart } from "../context/CartContext";
