@@ -34,7 +34,7 @@ function Footer() {
       variants={fadeInAnimation("up")}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.25 }}
     >
       <div className="flex flex-col gap-3 md:gap-5 lg:gap-10 ">
         <FooterInfoSection />

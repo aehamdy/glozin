@@ -10,7 +10,7 @@ function FooterCopyright() {
       variants={fadeInAnimation("right", 0.3)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.3 }}
     >
       &copy; {year}{" "}
       {storeData.name.charAt(0).toUpperCase() +
