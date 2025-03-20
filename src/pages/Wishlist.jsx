@@ -1,6 +1,6 @@
 import ProductCard from "../components/ProductCard";
 import SectionHeader from "../components/SectionHeader";
-import { useWishlist } from "../context/wishlistContext";
+import { useWishlist } from "../context/WishlistContext";
 import EmptyWishlist from "../components/EmptyWishlist";
 
 function Wishlist() {
