@@ -13,13 +13,13 @@ function CategoryCard({ category, index, variant = "default" }) {
     <motion.li
       className={`group ${
         isCircle
-          ? ""
+          ? "snap-start shrink-0 w-[calc(100%/3.3)] md:w-[calc(100%/4.4)] lg:w-[calc(100%/7)]"
           : "relative h-[200px] sm:h-[280px] md:h-[350px] rounded-tiny shadow-sm hover:shadow-xl"
       } overflow-hidden duration-medium cursor-pointer`}
       variants={fadeInAnimation("up", index * 0.3)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.4 }}
+      viewport={{ once: true, amount: 0.4 }}
     >
       <Link
         to={`/categories${category.endPoint}`}
