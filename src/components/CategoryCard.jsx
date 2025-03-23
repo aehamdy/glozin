@@ -1,25 +1,19 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
-import { fadeInAnimation } from "../animations/variants";
 
-function CategoryCard({ category, index, variant = "default" }) {
+function CategoryCard({ category, variant = "default" }) {
   const isCircle = variant.toLowerCase() === "circle";
   const categoryName =
     category.name.charAt(0).toUpperCase() +
     category.name.slice(1).toLowerCase();
 
   return (
-    <motion.li
+    <li
       className={`group ${
         isCircle
           ? "snap-start shrink-0 w-[calc(100%/3.3)] md:w-[calc(100%/4.4)] lg:w-[calc(100%/7)]"
           : "relative h-[200px] sm:h-[280px] md:h-[350px] rounded-tiny shadow-sm hover:shadow-xl"
       } overflow-hidden duration-medium cursor-pointer`}
-      variants={fadeInAnimation("up", index * 0.3)}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.4 }}
     >
       <Link
         to={`/categories${category.endPoint}`}
@@ -54,7 +48,7 @@ function CategoryCard({ category, index, variant = "default" }) {
           </div>
         )}
       </Link>
-    </motion.li>
+    </li>
   );
 }
 

@@ -2,12 +2,20 @@
 import { forwardRef } from "react";
 import categories from "../data/categories";
 import CategoryCard from "./CategoryCard";
+import { motion } from "motion/react";
+import { fadeInAnimation } from "../animations/variants";
 
 const CategoriesWrapper = forwardRef(({ variant }, ref) => {
   const displayedCategories = variant ? categories.slice(0, 6) : categories;
 
   return (
-    <div className="relative">
+    <motion.div
+      className="relative"
+      variants={fadeInAnimation("up", 0.5)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.4 }}
+    >
       <ul
         ref={ref}
         className={` ${
@@ -25,7 +33,7 @@ const CategoriesWrapper = forwardRef(({ variant }, ref) => {
           />
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 });
 
