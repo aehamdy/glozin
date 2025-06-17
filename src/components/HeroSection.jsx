@@ -1,31 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import image1 from "../assets/hero-image-1.jpg";
-import image2 from "../assets/hero-image-2.jpg";
-import image3 from "../assets/hero-image-3.jpg";
 import NavigationDotsWrapper from "./NavigationDotsWrapper";
 import HeroSlide from "./HeroSlide";
-
-const slides = [
-  {
-    id: 1,
-    image: image1,
-    subHeading: "Sweater Collection",
-    heading: "Online Exclusive",
-  },
-  {
-    id: 2,
-    image: image2,
-    subHeading: "Look Exclusive",
-    heading: "High-Top Design",
-  },
-  {
-    id: 3,
-    image: image3,
-    subHeading: "Season Collection",
-    heading: "Super Comfort",
-  },
-];
+import { heroSlides } from "../data/heroSlides";
 
 const containerVariants = {
   hidden: {
@@ -61,13 +38,13 @@ function HeroSection() {
 
       if (deltaX > 50) {
         setCurrentSlide((prevVal) =>
-          prevVal === 0 ? slides.length - 1 : prevVal - 1
+          prevVal === 0 ? heroSlides.length - 1 : prevVal - 1
         );
         setIsDragging(false);
         setStartX(null);
       } else if (deltaX < -50) {
         setCurrentSlide((prevVal) =>
-          prevVal === slides.length - 1 ? 0 : prevVal + 1
+          prevVal === heroSlides.length - 1 ? 0 : prevVal + 1
         );
         setIsDragging(false);
         setStartX(null);
@@ -77,7 +54,7 @@ function HeroSection() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentSlide((prevValue) => (prevValue + 1) % slides.length);
+      setCurrentSlide((prevValue) => (prevValue + 1) % heroSlides.length);
     }, 5000);
 
     return () => clearInterval(intervalId);
@@ -93,11 +70,12 @@ function HeroSection() {
       initial="hidden"
       animate="visible"
     >
-      <HeroSlide slides={slides} currentSlide={currentSlide} />
+      <HeroSlide slides={heroSlides} currentSlide={currentSlide} />
+
       <NavigationDotsWrapper
         variant="heroSection"
         goToSlide={goToSlide}
-        slidesLength={slides.length}
+        slidesLength={heroSlides.length}
         currentSlide={currentSlide}
       />
     </motion.section>

@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { motion } from "motion/react";
 import { fadeInAnimation } from "../animations/variants";
-import Button from "./Button";
 import HeroSlideHeading from "./HeroSlideHeading";
 import HeroSlideSubheading from "./HeroSlideSubheading";
+import { Link } from "react-router-dom";
 
 function HeroSlideContent({ index, slides, currentSlide }) {
   return (
@@ -23,10 +23,13 @@ function HeroSlideContent({ index, slides, currentSlide }) {
         slides={slides}
         currentSlide={currentSlide}
       />
-      <Button
-        value="Shop Collection"
+
+      <Link
+        to={slides[currentSlide].link}
         className="w-fit mt-4 lg:mt-6 py-3 md:py-3 lg:py-4 px-6 md:px-6 lg:px-9 font-semibold text-[15px] text-primary-dark hover:text-primary-light bg-primary-light hover:bg-secondary-dark rounded-medium duration-medium"
-      />
+      >
+        Shop Collection
+      </Link>
     </motion.div>
   );
 }
