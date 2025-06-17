@@ -14,7 +14,7 @@ const containerVariants = {
       mass: 0.5,
       damping: 6,
       // duration: 2,
-      delay: 0.9,
+      delay: 0.5,
     },
   },
 };
