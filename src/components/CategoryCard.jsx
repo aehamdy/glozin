@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import ROUTES from "../config/routes";
 
 function CategoryCard({ category, variant = "default" }) {
   const isCircle = variant.toLowerCase() === "circle";
@@ -16,7 +17,7 @@ function CategoryCard({ category, variant = "default" }) {
       } overflow-hidden duration-medium cursor-pointer`}
     >
       <Link
-        to={`/categories${category.endPoint}`}
+        to={`${ROUTES.CATEGORIES}${category.endPoint}`}
         className={`${
           isCircle && "flex flex-col justify-center items-center gap-3"
         }`}
