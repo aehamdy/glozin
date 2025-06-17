@@ -1,29 +1,31 @@
+import ROUTES from "../config/routes";
+
 const navData = [
-    {
-        label: "home",
-        url: "/",
-    },
-    {
-        label: "shop",
-        url: "/shop",
-    },
-    {
-        label: "categories",
-        url: "/categories",
-    },
-    {
-        label: "contact",
-        url: "/contact",
-    },
-    {
-        label: "about",
-        url: "/about",
-    },
-    {
-        label: "sale",
-        url: "/sale",
-        badge: "hot",
-    },
+  {
+    label: "home",
+    url: ROUTES.HOME,
+  },
+  {
+    label: "shop",
+    url: ROUTES.SHOP,
+  },
+  {
+    label: "categories",
+    url: ROUTES.CATEGORIES,
+  },
+  {
+    label: "contact",
+    url: ROUTES.CONTACT,
+  },
+  {
+    label: "about",
+    url: ROUTES.ABOUT,
+  },
+  {
+    label: "sale",
+    url: ROUTES.SALE,
+    badge: "hot",
+  },
 ];
 
 export default navData;
