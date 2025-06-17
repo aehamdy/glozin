@@ -4,25 +4,26 @@ import FooterList from "./FooterList";
 import FooterNewsletter from "./FooterNewsletter";
 import SocialIcons from "./SocialIcons";
 import { fadeInAnimation } from "../animations/variants";
+import ROUTES from "../config/routes";
 
 const lists = [
   {
     heading: "Our Company",
     items: [
-      { title: "About Us", link: "/about" },
-      { title: "Contact Us", link: "/contact" },
-      { title: "Sale", link: "" },
-      { title: "FAQ", link: "/help" },
-      { title: "Products", link: "/products" },
+      { title: "About Us", link: ROUTES.ABOUT },
+      { title: "Contact Us", link: ROUTES.CONTACT },
+      { title: "Sale", link: ROUTES.SALE },
+      { title: "FAQ", link: ROUTES.HELP },
+      { title: "Shop", link: ROUTES.SHOP },
     ],
   },
   {
     heading: "Shop Categories",
     items: [
-      { title: "Hot Deals", link: "" },
-      { title: "Best Seller", link: "" },
-      { title: "Sale & Special Offers", link: "" },
-      { title: "Popular Trends", link: "" },
+      { title: "Hot Deals", link: ROUTES.SHOP },
+      { title: "Best Seller", link: ROUTES.SHOP },
+      { title: "Sale & Special Offers", link: ROUTES.SHOP },
+      { title: "Popular Trends", link: ROUTES.SHOP },
     ],
   },
 ];
