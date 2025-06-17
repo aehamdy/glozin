@@ -14,7 +14,7 @@ const CategoriesWrapper = forwardRef(({ variant }, ref) => {
       variants={fadeInAnimation("up", 0.5)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.4 }}
+      viewport={{ once: true, amount: 0.2 }}
     >
       <ul
         ref={ref}
